@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ComponentSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>Button</Name>
-  <BaseType>ColoredRectangle</BaseType>
+  <BaseType>Sprite</BaseType>
   <State>
     <Name>Default</Name>
     <Variable>
@@ -9,6 +9,13 @@
       <Name>Alpha</Name>
       <Value xsi:type="xsd:int">255</Value>
       <Category>Rendering</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>Animate</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <Category>Animation</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -33,9 +40,23 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>FlipHorizontal</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <Category>Flip</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>FlipVertical</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <Category>Flip</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>Green</Name>
-      <Value xsi:type="xsd:int">191</Value>
+      <Value xsi:type="xsd:int">248</Value>
       <Category>Rendering</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -55,7 +76,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Height</Name>
-      <Value xsi:type="xsd:float">145</Value>
+      <Value xsi:type="xsd:float">68</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -183,7 +204,7 @@
     <Variable>
       <Type>int</Type>
       <Name>Red</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">240</Value>
       <Category>Rendering</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -192,11 +213,67 @@
       <Name>Rotation</Name>
       <Value xsi:type="xsd:float">0</Value>
       <Category>Flip and Rotation</Category>
-      <SetsValue>false</SetsValue>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>SourceFile</Name>
+      <Value xsi:type="xsd:string">blueSheet.png</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>State</Type>
       <Name>State</Name>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>TextureAddress</Type>
+      <Name>Texture Address</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Texture Height</Name>
+      <Value xsi:type="xsd:int">45</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Texture Height Scale</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Texture Left</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Texture Top</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>Texture Width</Name>
+      <Value xsi:type="xsd:int">190</Value>
+      <Category>Source</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>Texture Width Scale</Name>
+      <Value xsi:type="xsd:float">1</Value>
+      <Category>Source</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -208,7 +285,7 @@
     <Variable>
       <Type>float</Type>
       <Name>Width</Name>
-      <Value xsi:type="xsd:float">423</Value>
+      <Value xsi:type="xsd:float">272</Value>
       <Category>Dimensions</Category>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -217,6 +294,13 @@
       <Name>Width Units</Name>
       <Value xsi:type="xsd:int">0</Value>
       <Category>Dimensions</Category>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>Wrap</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <Category>Source</Category>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -261,6 +345,14 @@
       <Category>Position</Category>
       <SetsValue>true</SetsValue>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <Category>Animation</Category>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
     <Name>Label</Name>

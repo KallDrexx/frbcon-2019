@@ -1,5 +1,6 @@
 using System;
 using FlatRedBall;
+using Frbcon2019.GumRuntimes;
 
 namespace Frbcon2019.Screens
 {
@@ -12,22 +13,32 @@ namespace Frbcon2019.Screens
 			_timeLeft = TimeSpan.FromSeconds(SecondsUntilNextGameStarts);
 			TimerValue.Text = _timeLeft.Seconds.ToString();
 
-			WinText.Visible = GlobalData.GameplayData.LastMinigameResult == LastMinigameResult.Win;
-			FailText.Visible = GlobalData.GameplayData.LastMinigameResult == LastMinigameResult.Loss;
-
 			if (GlobalData.GameplayData.LastMinigameResult == LastMinigameResult.Win)
 			{
 				GlobalData.GameplayData.CurrentScore += 1;
+				ScoreboardGumRuntime.ApplyState("Win");
 			}
 			else if (GlobalData.GameplayData.LastMinigameResult == LastMinigameResult.Loss)
 			{
 				GlobalData.GameplayData.LivesLeft -= 1;
+				ScoreboardGumRuntime.ApplyState("Lose");
 
 				if (GlobalData.GameplayData.LivesLeft <= 0)
 				{
 					MoveToScreen(typeof(MainMenu));
 					return;
 				}
+			}
+
+			for (var x = 0; x < GlobalData.GameplayData.MaxLives; x++)
+			{
+				var indicator = new LifeIconRuntime();
+				if (x >= GlobalData.GameplayData.LivesLeft)
+				{
+					indicator.ApplyState("Lost");
+				}
+
+				indicator.Parent = LivesContainer;
 			}
 
 			LivesValue.Text = GlobalData.GameplayData.LivesLeft.ToString();

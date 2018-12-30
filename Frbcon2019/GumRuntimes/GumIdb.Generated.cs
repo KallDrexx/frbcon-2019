@@ -13,6 +13,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Sprite", typeof(Frbcon2019.GumRuntimes.SpriteRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Text", typeof(Frbcon2019.GumRuntimes.TextRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Button", typeof(Frbcon2019.GumRuntimes.ButtonRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LifeIcon", typeof(Frbcon2019.GumRuntimes.LifeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MainMenuGum", typeof(Frbcon2019.GumRuntimes.MainMenuGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MiniGameBaseGum", typeof(Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScoreboardGum", typeof(Frbcon2019.GumRuntimes.ScoreboardGumRuntime));

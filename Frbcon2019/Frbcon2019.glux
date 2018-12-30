@@ -235,8 +235,8 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
-          <SourceName>FailText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
-          <InstanceName>FailText</InstanceName>
+          <SourceName>LivesContainer (Frbcon2019.GumRuntimes.ContainerRuntime)</SourceName>
+          <InstanceName>LivesContainer</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -244,8 +244,8 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
-          <SourceName>WinText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
-          <InstanceName>WinText</InstanceName>
+          <SourceName>this (Frbcon2019.GumRuntimes.ScoreboardGumRuntime)</SourceName>
+          <InstanceName>ScoreboardGumRuntime</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>

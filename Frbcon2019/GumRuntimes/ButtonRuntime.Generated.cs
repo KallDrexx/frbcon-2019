@@ -1,7 +1,7 @@
     using System.Linq;
     namespace Frbcon2019.GumRuntimes
     {
-        public partial class ButtonRuntime : Frbcon2019.GumRuntimes.ColoredRectangleRuntime
+        public partial class ButtonRuntime : Frbcon2019.GumRuntimes.SpriteRuntime
         {
             #region State Enums
             public enum VariableState
@@ -26,15 +26,27 @@
                     {
                         case  VariableState.Default:
                             Alpha = 255;
-                            Blend = Gum.RenderingLibrary.Blend.Normal;
+                            Animate = false;
                             Blue = 255;
-                            Green = 191;
-                            Height = 145f;
+                            FlipHorizontal = false;
+                            FlipVertical = false;
+                            Green = 248;
+                            Height = 68f;
                             HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                            Red = 0;
+                            Red = 240;
+                            Rotation = 0f;
+                            SetProperty("SourceFile", "blueSheet.png");
+                            TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            TextureHeight = 45;
+                            TextureHeightScale = 1f;
+                            TextureLeft = 0;
+                            TextureTop = 0;
+                            TextureWidth = 190;
+                            TextureWidthScale = 1f;
                             Visible = true;
-                            Width = 423f;
+                            Width = 272f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            Wrap = false;
                             X = 0f;
                             XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
@@ -119,6 +131,34 @@
                 bool setRedSecondValue = false;
                 int RedFirstValue= 0;
                 int RedSecondValue= 0;
+                bool setRotationFirstValue = false;
+                bool setRotationSecondValue = false;
+                float RotationFirstValue= 0;
+                float RotationSecondValue= 0;
+                bool setTextureHeightFirstValue = false;
+                bool setTextureHeightSecondValue = false;
+                int TextureHeightFirstValue= 0;
+                int TextureHeightSecondValue= 0;
+                bool setTextureHeightScaleFirstValue = false;
+                bool setTextureHeightScaleSecondValue = false;
+                float TextureHeightScaleFirstValue= 0;
+                float TextureHeightScaleSecondValue= 0;
+                bool setTextureLeftFirstValue = false;
+                bool setTextureLeftSecondValue = false;
+                int TextureLeftFirstValue= 0;
+                int TextureLeftSecondValue= 0;
+                bool setTextureTopFirstValue = false;
+                bool setTextureTopSecondValue = false;
+                int TextureTopFirstValue= 0;
+                int TextureTopSecondValue= 0;
+                bool setTextureWidthFirstValue = false;
+                bool setTextureWidthSecondValue = false;
+                int TextureWidthFirstValue= 0;
+                int TextureWidthSecondValue= 0;
+                bool setTextureWidthScaleFirstValue = false;
+                bool setTextureWidthScaleSecondValue = false;
+                float TextureWidthScaleFirstValue= 0;
+                float TextureWidthScaleSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -138,14 +178,22 @@
                         AlphaFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.Blend = Gum.RenderingLibrary.Blend.Normal;
+                            this.Animate = false;
                         }
                         setBlueFirstValue = true;
                         BlueFirstValue = 255;
+                        if (interpolationValue < 1)
+                        {
+                            this.FlipHorizontal = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.FlipVertical = false;
+                        }
                         setGreenFirstValue = true;
-                        GreenFirstValue = 191;
+                        GreenFirstValue = 248;
                         setHeightFirstValue = true;
-                        HeightFirstValue = 145f;
+                        HeightFirstValue = 68f;
                         if (interpolationValue < 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
@@ -201,16 +249,42 @@
                             this.Label.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setRedFirstValue = true;
-                        RedFirstValue = 0;
+                        RedFirstValue = 240;
+                        setRotationFirstValue = true;
+                        RotationFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("SourceFile", "blueSheet.png");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setTextureHeightFirstValue = true;
+                        TextureHeightFirstValue = 45;
+                        setTextureHeightScaleFirstValue = true;
+                        TextureHeightScaleFirstValue = 1f;
+                        setTextureLeftFirstValue = true;
+                        TextureLeftFirstValue = 0;
+                        setTextureTopFirstValue = true;
+                        TextureTopFirstValue = 0;
+                        setTextureWidthFirstValue = true;
+                        TextureWidthFirstValue = 190;
+                        setTextureWidthScaleFirstValue = true;
+                        TextureWidthScaleFirstValue = 1f;
                         if (interpolationValue < 1)
                         {
                             this.Visible = true;
                         }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 423f;
+                        WidthFirstValue = 272f;
                         if (interpolationValue < 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.Wrap = false;
                         }
                         setXFirstValue = true;
                         XFirstValue = 0f;
@@ -241,14 +315,22 @@
                         AlphaSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.Blend = Gum.RenderingLibrary.Blend.Normal;
+                            this.Animate = false;
                         }
                         setBlueSecondValue = true;
                         BlueSecondValue = 255;
+                        if (interpolationValue >= 1)
+                        {
+                            this.FlipHorizontal = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.FlipVertical = false;
+                        }
                         setGreenSecondValue = true;
-                        GreenSecondValue = 191;
+                        GreenSecondValue = 248;
                         setHeightSecondValue = true;
-                        HeightSecondValue = 145f;
+                        HeightSecondValue = 68f;
                         if (interpolationValue >= 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
@@ -304,16 +386,42 @@
                             this.Label.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setRedSecondValue = true;
-                        RedSecondValue = 0;
+                        RedSecondValue = 240;
+                        setRotationSecondValue = true;
+                        RotationSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("SourceFile", "blueSheet.png");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setTextureHeightSecondValue = true;
+                        TextureHeightSecondValue = 45;
+                        setTextureHeightScaleSecondValue = true;
+                        TextureHeightScaleSecondValue = 1f;
+                        setTextureLeftSecondValue = true;
+                        TextureLeftSecondValue = 0;
+                        setTextureTopSecondValue = true;
+                        TextureTopSecondValue = 0;
+                        setTextureWidthSecondValue = true;
+                        TextureWidthSecondValue = 190;
+                        setTextureWidthScaleSecondValue = true;
+                        TextureWidthScaleSecondValue = 1f;
                         if (interpolationValue >= 1)
                         {
                             this.Visible = true;
                         }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 423f;
+                        WidthSecondValue = 272f;
                         if (interpolationValue >= 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.Wrap = false;
                         }
                         setXSecondValue = true;
                         XSecondValue = 0f;
@@ -384,6 +492,34 @@
                 if (setRedFirstValue && setRedSecondValue)
                 {
                     Red = FlatRedBall.Math.MathFunctions.RoundToInt(RedFirstValue* (1 - interpolationValue) + RedSecondValue * interpolationValue);
+                }
+                if (setRotationFirstValue && setRotationSecondValue)
+                {
+                    Rotation = RotationFirstValue * (1 - interpolationValue) + RotationSecondValue * interpolationValue;
+                }
+                if (setTextureHeightFirstValue && setTextureHeightSecondValue)
+                {
+                    TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(TextureHeightFirstValue* (1 - interpolationValue) + TextureHeightSecondValue * interpolationValue);
+                }
+                if (setTextureHeightScaleFirstValue && setTextureHeightScaleSecondValue)
+                {
+                    TextureHeightScale = TextureHeightScaleFirstValue * (1 - interpolationValue) + TextureHeightScaleSecondValue * interpolationValue;
+                }
+                if (setTextureLeftFirstValue && setTextureLeftSecondValue)
+                {
+                    TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(TextureLeftFirstValue* (1 - interpolationValue) + TextureLeftSecondValue * interpolationValue);
+                }
+                if (setTextureTopFirstValue && setTextureTopSecondValue)
+                {
+                    TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(TextureTopFirstValue* (1 - interpolationValue) + TextureTopSecondValue * interpolationValue);
+                }
+                if (setTextureWidthFirstValue && setTextureWidthSecondValue)
+                {
+                    TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(TextureWidthFirstValue* (1 - interpolationValue) + TextureWidthSecondValue * interpolationValue);
+                }
+                if (setTextureWidthScaleFirstValue && setTextureWidthScaleSecondValue)
+                {
+                    TextureWidthScale = TextureWidthScaleFirstValue * (1 - interpolationValue) + TextureWidthScaleSecondValue * interpolationValue;
                 }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
@@ -487,9 +623,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Blend",
-                            Type = "Blend",
-                            Value = Blend
+                            Name = "Animate",
+                            Type = "bool",
+                            Value = Animate
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -498,6 +634,22 @@
                             Name = "Blue",
                             Type = "int",
                             Value = Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FlipHorizontal",
+                            Type = "bool",
+                            Value = FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FlipVertical",
+                            Type = "bool",
+                            Value = FlipVertical
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -535,6 +687,78 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Rotation",
+                            Type = "float",
+                            Value = Rotation
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SourceFile",
+                            Type = "string",
+                            Value = SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Address",
+                            Type = "TextureAddress",
+                            Value = TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Height",
+                            Type = "int",
+                            Value = TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Height Scale",
+                            Type = "float",
+                            Value = TextureHeightScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Left",
+                            Type = "int",
+                            Value = TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Top",
+                            Type = "int",
+                            Value = TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Width",
+                            Type = "int",
+                            Value = TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Width Scale",
+                            Type = "float",
+                            Value = TextureWidthScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Visible",
                             Type = "bool",
                             Value = Visible
@@ -554,6 +778,14 @@
                             Name = "Width Units",
                             Type = "DimensionUnitType",
                             Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Wrap",
+                            Type = "bool",
+                            Value = Wrap
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -753,9 +985,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Blend",
-                            Type = "Blend",
-                            Value = Blend
+                            Name = "Animate",
+                            Type = "bool",
+                            Value = Animate
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -769,9 +1001,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "FlipHorizontal",
+                            Type = "bool",
+                            Value = FlipHorizontal
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "FlipVertical",
+                            Type = "bool",
+                            Value = FlipVertical
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Green",
                             Type = "int",
-                            Value = Green + 191
+                            Value = Green + 248
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -779,7 +1027,7 @@
                             SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 145f
+                            Value = Height + 68f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -795,7 +1043,79 @@
                             SetsValue = true,
                             Name = "Red",
                             Type = "int",
-                            Value = Red + 0
+                            Value = Red + 240
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Rotation",
+                            Type = "float",
+                            Value = Rotation + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SourceFile",
+                            Type = "string",
+                            Value = SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Address",
+                            Type = "TextureAddress",
+                            Value = TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Height",
+                            Type = "int",
+                            Value = TextureHeight + 45
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Height Scale",
+                            Type = "float",
+                            Value = TextureHeightScale + 1f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Left",
+                            Type = "int",
+                            Value = TextureLeft + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Top",
+                            Type = "int",
+                            Value = TextureTop + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Width",
+                            Type = "int",
+                            Value = TextureWidth + 190
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Texture Width Scale",
+                            Type = "float",
+                            Value = TextureWidthScale + 1f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -811,7 +1131,7 @@
                             SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 423f
+                            Value = Width + 272f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -820,6 +1140,14 @@
                             Name = "Width Units",
                             Type = "DimensionUnitType",
                             Value = WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Wrap",
+                            Type = "bool",
+                            Value = Wrap
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

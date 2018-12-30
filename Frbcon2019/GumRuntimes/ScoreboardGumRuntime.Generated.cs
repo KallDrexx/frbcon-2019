@@ -6,7 +6,9 @@
             #region State Enums
             public enum VariableState
             {
-                Default
+                Default,
+                Win,
+                Lose
             }
             #endregion
             #region State Fields
@@ -76,16 +78,28 @@
                             TimerValue.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                             TimerValue.Text = "0";
                             TimerValue.Width = 0f;
-                            LastGameCondition.X = 340f;
-                            LastGameCondition.Y = 89f;
-                            WinText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            WinText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
-                            WinText.Text = "Good Job!";
-                            FailText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
-                            FailText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
-                            FailText.Text = "Better Luck Next Time!\n";
-                            FailText.Width = 200f;
-                            FailText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                            LivesContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            LivesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            LivesContainer.Width = 100f;
+                            LivesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            LivesContainer.WrapsChildren = true;
+                            LastGameResult.X = 360f;
+                            LastGameResult.Y = 121f;
+                            ConditionDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ConditionDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameResult");
+                            ConditionDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            break;
+                        case  VariableState.Win:
+                            ConditionDisplay.Blue = 179;
+                            ConditionDisplay.Green = 222;
+                            ConditionDisplay.Red = 245;
+                            SetProperty("ConditionDisplay.SourceFile", "medallist.png");
+                            break;
+                        case  VariableState.Lose:
+                            ConditionDisplay.Blue = 0;
+                            ConditionDisplay.Green = 0;
+                            ConditionDisplay.Red = 255;
+                            SetProperty("ConditionDisplay.SourceFile", "dead-head.png");
                             break;
                     }
                 }
@@ -108,18 +122,18 @@
                 bool setDataWidthSecondValue = false;
                 float DataWidthFirstValue= 0;
                 float DataWidthSecondValue= 0;
-                bool setFailTextWidthFirstValue = false;
-                bool setFailTextWidthSecondValue = false;
-                float FailTextWidthFirstValue= 0;
-                float FailTextWidthSecondValue= 0;
-                bool setLastGameConditionXFirstValue = false;
-                bool setLastGameConditionXSecondValue = false;
-                float LastGameConditionXFirstValue= 0;
-                float LastGameConditionXSecondValue= 0;
-                bool setLastGameConditionYFirstValue = false;
-                bool setLastGameConditionYSecondValue = false;
-                float LastGameConditionYFirstValue= 0;
-                float LastGameConditionYSecondValue= 0;
+                bool setLastGameResultXFirstValue = false;
+                bool setLastGameResultXSecondValue = false;
+                float LastGameResultXFirstValue= 0;
+                float LastGameResultXSecondValue= 0;
+                bool setLastGameResultYFirstValue = false;
+                bool setLastGameResultYSecondValue = false;
+                float LastGameResultYFirstValue= 0;
+                float LastGameResultYSecondValue= 0;
+                bool setLivesContainerWidthFirstValue = false;
+                bool setLivesContainerWidthSecondValue = false;
+                float LivesContainerWidthFirstValue= 0;
+                float LivesContainerWidthSecondValue= 0;
                 bool setLivesDisplayHeightFirstValue = false;
                 bool setLivesDisplayHeightSecondValue = false;
                 float LivesDisplayHeightFirstValue= 0;
@@ -200,9 +214,33 @@
                 bool setTimerValueWidthSecondValue = false;
                 float TimerValueWidthFirstValue= 0;
                 float TimerValueWidthSecondValue= 0;
+                bool setConditionDisplayBlueFirstValue = false;
+                bool setConditionDisplayBlueSecondValue = false;
+                int ConditionDisplayBlueFirstValue= 0;
+                int ConditionDisplayBlueSecondValue= 0;
+                bool setConditionDisplayGreenFirstValue = false;
+                bool setConditionDisplayGreenSecondValue = false;
+                int ConditionDisplayGreenFirstValue= 0;
+                int ConditionDisplayGreenSecondValue= 0;
+                bool setConditionDisplayRedFirstValue = false;
+                bool setConditionDisplayRedSecondValue = false;
+                int ConditionDisplayRedFirstValue= 0;
+                int ConditionDisplayRedSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
+                        if (interpolationValue < 1)
+                        {
+                            this.ConditionDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ConditionDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameResult");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.ConditionDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.Data.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -227,28 +265,28 @@
                         {
                             this.Data.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
+                        setLastGameResultXFirstValue = true;
+                        LastGameResultXFirstValue = 360f;
+                        setLastGameResultYFirstValue = true;
+                        LastGameResultYFirstValue = 121f;
                         if (interpolationValue < 1)
                         {
-                            this.FailText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.LivesContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FailText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
+                            this.LivesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setLivesContainerWidthFirstValue = true;
+                        LivesContainerWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LivesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FailText.Text = "Better Luck Next Time!\n";
+                            this.LivesContainer.WrapsChildren = true;
                         }
-                        setFailTextWidthFirstValue = true;
-                        FailTextWidthFirstValue = 200f;
-                        if (interpolationValue < 1)
-                        {
-                            this.FailText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                        }
-                        setLastGameConditionXFirstValue = true;
-                        LastGameConditionXFirstValue = 340f;
-                        setLastGameConditionYFirstValue = true;
-                        LastGameConditionYFirstValue = 89f;
                         if (interpolationValue < 1)
                         {
                             this.LivesDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -385,23 +423,47 @@
                         }
                         setTimerValueWidthFirstValue = true;
                         TimerValueWidthFirstValue = 0f;
+                        break;
+                    case  VariableState.Win:
+                        setConditionDisplayBlueFirstValue = true;
+                        ConditionDisplayBlueFirstValue = 179;
+                        setConditionDisplayGreenFirstValue = true;
+                        ConditionDisplayGreenFirstValue = 222;
+                        setConditionDisplayRedFirstValue = true;
+                        ConditionDisplayRedFirstValue = 245;
                         if (interpolationValue < 1)
                         {
-                            this.WinText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            SetProperty("ConditionDisplay.SourceFile", "medallist.png");
                         }
+                        break;
+                    case  VariableState.Lose:
+                        setConditionDisplayBlueFirstValue = true;
+                        ConditionDisplayBlueFirstValue = 0;
+                        setConditionDisplayGreenFirstValue = true;
+                        ConditionDisplayGreenFirstValue = 0;
+                        setConditionDisplayRedFirstValue = true;
+                        ConditionDisplayRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.WinText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.WinText.Text = "Good Job!";
+                            SetProperty("ConditionDisplay.SourceFile", "dead-head.png");
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  VariableState.Default:
+                        if (interpolationValue >= 1)
+                        {
+                            this.ConditionDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ConditionDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameResult");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.ConditionDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.Data.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -426,28 +488,28 @@
                         {
                             this.Data.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
+                        setLastGameResultXSecondValue = true;
+                        LastGameResultXSecondValue = 360f;
+                        setLastGameResultYSecondValue = true;
+                        LastGameResultYSecondValue = 121f;
                         if (interpolationValue >= 1)
                         {
-                            this.FailText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            this.LivesContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FailText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
+                            this.LivesContainer.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setLivesContainerWidthSecondValue = true;
+                        LivesContainerWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LivesContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FailText.Text = "Better Luck Next Time!\n";
+                            this.LivesContainer.WrapsChildren = true;
                         }
-                        setFailTextWidthSecondValue = true;
-                        FailTextWidthSecondValue = 200f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.FailText.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
-                        }
-                        setLastGameConditionXSecondValue = true;
-                        LastGameConditionXSecondValue = 340f;
-                        setLastGameConditionYSecondValue = true;
-                        LastGameConditionYSecondValue = 89f;
                         if (interpolationValue >= 1)
                         {
                             this.LivesDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -584,17 +646,29 @@
                         }
                         setTimerValueWidthSecondValue = true;
                         TimerValueWidthSecondValue = 0f;
+                        break;
+                    case  VariableState.Win:
+                        setConditionDisplayBlueSecondValue = true;
+                        ConditionDisplayBlueSecondValue = 179;
+                        setConditionDisplayGreenSecondValue = true;
+                        ConditionDisplayGreenSecondValue = 222;
+                        setConditionDisplayRedSecondValue = true;
+                        ConditionDisplayRedSecondValue = 245;
                         if (interpolationValue >= 1)
                         {
-                            this.WinText.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                            SetProperty("ConditionDisplay.SourceFile", "medallist.png");
                         }
+                        break;
+                    case  VariableState.Lose:
+                        setConditionDisplayBlueSecondValue = true;
+                        ConditionDisplayBlueSecondValue = 0;
+                        setConditionDisplayGreenSecondValue = true;
+                        ConditionDisplayGreenSecondValue = 0;
+                        setConditionDisplayRedSecondValue = true;
+                        ConditionDisplayRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.WinText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameCondition");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.WinText.Text = "Good Job!";
+                            SetProperty("ConditionDisplay.SourceFile", "dead-head.png");
                         }
                         break;
                 }
@@ -606,17 +680,17 @@
                 {
                     Data.Width = DataWidthFirstValue * (1 - interpolationValue) + DataWidthSecondValue * interpolationValue;
                 }
-                if (setFailTextWidthFirstValue && setFailTextWidthSecondValue)
+                if (setLastGameResultXFirstValue && setLastGameResultXSecondValue)
                 {
-                    FailText.Width = FailTextWidthFirstValue * (1 - interpolationValue) + FailTextWidthSecondValue * interpolationValue;
+                    LastGameResult.X = LastGameResultXFirstValue * (1 - interpolationValue) + LastGameResultXSecondValue * interpolationValue;
                 }
-                if (setLastGameConditionXFirstValue && setLastGameConditionXSecondValue)
+                if (setLastGameResultYFirstValue && setLastGameResultYSecondValue)
                 {
-                    LastGameCondition.X = LastGameConditionXFirstValue * (1 - interpolationValue) + LastGameConditionXSecondValue * interpolationValue;
+                    LastGameResult.Y = LastGameResultYFirstValue * (1 - interpolationValue) + LastGameResultYSecondValue * interpolationValue;
                 }
-                if (setLastGameConditionYFirstValue && setLastGameConditionYSecondValue)
+                if (setLivesContainerWidthFirstValue && setLivesContainerWidthSecondValue)
                 {
-                    LastGameCondition.Y = LastGameConditionYFirstValue * (1 - interpolationValue) + LastGameConditionYSecondValue * interpolationValue;
+                    LivesContainer.Width = LivesContainerWidthFirstValue * (1 - interpolationValue) + LivesContainerWidthSecondValue * interpolationValue;
                 }
                 if (setLivesDisplayHeightFirstValue && setLivesDisplayHeightSecondValue)
                 {
@@ -697,6 +771,18 @@
                 if (setTimerValueWidthFirstValue && setTimerValueWidthSecondValue)
                 {
                     TimerValue.Width = TimerValueWidthFirstValue * (1 - interpolationValue) + TimerValueWidthSecondValue * interpolationValue;
+                }
+                if (setConditionDisplayBlueFirstValue && setConditionDisplayBlueSecondValue)
+                {
+                    ConditionDisplay.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ConditionDisplayBlueFirstValue* (1 - interpolationValue) + ConditionDisplayBlueSecondValue * interpolationValue);
+                }
+                if (setConditionDisplayGreenFirstValue && setConditionDisplayGreenSecondValue)
+                {
+                    ConditionDisplay.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ConditionDisplayGreenFirstValue* (1 - interpolationValue) + ConditionDisplayGreenSecondValue * interpolationValue);
+                }
+                if (setConditionDisplayRedFirstValue && setConditionDisplayRedSecondValue)
+                {
+                    ConditionDisplay.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ConditionDisplayRedFirstValue* (1 - interpolationValue) + ConditionDisplayRedSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -1188,81 +1274,149 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LastGameCondition.X",
-                            Type = "float",
-                            Value = LastGameCondition.X
+                            Name = "LivesContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = LivesContainer.ChildrenLayout
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LastGameCondition.Y",
-                            Type = "float",
-                            Value = LastGameCondition.Y
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = WinText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.Parent",
-                            Type = "string",
-                            Value = WinText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.Text",
-                            Type = "string",
-                            Value = WinText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = FailText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Parent",
-                            Type = "string",
-                            Value = FailText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Text",
-                            Type = "string",
-                            Value = FailText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Width",
-                            Type = "float",
-                            Value = FailText.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Width Units",
+                            Name = "LivesContainer.Height Units",
                             Type = "DimensionUnitType",
-                            Value = FailText.WidthUnits
+                            Value = LivesContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Width",
+                            Type = "float",
+                            Value = LivesContainer.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LivesContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Wraps Children",
+                            Type = "bool",
+                            Value = LivesContainer.WrapsChildren
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LastGameResult.X",
+                            Type = "float",
+                            Value = LastGameResult.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LastGameResult.Y",
+                            Type = "float",
+                            Value = LastGameResult.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ConditionDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Parent",
+                            Type = "string",
+                            Value = ConditionDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ConditionDisplay.WidthUnits
+                        }
+                        );
+                        break;
+                    case  VariableState.Win:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Blue",
+                            Type = "int",
+                            Value = ConditionDisplay.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Green",
+                            Type = "int",
+                            Value = ConditionDisplay.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Red",
+                            Type = "int",
+                            Value = ConditionDisplay.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.SourceFile",
+                            Type = "string",
+                            Value = ConditionDisplay.SourceFile
+                        }
+                        );
+                        break;
+                    case  VariableState.Lose:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Blue",
+                            Type = "int",
+                            Value = ConditionDisplay.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Green",
+                            Type = "int",
+                            Value = ConditionDisplay.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Red",
+                            Type = "int",
+                            Value = ConditionDisplay.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.SourceFile",
+                            Type = "string",
+                            Value = ConditionDisplay.SourceFile
                         }
                         );
                         break;
@@ -1686,81 +1840,149 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LastGameCondition.X",
-                            Type = "float",
-                            Value = LastGameCondition.X + 340f
+                            Name = "LivesContainer.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = LivesContainer.ChildrenLayout
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "LastGameCondition.Y",
-                            Type = "float",
-                            Value = LastGameCondition.Y + 89f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = WinText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.Parent",
-                            Type = "string",
-                            Value = WinText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "WinText.Text",
-                            Type = "string",
-                            Value = WinText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.HorizontalAlignment",
-                            Type = "HorizontalAlignment",
-                            Value = FailText.HorizontalAlignment
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Parent",
-                            Type = "string",
-                            Value = FailText.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Text",
-                            Type = "string",
-                            Value = FailText.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Width",
-                            Type = "float",
-                            Value = FailText.Width + 200f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FailText.Width Units",
+                            Name = "LivesContainer.Height Units",
                             Type = "DimensionUnitType",
-                            Value = FailText.WidthUnits
+                            Value = LivesContainer.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Width",
+                            Type = "float",
+                            Value = LivesContainer.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LivesContainer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LivesContainer.Wraps Children",
+                            Type = "bool",
+                            Value = LivesContainer.WrapsChildren
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LastGameResult.X",
+                            Type = "float",
+                            Value = LastGameResult.X + 360f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LastGameResult.Y",
+                            Type = "float",
+                            Value = LastGameResult.Y + 121f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = ConditionDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Parent",
+                            Type = "string",
+                            Value = ConditionDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = ConditionDisplay.WidthUnits
+                        }
+                        );
+                        break;
+                    case  VariableState.Win:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Blue",
+                            Type = "int",
+                            Value = ConditionDisplay.Blue + 179
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Green",
+                            Type = "int",
+                            Value = ConditionDisplay.Green + 222
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Red",
+                            Type = "int",
+                            Value = ConditionDisplay.Red + 245
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.SourceFile",
+                            Type = "string",
+                            Value = ConditionDisplay.SourceFile
+                        }
+                        );
+                        break;
+                    case  VariableState.Lose:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Blue",
+                            Type = "int",
+                            Value = ConditionDisplay.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Green",
+                            Type = "int",
+                            Value = ConditionDisplay.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.Red",
+                            Type = "int",
+                            Value = ConditionDisplay.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ConditionDisplay.SourceFile",
+                            Type = "string",
+                            Value = ConditionDisplay.SourceFile
                         }
                         );
                         break;
@@ -1777,6 +1999,8 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                        if (state.Name == "Win") this.mCurrentVariableState = VariableState.Win;
+                        if (state.Name == "Lose") this.mCurrentVariableState = VariableState.Lose;
                     }
                 }
                 base.ApplyState(state);
@@ -1791,9 +2015,9 @@
             public Frbcon2019.GumRuntimes.ContainerRuntime TimerDisplay { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TimerLabel { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TimerValue { get; set; }
-            public Frbcon2019.GumRuntimes.ContainerRuntime LastGameCondition { get; set; }
-            public Frbcon2019.GumRuntimes.TextRuntime WinText { get; set; }
-            public Frbcon2019.GumRuntimes.TextRuntime FailText { get; set; }
+            public Frbcon2019.GumRuntimes.ContainerRuntime LivesContainer { get; set; }
+            public Frbcon2019.GumRuntimes.ContainerRuntime LastGameResult { get; set; }
+            public Frbcon2019.GumRuntimes.SpriteRuntime ConditionDisplay { get; set; }
             public string LivesValueText
             {
                 get
@@ -1877,9 +2101,9 @@
                 TimerDisplay = this.GetGraphicalUiElementByName("TimerDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 TimerLabel = this.GetGraphicalUiElementByName("TimerLabel") as Frbcon2019.GumRuntimes.TextRuntime;
                 TimerValue = this.GetGraphicalUiElementByName("TimerValue") as Frbcon2019.GumRuntimes.TextRuntime;
-                LastGameCondition = this.GetGraphicalUiElementByName("LastGameCondition") as Frbcon2019.GumRuntimes.ContainerRuntime;
-                WinText = this.GetGraphicalUiElementByName("WinText") as Frbcon2019.GumRuntimes.TextRuntime;
-                FailText = this.GetGraphicalUiElementByName("FailText") as Frbcon2019.GumRuntimes.TextRuntime;
+                LivesContainer = this.GetGraphicalUiElementByName("LivesContainer") as Frbcon2019.GumRuntimes.ContainerRuntime;
+                LastGameResult = this.GetGraphicalUiElementByName("LastGameResult") as Frbcon2019.GumRuntimes.ContainerRuntime;
+                ConditionDisplay = this.GetGraphicalUiElementByName("ConditionDisplay") as Frbcon2019.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

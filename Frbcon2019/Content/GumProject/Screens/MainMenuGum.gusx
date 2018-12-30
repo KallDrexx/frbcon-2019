@@ -12,13 +12,13 @@
     <Variable>
       <Type>float</Type>
       <Name>ButtonInstance.X</Name>
-      <Value xsi:type="xsd:float">175</Value>
+      <Value xsi:type="xsd:float">259</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
       <Name>ButtonInstance.Y</Name>
-      <Value xsi:type="xsd:float">390</Value>
+      <Value xsi:type="xsd:float">380</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>

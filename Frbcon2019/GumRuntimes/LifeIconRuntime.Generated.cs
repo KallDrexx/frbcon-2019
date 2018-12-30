@@ -1,12 +1,13 @@
     using System.Linq;
     namespace Frbcon2019.GumRuntimes
     {
-        public partial class TestRuntime : Frbcon2019.GumRuntimes.SpriteRuntime
+        public partial class LifeIconRuntime : Frbcon2019.GumRuntimes.ContainerRuntime
         {
             #region State Enums
             public enum VariableState
             {
-                Default
+                Default,
+                Lost
             }
             #endregion
             #region State Fields
@@ -25,33 +26,35 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            Alpha = 255;
-                            Animate = false;
-                            Blue = 255;
-                            FlipHorizontal = false;
-                            FlipVertical = false;
-                            Green = 255;
-                            Height = 100f;
-                            HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                            Red = 255;
-                            SetProperty("SourceFile", "");
-                            TextureAddress = Gum.Managers.TextureAddress.Custom;
-                            TextureHeight = 0;
-                            TextureHeightScale = 0f;
-                            TextureLeft = 0;
-                            TextureTop = 0;
-                            TextureWidth = 0;
-                            TextureWidthScale = 0f;
-                            Visible = true;
-                            Width = 100f;
-                            WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                            Wrap = false;
-                            X = 0f;
-                            XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            Height = 0f;
+                            HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            Width = 0f;
+                            WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
-                            Y = 0f;
-                            YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
-                            YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Heart.Animate = false;
+                            Heart.Blue = 0;
+                            Heart.Green = 255;
+                            Heart.Height = 80f;
+                            Heart.Red = 0;
+                            SetProperty("Heart.SourceFile", "hearts.png");
+                            Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
+                            Heart.Width = 80f;
+                            Heart.X = 10f;
+                            Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            Heart.Y = 10f;
+                            Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            SetProperty("LostIndicator.SourceFile", "../GlobalContent/cancel.png");
+                            LostIndicator.Visible = false;
+                            break;
+                        case  VariableState.Lost:
+                            Heart.Blue = 0;
+                            Heart.Green = 0;
+                            Heart.Red = 139;
+                            LostIndicator.Blue = 0;
+                            LostIndicator.Green = 0;
+                            LostIndicator.Red = 255;
+                            SetProperty("LostIndicator.SourceFile", "cancel.png");
+                            LostIndicator.Visible = true;
                             break;
                     }
                 }
@@ -66,287 +69,271 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setAlphaFirstValue = false;
-                bool setAlphaSecondValue = false;
-                int AlphaFirstValue= 0;
-                int AlphaSecondValue= 0;
-                bool setBlueFirstValue = false;
-                bool setBlueSecondValue = false;
-                int BlueFirstValue= 0;
-                int BlueSecondValue= 0;
-                bool setGreenFirstValue = false;
-                bool setGreenSecondValue = false;
-                int GreenFirstValue= 0;
-                int GreenSecondValue= 0;
+                bool setHeartBlueFirstValue = false;
+                bool setHeartBlueSecondValue = false;
+                int HeartBlueFirstValue= 0;
+                int HeartBlueSecondValue= 0;
+                bool setHeartGreenFirstValue = false;
+                bool setHeartGreenSecondValue = false;
+                int HeartGreenFirstValue= 0;
+                int HeartGreenSecondValue= 0;
+                bool setHeartHeightFirstValue = false;
+                bool setHeartHeightSecondValue = false;
+                float HeartHeightFirstValue= 0;
+                float HeartHeightSecondValue= 0;
+                bool setHeartRedFirstValue = false;
+                bool setHeartRedSecondValue = false;
+                int HeartRedFirstValue= 0;
+                int HeartRedSecondValue= 0;
+                bool setHeartWidthFirstValue = false;
+                bool setHeartWidthSecondValue = false;
+                float HeartWidthFirstValue= 0;
+                float HeartWidthSecondValue= 0;
+                bool setHeartXFirstValue = false;
+                bool setHeartXSecondValue = false;
+                float HeartXFirstValue= 0;
+                float HeartXSecondValue= 0;
+                bool setHeartYFirstValue = false;
+                bool setHeartYSecondValue = false;
+                float HeartYFirstValue= 0;
+                float HeartYSecondValue= 0;
                 bool setHeightFirstValue = false;
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
-                bool setRedFirstValue = false;
-                bool setRedSecondValue = false;
-                int RedFirstValue= 0;
-                int RedSecondValue= 0;
-                bool setTextureHeightFirstValue = false;
-                bool setTextureHeightSecondValue = false;
-                int TextureHeightFirstValue= 0;
-                int TextureHeightSecondValue= 0;
-                bool setTextureHeightScaleFirstValue = false;
-                bool setTextureHeightScaleSecondValue = false;
-                float TextureHeightScaleFirstValue= 0;
-                float TextureHeightScaleSecondValue= 0;
-                bool setTextureLeftFirstValue = false;
-                bool setTextureLeftSecondValue = false;
-                int TextureLeftFirstValue= 0;
-                int TextureLeftSecondValue= 0;
-                bool setTextureTopFirstValue = false;
-                bool setTextureTopSecondValue = false;
-                int TextureTopFirstValue= 0;
-                int TextureTopSecondValue= 0;
-                bool setTextureWidthFirstValue = false;
-                bool setTextureWidthSecondValue = false;
-                int TextureWidthFirstValue= 0;
-                int TextureWidthSecondValue= 0;
-                bool setTextureWidthScaleFirstValue = false;
-                bool setTextureWidthScaleSecondValue = false;
-                float TextureWidthScaleFirstValue= 0;
-                float TextureWidthScaleSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
                 float WidthSecondValue= 0;
-                bool setXFirstValue = false;
-                bool setXSecondValue = false;
-                float XFirstValue= 0;
-                float XSecondValue= 0;
-                bool setYFirstValue = false;
-                bool setYSecondValue = false;
-                float YFirstValue= 0;
-                float YSecondValue= 0;
+                bool setLostIndicatorBlueFirstValue = false;
+                bool setLostIndicatorBlueSecondValue = false;
+                int LostIndicatorBlueFirstValue= 0;
+                int LostIndicatorBlueSecondValue= 0;
+                bool setLostIndicatorGreenFirstValue = false;
+                bool setLostIndicatorGreenSecondValue = false;
+                int LostIndicatorGreenFirstValue= 0;
+                int LostIndicatorGreenSecondValue= 0;
+                bool setLostIndicatorRedFirstValue = false;
+                bool setLostIndicatorRedSecondValue = false;
+                int LostIndicatorRedFirstValue= 0;
+                int LostIndicatorRedSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
-                        setAlphaFirstValue = true;
-                        AlphaFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.Animate = false;
+                            this.Heart.Animate = false;
                         }
-                        setBlueFirstValue = true;
-                        BlueFirstValue = 255;
+                        setHeartBlueFirstValue = true;
+                        HeartBlueFirstValue = 0;
+                        setHeartGreenFirstValue = true;
+                        HeartGreenFirstValue = 255;
+                        setHeartHeightFirstValue = true;
+                        HeartHeightFirstValue = 80f;
+                        setHeartRedFirstValue = true;
+                        HeartRedFirstValue = 0;
                         if (interpolationValue < 1)
                         {
-                            this.FlipHorizontal = false;
+                            SetProperty("Heart.SourceFile", "hearts.png");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.FlipVertical = false;
+                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
                         }
-                        setGreenFirstValue = true;
-                        GreenFirstValue = 255;
+                        setHeartWidthFirstValue = true;
+                        HeartWidthFirstValue = 80f;
+                        setHeartXFirstValue = true;
+                        HeartXFirstValue = 10f;
+                        if (interpolationValue < 1)
+                        {
+                            this.Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setHeartYFirstValue = true;
+                        HeartYFirstValue = 10f;
+                        if (interpolationValue < 1)
+                        {
+                            this.Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
                         setHeightFirstValue = true;
-                        HeightFirstValue = 100f;
+                        HeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                        }
-                        setRedFirstValue = true;
-                        RedFirstValue = 255;
-                        if (interpolationValue < 1)
-                        {
-                            SetProperty("SourceFile", "");
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            SetProperty("LostIndicator.SourceFile", "../GlobalContent/cancel.png");
                         }
-                        setTextureHeightFirstValue = true;
-                        TextureHeightFirstValue = 0;
-                        setTextureHeightScaleFirstValue = true;
-                        TextureHeightScaleFirstValue = 0f;
-                        setTextureLeftFirstValue = true;
-                        TextureLeftFirstValue = 0;
-                        setTextureTopFirstValue = true;
-                        TextureTopFirstValue = 0;
-                        setTextureWidthFirstValue = true;
-                        TextureWidthFirstValue = 0;
-                        setTextureWidthScaleFirstValue = true;
-                        TextureWidthScaleFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.Visible = true;
+                            this.LostIndicator.Visible = false;
                         }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 100f;
+                        WidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.Wrap = false;
-                        }
-                        setXFirstValue = true;
-                        XFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue < 1)
                         {
                             this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
-                        setYFirstValue = true;
-                        YFirstValue = 0f;
+                        break;
+                    case  VariableState.Lost:
+                        setHeartBlueFirstValue = true;
+                        HeartBlueFirstValue = 0;
+                        setHeartGreenFirstValue = true;
+                        HeartGreenFirstValue = 0;
+                        setHeartRedFirstValue = true;
+                        HeartRedFirstValue = 139;
+                        setLostIndicatorBlueFirstValue = true;
+                        LostIndicatorBlueFirstValue = 0;
+                        setLostIndicatorGreenFirstValue = true;
+                        LostIndicatorGreenFirstValue = 0;
+                        setLostIndicatorRedFirstValue = true;
+                        LostIndicatorRedFirstValue = 255;
                         if (interpolationValue < 1)
                         {
-                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            SetProperty("LostIndicator.SourceFile", "cancel.png");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            this.LostIndicator.Visible = true;
                         }
                         break;
                 }
                 switch(secondState)
                 {
                     case  VariableState.Default:
-                        setAlphaSecondValue = true;
-                        AlphaSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.Animate = false;
+                            this.Heart.Animate = false;
                         }
-                        setBlueSecondValue = true;
-                        BlueSecondValue = 255;
+                        setHeartBlueSecondValue = true;
+                        HeartBlueSecondValue = 0;
+                        setHeartGreenSecondValue = true;
+                        HeartGreenSecondValue = 255;
+                        setHeartHeightSecondValue = true;
+                        HeartHeightSecondValue = 80f;
+                        setHeartRedSecondValue = true;
+                        HeartRedSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
-                            this.FlipHorizontal = false;
+                            SetProperty("Heart.SourceFile", "hearts.png");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.FlipVertical = false;
+                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
                         }
-                        setGreenSecondValue = true;
-                        GreenSecondValue = 255;
+                        setHeartWidthSecondValue = true;
+                        HeartWidthSecondValue = 80f;
+                        setHeartXSecondValue = true;
+                        HeartXSecondValue = 10f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
+                        setHeartYSecondValue = true;
+                        HeartYSecondValue = 10f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                        }
                         setHeightSecondValue = true;
-                        HeightSecondValue = 100f;
+                        HeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                        }
-                        setRedSecondValue = true;
-                        RedSecondValue = 255;
-                        if (interpolationValue >= 1)
-                        {
-                            SetProperty("SourceFile", "");
+                            this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            SetProperty("LostIndicator.SourceFile", "../GlobalContent/cancel.png");
                         }
-                        setTextureHeightSecondValue = true;
-                        TextureHeightSecondValue = 0;
-                        setTextureHeightScaleSecondValue = true;
-                        TextureHeightScaleSecondValue = 0f;
-                        setTextureLeftSecondValue = true;
-                        TextureLeftSecondValue = 0;
-                        setTextureTopSecondValue = true;
-                        TextureTopSecondValue = 0;
-                        setTextureWidthSecondValue = true;
-                        TextureWidthSecondValue = 0;
-                        setTextureWidthScaleSecondValue = true;
-                        TextureWidthScaleSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.Visible = true;
+                            this.LostIndicator.Visible = false;
                         }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 100f;
+                        WidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.PercentageOfSourceFile;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.Wrap = false;
-                        }
-                        setXSecondValue = true;
-                        XSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Left;
+                            this.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         if (interpolationValue >= 1)
                         {
                             this.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
-                        setYSecondValue = true;
-                        YSecondValue = 0f;
+                        break;
+                    case  VariableState.Lost:
+                        setHeartBlueSecondValue = true;
+                        HeartBlueSecondValue = 0;
+                        setHeartGreenSecondValue = true;
+                        HeartGreenSecondValue = 0;
+                        setHeartRedSecondValue = true;
+                        HeartRedSecondValue = 139;
+                        setLostIndicatorBlueSecondValue = true;
+                        LostIndicatorBlueSecondValue = 0;
+                        setLostIndicatorGreenSecondValue = true;
+                        LostIndicatorGreenSecondValue = 0;
+                        setLostIndicatorRedSecondValue = true;
+                        LostIndicatorRedSecondValue = 255;
                         if (interpolationValue >= 1)
                         {
-                            this.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                            SetProperty("LostIndicator.SourceFile", "cancel.png");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            this.LostIndicator.Visible = true;
                         }
                         break;
                 }
-                if (setAlphaFirstValue && setAlphaSecondValue)
+                if (setHeartBlueFirstValue && setHeartBlueSecondValue)
                 {
-                    Alpha = FlatRedBall.Math.MathFunctions.RoundToInt(AlphaFirstValue* (1 - interpolationValue) + AlphaSecondValue * interpolationValue);
+                    Heart.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(HeartBlueFirstValue* (1 - interpolationValue) + HeartBlueSecondValue * interpolationValue);
                 }
-                if (setBlueFirstValue && setBlueSecondValue)
+                if (setHeartGreenFirstValue && setHeartGreenSecondValue)
                 {
-                    Blue = FlatRedBall.Math.MathFunctions.RoundToInt(BlueFirstValue* (1 - interpolationValue) + BlueSecondValue * interpolationValue);
+                    Heart.Green = FlatRedBall.Math.MathFunctions.RoundToInt(HeartGreenFirstValue* (1 - interpolationValue) + HeartGreenSecondValue * interpolationValue);
                 }
-                if (setGreenFirstValue && setGreenSecondValue)
+                if (setHeartHeightFirstValue && setHeartHeightSecondValue)
                 {
-                    Green = FlatRedBall.Math.MathFunctions.RoundToInt(GreenFirstValue* (1 - interpolationValue) + GreenSecondValue * interpolationValue);
+                    Heart.Height = HeartHeightFirstValue * (1 - interpolationValue) + HeartHeightSecondValue * interpolationValue;
+                }
+                if (setHeartRedFirstValue && setHeartRedSecondValue)
+                {
+                    Heart.Red = FlatRedBall.Math.MathFunctions.RoundToInt(HeartRedFirstValue* (1 - interpolationValue) + HeartRedSecondValue * interpolationValue);
+                }
+                if (setHeartWidthFirstValue && setHeartWidthSecondValue)
+                {
+                    Heart.Width = HeartWidthFirstValue * (1 - interpolationValue) + HeartWidthSecondValue * interpolationValue;
+                }
+                if (setHeartXFirstValue && setHeartXSecondValue)
+                {
+                    Heart.X = HeartXFirstValue * (1 - interpolationValue) + HeartXSecondValue * interpolationValue;
+                }
+                if (setHeartYFirstValue && setHeartYSecondValue)
+                {
+                    Heart.Y = HeartYFirstValue * (1 - interpolationValue) + HeartYSecondValue * interpolationValue;
                 }
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
                 }
-                if (setRedFirstValue && setRedSecondValue)
-                {
-                    Red = FlatRedBall.Math.MathFunctions.RoundToInt(RedFirstValue* (1 - interpolationValue) + RedSecondValue * interpolationValue);
-                }
-                if (setTextureHeightFirstValue && setTextureHeightSecondValue)
-                {
-                    TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(TextureHeightFirstValue* (1 - interpolationValue) + TextureHeightSecondValue * interpolationValue);
-                }
-                if (setTextureHeightScaleFirstValue && setTextureHeightScaleSecondValue)
-                {
-                    TextureHeightScale = TextureHeightScaleFirstValue * (1 - interpolationValue) + TextureHeightScaleSecondValue * interpolationValue;
-                }
-                if (setTextureLeftFirstValue && setTextureLeftSecondValue)
-                {
-                    TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(TextureLeftFirstValue* (1 - interpolationValue) + TextureLeftSecondValue * interpolationValue);
-                }
-                if (setTextureTopFirstValue && setTextureTopSecondValue)
-                {
-                    TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(TextureTopFirstValue* (1 - interpolationValue) + TextureTopSecondValue * interpolationValue);
-                }
-                if (setTextureWidthFirstValue && setTextureWidthSecondValue)
-                {
-                    TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(TextureWidthFirstValue* (1 - interpolationValue) + TextureWidthSecondValue * interpolationValue);
-                }
-                if (setTextureWidthScaleFirstValue && setTextureWidthScaleSecondValue)
-                {
-                    TextureWidthScale = TextureWidthScaleFirstValue * (1 - interpolationValue) + TextureWidthScaleSecondValue * interpolationValue;
-                }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
                     Width = WidthFirstValue * (1 - interpolationValue) + WidthSecondValue * interpolationValue;
                 }
-                if (setXFirstValue && setXSecondValue)
+                if (setLostIndicatorBlueFirstValue && setLostIndicatorBlueSecondValue)
                 {
-                    X = XFirstValue * (1 - interpolationValue) + XSecondValue * interpolationValue;
+                    LostIndicator.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(LostIndicatorBlueFirstValue* (1 - interpolationValue) + LostIndicatorBlueSecondValue * interpolationValue);
                 }
-                if (setYFirstValue && setYSecondValue)
+                if (setLostIndicatorGreenFirstValue && setLostIndicatorGreenSecondValue)
                 {
-                    Y = YFirstValue * (1 - interpolationValue) + YSecondValue * interpolationValue;
+                    LostIndicator.Green = FlatRedBall.Math.MathFunctions.RoundToInt(LostIndicatorGreenFirstValue* (1 - interpolationValue) + LostIndicatorGreenSecondValue * interpolationValue);
+                }
+                if (setLostIndicatorRedFirstValue && setLostIndicatorRedSecondValue)
+                {
+                    LostIndicator.Red = FlatRedBall.Math.MathFunctions.RoundToInt(LostIndicatorRedFirstValue* (1 - interpolationValue) + LostIndicatorRedSecondValue * interpolationValue);
                 }
                 if (interpolationValue < 1)
                 {
@@ -359,7 +346,7 @@
             }
             #endregion
             #region State Interpolate To
-            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Frbcon2019.GumRuntimes.TestRuntime.VariableState fromState,Frbcon2019.GumRuntimes.TestRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Frbcon2019.GumRuntimes.LifeIconRuntime.VariableState fromState,Frbcon2019.GumRuntimes.LifeIconRuntime.VariableState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
             {
                 FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
                 if (owner == null)
@@ -430,54 +417,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Alpha",
-                            Type = "int",
-                            Value = Alpha
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Animate",
-                            Type = "bool",
-                            Value = Animate
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Blue",
-                            Type = "int",
-                            Value = Blue
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FlipHorizontal",
-                            Type = "bool",
-                            Value = FlipHorizontal
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FlipVertical",
-                            Type = "bool",
-                            Value = FlipVertical
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Green",
-                            Type = "int",
-                            Value = Green
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Height",
                             Type = "float",
                             Value = Height
@@ -489,86 +428,6 @@
                             Name = "Height Units",
                             Type = "DimensionUnitType",
                             Value = HeightUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Red",
-                            Type = "int",
-                            Value = Red
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "SourceFile",
-                            Type = "string",
-                            Value = SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Address",
-                            Type = "TextureAddress",
-                            Value = TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Height",
-                            Type = "int",
-                            Value = TextureHeight
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Height Scale",
-                            Type = "float",
-                            Value = TextureHeightScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Left",
-                            Type = "int",
-                            Value = TextureLeft
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Top",
-                            Type = "int",
-                            Value = TextureTop
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Width",
-                            Type = "int",
-                            Value = TextureWidth
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Width Scale",
-                            Type = "float",
-                            Value = TextureWidthScale
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Visible",
-                            Type = "bool",
-                            Value = Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -590,30 +449,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Wrap",
-                            Type = "bool",
-                            Value = Wrap
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "X",
-                            Type = "float",
-                            Value = X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "X Units",
                             Type = "PositionUnitType",
                             Value = XUnits
@@ -622,25 +457,179 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y",
+                            Name = "Heart.Animate",
+                            Type = "bool",
+                            Value = Heart.Animate
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Blue",
+                            Type = "int",
+                            Value = Heart.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Green",
+                            Type = "int",
+                            Value = Heart.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Height",
                             Type = "float",
-                            Value = Y
+                            Value = Heart.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = YOrigin
+                            Name = "Heart.Red",
+                            Type = "int",
+                            Value = Heart.Red
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Units",
+                            Name = "Heart.SourceFile",
+                            Type = "string",
+                            Value = Heart.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Address",
+                            Type = "TextureAddress",
+                            Value = Heart.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Width",
+                            Type = "float",
+                            Value = Heart.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.X",
+                            Type = "float",
+                            Value = Heart.X
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.X Units",
                             Type = "PositionUnitType",
-                            Value = YUnits
+                            Value = Heart.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Y",
+                            Type = "float",
+                            Value = Heart.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Heart.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.SourceFile",
+                            Type = "string",
+                            Value = LostIndicator.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Visible",
+                            Type = "bool",
+                            Value = LostIndicator.Visible
+                        }
+                        );
+                        break;
+                    case  VariableState.Lost:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Blue",
+                            Type = "int",
+                            Value = Heart.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Green",
+                            Type = "int",
+                            Value = Heart.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Red",
+                            Type = "int",
+                            Value = Heart.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Blue",
+                            Type = "int",
+                            Value = LostIndicator.Blue
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Green",
+                            Type = "int",
+                            Value = LostIndicator.Green
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Red",
+                            Type = "int",
+                            Value = LostIndicator.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.SourceFile",
+                            Type = "string",
+                            Value = LostIndicator.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Visible",
+                            Type = "bool",
+                            Value = LostIndicator.Visible
                         }
                         );
                         break;
@@ -656,57 +645,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Alpha",
-                            Type = "int",
-                            Value = Alpha + 255
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Animate",
-                            Type = "bool",
-                            Value = Animate
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Blue",
-                            Type = "int",
-                            Value = Blue + 255
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FlipHorizontal",
-                            Type = "bool",
-                            Value = FlipHorizontal
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "FlipVertical",
-                            Type = "bool",
-                            Value = FlipVertical
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Green",
-                            Type = "int",
-                            Value = Green + 255
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 100f
+                            Value = Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -720,89 +661,9 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Red",
-                            Type = "int",
-                            Value = Red + 255
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "SourceFile",
-                            Type = "string",
-                            Value = SourceFile
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Address",
-                            Type = "TextureAddress",
-                            Value = TextureAddress
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Height",
-                            Type = "int",
-                            Value = TextureHeight + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Height Scale",
-                            Type = "float",
-                            Value = TextureHeightScale + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Left",
-                            Type = "int",
-                            Value = TextureLeft + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Top",
-                            Type = "int",
-                            Value = TextureTop + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Width",
-                            Type = "int",
-                            Value = TextureWidth + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Texture Width Scale",
-                            Type = "float",
-                            Value = TextureWidthScale + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "Visible",
-                            Type = "bool",
-                            Value = Visible
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 100f
+                            Value = Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -816,30 +677,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Wrap",
-                            Type = "bool",
-                            Value = Wrap
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "X",
-                            Type = "float",
-                            Value = X + 0f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "X Origin",
-                            Type = "HorizontalAlignment",
-                            Value = XOrigin
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "X Units",
                             Type = "PositionUnitType",
                             Value = XUnits
@@ -848,25 +685,179 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y",
+                            Name = "Heart.Animate",
+                            Type = "bool",
+                            Value = Heart.Animate
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Blue",
+                            Type = "int",
+                            Value = Heart.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Green",
+                            Type = "int",
+                            Value = Heart.Green + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Height",
                             Type = "float",
-                            Value = Y + 0f
+                            Value = Heart.Height + 80f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Origin",
-                            Type = "VerticalAlignment",
-                            Value = YOrigin
+                            Name = "Heart.Red",
+                            Type = "int",
+                            Value = Heart.Red + 0
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "Y Units",
+                            Name = "Heart.SourceFile",
+                            Type = "string",
+                            Value = Heart.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Address",
+                            Type = "TextureAddress",
+                            Value = Heart.TextureAddress
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Width",
+                            Type = "float",
+                            Value = Heart.Width + 80f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.X",
+                            Type = "float",
+                            Value = Heart.X + 10f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.X Units",
                             Type = "PositionUnitType",
-                            Value = YUnits
+                            Value = Heart.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Y",
+                            Type = "float",
+                            Value = Heart.Y + 10f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Y Units",
+                            Type = "PositionUnitType",
+                            Value = Heart.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.SourceFile",
+                            Type = "string",
+                            Value = LostIndicator.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Visible",
+                            Type = "bool",
+                            Value = LostIndicator.Visible
+                        }
+                        );
+                        break;
+                    case  VariableState.Lost:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Blue",
+                            Type = "int",
+                            Value = Heart.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Green",
+                            Type = "int",
+                            Value = Heart.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Red",
+                            Type = "int",
+                            Value = Heart.Red + 139
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Blue",
+                            Type = "int",
+                            Value = LostIndicator.Blue + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Green",
+                            Type = "int",
+                            Value = LostIndicator.Green + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Red",
+                            Type = "int",
+                            Value = LostIndicator.Red + 255
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.SourceFile",
+                            Type = "string",
+                            Value = LostIndicator.SourceFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Visible",
+                            Type = "bool",
+                            Value = LostIndicator.Visible
                         }
                         );
                         break;
@@ -883,18 +874,19 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                        if (state.Name == "Lost") this.mCurrentVariableState = VariableState.Lost;
                     }
                 }
                 base.ApplyState(state);
             }
-            public TestRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
+            private Frbcon2019.GumRuntimes.SpriteRuntime Heart { get; set; }
+            private Frbcon2019.GumRuntimes.SpriteRuntime LostIndicator { get; set; }
+            public LifeIconRuntime (bool fullInstantiation = true, bool tryCreateFormsObject = true) 
             	: base(false, tryCreateFormsObject)
             {
-                this.HasEvents = false;
-                this.ExposeChildrenEvents = false;
                 if (fullInstantiation)
                 {
-                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "Test");
+                    Gum.DataTypes.ElementSave elementSave = Gum.Managers.ObjectFinder.Self.GumProjectSave.Components.First(item => item.Name == "LifeIcon");
                     this.ElementSave = elementSave;
                     string oldDirectory = FlatRedBall.IO.FileManager.RelativeDirectory;
                     FlatRedBall.IO.FileManager.RelativeDirectory = FlatRedBall.IO.FileManager.GetDirectory(Gum.Managers.ObjectFinder.Self.GumProjectSave.FullFileName);
@@ -915,6 +907,8 @@
             }
             private void AssignReferences () 
             {
+                Heart = this.GetGraphicalUiElementByName("Heart") as Frbcon2019.GumRuntimes.SpriteRuntime;
+                LostIndicator = this.GetGraphicalUiElementByName("LostIndicator") as Frbcon2019.GumRuntimes.SpriteRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

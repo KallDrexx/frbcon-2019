@@ -4,6 +4,24 @@
   <State>
     <Name>Default</Name>
     <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ConditionDisplay.Height Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>ConditionDisplay.Parent</Name>
+      <Value xsi:type="xsd:string">LastGameResult</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>ConditionDisplay.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>Data.Children Layout</Name>
       <Value xsi:type="xsd:int">1</Value>
@@ -46,51 +64,51 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>FailText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>FailText.Parent</Name>
-      <Value xsi:type="xsd:string">LastGameCondition</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>FailText.Text</Name>
-      <Value xsi:type="xsd:string">Better Luck Next Time!
-</Value>
+      <Type>float</Type>
+      <Name>LastGameResult.X</Name>
+      <Value xsi:type="xsd:float">360</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>FailText.Width</Name>
-      <Value xsi:type="xsd:float">200</Value>
+      <Name>LastGameResult.Y</Name>
+      <Value xsi:type="xsd:float">121</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>LivesContainer.Children Layout</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>LivesContainer.Contained Type</Name>
+      <Value xsi:type="xsd:string">LifeIcon</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>FailText.Width Units</Name>
-      <Value xsi:type="xsd:int">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>LastGameCondition.Parent</Name>
+      <Name>LivesContainer.Height Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>LastGameCondition.X</Name>
-      <Value xsi:type="xsd:float">340</Value>
+      <Name>LivesContainer.Width</Name>
+      <Value xsi:type="xsd:float">100</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>float</Type>
-      <Name>LastGameCondition.Y</Name>
-      <Value xsi:type="xsd:float">89</Value>
+      <Type>DimensionUnitType</Type>
+      <Name>LivesContainer.Width Units</Name>
+      <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>LivesContainer.Wraps Children</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -365,24 +383,83 @@
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
-    <Variable>
-      <Type>HorizontalAlignment</Type>
-      <Name>WinText.HorizontalAlignment</Name>
-      <Value xsi:type="xsd:int">1</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
       <Type>string</Type>
-      <Name>WinText.Parent</Name>
-      <Value xsi:type="xsd:string">LastGameCondition</Value>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
+  </State>
+  <State>
+    <Name>Win</Name>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>ConditionDisplay.SourceFile</Name>
+      <Value xsi:type="xsd:string">medallist.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
-      <Type>string</Type>
-      <Name>WinText.Text</Name>
-      <Value xsi:type="xsd:string">Good Job!</Value>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Red</Name>
+      <Value xsi:type="xsd:int">245</Value>
       <SetsValue>true</SetsValue>
     </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Green</Name>
+      <Value xsi:type="xsd:int">222</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Blue</Name>
+      <Value xsi:type="xsd:int">179</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
+  </State>
+  <State>
+    <Name>Lose</Name>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>ConditionDisplay.SourceFile</Name>
+      <Value xsi:type="xsd:string">dead-head.png</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Red</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Green</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>int</Type>
+      <Name>ConditionDisplay.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Instance>
     <Name>LivesDisplay</Name>
@@ -435,18 +512,18 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>LastGameCondition</Name>
+    <Name>LivesContainer</Name>
     <BaseType>Container</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>WinText</Name>
-    <BaseType>Text</BaseType>
+    <Name>LastGameResult</Name>
+    <BaseType>Container</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>FailText</Name>
-    <BaseType>Text</BaseType>
+    <Name>ConditionDisplay</Name>
+    <BaseType>Sprite</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

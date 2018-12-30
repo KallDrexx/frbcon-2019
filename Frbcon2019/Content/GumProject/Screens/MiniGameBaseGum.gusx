@@ -28,6 +28,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>string</Type>
+      <Name>ButtonInstance.Parent</Name>
+      <Value xsi:type="xsd:string">MinigameUI</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>int</Type>
       <Name>ButtonInstance.Red</Name>
       <Value xsi:type="xsd:int">0</Value>
@@ -120,13 +126,13 @@
     <Variable>
       <Type>float</Type>
       <Name>ContentBlocker.Height</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
       <Name>ContentBlocker.Height Units</Name>
-      <Value xsi:type="xsd:int">1</Value>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -138,7 +144,7 @@
     <Variable>
       <Type>float</Type>
       <Name>ContentBlocker.Width</Name>
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -386,12 +392,6 @@
       <Type>float</Type>
       <Name>TextInstance1.Width</Name>
       <Value xsi:type="xsd:float">0</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
-      <Type>string</Type>
-      <Name>ButtonInstance.Parent</Name>
-      <Value xsi:type="xsd:string">MinigameUI</Value>
       <SetsValue>true</SetsValue>
     </Variable>
   </State>

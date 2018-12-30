@@ -19,8 +19,8 @@ namespace Frbcon2019.Screens
         private Frbcon2019.GumRuntimes.TextRuntime LivesValue;
         private Frbcon2019.GumRuntimes.TextRuntime ScoreValue;
         private Frbcon2019.GumRuntimes.TextRuntime TimerValue;
-        private Frbcon2019.GumRuntimes.TextRuntime FailText;
-        private Frbcon2019.GumRuntimes.TextRuntime WinText;
+        private Frbcon2019.GumRuntimes.ContainerRuntime LivesContainer;
+        private Frbcon2019.GumRuntimes.ScoreboardGumRuntime ScoreboardGumRuntime;
         public int SecondsUntilNextGameStarts = 3;
         public Scoreboard () 
         	: base ("Scoreboard")
@@ -32,8 +32,8 @@ namespace Frbcon2019.Screens
             LivesValue = ScoreboardGum.GetGraphicalUiElementByName("LivesValue") as Frbcon2019.GumRuntimes.TextRuntime;
             ScoreValue = ScoreboardGum.GetGraphicalUiElementByName("ScoreValue") as Frbcon2019.GumRuntimes.TextRuntime;
             TimerValue = ScoreboardGum.GetGraphicalUiElementByName("TimerValue") as Frbcon2019.GumRuntimes.TextRuntime;
-            FailText = ScoreboardGum.GetGraphicalUiElementByName("FailText") as Frbcon2019.GumRuntimes.TextRuntime;
-            WinText = ScoreboardGum.GetGraphicalUiElementByName("WinText") as Frbcon2019.GumRuntimes.TextRuntime;
+            LivesContainer = ScoreboardGum.GetGraphicalUiElementByName("LivesContainer") as Frbcon2019.GumRuntimes.ContainerRuntime;
+            ScoreboardGumRuntime = ScoreboardGum.GetGraphicalUiElementByName("this") as Frbcon2019.GumRuntimes.ScoreboardGumRuntime;
             
             
             PostInitialize();
@@ -83,13 +83,13 @@ namespace Frbcon2019.Screens
             {
                 TimerValue.RemoveFromManagers();
             }
-            if (FailText != null)
+            if (LivesContainer != null)
             {
-                FailText.RemoveFromManagers();
+                LivesContainer.RemoveFromManagers();
             }
-            if (WinText != null)
+            if (ScoreboardGumRuntime != null)
             {
-                WinText.RemoveFromManagers();
+                ScoreboardGumRuntime.RemoveFromManagers();
             }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
@@ -119,13 +119,13 @@ namespace Frbcon2019.Screens
             {
                 TimerValue.RemoveFromManagers();
             }
-            if (FailText != null)
+            if (LivesContainer != null)
             {
-                FailText.RemoveFromManagers();
+                LivesContainer.RemoveFromManagers();
             }
-            if (WinText != null)
+            if (ScoreboardGumRuntime != null)
             {
-                WinText.RemoveFromManagers();
+                ScoreboardGumRuntime.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 

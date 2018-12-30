@@ -27,10 +27,10 @@
                         case  VariableState.Default:
                             ContentBlocker.Blue = 0;
                             ContentBlocker.Green = 0;
-                            ContentBlocker.Height = 100f;
-                            ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            ContentBlocker.Height = 0f;
+                            ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             ContentBlocker.Red = 0;
-                            ContentBlocker.Width = 100f;
+                            ContentBlocker.Width = 0f;
                             ContentBlocker.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             ContentBlocker.X = 0f;
                             ContentBlocker.Y = 0f;
@@ -287,15 +287,15 @@
                         setContentBlockerGreenFirstValue = true;
                         ContentBlockerGreenFirstValue = 0;
                         setContentBlockerHeightFirstValue = true;
-                        ContentBlockerHeightFirstValue = 100f;
+                        ContentBlockerHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         setContentBlockerRedFirstValue = true;
                         ContentBlockerRedFirstValue = 0;
                         setContentBlockerWidthFirstValue = true;
-                        ContentBlockerWidthFirstValue = 100f;
+                        ContentBlockerWidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.ContentBlocker.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
@@ -476,15 +476,15 @@
                         setContentBlockerGreenSecondValue = true;
                         ContentBlockerGreenSecondValue = 0;
                         setContentBlockerHeightSecondValue = true;
-                        ContentBlockerHeightSecondValue = 100f;
+                        ContentBlockerHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            this.ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                         }
                         setContentBlockerRedSecondValue = true;
                         ContentBlockerRedSecondValue = 0;
                         setContentBlockerWidthSecondValue = true;
-                        ContentBlockerWidthSecondValue = 100f;
+                        ContentBlockerWidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.ContentBlocker.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
@@ -1342,7 +1342,7 @@
                             SetsValue = true,
                             Name = "ContentBlocker.Height",
                             Type = "float",
-                            Value = ContentBlocker.Height + 100f
+                            Value = ContentBlocker.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1366,7 +1366,7 @@
                             SetsValue = true,
                             Name = "ContentBlocker.Width",
                             Type = "float",
-                            Value = ContentBlocker.Width + 100f
+                            Value = ContentBlocker.Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

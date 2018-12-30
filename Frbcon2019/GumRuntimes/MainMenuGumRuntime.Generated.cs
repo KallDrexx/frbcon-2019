@@ -26,8 +26,8 @@
                     {
                         case  VariableState.Default:
                             ButtonInstance.LabelText = "Start";
-                            ButtonInstance.X = 175f;
-                            ButtonInstance.Y = 390f;
+                            ButtonInstance.X = 259f;
+                            ButtonInstance.Y = 380f;
                             TextInstance.Text = "FRB-Con 2019\n";
                             TextInstance.Width = 130f;
                             TextInstance.X = 0f;
@@ -77,9 +77,9 @@
                             this.ButtonInstance.LabelText = "Start";
                         }
                         setButtonInstanceXFirstValue = true;
-                        ButtonInstanceXFirstValue = 175f;
+                        ButtonInstanceXFirstValue = 259f;
                         setButtonInstanceYFirstValue = true;
-                        ButtonInstanceYFirstValue = 390f;
+                        ButtonInstanceYFirstValue = 380f;
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.Text = "FRB-Con 2019\n";
@@ -112,9 +112,9 @@
                             this.ButtonInstance.LabelText = "Start";
                         }
                         setButtonInstanceXSecondValue = true;
-                        ButtonInstanceXSecondValue = 175f;
+                        ButtonInstanceXSecondValue = 259f;
                         setButtonInstanceYSecondValue = true;
-                        ButtonInstanceYSecondValue = 390f;
+                        ButtonInstanceYSecondValue = 380f;
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.Text = "FRB-Con 2019\n";
@@ -342,7 +342,7 @@
                             SetsValue = true,
                             Name = "ButtonInstance.X",
                             Type = "float",
-                            Value = ButtonInstance.X + 175f
+                            Value = ButtonInstance.X + 259f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -350,7 +350,7 @@
                             SetsValue = true,
                             Name = "ButtonInstance.Y",
                             Type = "float",
-                            Value = ButtonInstance.Y + 390f
+                            Value = ButtonInstance.Y + 380f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

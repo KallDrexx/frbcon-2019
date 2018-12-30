@@ -24,6 +24,10 @@
     <Name>Button</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
+  <ComponentReference>
+    <Name>LifeIcon</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
   <StandardElementReference>
     <Name>Circle</Name>
     <ElementType>Standard</ElementType>
