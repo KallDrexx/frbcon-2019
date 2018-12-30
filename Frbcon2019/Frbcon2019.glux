@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlueProjectSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <In2D>true</In2D>
+  <RunFullscreen>false</RunFullscreen>
+  <SetResolution>false</SetResolution>
+  <ResolutionWidth>800</ResolutionWidth>
+  <ResolutionHeight>600</ResolutionHeight>
+  <SetOrthogonalResolution>false</SetOrthogonalResolution>
+  <OrthogonalWidth>800</OrthogonalWidth>
+  <OrthogonalHeight>600</OrthogonalHeight>
+  <Screens>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <Events>
+        <EventResponseSave>
+          <EventName>ButtonInstanceClick</EventName>
+          <SourceObject>ButtonInstance</SourceObject>
+          <SourceObjectEvent>Click</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+      </Events>
+      <Name>Screens\MainMenu</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/MainMenuGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MainMenuGum.gusx</SourceFile>
+          <SourceName>ButtonInstance (Frbcon2019.GumRuntimes.ButtonRuntime)</SourceName>
+          <InstanceName>ButtonInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <Events>
+        <EventResponseSave>
+          <EventName>ButtonInstanceClick</EventName>
+          <SourceObject>ButtonInstance</SourceObject>
+          <SourceObjectEvent>Click</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+      </Events>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InstructionsText</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Splash Text Showing Instructions</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InstructionsDurationInSeconds</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">3</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>GameTimeDurationInSeconds</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">5</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Screens\MiniGameBase</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/MiniGameBaseGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>TimerValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>TimerValue</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>Instructions (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>TextRuntime</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>ContentBlocker (Frbcon2019.GumRuntimes.ColoredRectangleRuntime)</SourceName>
+          <InstanceName>ContentBlocker</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>MinigameUI (Frbcon2019.GumRuntimes.ContainerRuntime)</SourceName>
+          <InstanceName>MinigameUI</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>InstructionsTimeLeftText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>InstructionsTimeLeftText</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>Instructions (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>InstructionsDisplayedText</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>GameTimeLeft (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>GameTimeLeft</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>ButtonInstance (Frbcon2019.GumRuntimes.ButtonRuntime)</SourceName>
+          <InstanceName>ButtonInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsUntilNextGameStarts</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">3</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Screens\Scoreboard</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/ScoreboardGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>LivesValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>LivesValue</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>ScoreValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>ScoreValue</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>TimerValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>TimerValue</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>FailText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>FailText</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>WinText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>WinText</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+  </Screens>
+  <Entities />
+  <GlobalFiles>
+    <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>FileAdditionBehavior</Name>
+          <ValueAsInt>1</ValueAsInt>
+        </PropertySave>
+        <PropertySave>
+          <Name>AutoCreateGumScreens</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+        <PropertySave>
+          <Name>ShowMouse</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Name>GumProject/CoreUIs.gumx</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <HasPublicProperty>true</HasPublicProperty>
+      <OpensWith>C:\tools\gum\Data\Gum.exe</OpensWith>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+  </GlobalFiles>
+  <GlobalContentSettingsSave>
+    <LoadAsynchronously>false</LoadAsynchronously>
+    <RecordLockContention>false</RecordLockContention>
+  </GlobalContentSettingsSave>
+  <SyncedProjects />
+  <StartUpScreen>Screens\MainMenu</StartUpScreen>
+  <ResolutionPresets />
+  <PerformanceSettingsSave>
+    <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
+    <RecordInitializeSegments>false</RecordInitializeSegments>
+  </PerformanceSettingsSave>
+  <IgnoredDirectories />
+  <CustomClasses />
+  <TranslatedFiles />
+  <ApplyToFixedResolutionPlatforms>true</ApplyToFixedResolutionPlatforms>
+  <ExternallyBuiltFileDirectory>../../</ExternallyBuiltFileDirectory>
+  <PluginData>
+    <RequiredPlugins />
+  </PluginData>
+  <DisplaySettings>
+    <Is2D>true</Is2D>
+    <GenerateDisplayCode>true</GenerateDisplayCode>
+    <ResolutionWidth>800</ResolutionWidth>
+    <ResolutionHeight>600</ResolutionHeight>
+    <FixedAspectRatio>false</FixedAspectRatio>
+    <AspectRatioWidth>16</AspectRatioWidth>
+    <AspectRatioHeight>9</AspectRatioHeight>
+    <SupportLandscape>true</SupportLandscape>
+    <SupportPortrait>false</SupportPortrait>
+    <RunInFullScreen>false</RunInFullScreen>
+    <AllowWindowResizing>false</AllowWindowResizing>
+    <Scale>100</Scale>
+    <ResizeBehavior>StretchVisibleArea</ResizeBehavior>
+    <DominantInternalCoordinates>Height</DominantInternalCoordinates>
+  </DisplaySettings>
+</GlueProjectSave>
