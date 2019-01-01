@@ -16,6 +16,50 @@
       <Source>GLUE</Source>
       <Events>
         <EventResponseSave>
+          <EventName>PlayAgainButtonClick</EventName>
+          <SourceObject>PlayAgainButton</SourceObject>
+          <SourceObjectEvent>Click</SourceObjectEvent>
+          <BeforeOrAfter>Before</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+      </Events>
+      <Name>Screens\GameOver</Name>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>GumProject/Screens/GameOverGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameOverGum.gusx</SourceFile>
+          <SourceName>FinalScoreValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>FinalScoreValue</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/GameOverGum.gusx</SourceFile>
+          <SourceName>PlayAgainButton (Frbcon2019.GumRuntimes.ButtonRuntime)</SourceName>
+          <InstanceName>PlayAgainButton</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <Events>
+        <EventResponseSave>
           <EventName>ButtonInstanceClick</EventName>
           <SourceObject>ButtonInstance</SourceObject>
           <SourceObjectEvent>Click</SourceObjectEvent>

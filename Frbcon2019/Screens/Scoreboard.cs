@@ -25,7 +25,7 @@ namespace Frbcon2019.Screens
 
 				if (GlobalData.GameplayData.LivesLeft <= 0)
 				{
-					MoveToScreen(typeof(MainMenu));
+					MoveToScreen(typeof(GameOver));
 					return;
 				}
 			}

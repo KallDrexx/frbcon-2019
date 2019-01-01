@@ -9,6 +9,10 @@
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
   <ScreenReference>
+    <Name>GameOverGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>MainMenuGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>

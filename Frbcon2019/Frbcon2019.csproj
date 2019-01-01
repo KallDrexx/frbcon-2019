@@ -52,6 +52,10 @@
     <Compile Include="GumRuntimes\CircleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ColoredRectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ContainerRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\GameOverGumRuntime.cs" />
+    <Compile Include="GumRuntimes\GameOverGumRuntime.Generated.cs">
+      <DependentUpon>GameOverGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\GumIdb.Generated.cs" />
     <Compile Include="GumRuntimes\LifeIconRuntime.cs" />
     <Compile Include="GumRuntimes\LifeIconRuntime.Generated.cs">
@@ -78,6 +82,16 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\GameOver.cs" />
+    <Compile Include="Screens\GameOver.Event.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameOver.Generated.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GameOver.Generated.Event.cs">
+      <DependentUpon>GameOver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\MainMenu.cs" />
     <Compile Include="Screens\MainMenu.Event.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -183,6 +197,10 @@
     <None Include="content\gumproject\medallist.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>medallist</Name>
+    </None>
+    <None Include="content\gumproject\screens\gameovergum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GameOverGum</Name>
     </None>
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
