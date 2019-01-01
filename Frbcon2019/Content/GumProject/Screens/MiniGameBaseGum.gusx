@@ -59,55 +59,55 @@
     </Variable>
     <Variable>
       <Type>ChildrenLayout</Type>
-      <Name>ContainerInstance.Children Layout</Name>
+      <Name>TimerDisplay.Children Layout</Name>
       <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ContainerInstance.Height</Name>
+      <Name>TimerDisplay.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>ContainerInstance.Height Units</Name>
+      <Name>TimerDisplay.Height Units</Name>
       <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>string</Type>
-      <Name>ContainerInstance.Parent</Name>
+      <Name>TimerDisplay.Parent</Name>
       <Value xsi:type="xsd:string">MinigameUI</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ContainerInstance.Width</Name>
+      <Name>TimerDisplay.Width</Name>
       <Value xsi:type="xsd:float">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>DimensionUnitType</Type>
-      <Name>ContainerInstance.Width Units</Name>
+      <Name>TimerDisplay.Width Units</Name>
       <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ContainerInstance.X</Name>
+      <Name>TimerDisplay.X</Name>
       <Value xsi:type="xsd:float">50</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
-      <Name>ContainerInstance.Y</Name>
+      <Name>TimerDisplay.Y</Name>
       <Value xsi:type="xsd:float">-25</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>PositionUnitType</Type>
-      <Name>ContainerInstance.Y Units</Name>
+      <Name>TimerDisplay.Y Units</Name>
       <Value xsi:type="xsd:int">5</Value>
       <SetsValue>true</SetsValue>
     </Variable>
@@ -142,6 +142,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>bool</Type>
+      <Name>ContentBlocker.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>ContentBlocker.Width</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -166,6 +172,11 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>GameStateState</Type>
+      <Name>GameStateState</Name>
+      <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>GameTimeLeft.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -174,7 +185,7 @@
     <Variable>
       <Type>string</Type>
       <Name>GameTimeLeft.Parent</Name>
-      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <Value xsi:type="xsd:string">TimerDisplay</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -265,6 +276,12 @@
       <Type>DimensionUnitType</Type>
       <Name>MinigameUI.Height Units</Name>
       <Value xsi:type="xsd:int">1</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>MinigameUI.Visible</Name>
+      <Value xsi:type="xsd:boolean">false</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -378,7 +395,7 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance1.Parent</Name>
-      <Value xsi:type="xsd:string">ContainerInstance</Value>
+      <Value xsi:type="xsd:string">TimerDisplay</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -395,6 +412,39 @@
       <SetsValue>true</SetsValue>
     </Variable>
   </State>
+  <Category>
+    <Name>GameState</Name>
+    <State>
+      <Name>InstructionScreen</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ContentBlocker.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MinigameUI.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+    <State>
+      <Name>GameActive</Name>
+      <Variable>
+        <Type>bool</Type>
+        <Name>ContentBlocker.Visible</Name>
+        <Value xsi:type="xsd:boolean">false</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+      <Variable>
+        <Type>bool</Type>
+        <Name>MinigameUI.Visible</Name>
+        <Value xsi:type="xsd:boolean">true</Value>
+        <SetsValue>true</SetsValue>
+      </Variable>
+    </State>
+  </Category>
   <Instance>
     <Name>ContentBlocker</Name>
     <BaseType>ColoredRectangle</BaseType>
@@ -436,7 +486,7 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
-    <Name>ContainerInstance</Name>
+    <Name>TimerDisplay</Name>
     <BaseType>Container</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>

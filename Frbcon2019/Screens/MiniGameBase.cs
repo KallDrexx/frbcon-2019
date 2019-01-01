@@ -1,5 +1,6 @@
 using System;
 using FlatRedBall;
+using Frbcon2019.GumRuntimes;
 
 namespace Frbcon2019.Screens
 {
@@ -15,9 +16,9 @@ namespace Frbcon2019.Screens
 			_instructionsTimeRemaining = TimeSpan.FromSeconds(InstructionsDurationInSeconds);
 			_gameTimeRemaining = TimeSpan.FromSeconds(GameTimeDurationInSeconds);
 			InstructionsTimeLeftText.Text = "Ready!";
-			MinigameUI.Visible = false;
 			InstructionsDisplayedText.Text = InstructionsText;
 			GameTimeLeft.Text = _gameTimeRemaining.Seconds.ToString();
+			MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.InstructionScreen.ToString());
 		}
 
 		void CustomActivity(bool firstTimeCalled)
@@ -51,9 +52,8 @@ namespace Frbcon2019.Screens
 
 				if (_instructionsTimeRemaining.TotalSeconds <= 0)
 				{
-					ContentBlocker.Visible = false;
-					MinigameUI.Visible = true;
 					_gameIsActive = true;
+					MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.GameActive.ToString());
 				}
 			}
 		}

@@ -8,9 +8,15 @@
             {
                 Default
             }
+            public enum GameState
+            {
+                InstructionScreen,
+                GameActive
+            }
             #endregion
             #region State Fields
             VariableState mCurrentVariableState;
+            GameState? mCurrentGameStateState;
             #endregion
             #region State Properties
             public VariableState CurrentVariableState
@@ -30,6 +36,7 @@
                             ContentBlocker.Height = 0f;
                             ContentBlocker.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             ContentBlocker.Red = 0;
+                            ContentBlocker.Visible = false;
                             ContentBlocker.Width = 0f;
                             ContentBlocker.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             ContentBlocker.X = 0f;
@@ -56,6 +63,7 @@
                             InstructionsTimeLeftText.Width = 0f;
                             MinigameUI.Height = 100f;
                             MinigameUI.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            MinigameUI.Visible = false;
                             MinigameUI.Width = 100f;
                             MinigameUI.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
@@ -63,20 +71,20 @@
                             TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TextInstance1.Height = 0f;
                             TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
-                            TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                             TextInstance1.Text = "Time Remaining:\n";
                             TextInstance1.Width = 0f;
-                            ContainerInstance.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                            ContainerInstance.Height = 0f;
-                            ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            ContainerInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                            ContainerInstance.Width = 0f;
-                            ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            ContainerInstance.X = 50f;
-                            ContainerInstance.Y = -25f;
-                            ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            TimerDisplay.Height = 0f;
+                            TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
+                            TimerDisplay.Width = 0f;
+                            TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            TimerDisplay.X = 50f;
+                            TimerDisplay.Y = -25f;
+                            TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                             GameTimeLeft.Height = 0f;
-                            GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                             GameTimeLeft.Width = 0f;
                             ButtonInstance.Blue = 255;
                             ButtonInstance.Green = 0;
@@ -88,6 +96,31 @@
                             ButtonInstance.X = 216f;
                             ButtonInstance.Y = 94f;
                             break;
+                    }
+                }
+            }
+            public GameState? CurrentGameStateState
+            {
+                get
+                {
+                    return mCurrentGameStateState;
+                }
+                set
+                {
+                    if (value != null)
+                    {
+                        mCurrentGameStateState = value;
+                        switch(mCurrentGameStateState)
+                        {
+                            case  GameState.InstructionScreen:
+                                ContentBlocker.Visible = true;
+                                MinigameUI.Visible = false;
+                                break;
+                            case  GameState.GameActive:
+                                ContentBlocker.Visible = false;
+                                MinigameUI.Visible = true;
+                                break;
+                        }
                     }
                 }
             }
@@ -129,22 +162,6 @@
                 bool setButtonInstanceYSecondValue = false;
                 float ButtonInstanceYFirstValue= 0;
                 float ButtonInstanceYSecondValue= 0;
-                bool setContainerInstanceHeightFirstValue = false;
-                bool setContainerInstanceHeightSecondValue = false;
-                float ContainerInstanceHeightFirstValue= 0;
-                float ContainerInstanceHeightSecondValue= 0;
-                bool setContainerInstanceWidthFirstValue = false;
-                bool setContainerInstanceWidthSecondValue = false;
-                float ContainerInstanceWidthFirstValue= 0;
-                float ContainerInstanceWidthSecondValue= 0;
-                bool setContainerInstanceXFirstValue = false;
-                bool setContainerInstanceXSecondValue = false;
-                float ContainerInstanceXFirstValue= 0;
-                float ContainerInstanceXSecondValue= 0;
-                bool setContainerInstanceYFirstValue = false;
-                bool setContainerInstanceYSecondValue = false;
-                float ContainerInstanceYFirstValue= 0;
-                float ContainerInstanceYSecondValue= 0;
                 bool setContentBlockerBlueFirstValue = false;
                 bool setContentBlockerBlueSecondValue = false;
                 int ContentBlockerBlueFirstValue= 0;
@@ -229,6 +246,22 @@
                 bool setTextInstance1WidthSecondValue = false;
                 float TextInstance1WidthFirstValue= 0;
                 float TextInstance1WidthSecondValue= 0;
+                bool setTimerDisplayHeightFirstValue = false;
+                bool setTimerDisplayHeightSecondValue = false;
+                float TimerDisplayHeightFirstValue= 0;
+                float TimerDisplayHeightSecondValue= 0;
+                bool setTimerDisplayWidthFirstValue = false;
+                bool setTimerDisplayWidthSecondValue = false;
+                float TimerDisplayWidthFirstValue= 0;
+                float TimerDisplayWidthSecondValue= 0;
+                bool setTimerDisplayXFirstValue = false;
+                bool setTimerDisplayXSecondValue = false;
+                float TimerDisplayXFirstValue= 0;
+                float TimerDisplayXSecondValue= 0;
+                bool setTimerDisplayYFirstValue = false;
+                bool setTimerDisplayYSecondValue = false;
+                float TimerDisplayYFirstValue= 0;
+                float TimerDisplayYSecondValue= 0;
                 switch(firstState)
                 {
                     case  VariableState.Default:
@@ -254,34 +287,6 @@
                         ButtonInstanceXFirstValue = 216f;
                         setButtonInstanceYFirstValue = true;
                         ButtonInstanceYFirstValue = 94f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ContainerInstance.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                        }
-                        setContainerInstanceHeightFirstValue = true;
-                        ContainerInstanceHeightFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ContainerInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        setContainerInstanceWidthFirstValue = true;
-                        ContainerInstanceWidthFirstValue = 0f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                        }
-                        setContainerInstanceXFirstValue = true;
-                        ContainerInstanceXFirstValue = 50f;
-                        setContainerInstanceYFirstValue = true;
-                        ContainerInstanceYFirstValue = -25f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
                         setContentBlockerBlueFirstValue = true;
                         ContentBlockerBlueFirstValue = 0;
                         setContentBlockerGreenFirstValue = true;
@@ -294,6 +299,10 @@
                         }
                         setContentBlockerRedFirstValue = true;
                         ContentBlockerRedFirstValue = 0;
+                        if (interpolationValue < 1)
+                        {
+                            this.ContentBlocker.Visible = false;
+                        }
                         setContentBlockerWidthFirstValue = true;
                         ContentBlockerWidthFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -308,7 +317,7 @@
                         GameTimeLeftHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
-                            this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                         }
                         setGameTimeLeftWidthFirstValue = true;
                         GameTimeLeftWidthFirstValue = 0f;
@@ -345,6 +354,10 @@
                         if (interpolationValue < 1)
                         {
                             this.MinigameUI.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MinigameUI.Visible = false;
                         }
                         setMinigameUIWidthFirstValue = true;
                         MinigameUIWidthFirstValue = 100f;
@@ -408,7 +421,7 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                         }
                         if (interpolationValue < 1)
                         {
@@ -416,6 +429,34 @@
                         }
                         setTextInstance1WidthFirstValue = true;
                         TextInstance1WidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setTimerDisplayHeightFirstValue = true;
+                        TimerDisplayHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
+                        }
+                        setTimerDisplayWidthFirstValue = true;
+                        TimerDisplayWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setTimerDisplayXFirstValue = true;
+                        TimerDisplayXFirstValue = 50f;
+                        setTimerDisplayYFirstValue = true;
+                        TimerDisplayYFirstValue = -25f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         break;
                 }
                 switch(secondState)
@@ -443,34 +484,6 @@
                         ButtonInstanceXSecondValue = 216f;
                         setButtonInstanceYSecondValue = true;
                         ButtonInstanceYSecondValue = 94f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ContainerInstance.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
-                        }
-                        setContainerInstanceHeightSecondValue = true;
-                        ContainerInstanceHeightSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ContainerInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ContainerInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        setContainerInstanceWidthSecondValue = true;
-                        ContainerInstanceWidthSecondValue = 0f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ContainerInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                        }
-                        setContainerInstanceXSecondValue = true;
-                        ContainerInstanceXSecondValue = 50f;
-                        setContainerInstanceYSecondValue = true;
-                        ContainerInstanceYSecondValue = -25f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ContainerInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
-                        }
                         setContentBlockerBlueSecondValue = true;
                         ContentBlockerBlueSecondValue = 0;
                         setContentBlockerGreenSecondValue = true;
@@ -483,6 +496,10 @@
                         }
                         setContentBlockerRedSecondValue = true;
                         ContentBlockerRedSecondValue = 0;
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContentBlocker.Visible = false;
+                        }
                         setContentBlockerWidthSecondValue = true;
                         ContentBlockerWidthSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -497,7 +514,7 @@
                         GameTimeLeftHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
-                            this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                         }
                         setGameTimeLeftWidthSecondValue = true;
                         GameTimeLeftWidthSecondValue = 0f;
@@ -534,6 +551,10 @@
                         if (interpolationValue >= 1)
                         {
                             this.MinigameUI.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MinigameUI.Visible = false;
                         }
                         setMinigameUIWidthSecondValue = true;
                         MinigameUIWidthSecondValue = 100f;
@@ -597,7 +618,7 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContainerInstance");
+                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                         }
                         if (interpolationValue >= 1)
                         {
@@ -605,6 +626,34 @@
                         }
                         setTextInstance1WidthSecondValue = true;
                         TextInstance1WidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setTimerDisplayHeightSecondValue = true;
+                        TimerDisplayHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
+                        }
+                        setTimerDisplayWidthSecondValue = true;
+                        TimerDisplayWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setTimerDisplayXSecondValue = true;
+                        TimerDisplayXSecondValue = 50f;
+                        setTimerDisplayYSecondValue = true;
+                        TimerDisplayYSecondValue = -25f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                        }
                         break;
                 }
                 if (setButtonInstanceBlueFirstValue && setButtonInstanceBlueSecondValue)
@@ -634,22 +683,6 @@
                 if (setButtonInstanceYFirstValue && setButtonInstanceYSecondValue)
                 {
                     ButtonInstance.Y = ButtonInstanceYFirstValue * (1 - interpolationValue) + ButtonInstanceYSecondValue * interpolationValue;
-                }
-                if (setContainerInstanceHeightFirstValue && setContainerInstanceHeightSecondValue)
-                {
-                    ContainerInstance.Height = ContainerInstanceHeightFirstValue * (1 - interpolationValue) + ContainerInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setContainerInstanceWidthFirstValue && setContainerInstanceWidthSecondValue)
-                {
-                    ContainerInstance.Width = ContainerInstanceWidthFirstValue * (1 - interpolationValue) + ContainerInstanceWidthSecondValue * interpolationValue;
-                }
-                if (setContainerInstanceXFirstValue && setContainerInstanceXSecondValue)
-                {
-                    ContainerInstance.X = ContainerInstanceXFirstValue * (1 - interpolationValue) + ContainerInstanceXSecondValue * interpolationValue;
-                }
-                if (setContainerInstanceYFirstValue && setContainerInstanceYSecondValue)
-                {
-                    ContainerInstance.Y = ContainerInstanceYFirstValue * (1 - interpolationValue) + ContainerInstanceYSecondValue * interpolationValue;
                 }
                 if (setContentBlockerBlueFirstValue && setContentBlockerBlueSecondValue)
                 {
@@ -735,6 +768,22 @@
                 {
                     TextInstance1.Width = TextInstance1WidthFirstValue * (1 - interpolationValue) + TextInstance1WidthSecondValue * interpolationValue;
                 }
+                if (setTimerDisplayHeightFirstValue && setTimerDisplayHeightSecondValue)
+                {
+                    TimerDisplay.Height = TimerDisplayHeightFirstValue * (1 - interpolationValue) + TimerDisplayHeightSecondValue * interpolationValue;
+                }
+                if (setTimerDisplayWidthFirstValue && setTimerDisplayWidthSecondValue)
+                {
+                    TimerDisplay.Width = TimerDisplayWidthFirstValue * (1 - interpolationValue) + TimerDisplayWidthSecondValue * interpolationValue;
+                }
+                if (setTimerDisplayXFirstValue && setTimerDisplayXSecondValue)
+                {
+                    TimerDisplay.X = TimerDisplayXFirstValue * (1 - interpolationValue) + TimerDisplayXSecondValue * interpolationValue;
+                }
+                if (setTimerDisplayYFirstValue && setTimerDisplayYSecondValue)
+                {
+                    TimerDisplay.Y = TimerDisplayYFirstValue * (1 - interpolationValue) + TimerDisplayYSecondValue * interpolationValue;
+                }
                 if (interpolationValue < 1)
                 {
                     mCurrentVariableState = firstState;
@@ -742,6 +791,69 @@
                 else
                 {
                     mCurrentVariableState = secondState;
+                }
+            }
+            public void InterpolateBetween (GameState firstState, GameState secondState, float interpolationValue) 
+            {
+                #if DEBUG
+                if (float.IsNaN(interpolationValue))
+                {
+                    throw new System.Exception("interpolationValue cannot be NaN");
+                }
+                #endif
+                switch(firstState)
+                {
+                    case  GameState.InstructionScreen:
+                        if (interpolationValue < 1)
+                        {
+                            this.ContentBlocker.Visible = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MinigameUI.Visible = false;
+                        }
+                        break;
+                    case  GameState.GameActive:
+                        if (interpolationValue < 1)
+                        {
+                            this.ContentBlocker.Visible = false;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.MinigameUI.Visible = true;
+                        }
+                        break;
+                }
+                switch(secondState)
+                {
+                    case  GameState.InstructionScreen:
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContentBlocker.Visible = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MinigameUI.Visible = false;
+                        }
+                        break;
+                    case  GameState.GameActive:
+                        if (interpolationValue >= 1)
+                        {
+                            this.ContentBlocker.Visible = false;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.MinigameUI.Visible = true;
+                        }
+                        break;
+                }
+                if (interpolationValue < 1)
+                {
+                    mCurrentGameStateState = firstState;
+                }
+                else
+                {
+                    mCurrentGameStateState = secondState;
                 }
             }
             #endregion
@@ -800,6 +912,60 @@
                 StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
                 return tweener;
             }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime.GameState fromState,Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime.GameState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null) 
+            {
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from:0, to:1, duration:(float)secondsToTake, type:interpolationType, easing:easing );
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(fromState, toState, newPosition);
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateTo (GameState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = this.ElementSave.Categories.First(item => item.Name == "GameState").States.First(item => item.Name == toState.ToString());
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentGameStateState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
+            public FlatRedBall.Glue.StateInterpolation.Tweener InterpolateToRelative (GameState toState, double secondsToTake, FlatRedBall.Glue.StateInterpolation.InterpolationType interpolationType, FlatRedBall.Glue.StateInterpolation.Easing easing, object owner = null ) 
+            {
+                Gum.DataTypes.Variables.StateSave current = GetCurrentValuesOnState(toState);
+                Gum.DataTypes.Variables.StateSave toAsStateSave = AddToCurrentValuesWithState(toState);
+                FlatRedBall.Glue.StateInterpolation.Tweener tweener = new FlatRedBall.Glue.StateInterpolation.Tweener(from: 0, to: 1, duration: (float)secondsToTake, type: interpolationType, easing: easing);
+                if (owner == null)
+                {
+                    tweener.Owner = this;
+                }
+                else
+                {
+                    tweener.Owner = owner;
+                }
+                tweener.PositionChanged = newPosition => this.InterpolateBetween(current, toAsStateSave, newPosition);
+                tweener.Ended += ()=> this.CurrentGameStateState = toState;
+                tweener.Start();
+                StateInterpolationPlugin.TweenerManager.Self.Add(tweener);
+                return tweener;
+            }
             #endregion
             #region State Animations
             #endregion
@@ -853,6 +1019,14 @@
                             Name = "ContentBlocker.Red",
                             Type = "int",
                             Value = ContentBlocker.Red
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1066,6 +1240,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MinigameUI.Width",
                             Type = "float",
                             Value = MinigameUI.Width
@@ -1146,73 +1328,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Children Layout",
+                            Name = "TimerDisplay.Children Layout",
                             Type = "ChildrenLayout",
-                            Value = ContainerInstance.ChildrenLayout
+                            Value = TimerDisplay.ChildrenLayout
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Height",
+                            Name = "TimerDisplay.Height",
                             Type = "float",
-                            Value = ContainerInstance.Height
+                            Value = TimerDisplay.Height
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Height Units",
+                            Name = "TimerDisplay.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ContainerInstance.HeightUnits
+                            Value = TimerDisplay.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Parent",
+                            Name = "TimerDisplay.Parent",
                             Type = "string",
-                            Value = ContainerInstance.Parent
+                            Value = TimerDisplay.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Width",
+                            Name = "TimerDisplay.Width",
                             Type = "float",
-                            Value = ContainerInstance.Width
+                            Value = TimerDisplay.Width
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Width Units",
+                            Name = "TimerDisplay.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ContainerInstance.WidthUnits
+                            Value = TimerDisplay.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.X",
+                            Name = "TimerDisplay.X",
                             Type = "float",
-                            Value = ContainerInstance.X
+                            Value = TimerDisplay.X
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Y",
+                            Name = "TimerDisplay.Y",
                             Type = "float",
-                            Value = ContainerInstance.Y
+                            Value = TimerDisplay.Y
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Y Units",
+                            Name = "TimerDisplay.Y Units",
                             Type = "PositionUnitType",
-                            Value = ContainerInstance.YUnits
+                            Value = TimerDisplay.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1359,6 +1541,14 @@
                             Name = "ContentBlocker.Red",
                             Type = "int",
                             Value = ContentBlocker.Red + 0
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1572,6 +1762,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "MinigameUI.Width",
                             Type = "float",
                             Value = MinigameUI.Width + 100f
@@ -1652,73 +1850,73 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Children Layout",
+                            Name = "TimerDisplay.Children Layout",
                             Type = "ChildrenLayout",
-                            Value = ContainerInstance.ChildrenLayout
+                            Value = TimerDisplay.ChildrenLayout
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Height",
+                            Name = "TimerDisplay.Height",
                             Type = "float",
-                            Value = ContainerInstance.Height + 0f
+                            Value = TimerDisplay.Height + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Height Units",
+                            Name = "TimerDisplay.Height Units",
                             Type = "DimensionUnitType",
-                            Value = ContainerInstance.HeightUnits
+                            Value = TimerDisplay.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Parent",
+                            Name = "TimerDisplay.Parent",
                             Type = "string",
-                            Value = ContainerInstance.Parent
+                            Value = TimerDisplay.Parent
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Width",
+                            Name = "TimerDisplay.Width",
                             Type = "float",
-                            Value = ContainerInstance.Width + 0f
+                            Value = TimerDisplay.Width + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Width Units",
+                            Name = "TimerDisplay.Width Units",
                             Type = "DimensionUnitType",
-                            Value = ContainerInstance.WidthUnits
+                            Value = TimerDisplay.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.X",
+                            Name = "TimerDisplay.X",
                             Type = "float",
-                            Value = ContainerInstance.X + 50f
+                            Value = TimerDisplay.X + 50f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Y",
+                            Name = "TimerDisplay.Y",
                             Type = "float",
-                            Value = ContainerInstance.Y + -25f
+                            Value = TimerDisplay.Y + -25f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "ContainerInstance.Y Units",
+                            Name = "TimerDisplay.Y Units",
                             Type = "PositionUnitType",
-                            Value = ContainerInstance.YUnits
+                            Value = TimerDisplay.YUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1821,6 +2019,94 @@
                 }
                 return newState;
             }
+            private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (GameState state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  GameState.InstructionScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        break;
+                    case  GameState.GameActive:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
+            private Gum.DataTypes.Variables.StateSave AddToCurrentValuesWithState (GameState state) 
+            {
+                Gum.DataTypes.Variables.StateSave newState = new Gum.DataTypes.Variables.StateSave();
+                switch(state)
+                {
+                    case  GameState.InstructionScreen:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        break;
+                    case  GameState.GameActive:
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "ContentBlocker.Visible",
+                            Type = "bool",
+                            Value = ContentBlocker.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "MinigameUI.Visible",
+                            Type = "bool",
+                            Value = MinigameUI.Visible
+                        }
+                        );
+                        break;
+                }
+                return newState;
+            }
             #endregion
             public override void ApplyState (Gum.DataTypes.Variables.StateSave state) 
             {
@@ -1831,6 +2117,11 @@
                     if (category == null)
                     {
                         if (state.Name == "Default") this.mCurrentVariableState = VariableState.Default;
+                    }
+                    else if (category.Name == "GameState")
+                    {
+                        if(state.Name == "InstructionScreen") this.mCurrentGameStateState = GameState.InstructionScreen;
+                        if(state.Name == "GameActive") this.mCurrentGameStateState = GameState.GameActive;
                     }
                 }
                 base.ApplyState(state);
@@ -1843,7 +2134,7 @@
             public Frbcon2019.GumRuntimes.ContainerRuntime MinigameUI { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TextInstance { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TextInstance1 { get; set; }
-            public Frbcon2019.GumRuntimes.ContainerRuntime ContainerInstance { get; set; }
+            public Frbcon2019.GumRuntimes.ContainerRuntime TimerDisplay { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime GameTimeLeft { get; set; }
             public Frbcon2019.GumRuntimes.ButtonRuntime ButtonInstance { get; set; }
             public string GameTimeLeftText
@@ -1927,7 +2218,7 @@
                 MinigameUI = this.GetGraphicalUiElementByName("MinigameUI") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 TextInstance = this.GetGraphicalUiElementByName("TextInstance") as Frbcon2019.GumRuntimes.TextRuntime;
                 TextInstance1 = this.GetGraphicalUiElementByName("TextInstance1") as Frbcon2019.GumRuntimes.TextRuntime;
-                ContainerInstance = this.GetGraphicalUiElementByName("ContainerInstance") as Frbcon2019.GumRuntimes.ContainerRuntime;
+                TimerDisplay = this.GetGraphicalUiElementByName("TimerDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 GameTimeLeft = this.GetGraphicalUiElementByName("GameTimeLeft") as Frbcon2019.GumRuntimes.TextRuntime;
                 ButtonInstance = this.GetGraphicalUiElementByName("ButtonInstance") as Frbcon2019.GumRuntimes.ButtonRuntime;
             }

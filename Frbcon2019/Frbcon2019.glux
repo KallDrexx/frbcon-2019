@@ -115,33 +115,6 @@
         <NamedObjectSave>
           <SourceType>File</SourceType>
           <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
-          <SourceName>Instructions (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
-          <InstanceName>TextRuntime</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <SourceType>File</SourceType>
-          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
-          <SourceName>ContentBlocker (Frbcon2019.GumRuntimes.ColoredRectangleRuntime)</SourceName>
-          <InstanceName>ContentBlocker</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <SourceType>File</SourceType>
-          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
-          <SourceName>MinigameUI (Frbcon2019.GumRuntimes.ContainerRuntime)</SourceName>
-          <InstanceName>MinigameUI</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <SourceType>File</SourceType>
-          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
           <SourceName>InstructionsTimeLeftText (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
           <InstanceName>InstructionsTimeLeftText</InstanceName>
           <AttachToContainer>true</AttachToContainer>
@@ -171,6 +144,15 @@
           <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
           <SourceName>ButtonInstance (Frbcon2019.GumRuntimes.ButtonRuntime)</SourceName>
           <InstanceName>ButtonInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/MiniGameBaseGum.gusx</SourceFile>
+          <SourceName>this (Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime)</SourceName>
+          <InstanceName>MiniGameBaseGumRuntime</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
