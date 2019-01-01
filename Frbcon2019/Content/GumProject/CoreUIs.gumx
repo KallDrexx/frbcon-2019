@@ -17,6 +17,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>MemoryGameGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>MiniGameBaseGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
@@ -30,6 +34,10 @@
   </ComponentReference>
   <ComponentReference>
     <Name>LifeIcon</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
+    <Name>PlayingCard</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>
   <StandardElementReference>

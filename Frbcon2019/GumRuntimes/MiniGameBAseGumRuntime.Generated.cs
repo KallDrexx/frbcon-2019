@@ -66,9 +66,6 @@
                             MinigameUI.Visible = false;
                             MinigameUI.Width = 100f;
                             MinigameUI.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                            TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                            TextInstance.Text = "Gameplay occurs here";
-                            TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             TextInstance1.Height = 0f;
                             TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
@@ -342,18 +339,6 @@
                         {
                             this.SplashContainer.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.Text = "Gameplay occurs here";
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
-                        }
                         setTextInstance1HeightFirstValue = true;
                         TextInstance1HeightFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -516,18 +501,6 @@
                         if (interpolationValue >= 1)
                         {
                             this.SplashContainer.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.Text = "Gameplay occurs here";
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         setTextInstance1HeightSecondValue = true;
                         TextInstance1HeightSecondValue = 0f;
@@ -1154,30 +1127,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Parent",
-                            Type = "string",
-                            Value = TextInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Text",
-                            Type = "string",
-                            Value = TextInstance.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = TextInstance.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance1.Height",
                             Type = "float",
                             Value = TextInstance1.Height
@@ -1604,30 +1553,6 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
-                            Name = "TextInstance.Parent",
-                            Type = "string",
-                            Value = TextInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Text",
-                            Type = "string",
-                            Value = TextInstance.Text
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "TextInstance.Width Units",
-                            Type = "DimensionUnitType",
-                            Value = TextInstance.WidthUnits
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
                             Name = "TextInstance1.Height",
                             Type = "float",
                             Value = TextInstance1.Height + 0f
@@ -1878,7 +1803,6 @@
             public Frbcon2019.GumRuntimes.ContainerRuntime Spacer { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime InstructionsTimeLeftText { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime MinigameUI { get; set; }
-            public Frbcon2019.GumRuntimes.TextRuntime TextInstance { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TextInstance1 { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime TimerDisplay { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime GameTimeLeft { get; set; }
@@ -1961,7 +1885,6 @@
                 Spacer = this.GetGraphicalUiElementByName("Spacer") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 InstructionsTimeLeftText = this.GetGraphicalUiElementByName("InstructionsTimeLeftText") as Frbcon2019.GumRuntimes.TextRuntime;
                 MinigameUI = this.GetGraphicalUiElementByName("MinigameUI") as Frbcon2019.GumRuntimes.ContainerRuntime;
-                TextInstance = this.GetGraphicalUiElementByName("TextInstance") as Frbcon2019.GumRuntimes.TextRuntime;
                 TextInstance1 = this.GetGraphicalUiElementByName("TextInstance1") as Frbcon2019.GumRuntimes.TextRuntime;
                 TimerDisplay = this.GetGraphicalUiElementByName("TimerDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 GameTimeLeft = this.GetGraphicalUiElementByName("GameTimeLeft") as Frbcon2019.GumRuntimes.TextRuntime;

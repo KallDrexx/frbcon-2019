@@ -41,7 +41,7 @@ namespace Frbcon2019.Screens
 
 			if (_timeLeft <= TimeSpan.Zero)
 			{
-				MoveToScreen(typeof(MiniGameBase));
+				MoveToScreen(typeof(MemoryGame));
 			}
 		}
 

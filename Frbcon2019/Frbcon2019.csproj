@@ -45,6 +45,7 @@
     <Compile Include="Gameplay\GameplayData.cs" />
     <Compile Include="Gameplay\GlobalData.cs" />
     <Compile Include="Gameplay\LastMinigameResult.cs" />
+    <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs">
@@ -66,11 +67,19 @@
     <Compile Include="GumRuntimes\MainMenuGumRuntime.Generated.cs">
       <DependentUpon>MainMenuGumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\MemoryGameGumRuntime.cs" />
+    <Compile Include="GumRuntimes\MemoryGameGumRuntime.Generated.cs">
+      <DependentUpon>MemoryGameGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\MiniGameBaseGumRuntime.cs" />
     <Compile Include="GumRuntimes\MiniGameBaseGumRuntime.Generated.cs">
       <DependentUpon>MiniGameBaseGumRuntime.cs</DependentUpon>
     </Compile>
     <Compile Include="GumRuntimes\NineSliceRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\PlayingCardRuntime.cs" />
+    <Compile Include="GumRuntimes\PlayingCardRuntime.Generated.cs">
+      <DependentUpon>PlayingCardRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\PolygonRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\RectangleRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ScoreboardGumRuntime.cs" />
@@ -102,6 +111,10 @@
     </Compile>
     <Compile Include="Screens\MainMenu.Generated.Event.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MemoryGame.cs" />
+    <Compile Include="Screens\MemoryGame.Generated.cs">
+      <DependentUpon>MemoryGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\MiniGameBase.cs" />
     <Compile Include="Screens\MiniGameBase.Event.cs">
@@ -164,6 +177,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>cancel</Name>
     </None>
+    <None Include="content\gumproject\cardback.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>cardback</Name>
+    </None>
     <None Include="content\gumproject\components\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>button</Name>
@@ -171,6 +188,10 @@
     <None Include="content\gumproject\components\lifeicon.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>lifeicon</Name>
+    </None>
+    <None Include="content\gumproject\components\playingcard.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>playingcard</Name>
     </None>
     <None Include="content\gumproject\coreuis.gumx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -196,6 +217,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>medallist</Name>
     </None>
+    <None Include="content\gumproject\modern_13x4x560x780.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>modern_13x4x560x780</Name>
+    </None>
     <None Include="content\gumproject\screens\gameovergum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>GameOverGum</Name>
@@ -203,6 +228,10 @@
     <None Include="content\gumproject\screens\mainmenugum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>MainMenuGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\memorygamegum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MemoryGameGum</Name>
     </None>
     <None Include="content\gumproject\screens\minigamebasegum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

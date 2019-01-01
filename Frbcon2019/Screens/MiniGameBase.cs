@@ -10,6 +10,25 @@ namespace Frbcon2019.Screens
 		private TimeSpan _instructionsTimeRemaining;
 		private TimeSpan _gameTimeRemaining;
 
+		protected bool GameIsActive => _gameIsActive;
+
+		protected void TriggerWinCondition()
+		{
+			GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Win;
+			MoveToScreen(typeof(Scoreboard));
+		}
+
+		protected void TriggerLoseCondition()
+		{
+			GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Loss;
+			MoveToScreen(typeof(Scoreboard));
+		}
+
+		protected DifficultyFactor CurrentDifficultyFactor()
+		{
+			return GlobalData.GameplayData.CurrentDifficultyFactor;
+		}
+
 		void CustomInitialize()
 		{
 			_gameIsActive = false;
@@ -19,6 +38,7 @@ namespace Frbcon2019.Screens
 			InstructionsDisplayedText.Text = InstructionsText;
 			GameTimeLeft.Text = _gameTimeRemaining.Seconds.ToString();
 			MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.InstructionScreen.ToString());
+			ContentBlocker.Z = 11;
 		}
 
 		void CustomActivity(bool firstTimeCalled)
@@ -64,23 +84,6 @@ namespace Frbcon2019.Screens
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-        }
-
-        protected void TriggerWinCondition()
-        {
-	        GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Win;
-	        MoveToScreen(typeof(Scoreboard));
-        }
-
-        protected void TriggerLoseCondition()
-        {
-	        GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Loss;
-	        MoveToScreen(typeof(Scoreboard));
-        }
-
-        protected DifficultyFactor CurrentDifficultyFactor()
-        {
-	        return GlobalData.GameplayData.CurrentDifficultyFactor;
         }
 	}
 }

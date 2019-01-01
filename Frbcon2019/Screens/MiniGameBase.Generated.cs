@@ -22,7 +22,19 @@ namespace Frbcon2019.Screens
         private Frbcon2019.GumRuntimes.TextRuntime GameTimeLeft;
         private Frbcon2019.GumRuntimes.ButtonRuntime ButtonInstance;
         private Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime MiniGameBaseGumRuntime;
-        public string InstructionsText = "Splash Text Showing Instructions";
+        private Frbcon2019.GumRuntimes.ColoredRectangleRuntime ContentBlocker;
+        string mInstructionsText = "Splash Text Showing Instructions";
+        public virtual string InstructionsText
+        {
+            set
+            {
+                mInstructionsText = value;
+            }
+            get
+            {
+                return mInstructionsText;
+            }
+        }
         public int InstructionsDurationInSeconds = 3;
         public int GameTimeDurationInSeconds = 5;
         public MiniGameBase () 
@@ -38,6 +50,7 @@ namespace Frbcon2019.Screens
             GameTimeLeft = MiniGameBaseGum.GetGraphicalUiElementByName("GameTimeLeft") as Frbcon2019.GumRuntimes.TextRuntime;
             ButtonInstance = MiniGameBaseGum.GetGraphicalUiElementByName("ButtonInstance") as Frbcon2019.GumRuntimes.ButtonRuntime;
             MiniGameBaseGumRuntime = MiniGameBaseGum.GetGraphicalUiElementByName("this") as Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime;
+            ContentBlocker = MiniGameBaseGum.GetGraphicalUiElementByName("ContentBlocker") as Frbcon2019.GumRuntimes.ColoredRectangleRuntime;
             
             
             PostInitialize();
@@ -99,6 +112,10 @@ namespace Frbcon2019.Screens
             {
                 MiniGameBaseGumRuntime.RemoveFromManagers();
             }
+            if (ContentBlocker != null)
+            {
+                ContentBlocker.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -138,6 +155,10 @@ namespace Frbcon2019.Screens
             if (MiniGameBaseGumRuntime != null)
             {
                 MiniGameBaseGumRuntime.RemoveFromManagers();
+            }
+            if (ContentBlocker != null)
+            {
+                ContentBlocker.RemoveFromManagers();
             }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
