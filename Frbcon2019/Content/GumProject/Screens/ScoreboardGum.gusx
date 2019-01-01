@@ -64,6 +64,72 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>ChildrenLayout</Type>
+      <Name>DifficultyDisplay.Children Layout</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DifficultyDisplay.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>DifficultyDisplay.Height Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>DifficultyDisplay.Parent</Name>
+      <Value xsi:type="xsd:string">Data</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DifficultyDisplay.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>DifficultyDisplay.Width Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DifficultyValue.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>DifficultyValue.Height Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>DifficultyValue.Parent</Name>
+      <Value xsi:type="xsd:string">DifficultyDisplay</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>DifficultyValue.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>DifficultyValue.Width Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>LastGameResult.X</Name>
       <Value xsi:type="xsd:float">360</Value>
@@ -305,6 +371,36 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>float</Type>
+      <Name>TextInstance1.Height</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>HorizontalAlignment</Type>
+      <Name>TextInstance1.HorizontalAlignment</Name>
+      <Value xsi:type="xsd:int">2</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TextInstance1.Parent</Name>
+      <Value xsi:type="xsd:string">DifficultyDisplay</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>string</Type>
+      <Name>TextInstance1.Text</Name>
+      <Value xsi:type="xsd:string">Difficulty:</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance1.Width</Name>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>ChildrenLayout</Type>
       <Name>TimerDisplay.Children Layout</Name>
       <Value xsi:type="xsd:int">2</Value>
@@ -317,6 +413,12 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TimerDisplay.Height Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>string</Type>
       <Name>TimerDisplay.Parent</Name>
       <Value xsi:type="xsd:string">Data</Value>
@@ -326,6 +428,12 @@
       <Type>float</Type>
       <Name>TimerDisplay.Width</Name>
       <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>DimensionUnitType</Type>
+      <Name>TimerDisplay.Width Units</Name>
+      <Value xsi:type="xsd:int">4</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -394,16 +502,9 @@
   <State>
     <Name>Win</Name>
     <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>ConditionDisplay.SourceFile</Name>
-      <Value xsi:type="xsd:string">medallist.png</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>int</Type>
-      <Name>ConditionDisplay.Red</Name>
-      <Value xsi:type="xsd:int">245</Value>
+      <Name>ConditionDisplay.Blue</Name>
+      <Value xsi:type="xsd:int">179</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -414,8 +515,15 @@
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ConditionDisplay.Blue</Name>
-      <Value xsi:type="xsd:int">179</Value>
+      <Name>ConditionDisplay.Red</Name>
+      <Value xsi:type="xsd:int">245</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>ConditionDisplay.SourceFile</Name>
+      <Value xsi:type="xsd:string">medallist.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <VariableList xsi:type="VariableListSaveOfString">
@@ -429,16 +537,9 @@
   <State>
     <Name>Lose</Name>
     <Variable>
-      <IsFile>true</IsFile>
-      <Type>string</Type>
-      <Name>ConditionDisplay.SourceFile</Name>
-      <Value xsi:type="xsd:string">dead-head.png</Value>
-      <SetsValue>true</SetsValue>
-    </Variable>
-    <Variable>
       <Type>int</Type>
-      <Name>ConditionDisplay.Red</Name>
-      <Value xsi:type="xsd:int">255</Value>
+      <Name>ConditionDisplay.Blue</Name>
+      <Value xsi:type="xsd:int">0</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -449,8 +550,15 @@
     </Variable>
     <Variable>
       <Type>int</Type>
-      <Name>ConditionDisplay.Blue</Name>
-      <Value xsi:type="xsd:int">0</Value>
+      <Name>ConditionDisplay.Red</Name>
+      <Value xsi:type="xsd:int">255</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>ConditionDisplay.SourceFile</Name>
+      <Value xsi:type="xsd:string">dead-head.png</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <VariableList xsi:type="VariableListSaveOfString">
@@ -497,6 +605,11 @@
     <DefinedByBase>false</DefinedByBase>
   </Instance>
   <Instance>
+    <Name>DifficultyDisplay</Name>
+    <BaseType>Container</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
     <Name>TimerDisplay</Name>
     <BaseType>Container</BaseType>
     <DefinedByBase>false</DefinedByBase>
@@ -524,6 +637,16 @@
   <Instance>
     <Name>ConditionDisplay</Name>
     <BaseType>Sprite</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>TextInstance1</Name>
+    <BaseType>Text</BaseType>
+    <DefinedByBase>false</DefinedByBase>
+  </Instance>
+  <Instance>
+    <Name>DifficultyValue</Name>
+    <BaseType>Text</BaseType>
     <DefinedByBase>false</DefinedByBase>
   </Instance>
 </ScreenSave>

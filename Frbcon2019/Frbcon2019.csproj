@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay\DifficultyFactor.cs" />
     <Compile Include="Gameplay\GameplayData.cs" />
     <Compile Include="Gameplay\GlobalData.cs" />
     <Compile Include="Gameplay\LastMinigameResult.cs" />
@@ -107,9 +108,6 @@
       <DependentUpon>MiniGameBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\MiniGameBase.Generated.cs">
-      <DependentUpon>MiniGameBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\MiniGameBase.Generated.Event.cs">
       <DependentUpon>MiniGameBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Scoreboard.cs" />

@@ -86,15 +86,6 @@
                             GameTimeLeft.Height = 0f;
                             GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
                             GameTimeLeft.Width = 0f;
-                            ButtonInstance.Blue = 255;
-                            ButtonInstance.Green = 0;
-                            ButtonInstance.Height = 109f;
-                            ButtonInstance.LabelText = "Press Me";
-                            ButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                            ButtonInstance.Red = 0;
-                            ButtonInstance.Width = 274f;
-                            ButtonInstance.X = 216f;
-                            ButtonInstance.Y = 94f;
                             break;
                     }
                 }
@@ -134,34 +125,6 @@
                     throw new System.Exception("interpolationValue cannot be NaN");
                 }
                 #endif
-                bool setButtonInstanceBlueFirstValue = false;
-                bool setButtonInstanceBlueSecondValue = false;
-                int ButtonInstanceBlueFirstValue= 0;
-                int ButtonInstanceBlueSecondValue= 0;
-                bool setButtonInstanceGreenFirstValue = false;
-                bool setButtonInstanceGreenSecondValue = false;
-                int ButtonInstanceGreenFirstValue= 0;
-                int ButtonInstanceGreenSecondValue= 0;
-                bool setButtonInstanceHeightFirstValue = false;
-                bool setButtonInstanceHeightSecondValue = false;
-                float ButtonInstanceHeightFirstValue= 0;
-                float ButtonInstanceHeightSecondValue= 0;
-                bool setButtonInstanceRedFirstValue = false;
-                bool setButtonInstanceRedSecondValue = false;
-                int ButtonInstanceRedFirstValue= 0;
-                int ButtonInstanceRedSecondValue= 0;
-                bool setButtonInstanceWidthFirstValue = false;
-                bool setButtonInstanceWidthSecondValue = false;
-                float ButtonInstanceWidthFirstValue= 0;
-                float ButtonInstanceWidthSecondValue= 0;
-                bool setButtonInstanceXFirstValue = false;
-                bool setButtonInstanceXSecondValue = false;
-                float ButtonInstanceXFirstValue= 0;
-                float ButtonInstanceXSecondValue= 0;
-                bool setButtonInstanceYFirstValue = false;
-                bool setButtonInstanceYSecondValue = false;
-                float ButtonInstanceYFirstValue= 0;
-                float ButtonInstanceYSecondValue= 0;
                 bool setContentBlockerBlueFirstValue = false;
                 bool setContentBlockerBlueSecondValue = false;
                 int ContentBlockerBlueFirstValue= 0;
@@ -265,28 +228,6 @@
                 switch(firstState)
                 {
                     case  VariableState.Default:
-                        setButtonInstanceBlueFirstValue = true;
-                        ButtonInstanceBlueFirstValue = 255;
-                        setButtonInstanceGreenFirstValue = true;
-                        ButtonInstanceGreenFirstValue = 0;
-                        setButtonInstanceHeightFirstValue = true;
-                        ButtonInstanceHeightFirstValue = 109f;
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonInstance.LabelText = "Press Me";
-                        }
-                        if (interpolationValue < 1)
-                        {
-                            this.ButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        setButtonInstanceRedFirstValue = true;
-                        ButtonInstanceRedFirstValue = 0;
-                        setButtonInstanceWidthFirstValue = true;
-                        ButtonInstanceWidthFirstValue = 274f;
-                        setButtonInstanceXFirstValue = true;
-                        ButtonInstanceXFirstValue = 216f;
-                        setButtonInstanceYFirstValue = true;
-                        ButtonInstanceYFirstValue = 94f;
                         setContentBlockerBlueFirstValue = true;
                         ContentBlockerBlueFirstValue = 0;
                         setContentBlockerGreenFirstValue = true;
@@ -462,28 +403,6 @@
                 switch(secondState)
                 {
                     case  VariableState.Default:
-                        setButtonInstanceBlueSecondValue = true;
-                        ButtonInstanceBlueSecondValue = 255;
-                        setButtonInstanceGreenSecondValue = true;
-                        ButtonInstanceGreenSecondValue = 0;
-                        setButtonInstanceHeightSecondValue = true;
-                        ButtonInstanceHeightSecondValue = 109f;
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonInstance.LabelText = "Press Me";
-                        }
-                        if (interpolationValue >= 1)
-                        {
-                            this.ButtonInstance.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "MinigameUI");
-                        }
-                        setButtonInstanceRedSecondValue = true;
-                        ButtonInstanceRedSecondValue = 0;
-                        setButtonInstanceWidthSecondValue = true;
-                        ButtonInstanceWidthSecondValue = 274f;
-                        setButtonInstanceXSecondValue = true;
-                        ButtonInstanceXSecondValue = 216f;
-                        setButtonInstanceYSecondValue = true;
-                        ButtonInstanceYSecondValue = 94f;
                         setContentBlockerBlueSecondValue = true;
                         ContentBlockerBlueSecondValue = 0;
                         setContentBlockerGreenSecondValue = true;
@@ -655,34 +574,6 @@
                             this.TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
                         }
                         break;
-                }
-                if (setButtonInstanceBlueFirstValue && setButtonInstanceBlueSecondValue)
-                {
-                    ButtonInstance.Blue = FlatRedBall.Math.MathFunctions.RoundToInt(ButtonInstanceBlueFirstValue* (1 - interpolationValue) + ButtonInstanceBlueSecondValue * interpolationValue);
-                }
-                if (setButtonInstanceGreenFirstValue && setButtonInstanceGreenSecondValue)
-                {
-                    ButtonInstance.Green = FlatRedBall.Math.MathFunctions.RoundToInt(ButtonInstanceGreenFirstValue* (1 - interpolationValue) + ButtonInstanceGreenSecondValue * interpolationValue);
-                }
-                if (setButtonInstanceHeightFirstValue && setButtonInstanceHeightSecondValue)
-                {
-                    ButtonInstance.Height = ButtonInstanceHeightFirstValue * (1 - interpolationValue) + ButtonInstanceHeightSecondValue * interpolationValue;
-                }
-                if (setButtonInstanceRedFirstValue && setButtonInstanceRedSecondValue)
-                {
-                    ButtonInstance.Red = FlatRedBall.Math.MathFunctions.RoundToInt(ButtonInstanceRedFirstValue* (1 - interpolationValue) + ButtonInstanceRedSecondValue * interpolationValue);
-                }
-                if (setButtonInstanceWidthFirstValue && setButtonInstanceWidthSecondValue)
-                {
-                    ButtonInstance.Width = ButtonInstanceWidthFirstValue * (1 - interpolationValue) + ButtonInstanceWidthSecondValue * interpolationValue;
-                }
-                if (setButtonInstanceXFirstValue && setButtonInstanceXSecondValue)
-                {
-                    ButtonInstance.X = ButtonInstanceXFirstValue * (1 - interpolationValue) + ButtonInstanceXSecondValue * interpolationValue;
-                }
-                if (setButtonInstanceYFirstValue && setButtonInstanceYSecondValue)
-                {
-                    ButtonInstance.Y = ButtonInstanceYFirstValue * (1 - interpolationValue) + ButtonInstanceYSecondValue * interpolationValue;
                 }
                 if (setContentBlockerBlueFirstValue && setContentBlockerBlueSecondValue)
                 {
@@ -972,7 +863,6 @@
             public override void StopAnimations () 
             {
                 base.StopAnimations();
-                ButtonInstance.StopAnimations();
             }
             #region Get Current Values on State
             private Gum.DataTypes.Variables.StateSave GetCurrentValuesOnState (VariableState state) 
@@ -1419,78 +1309,6 @@
                             Name = "GameTimeLeft.Width",
                             Type = "float",
                             Value = GameTimeLeft.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Blue",
-                            Type = "int",
-                            Value = ButtonInstance.Blue
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Green",
-                            Type = "int",
-                            Value = ButtonInstance.Green
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Height",
-                            Type = "float",
-                            Value = ButtonInstance.Height
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.LabelText",
-                            Type = "string",
-                            Value = ButtonInstance.LabelText
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Parent",
-                            Type = "string",
-                            Value = ButtonInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Red",
-                            Type = "int",
-                            Value = ButtonInstance.Red
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Width",
-                            Type = "float",
-                            Value = ButtonInstance.Width
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.X",
-                            Type = "float",
-                            Value = ButtonInstance.X
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Y",
-                            Type = "float",
-                            Value = ButtonInstance.Y
                         }
                         );
                         break;
@@ -1943,78 +1761,6 @@
                             Value = GameTimeLeft.Width + 0f
                         }
                         );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Blue",
-                            Type = "int",
-                            Value = ButtonInstance.Blue + 255
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Green",
-                            Type = "int",
-                            Value = ButtonInstance.Green + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Height",
-                            Type = "float",
-                            Value = ButtonInstance.Height + 109f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.LabelText",
-                            Type = "string",
-                            Value = ButtonInstance.LabelText
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Parent",
-                            Type = "string",
-                            Value = ButtonInstance.Parent
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Red",
-                            Type = "int",
-                            Value = ButtonInstance.Red + 0
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Width",
-                            Type = "float",
-                            Value = ButtonInstance.Width + 274f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.X",
-                            Type = "float",
-                            Value = ButtonInstance.X + 216f
-                        }
-                        );
-                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
-                        {
-                            SetsValue = true,
-                            Name = "ButtonInstance.Y",
-                            Type = "float",
-                            Value = ButtonInstance.Y + 94f
-                        }
-                        );
                         break;
                 }
                 return newState;
@@ -2136,7 +1882,6 @@
             public Frbcon2019.GumRuntimes.TextRuntime TextInstance1 { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime TimerDisplay { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime GameTimeLeft { get; set; }
-            public Frbcon2019.GumRuntimes.ButtonRuntime ButtonInstance { get; set; }
             public string GameTimeLeftText
             {
                 get
@@ -2220,7 +1965,6 @@
                 TextInstance1 = this.GetGraphicalUiElementByName("TextInstance1") as Frbcon2019.GumRuntimes.TextRuntime;
                 TimerDisplay = this.GetGraphicalUiElementByName("TimerDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 GameTimeLeft = this.GetGraphicalUiElementByName("GameTimeLeft") as Frbcon2019.GumRuntimes.TextRuntime;
-                ButtonInstance = this.GetGraphicalUiElementByName("ButtonInstance") as Frbcon2019.GumRuntimes.ButtonRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

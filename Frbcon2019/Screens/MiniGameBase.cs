@@ -60,15 +60,27 @@ namespace Frbcon2019.Screens
 
 		void CustomDestroy()
 		{
-
-
 		}
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
-
-
         }
 
+        protected void TriggerWinCondition()
+        {
+	        GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Win;
+	        MoveToScreen(typeof(Scoreboard));
+        }
+
+        protected void TriggerLoseCondition()
+        {
+	        GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Loss;
+	        MoveToScreen(typeof(Scoreboard));
+        }
+
+        protected DifficultyFactor CurrentDifficultyFactor()
+        {
+	        return GlobalData.GameplayData.CurrentDifficultyFactor;
+        }
 	}
 }

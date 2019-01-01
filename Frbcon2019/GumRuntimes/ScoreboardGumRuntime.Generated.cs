@@ -65,10 +65,18 @@
                             Data.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             Data.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             Data.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            DifficultyDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                            DifficultyDisplay.Height = 0f;
+                            DifficultyDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            DifficultyDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
+                            DifficultyDisplay.Width = 0f;
+                            DifficultyDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             TimerDisplay.Height = 0f;
+                            TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
                             TimerDisplay.Width = 0f;
+                            TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             TimerLabel.Height = 0f;
                             TimerLabel.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
                             TimerLabel.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
@@ -88,6 +96,16 @@
                             ConditionDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             ConditionDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "LastGameResult");
                             ConditionDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            TextInstance1.Height = 0f;
+                            TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                            TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                            TextInstance1.Text = "Difficulty:";
+                            TextInstance1.Width = 0f;
+                            DifficultyValue.Height = 0f;
+                            DifficultyValue.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            DifficultyValue.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                            DifficultyValue.Width = 0f;
+                            DifficultyValue.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             break;
                         case  VariableState.Win:
                             ConditionDisplay.Blue = 179;
@@ -122,6 +140,22 @@
                 bool setDataWidthSecondValue = false;
                 float DataWidthFirstValue= 0;
                 float DataWidthSecondValue= 0;
+                bool setDifficultyDisplayHeightFirstValue = false;
+                bool setDifficultyDisplayHeightSecondValue = false;
+                float DifficultyDisplayHeightFirstValue= 0;
+                float DifficultyDisplayHeightSecondValue= 0;
+                bool setDifficultyDisplayWidthFirstValue = false;
+                bool setDifficultyDisplayWidthSecondValue = false;
+                float DifficultyDisplayWidthFirstValue= 0;
+                float DifficultyDisplayWidthSecondValue= 0;
+                bool setDifficultyValueHeightFirstValue = false;
+                bool setDifficultyValueHeightSecondValue = false;
+                float DifficultyValueHeightFirstValue= 0;
+                float DifficultyValueHeightSecondValue= 0;
+                bool setDifficultyValueWidthFirstValue = false;
+                bool setDifficultyValueWidthSecondValue = false;
+                float DifficultyValueWidthFirstValue= 0;
+                float DifficultyValueWidthSecondValue= 0;
                 bool setLastGameResultXFirstValue = false;
                 bool setLastGameResultXSecondValue = false;
                 float LastGameResultXFirstValue= 0;
@@ -190,6 +224,14 @@
                 bool setTextInstanceWidthSecondValue = false;
                 float TextInstanceWidthFirstValue= 0;
                 float TextInstanceWidthSecondValue= 0;
+                bool setTextInstance1HeightFirstValue = false;
+                bool setTextInstance1HeightSecondValue = false;
+                float TextInstance1HeightFirstValue= 0;
+                float TextInstance1HeightSecondValue= 0;
+                bool setTextInstance1WidthFirstValue = false;
+                bool setTextInstance1WidthSecondValue = false;
+                float TextInstance1WidthFirstValue= 0;
+                float TextInstance1WidthSecondValue= 0;
                 bool setTimerDisplayHeightFirstValue = false;
                 bool setTimerDisplayHeightSecondValue = false;
                 float TimerDisplayHeightFirstValue= 0;
@@ -264,6 +306,42 @@
                         if (interpolationValue < 1)
                         {
                             this.Data.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setDifficultyDisplayHeightFirstValue = true;
+                        DifficultyDisplayHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
+                        }
+                        setDifficultyDisplayWidthFirstValue = true;
+                        DifficultyDisplayWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setDifficultyValueHeightFirstValue = true;
+                        DifficultyValueHeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyValue.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyValue.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                        }
+                        setDifficultyValueWidthFirstValue = true;
+                        DifficultyValueWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.DifficultyValue.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setLastGameResultXFirstValue = true;
                         LastGameResultXFirstValue = 360f;
@@ -383,6 +461,22 @@
                         }
                         setTextInstanceWidthFirstValue = true;
                         TextInstanceWidthFirstValue = 0f;
+                        setTextInstance1HeightFirstValue = true;
+                        TextInstance1HeightFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance1.Text = "Difficulty:";
+                        }
+                        setTextInstance1WidthFirstValue = true;
+                        TextInstance1WidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -391,10 +485,18 @@
                         TimerDisplayHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
+                            this.TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
                         }
                         setTimerDisplayWidthFirstValue = true;
                         TimerDisplayWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
                         setTimerLabelHeightFirstValue = true;
                         TimerLabelHeightFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -487,6 +589,42 @@
                         if (interpolationValue >= 1)
                         {
                             this.Data.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
+                        }
+                        setDifficultyDisplayHeightSecondValue = true;
+                        DifficultyDisplayHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
+                        }
+                        setDifficultyDisplayWidthSecondValue = true;
+                        DifficultyDisplayWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setDifficultyValueHeightSecondValue = true;
+                        DifficultyValueHeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyValue.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyValue.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                        }
+                        setDifficultyValueWidthSecondValue = true;
+                        DifficultyValueWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.DifficultyValue.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
                         setLastGameResultXSecondValue = true;
                         LastGameResultXSecondValue = 360f;
@@ -606,6 +744,22 @@
                         }
                         setTextInstanceWidthSecondValue = true;
                         TextInstanceWidthSecondValue = 0f;
+                        setTextInstance1HeightSecondValue = true;
+                        TextInstance1HeightSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Right;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "DifficultyDisplay");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance1.Text = "Difficulty:";
+                        }
+                        setTextInstance1WidthSecondValue = true;
+                        TextInstance1WidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
@@ -614,10 +768,18 @@
                         TimerDisplayHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
+                            this.TimerDisplay.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.TimerDisplay.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "Data");
                         }
                         setTimerDisplayWidthSecondValue = true;
                         TimerDisplayWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
                         setTimerLabelHeightSecondValue = true;
                         TimerLabelHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -679,6 +841,22 @@
                 if (setDataWidthFirstValue && setDataWidthSecondValue)
                 {
                     Data.Width = DataWidthFirstValue * (1 - interpolationValue) + DataWidthSecondValue * interpolationValue;
+                }
+                if (setDifficultyDisplayHeightFirstValue && setDifficultyDisplayHeightSecondValue)
+                {
+                    DifficultyDisplay.Height = DifficultyDisplayHeightFirstValue * (1 - interpolationValue) + DifficultyDisplayHeightSecondValue * interpolationValue;
+                }
+                if (setDifficultyDisplayWidthFirstValue && setDifficultyDisplayWidthSecondValue)
+                {
+                    DifficultyDisplay.Width = DifficultyDisplayWidthFirstValue * (1 - interpolationValue) + DifficultyDisplayWidthSecondValue * interpolationValue;
+                }
+                if (setDifficultyValueHeightFirstValue && setDifficultyValueHeightSecondValue)
+                {
+                    DifficultyValue.Height = DifficultyValueHeightFirstValue * (1 - interpolationValue) + DifficultyValueHeightSecondValue * interpolationValue;
+                }
+                if (setDifficultyValueWidthFirstValue && setDifficultyValueWidthSecondValue)
+                {
+                    DifficultyValue.Width = DifficultyValueWidthFirstValue * (1 - interpolationValue) + DifficultyValueWidthSecondValue * interpolationValue;
                 }
                 if (setLastGameResultXFirstValue && setLastGameResultXSecondValue)
                 {
@@ -747,6 +925,14 @@
                 if (setTextInstanceWidthFirstValue && setTextInstanceWidthSecondValue)
                 {
                     TextInstance.Width = TextInstanceWidthFirstValue * (1 - interpolationValue) + TextInstanceWidthSecondValue * interpolationValue;
+                }
+                if (setTextInstance1HeightFirstValue && setTextInstance1HeightSecondValue)
+                {
+                    TextInstance1.Height = TextInstance1HeightFirstValue * (1 - interpolationValue) + TextInstance1HeightSecondValue * interpolationValue;
+                }
+                if (setTextInstance1WidthFirstValue && setTextInstance1WidthSecondValue)
+                {
+                    TextInstance1.Width = TextInstance1WidthFirstValue * (1 - interpolationValue) + TextInstance1WidthSecondValue * interpolationValue;
                 }
                 if (setTimerDisplayHeightFirstValue && setTimerDisplayHeightSecondValue)
                 {
@@ -1170,6 +1356,54 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "DifficultyDisplay.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = DifficultyDisplay.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Height",
+                            Type = "float",
+                            Value = DifficultyDisplay.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Parent",
+                            Type = "string",
+                            Value = DifficultyDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Width",
+                            Type = "float",
+                            Value = DifficultyDisplay.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimerDisplay.Children Layout",
                             Type = "ChildrenLayout",
                             Value = TimerDisplay.ChildrenLayout
@@ -1186,6 +1420,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimerDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimerDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimerDisplay.Parent",
                             Type = "string",
                             Value = TimerDisplay.Parent
@@ -1197,6 +1439,14 @@
                             Name = "TimerDisplay.Width",
                             Type = "float",
                             Value = TimerDisplay.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimerDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = TimerDisplay.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1349,6 +1599,86 @@
                             Name = "ConditionDisplay.Width Units",
                             Type = "DimensionUnitType",
                             Value = ConditionDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Height",
+                            Type = "float",
+                            Value = TextInstance1.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TextInstance1.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Parent",
+                            Type = "string",
+                            Value = TextInstance1.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Text",
+                            Type = "string",
+                            Value = TextInstance1.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Width",
+                            Type = "float",
+                            Value = TextInstance1.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Height",
+                            Type = "float",
+                            Value = DifficultyValue.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyValue.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Parent",
+                            Type = "string",
+                            Value = DifficultyValue.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Width",
+                            Type = "float",
+                            Value = DifficultyValue.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyValue.WidthUnits
                         }
                         );
                         break;
@@ -1736,6 +2066,54 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "DifficultyDisplay.Children Layout",
+                            Type = "ChildrenLayout",
+                            Value = DifficultyDisplay.ChildrenLayout
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Height",
+                            Type = "float",
+                            Value = DifficultyDisplay.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Parent",
+                            Type = "string",
+                            Value = DifficultyDisplay.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Width",
+                            Type = "float",
+                            Value = DifficultyDisplay.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyDisplay.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimerDisplay.Children Layout",
                             Type = "ChildrenLayout",
                             Value = TimerDisplay.ChildrenLayout
@@ -1752,6 +2130,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimerDisplay.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TimerDisplay.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimerDisplay.Parent",
                             Type = "string",
                             Value = TimerDisplay.Parent
@@ -1763,6 +2149,14 @@
                             Name = "TimerDisplay.Width",
                             Type = "float",
                             Value = TimerDisplay.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimerDisplay.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = TimerDisplay.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1917,6 +2311,86 @@
                             Value = ConditionDisplay.WidthUnits
                         }
                         );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Height",
+                            Type = "float",
+                            Value = TextInstance1.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.HorizontalAlignment",
+                            Type = "HorizontalAlignment",
+                            Value = TextInstance1.HorizontalAlignment
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Parent",
+                            Type = "string",
+                            Value = TextInstance1.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Text",
+                            Type = "string",
+                            Value = TextInstance1.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Width",
+                            Type = "float",
+                            Value = TextInstance1.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Height",
+                            Type = "float",
+                            Value = DifficultyValue.Height + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyValue.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Parent",
+                            Type = "string",
+                            Value = DifficultyValue.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Width",
+                            Type = "float",
+                            Value = DifficultyValue.Width + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "DifficultyValue.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = DifficultyValue.WidthUnits
+                        }
+                        );
                         break;
                     case  VariableState.Win:
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -2012,12 +2486,15 @@
             public Frbcon2019.GumRuntimes.TextRuntime ScoreLabel { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime ScoreValue { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime Data { get; set; }
+            public Frbcon2019.GumRuntimes.ContainerRuntime DifficultyDisplay { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime TimerDisplay { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TimerLabel { get; set; }
             public Frbcon2019.GumRuntimes.TextRuntime TimerValue { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime LivesContainer { get; set; }
             public Frbcon2019.GumRuntimes.ContainerRuntime LastGameResult { get; set; }
             public Frbcon2019.GumRuntimes.SpriteRuntime ConditionDisplay { get; set; }
+            public Frbcon2019.GumRuntimes.TextRuntime TextInstance1 { get; set; }
+            public Frbcon2019.GumRuntimes.TextRuntime DifficultyValue { get; set; }
             public string LivesValueText
             {
                 get
@@ -2098,12 +2575,15 @@
                 ScoreLabel = this.GetGraphicalUiElementByName("ScoreLabel") as Frbcon2019.GumRuntimes.TextRuntime;
                 ScoreValue = this.GetGraphicalUiElementByName("ScoreValue") as Frbcon2019.GumRuntimes.TextRuntime;
                 Data = this.GetGraphicalUiElementByName("Data") as Frbcon2019.GumRuntimes.ContainerRuntime;
+                DifficultyDisplay = this.GetGraphicalUiElementByName("DifficultyDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 TimerDisplay = this.GetGraphicalUiElementByName("TimerDisplay") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 TimerLabel = this.GetGraphicalUiElementByName("TimerLabel") as Frbcon2019.GumRuntimes.TextRuntime;
                 TimerValue = this.GetGraphicalUiElementByName("TimerValue") as Frbcon2019.GumRuntimes.TextRuntime;
                 LivesContainer = this.GetGraphicalUiElementByName("LivesContainer") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 LastGameResult = this.GetGraphicalUiElementByName("LastGameResult") as Frbcon2019.GumRuntimes.ContainerRuntime;
                 ConditionDisplay = this.GetGraphicalUiElementByName("ConditionDisplay") as Frbcon2019.GumRuntimes.SpriteRuntime;
+                TextInstance1 = this.GetGraphicalUiElementByName("TextInstance1") as Frbcon2019.GumRuntimes.TextRuntime;
+                DifficultyValue = this.GetGraphicalUiElementByName("DifficultyValue") as Frbcon2019.GumRuntimes.TextRuntime;
             }
             public override void AddToManagers (RenderingLibrary.SystemManagers managers, RenderingLibrary.Graphics.Layer layer) 
             {

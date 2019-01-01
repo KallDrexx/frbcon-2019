@@ -21,7 +21,9 @@ namespace Frbcon2019.Screens
         private Frbcon2019.GumRuntimes.TextRuntime TimerValue;
         private Frbcon2019.GumRuntimes.ContainerRuntime LivesContainer;
         private Frbcon2019.GumRuntimes.ScoreboardGumRuntime ScoreboardGumRuntime;
+        private Frbcon2019.GumRuntimes.TextRuntime DifficultyValue;
         public int SecondsUntilNextGameStarts = 3;
+        public int NumberOfGamesBeforeDifficultyIncrease = 3;
         public Scoreboard () 
         	: base ("Scoreboard")
         {
@@ -34,6 +36,7 @@ namespace Frbcon2019.Screens
             TimerValue = ScoreboardGum.GetGraphicalUiElementByName("TimerValue") as Frbcon2019.GumRuntimes.TextRuntime;
             LivesContainer = ScoreboardGum.GetGraphicalUiElementByName("LivesContainer") as Frbcon2019.GumRuntimes.ContainerRuntime;
             ScoreboardGumRuntime = ScoreboardGum.GetGraphicalUiElementByName("this") as Frbcon2019.GumRuntimes.ScoreboardGumRuntime;
+            DifficultyValue = ScoreboardGum.GetGraphicalUiElementByName("DifficultyValue") as Frbcon2019.GumRuntimes.TextRuntime;
             
             
             PostInitialize();
@@ -91,6 +94,10 @@ namespace Frbcon2019.Screens
             {
                 ScoreboardGumRuntime.RemoveFromManagers();
             }
+            if (DifficultyValue != null)
+            {
+                DifficultyValue.RemoveFromManagers();
+            }
             FlatRedBall.Math.Collision.CollisionManager.Self.Relationships.Clear();
             CustomDestroy();
         }
@@ -127,6 +134,10 @@ namespace Frbcon2019.Screens
             {
                 ScoreboardGumRuntime.RemoveFromManagers();
             }
+            if (DifficultyValue != null)
+            {
+                DifficultyValue.RemoveFromManagers();
+            }
         }
         public virtual void AssignCustomVariables (bool callOnContainedElements) 
         {
@@ -134,6 +145,7 @@ namespace Frbcon2019.Screens
             {
             }
             SecondsUntilNextGameStarts = 3;
+            NumberOfGamesBeforeDifficultyIncrease = 3;
         }
         public virtual void ConvertToManuallyUpdated () 
         {

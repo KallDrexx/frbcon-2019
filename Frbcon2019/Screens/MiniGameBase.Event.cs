@@ -13,8 +13,7 @@ namespace Frbcon2019.Screens
     {
         void OnButtonInstanceClick (FlatRedBall.Gui.IWindow window)
         {
-            GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Win;
-            MoveToScreen(typeof(Scoreboard));
+
         }
     }
 }

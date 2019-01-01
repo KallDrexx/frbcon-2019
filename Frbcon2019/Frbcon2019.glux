@@ -93,15 +93,6 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
-      <Events>
-        <EventResponseSave>
-          <EventName>ButtonInstanceClick</EventName>
-          <SourceObject>ButtonInstance</SourceObject>
-          <SourceObjectEvent>Click</SourceObjectEvent>
-          <BeforeOrAfter>Before</BeforeOrAfter>
-          <DelegateType />
-        </EventResponseSave>
-      </Events>
       <CustomVariables>
         <CustomVariable>
           <Properties>
@@ -220,6 +211,17 @@
           <Type>int</Type>
           <DefaultValue xsi:type="xsd:int">3</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>NumberOfGamesBeforeDifficultyIncrease</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">3</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\Scoreboard</Name>
       <ReferencedFiles>
@@ -272,6 +274,15 @@
           <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
           <SourceName>this (Frbcon2019.GumRuntimes.ScoreboardGumRuntime)</SourceName>
           <InstanceName>ScoreboardGumRuntime</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GumProject/Screens/ScoreboardGum.gusx</SourceFile>
+          <SourceName>DifficultyValue (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>DifficultyValue</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>

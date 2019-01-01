@@ -25,7 +25,6 @@ namespace Frbcon2019.Screens
         public string InstructionsText = "Splash Text Showing Instructions";
         public int InstructionsDurationInSeconds = 3;
         public int GameTimeDurationInSeconds = 5;
-        public event FlatRedBall.Gui.WindowEvent ButtonInstanceClick;
         public MiniGameBase () 
         	: base ("MiniGameBase")
         {
@@ -107,8 +106,6 @@ namespace Frbcon2019.Screens
         {
             bool oldShapeManagerSuppressAdd = FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = true;
-            ButtonInstance.Click += OnButtonInstanceClick;
-            ButtonInstance.Click += OnButtonInstanceClickTunnel;
             FlatRedBall.Math.Geometry.ShapeManager.SuppressAddingOnVisibilityTrue = oldShapeManagerSuppressAdd;
         }
         public virtual void AddToManagersBottomUp () 

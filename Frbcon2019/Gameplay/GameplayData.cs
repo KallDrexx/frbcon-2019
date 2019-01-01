@@ -6,6 +6,8 @@ namespace Frbcon2019
         public int LivesLeft { get; set; }
         public int MaxLives { get; set; }
         public LastMinigameResult LastMinigameResult { get; set; }
+        public DifficultyFactor CurrentDifficultyFactor { get; set; }
+        public int GamesPlayed { get; set; }
 
         public void Reset()
         {
@@ -13,6 +15,8 @@ namespace Frbcon2019
             CurrentScore = 0;
             MaxLives = 3; // TODO: Move this to configuration somewhere
             LivesLeft = MaxLives;
+            CurrentDifficultyFactor = DifficultyFactor.Easy;
+            GamesPlayed = 0;
         }
     }
 }
