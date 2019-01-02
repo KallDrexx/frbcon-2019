@@ -17,6 +17,7 @@ namespace Frbcon2019.Screens
         protected static FlatRedBall.Gum.GumIdb MemoryGameGum;
         
         private Frbcon2019.GumRuntimes.ContainerRuntime CardContainer;
+        public System.Double SecondsUntilCardsTurnBackOver = 0.5;
         public MemoryGame () 
         	: base ()
         {
@@ -89,6 +90,7 @@ namespace Frbcon2019.Screens
             {
             }
             InstructionsText = "Select Cards With The Same Value";
+            SecondsUntilCardsTurnBackOver = 0.5;
         }
         public override void ConvertToManuallyUpdated () 
         {

@@ -107,6 +107,17 @@
           <DefaultValue xsi:type="xsd:string">Select Cards With The Same Value</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsUntilCardsTurnBackOver</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0.5</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\MemoryGame</Name>
       <ReferencedFiles>

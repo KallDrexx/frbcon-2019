@@ -24,10 +24,7 @@ namespace Frbcon2019.Screens
 			MoveToScreen(typeof(Scoreboard));
 		}
 
-		protected DifficultyFactor CurrentDifficultyFactor()
-		{
-			return GlobalData.GameplayData.CurrentDifficultyFactor;
-		}
+		protected DifficultyFactor CurrentDifficultyFactor => GlobalData.GameplayData.CurrentDifficultyFactor;
 
 		void CustomInitialize()
 		{
