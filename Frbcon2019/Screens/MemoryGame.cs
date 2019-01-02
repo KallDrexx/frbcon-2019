@@ -13,6 +13,7 @@ namespace Frbcon2019.Screens
 		private readonly List<PlayingCardRuntime> _cardsTurningBackOver = new List<PlayingCardRuntime>();
 		private readonly Dictionary<int, int> _pickedCardValueCount = new Dictionary<int, int>();
 		private double _timeSinceFlipBegan;
+		private double _timewhenWon;
 
 		void CustomInitialize()
 		{
@@ -21,7 +22,15 @@ namespace Frbcon2019.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-			if (_cardsTurningBackOver.Any() && PauseAdjustedSecondsSince(_timeSinceFlipBegan) > SecondsUntilCardsTurnBackOver)
+			if (_timewhenWon > 0 && PauseAdjustedSecondsSince(_timewhenWon) > SecondsToWaitOnceWon)
+			{
+				TriggerWinCondition();
+				return;
+			}
+
+			if (_cardsTurningBackOver.Any() &&
+			    _timewhenWon == 0 &&
+			    PauseAdjustedSecondsSince(_timeSinceFlipBegan) > SecondsUntilCardsTurnBackOver)
 			{
 				foreach (var card in _cardsTurningBackOver)
 				{
@@ -49,6 +58,12 @@ namespace Frbcon2019.Screens
 
         private void HandleCardClicked(PlayingCardRuntime clickedCard)
         {
+	        if (_timewhenWon > 0)
+	        {
+		        // We already won so just wait for timer to run out
+		        return;
+	        }
+
 	        if (_pickedCards.Contains(clickedCard))
 	        {
 		        return;
@@ -63,8 +78,7 @@ namespace Frbcon2019.Screens
 	        {
 		        if (_pickedCardValueCount.Any(x => x.Value >= 2))
 		        {
-			        TriggerWinCondition();
-			        return;
+			        _timewhenWon = PauseAdjustedCurrentTime;
 		        }
 
 		        _pickedCardValueCount.Clear();

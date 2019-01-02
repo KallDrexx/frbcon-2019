@@ -118,6 +118,17 @@
           <Type>double</Type>
           <DefaultValue xsi:type="xsd:double">0.5</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SecondsToWaitOnceWon</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">1</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\MemoryGame</Name>
       <ReferencedFiles>
