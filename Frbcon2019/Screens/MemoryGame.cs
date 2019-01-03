@@ -58,6 +58,11 @@ namespace Frbcon2019.Screens
 
         private void HandleCardClicked(PlayingCardRuntime clickedCard)
         {
+	        if (!GameIsActive)
+	        {
+		        return;
+	        }
+
 	        if (_timewhenWon > 0)
 	        {
 		        // We already won so just wait for timer to run out

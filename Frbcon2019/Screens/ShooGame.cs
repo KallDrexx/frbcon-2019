@@ -19,6 +19,11 @@ namespace Frbcon2019.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+			if (!GameIsActive)
+			{
+				return;
+			}
+
 			var cursorX = GuiManager.Cursor.WorldXAt(0);
 			var cursorY = GuiManager.Cursor.WorldYAt(0);
 

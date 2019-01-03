@@ -25,6 +25,7 @@ namespace Frbcon2019.Screens
 		}
 
 		protected DifficultyFactor CurrentDifficultyFactor => GlobalData.GameplayData.CurrentDifficultyFactor;
+		protected bool IsInGame => _gameIsActive;
 
 		void CustomInitialize()
 		{
