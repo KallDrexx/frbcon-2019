@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Specialized;
 using FlatRedBall.Audio;
 using FlatRedBall.Screens;
+using Frbcon2019.Entities.ShooGame;
 using Frbcon2019.Screens;
 namespace Frbcon2019.Screens
 {

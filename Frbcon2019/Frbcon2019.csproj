@@ -39,6 +39,14 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Entities\ShooGame\Broom.cs" />
+    <Compile Include="Entities\ShooGame\Broom.Generated.cs">
+      <DependentUpon>Broom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ShooGame\Mouse.cs" />
+    <Compile Include="Entities\ShooGame\Mouse.Generated.cs">
+      <DependentUpon>Mouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\DifficultyFactor.cs" />
@@ -86,6 +94,10 @@
     <Compile Include="GumRuntimes\ScoreboardGumRuntime.Generated.cs">
       <DependentUpon>ScoreboardGumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\ShooGameGumRuntime.cs" />
+    <Compile Include="GumRuntimes\ShooGameGumRuntime.Generated.cs">
+      <DependentUpon>ShooGameGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
@@ -127,6 +139,10 @@
     <Compile Include="Screens\Scoreboard.Generated.cs">
       <DependentUpon>Scoreboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\ShooGame.cs" />
+    <Compile Include="Screens\ShooGame.Generated.cs">
+      <DependentUpon>ShooGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +181,18 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\entities\shoogame\broom\broom2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>broom2</Name>
+    </None>
+    <None Include="content\entities\shoogame\mouse\mouseanimation.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>MouseAnimation</Name>
+    </None>
+    <None Include="content\entities\shoogame\mouse\rat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>rat</Name>
+    </None>
     <None Include="content\globalcontent\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>cancel</Name>
@@ -240,6 +268,10 @@
     <None Include="content\gumproject\screens\scoreboardgum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ScoreboardGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\shoogamegum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>ShooGameGum</Name>
     </None>
     <None Include="content\gumproject\standards\circle.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

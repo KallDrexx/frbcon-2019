@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using FlatRedBall;
 using Frbcon2019.GumRuntimes;
 
@@ -7,7 +9,19 @@ namespace Frbcon2019.Screens
 {
 	public partial class Scoreboard
 	{
+		private static readonly Type[] AvailableMiniGames;
+		private static readonly Random Random = new Random();
+
 		private TimeSpan _timeLeft;
+
+		static Scoreboard()
+		{
+			AvailableMiniGames = Assembly.GetExecutingAssembly()
+				.GetTypes()
+				.Where(x => typeof(MiniGameBase).IsAssignableFrom(x))
+				.Where(x => x != typeof(MiniGameBase))
+				.ToArray();
+		}
 
 		void CustomInitialize()
 		{
@@ -41,7 +55,24 @@ namespace Frbcon2019.Screens
 
 			if (_timeLeft <= TimeSpan.Zero)
 			{
-				MoveToScreen(typeof(MemoryGame));
+				if (!string.IsNullOrWhiteSpace(ForcedMinigameType))
+				{
+					MoveToScreen(ForcedMinigameType);
+				}
+				else
+				{
+					while (true)
+					{
+						var index = Random.Next(0, AvailableMiniGames.Length);
+						var nextGameType = AvailableMiniGames[index];
+						if (AvailableMiniGames.Length > 1 && nextGameType != GlobalData.GameplayData.LastMiniGameTypePlayed)
+						{
+							GlobalData.GameplayData.LastMiniGameTypePlayed = nextGameType;
+							MoveToScreen(AvailableMiniGames[index]);
+							break;
+						}
+					}
+				}
 			}
 		}
 

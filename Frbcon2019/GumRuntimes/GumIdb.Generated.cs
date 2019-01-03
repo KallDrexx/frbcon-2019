@@ -20,6 +20,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MemoryGameGum", typeof(Frbcon2019.GumRuntimes.MemoryGameGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MiniGameBaseGum", typeof(Frbcon2019.GumRuntimes.MiniGameBaseGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ScoreboardGum", typeof(Frbcon2019.GumRuntimes.ScoreboardGumRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("ShooGameGum", typeof(Frbcon2019.GumRuntimes.ShooGameGumRuntime));
             }
         }
     }

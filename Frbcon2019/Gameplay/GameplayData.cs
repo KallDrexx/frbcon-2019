@@ -1,3 +1,5 @@
+using System;
+
 namespace Frbcon2019
 {
     public class GameplayData
@@ -8,6 +10,7 @@ namespace Frbcon2019
         public LastMinigameResult LastMinigameResult { get; set; }
         public DifficultyFactor CurrentDifficultyFactor { get; set; }
         public int GamesPlayed { get; set; }
+        public Type LastMiniGameTypePlayed { get; set; }
 
         public void Reset()
         {
@@ -17,6 +20,7 @@ namespace Frbcon2019
             LivesLeft = MaxLives;
             CurrentDifficultyFactor = DifficultyFactor.Easy;
             GamesPlayed = 0;
+            LastMiniGameTypePlayed = null;
         }
     }
 }
