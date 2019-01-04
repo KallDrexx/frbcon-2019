@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -39,6 +39,9 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Entities\ShooGame\Broom.cs" />
     <Compile Include="Entities\ShooGame\Broom.Generated.cs">
       <DependentUpon>Broom.cs</DependentUpon>
@@ -47,6 +50,23 @@
     <Compile Include="Entities\ShooGame\Mouse.Generated.cs">
       <DependentUpon>Mouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\SpaceInvaders\Alien.cs" />
+    <Compile Include="Entities\SpaceInvaders\Alien.Generated.cs">
+      <DependentUpon>Alien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SpaceInvaders\Bullet.cs" />
+    <Compile Include="Entities\SpaceInvaders\Bullet.Generated.cs">
+      <DependentUpon>Bullet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SpaceInvaders\GuardRail.cs" />
+    <Compile Include="Entities\SpaceInvaders\GuardRail.Generated.cs">
+      <DependentUpon>GuardRail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\SpaceInvaders\PlayerShip.cs" />
+    <Compile Include="Entities\SpaceInvaders\PlayerShip.Generated.cs">
+      <DependentUpon>PlayerShip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\DifficultyFactor.cs" />
@@ -98,6 +118,10 @@
     <Compile Include="GumRuntimes\ShooGameGumRuntime.Generated.cs">
       <DependentUpon>ShooGameGumRuntime.cs</DependentUpon>
     </Compile>
+    <Compile Include="GumRuntimes\SpaceInvadersGumRuntime.cs" />
+    <Compile Include="GumRuntimes\SpaceInvadersGumRuntime.Generated.cs">
+      <DependentUpon>SpaceInvadersGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\SpriteRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\TextRuntime.Generated.cs" />
     <Compile Include="Performance\IEntityFactory.Generated.cs" />
@@ -142,6 +166,10 @@
     <Compile Include="Screens\ShooGame.cs" />
     <Compile Include="Screens\ShooGame.Generated.cs">
       <DependentUpon>ShooGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SpaceInvaders.cs" />
+    <Compile Include="Screens\SpaceInvaders.Generated.cs">
+      <DependentUpon>SpaceInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
   </ItemGroup>
@@ -192,6 +220,18 @@
     <None Include="content\entities\shoogame\mouse\rat.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>rat</Name>
+    </None>
+    <None Include="content\entities\spaceinvaders\alien\aliensprite.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>aliensprite</Name>
+    </None>
+    <None Include="content\entities\spaceinvaders\bullet\shells.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>shells</Name>
+    </None>
+    <None Include="content\entities\spaceinvaders\playership\spaceship_tut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Spaceship_tut</Name>
     </None>
     <None Include="content\globalcontent\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -272,6 +312,10 @@
     <None Include="content\gumproject\screens\shoogamegum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>ShooGameGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\spaceinvadersgum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>SpaceInvadersGum</Name>
     </None>
     <None Include="content\gumproject\standards\circle.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

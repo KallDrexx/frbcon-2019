@@ -93,6 +93,7 @@ namespace Frbcon2019.Screens
             InstructionsText = "Select Cards With The Same Value";
             SecondsUntilCardsTurnBackOver = 0.5;
             SecondsToWaitOnceWon = 1;
+            GameTimeDurationInSeconds = 5;
         }
         public override void ConvertToManuallyUpdated () 
         {
