@@ -7,8 +7,8 @@ namespace Frbcon2019.Screens
 	public partial class MiniGameBase
 	{
 		private bool _gameIsActive;
-		private TimeSpan _instructionsTimeRemaining;
-		private TimeSpan _gameTimeRemaining;
+		private double _instructionsStartedAt;
+		private double _gameStartedAt;
 
 		protected bool GameIsActive => _gameIsActive;
 
@@ -35,11 +35,10 @@ namespace Frbcon2019.Screens
 		void CustomInitialize()
 		{
 			_gameIsActive = false;
-			_instructionsTimeRemaining = TimeSpan.FromSeconds(InstructionsDurationInSeconds);
-			_gameTimeRemaining = TimeSpan.FromSeconds(GameTimeDurationInSeconds);
+			_instructionsStartedAt = PauseAdjustedCurrentTime;
 			InstructionsTimeLeftText.Text = "Ready!";
 			InstructionsDisplayedText.Text = InstructionsText;
-			GameTimeLeft.Text = _gameTimeRemaining.Seconds.ToString();
+			GameTimeLeft.Text = GameTimeDurationInSeconds.ToString();
 			MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.InstructionScreen.ToString());
 			ContentBlocker.Z = 11;
 		}
@@ -48,9 +47,9 @@ namespace Frbcon2019.Screens
 		{
 			if (_gameIsActive)
 			{
-				_gameTimeRemaining -= TimeSpan.FromSeconds(TimeManager.SecondDifference);
-				GameTimeLeft.Text = _gameTimeRemaining.Seconds.ToString();
-				if (_gameTimeRemaining <= TimeSpan.Zero)
+				var secondsRemaining = GameTimeDurationInSeconds - PauseAdjustedSecondsSince(_gameStartedAt);
+				GameTimeLeft.Text = ((int) secondsRemaining).ToString();
+				if (secondsRemaining <= 0)
 				{
 					GlobalData.GameplayData.LastMinigameResult = LastMinigameResult.Loss;
 					MoveToScreen(typeof(Scoreboard));
@@ -58,13 +57,13 @@ namespace Frbcon2019.Screens
 			}
 			else
 			{
-				_instructionsTimeRemaining -= TimeSpan.FromSeconds(TimeManager.SecondDifference);
+				var secondsRemaining = InstructionsDurationInSeconds - PauseAdjustedSecondsSince(_instructionsStartedAt);
 				var oneThirdTime = (double) InstructionsDurationInSeconds / 3;
-				if (oneThirdTime * 2 < _instructionsTimeRemaining.TotalSeconds)
+				if (oneThirdTime * 2 < secondsRemaining)
 				{
 					InstructionsTimeLeftText.Text = "Ready!";
 				}
-				else if (oneThirdTime <= _instructionsTimeRemaining.TotalSeconds)
+				else if (oneThirdTime <= secondsRemaining)
 				{
 					InstructionsTimeLeftText.Text = "Set!";
 				}
@@ -73,9 +72,10 @@ namespace Frbcon2019.Screens
 					InstructionsTimeLeftText.Text = "Go!";
 				}
 
-				if (_instructionsTimeRemaining.TotalSeconds <= 0)
+				if (secondsRemaining <= 0)
 				{
 					_gameIsActive = true;
+					_gameStartedAt = PauseAdjustedCurrentTime;
 					MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.GameActive.ToString());
 					GameStarted();
 				}
