@@ -42,6 +42,19 @@
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BeefBall\Ball.cs" />
+    <Compile Include="Entities\BeefBall\Ball.Generated.cs">
+      <DependentUpon>Ball.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BeefBall\Goal.cs" />
+    <Compile Include="Entities\BeefBall\Goal.Generated.cs">
+      <DependentUpon>Goal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BeefBall\Paddle.cs" />
+    <Compile Include="Entities\BeefBall\Paddle.Generated.cs">
+      <DependentUpon>Paddle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\ShooGame\Broom.cs" />
     <Compile Include="Entities\ShooGame\Broom.Generated.cs">
       <DependentUpon>Broom.cs</DependentUpon>
@@ -75,6 +88,8 @@
     <Compile Include="Gameplay\LastMinigameResult.cs" />
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.cs" />
+    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs">
       <DependentUpon>ButtonRuntime.cs</DependentUpon>
@@ -128,6 +143,10 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\BeefBallGame.cs" />
+    <Compile Include="Screens\BeefBallGame.Generated.cs">
+      <DependentUpon>BeefBallGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\GameOver.cs" />
     <Compile Include="Screens\GameOver.Event.cs">
       <DependentUpon>GameOver.cs</DependentUpon>
@@ -172,6 +191,31 @@
       <DependentUpon>SpaceInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollidableVsTileShapeCollectionRelationship.cs" />
+    <Compile Include="TileCollisions\CollisionManagerTileShapeCollectionExtensions.cs" />
+    <Compile Include="TileCollisions\TileShapeCollection.cs" />
+    <Compile Include="TileEntities\TileEntityInstantiator.cs" />
+    <Compile Include="TileGraphics\AbstractMapLayer.cs" />
+    <Compile Include="TileGraphics\AnimationChainContainer.cs" />
+    <Compile Include="TileGraphics\ExternalTileset.cs" />
+    <Compile Include="TileGraphics\LayeredTileMap.cs" />
+    <Compile Include="TileGraphics\LayeredTileMapAnimation.cs" />
+    <Compile Include="TileGraphics\MapDrawableBatch.cs" />
+    <Compile Include="TileGraphics\MapLayer.cs" />
+    <Compile Include="TileGraphics\MapTileset.cs" />
+    <Compile Include="TileGraphics\MapTilesetTile.cs" />
+    <Compile Include="TileGraphics\NamedValue.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs" />
+    <Compile Include="TileGraphics\TileAnimation.cs" />
+    <Compile Include="TileGraphics\TileAnimationFrame.cs" />
+    <Compile Include="TileGraphics\TiledMapSave.Conversion.cs" />
+    <Compile Include="TileGraphics\TiledMapSave.Serialization.cs" />
+    <Compile Include="TileGraphics\TiledMapToShapeCollectionConverter.cs" />
+    <Compile Include="TileGraphics\TileNodeNetworkCreator.cs" />
+    <Compile Include="TileGraphics\Tileset.cs" />
+    <Compile Include="TileGraphics\TilesetExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FlatRedBall.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -288,6 +332,10 @@
     <None Include="content\gumproject\modern_13x4x560x780.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>modern_13x4x560x780</Name>
+    </None>
+    <None Include="content\gumproject\screens\beefballgamegum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BeefBallGameGum</Name>
     </None>
     <None Include="content\gumproject\screens\gameovergum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

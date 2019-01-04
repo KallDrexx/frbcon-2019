@@ -47,11 +47,11 @@ namespace Frbcon2019
             
             FlatRedBall.Gum.GumIdb.StaticInitialize("content/gumproject/coreuis.gumx"); FlatRedBall.Gum.GumIdbExtensions.RegisterTypes();  FlatRedBall.Gui.GuiManager.BringsClickedWindowsToFront = false;FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += (not, used) => { FlatRedBall.Gum.GumIdb.UpdateDisplayToMainFrbCamera(); };Gum.Wireframe.GraphicalUiElement.ShowLineRectangles = false;
             			IsInitialized = true;
+            // Added by GumPlugin becasue of the Show Mouse checkbox on the .gumx:
+            FlatRedBall.FlatRedBallServices.Game.IsMouseVisible = true;
             #if DEBUG && WINDOWS
             InitializeFileWatch();
             #endif
-            // Added by GumPlugin becasue of the Show Mouse checkbox on the .gumx:
-            FlatRedBall.FlatRedBallServices.Game.IsMouseVisible = true;
         }
         public static void Reload (object whatToReload) 
         {
