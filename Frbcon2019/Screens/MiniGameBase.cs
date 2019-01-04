@@ -24,6 +24,11 @@ namespace Frbcon2019.Screens
 			MoveToScreen(typeof(Scoreboard));
 		}
 
+		protected virtual void GameStarted()
+		{
+
+		}
+
 		protected DifficultyFactor CurrentDifficultyFactor => GlobalData.GameplayData.CurrentDifficultyFactor;
 		protected bool IsInGame => _gameIsActive;
 
@@ -72,6 +77,7 @@ namespace Frbcon2019.Screens
 				{
 					_gameIsActive = true;
 					MiniGameBaseGumRuntime.ApplyState(MiniGameBaseGumRuntime.GameState.GameActive.ToString());
+					GameStarted();
 				}
 			}
 		}

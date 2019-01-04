@@ -32,6 +32,10 @@
     <Name>ShooGameGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
+  <ScreenReference>
+    <Name>SpaceInvadersGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
   <ComponentReference>
     <Name>Button</Name>
     <ElementType>Component</ElementType>

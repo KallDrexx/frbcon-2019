@@ -35,8 +35,19 @@ namespace Frbcon2019.Screens
                 return mInstructionsText;
             }
         }
-        public int InstructionsDurationInSeconds = 3;
-        public int GameTimeDurationInSeconds = 5;
+        public int InstructionsDurationInSeconds = 2;
+        int mGameTimeDurationInSeconds = 5;
+        public virtual int GameTimeDurationInSeconds
+        {
+            set
+            {
+                mGameTimeDurationInSeconds = value;
+            }
+            get
+            {
+                return mGameTimeDurationInSeconds;
+            }
+        }
         public MiniGameBase () 
         	: base ("MiniGameBase")
         {
@@ -167,7 +178,7 @@ namespace Frbcon2019.Screens
             {
             }
             InstructionsText = "Splash Text Showing Instructions";
-            InstructionsDurationInSeconds = 3;
+            InstructionsDurationInSeconds = 2;
             GameTimeDurationInSeconds = 5;
         }
         public virtual void ConvertToManuallyUpdated () 

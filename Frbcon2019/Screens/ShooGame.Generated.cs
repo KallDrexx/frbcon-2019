@@ -94,6 +94,7 @@ namespace Frbcon2019.Screens
             }
             InstructionsText = "Shoo the mice away!";
             SecondsForBroomSweep = 0.25;
+            GameTimeDurationInSeconds = 5;
         }
         public override void ConvertToManuallyUpdated () 
         {
