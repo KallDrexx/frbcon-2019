@@ -710,7 +710,31 @@
     <RecordInitializeSegments>false</RecordInitializeSegments>
   </PerformanceSettingsSave>
   <IgnoredDirectories />
-  <CustomClasses />
+  <CustomClasses>
+    <CustomClassSave>
+      <CsvFilesUsingThis />
+      <RequiredProperties>
+        <InstructionSave>
+          <Type>bool</Type>
+          <Member>HasCollision</Member>
+        </InstructionSave>
+        <InstructionSave>
+          <Type>string</Type>
+          <Member>EntityToCreate</Member>
+        </InstructionSave>
+        <InstructionSave>
+          <Type>string</Type>
+          <Member>Name</Member>
+        </InstructionSave>
+        <InstructionSave>
+          <Type>System.Collections.Generic.List&lt;FlatRedBall.Content.AnimationChain.AnimationFrameSaveBase&gt;</Type>
+          <Member>EmbeddedAnimation</Member>
+        </InstructionSave>
+      </RequiredProperties>
+      <Name>TileMapInfo</Name>
+      <GenerateCode>true</GenerateCode>
+    </CustomClassSave>
+  </CustomClasses>
   <TranslatedFiles />
   <ApplyToFixedResolutionPlatforms>true</ApplyToFixedResolutionPlatforms>
   <ExternallyBuiltFileDirectory>../../</ExternallyBuiltFileDirectory>
