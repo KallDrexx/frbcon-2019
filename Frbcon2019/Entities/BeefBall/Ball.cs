@@ -8,11 +8,10 @@ using FlatRedBall.AI.Pathfinding;
 using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
-using FlatRedBall.Gui;
 
 namespace Frbcon2019.Entities.BeefBall
 {
-	public partial class Paddle
+	public partial class Ball
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -27,8 +26,9 @@ namespace Frbcon2019.Entities.BeefBall
 
 		private void CustomActivity()
 		{
-           
-        }
+
+
+		}
 
 		private void CustomDestroy()
 		{

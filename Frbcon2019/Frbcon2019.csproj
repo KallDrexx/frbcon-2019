@@ -43,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BeefBall\Ball.cs" />
+    <Compile Include="Entities\BeefBall\Ball.Generated.cs">
+      <DependentUpon>Ball.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BeefBall\Goal.cs" />
+    <Compile Include="Entities\BeefBall\Goal.Generated.cs">
+      <DependentUpon>Goal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Paddle.cs" />
     <Compile Include="Entities\BeefBall\Paddle.Generated.cs">
       <DependentUpon>Paddle.cs</DependentUpon>
