@@ -47,9 +47,9 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PaddleMovementSpeed</Name>
+          <Name>PaddleAcceleration</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">30</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1500</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BeefBallGame</Name>
@@ -993,7 +993,6 @@
           </Properties>
           <Name>Drag</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
