@@ -89,7 +89,9 @@
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.cs" />
-    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs">
+      <DependentUpon>BeefBallGameGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ButtonRuntime.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs">
       <DependentUpon>ButtonRuntime.cs</DependentUpon>
@@ -207,7 +209,9 @@
     <Compile Include="TileGraphics\MapTilesetTile.cs" />
     <Compile Include="TileGraphics\NamedValue.cs" />
     <Compile Include="TileGraphics\ReducedTileMapInfo.cs" />
-    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs">
+      <DependentUpon>ReducedTileMapInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="TileGraphics\TileAnimation.cs" />
     <Compile Include="TileGraphics\TileAnimationFrame.cs" />
     <Compile Include="TileGraphics\TiledMapSave.Conversion.cs" />
