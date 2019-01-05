@@ -25,6 +25,95 @@
           </Properties>
           <Name>InstructionsText</Name>
           <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">CATCH THE BABIES!!</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>GameTimeDurationInSeconds</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">5</DefaultValue>
+          <DefinedByBase>true</DefinedByBase>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Gravity</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxBabySpeedX</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>double</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BabySpawnTimerSeconds</Name>
+          <Type>double</Type>
+          <DefaultValue xsi:type="xsd:double">0.2</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxBabies</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <Name>Screens\BabyCatcher</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\BabyCatcher\Baby</SourceClassGenericType>
+          <InstanceName>BabyList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+    </ScreenSave>
+    <ScreenSave>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <BaseScreen>Screens\MiniGameBase</BaseScreen>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>InstructionsText</Name>
+          <Type>string</Type>
           <DefaultValue xsi:type="xsd:string">Splash Text Showing Instructions</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
@@ -126,17 +215,17 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>600</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
                 <Member>Width</Member>
                 <ValueAsFloat>800</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Height</Member>
-                <ValueAsFloat>600</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>Y</Member>
                 <ValueAsFloat>600</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
@@ -150,6 +239,11 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>-800</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
                 <Member>Width</Member>
                 <ValueAsFloat>800</ValueAsFloat>
               </CustomProperty>
@@ -157,11 +251,6 @@
                 <Type>float</Type>
                 <Member>Height</Member>
                 <ValueAsFloat>600</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>X</Member>
-                <ValueAsFloat>-800</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -174,6 +263,11 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-600</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
                 <Member>Width</Member>
                 <ValueAsFloat>800</ValueAsFloat>
               </CustomProperty>
@@ -181,11 +275,6 @@
                 <Type>float</Type>
                 <Member>Height</Member>
                 <ValueAsFloat>600</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>Y</Member>
-                <ValueAsFloat>-600</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -198,6 +287,11 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>800</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
                 <Member>Width</Member>
                 <ValueAsFloat>800</ValueAsFloat>
               </CustomProperty>
@@ -205,11 +299,6 @@
                 <Type>float</Type>
                 <Member>Height</Member>
                 <ValueAsFloat>600</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>X</Member>
-                <ValueAsFloat>800</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -532,7 +621,7 @@
           </Properties>
           <Name>ForcedMinigameType</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">BeefBallGame</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">BabyCatcher</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\Scoreboard</Name>
@@ -842,6 +931,127 @@
           <Name>Z</Name>
           <Type>float</Type>
         </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BabyCatcher\Baby</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>2</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Baby1</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+            <string>Alpha</string>
+            <string>AlphaRate</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>AxisAlignedRectangle</SourceClassType>
+          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/BabyCatcher/Baby/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <PooledByFactory>true</PooledByFactory>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
         <CustomVariable>
           <Properties>
             <PropertySave>
@@ -923,13 +1133,13 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>250</ValueAsFloat>
+            <Member>Width</Member>
+            <ValueAsFloat>50</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>50</ValueAsFloat>
+            <Member>Height</Member>
+            <ValueAsFloat>250</ValueAsFloat>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceClassType>AxisAlignedRectangle</SourceClassType>

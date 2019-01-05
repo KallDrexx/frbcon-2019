@@ -24,7 +24,7 @@ namespace Frbcon2019.Screens
         private Frbcon2019.GumRuntimes.TextRuntime DifficultyValue;
         public int SecondsUntilNextGameStarts = 3;
         public int NumberOfGamesBeforeDifficultyIncrease = 3;
-        public string ForcedMinigameType = "BeefBallGame";
+        public string ForcedMinigameType = "BabyCatcher";
         public Scoreboard () 
         	: base ("Scoreboard")
         {
@@ -147,7 +147,7 @@ namespace Frbcon2019.Screens
             }
             SecondsUntilNextGameStarts = 3;
             NumberOfGamesBeforeDifficultyIncrease = 3;
-            ForcedMinigameType = "BeefBallGame";
+            ForcedMinigameType = "BabyCatcher";
         }
         public virtual void ConvertToManuallyUpdated () 
         {

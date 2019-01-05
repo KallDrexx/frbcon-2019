@@ -43,6 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BabyCatcher\Baby.cs" />
+    <Compile Include="Entities\BabyCatcher\Baby.Generated.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />
     <Compile Include="Entities\BeefBall\Ball.Generated.cs">
       <DependentUpon>Ball.cs</DependentUpon>
@@ -79,6 +83,7 @@
     <Compile Include="Entities\SpaceInvaders\PlayerShip.Generated.cs">
       <DependentUpon>PlayerShip.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\BabyFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -88,6 +93,7 @@
     <Compile Include="Gameplay\LastMinigameResult.cs" />
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GumRuntimes\BabyCatcherGumRuntime.Generated.cs" />
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.cs" />
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs">
       <DependentUpon>BeefBallGameGumRuntime.cs</DependentUpon>
@@ -145,6 +151,10 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\BabyCatcher.cs" />
+    <Compile Include="Screens\BabyCatcher.Generated.cs">
+      <DependentUpon>BabyCatcher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\BeefBallGame.cs" />
     <Compile Include="Screens\BeefBallGame.Generated.cs">
       <DependentUpon>BeefBallGame.cs</DependentUpon>
@@ -257,6 +267,14 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="content\entities\babycatcher\baby\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\baby\babies.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Babies</Name>
+    </None>
     <None Include="content\entities\shoogame\broom\broom2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>broom2</Name>
@@ -336,6 +354,10 @@
     <None Include="content\gumproject\modern_13x4x560x780.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>modern_13x4x560x780</Name>
+    </None>
+    <None Include="content\gumproject\screens\babycatchergum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BabyCatcherGum</Name>
     </None>
     <None Include="content\gumproject\screens\beefballgamegum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

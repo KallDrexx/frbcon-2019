@@ -9,6 +9,10 @@
   <RestrictFileNamesForAndroid>false</RestrictFileNamesForAndroid>
   <Guides />
   <ScreenReference>
+    <Name>BabyCatcherGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>BeefBallGameGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
