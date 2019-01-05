@@ -47,9 +47,9 @@
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PaddleAcceleration</Name>
+          <Name>PaddleSpeedMultiplier</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1500</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BeefBallGame</Name>

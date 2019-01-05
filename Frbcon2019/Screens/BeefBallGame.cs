@@ -53,11 +53,12 @@ namespace Frbcon2019.Screens
 
             var cursorPosition = new Vector3(cursorX, cursorY, 0);
             var difference = cursorPosition - PaddleInstance.Position;
-            difference.Normalize();
 
-            PaddleInstance.Acceleration = difference * PaddleAcceleration;
-            
-            
+            if (Math.Abs(difference.Length()) > .00001f)
+            {
+                PaddleInstance.Velocity = difference * PaddleSpeedMultiplier;
+            }
+
 
             var direction = (BallInstance.Y - AIPaddle.Y);
 
