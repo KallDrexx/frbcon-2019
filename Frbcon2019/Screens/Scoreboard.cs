@@ -11,8 +11,7 @@ namespace Frbcon2019.Screens
 	{
 		private static readonly Type[] AvailableMiniGames;
 		private static readonly Random Random = new Random();
-
-		private TimeSpan _timeLeft;
+		private double _startedAt;
 
 		static Scoreboard()
 		{
@@ -25,8 +24,8 @@ namespace Frbcon2019.Screens
 
 		void CustomInitialize()
 		{
-			_timeLeft = TimeSpan.FromSeconds(SecondsUntilNextGameStarts);
-			TimerValue.Text = _timeLeft.Seconds.ToString();
+			_startedAt = PauseAdjustedCurrentTime;
+			TimerValue.Text = SecondsUntilNextGameStarts.ToString();
 
 			HandleGamePlayed();
 
@@ -48,12 +47,12 @@ namespace Frbcon2019.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
-			_timeLeft -= TimeSpan.FromSeconds(TimeManager.SecondDifference);
-			TimerValue.Text = _timeLeft > TimeSpan.FromSeconds(1)
-				? _timeLeft.Seconds.ToString()
+			var timeLeft = SecondsUntilNextGameStarts - PauseAdjustedSecondsSince(_startedAt);
+			TimerValue.Text = timeLeft >= 1
+				? ((int)timeLeft).ToString()
 				: "GO!";
 
-			if (_timeLeft <= TimeSpan.Zero)
+			if (timeLeft <= 0)
 			{
 				if (!string.IsNullOrWhiteSpace(ForcedMinigameType))
 				{

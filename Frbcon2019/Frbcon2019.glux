@@ -342,7 +342,7 @@
           </Properties>
           <Name>SecondsToWaitOnceWon</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">0.25</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
