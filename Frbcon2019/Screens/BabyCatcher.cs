@@ -26,18 +26,23 @@ namespace Frbcon2019.Screens
 
 		void CustomActivity(bool firstTimeCalled)
 		{
+            if (firstTimeCalled)
+            {
+                BirthdaySong.Play();
+                this.Call(() => { BirthdaySong.Stop(); }).After(5.45);
+            }
+
             if (GameIsActive && BabyList.Count < MaxBabies)
             {
                 var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
                 if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
                 {
-                    // Happy Birthday!
-                    var baby = BabyFactory.CreateNew(0, 300);
+                    var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
 
-                    // Baby: WEEEEEE!!!!
-                    baby.YAcceleration = -Gravity;
-                    baby.XVelocity = FlatRedBallServices.Random.Between(-MaxBabySpeedX, MaxBabySpeedX);
+                    portal.SpawnBaby();
+
+                    
                 }
             }
 

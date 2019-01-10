@@ -47,6 +47,10 @@
     <Compile Include="Entities\BabyCatcher\Baby.Generated.cs">
       <DependentUpon>Baby.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\BabyPortal.cs" />
+    <Compile Include="Entities\BabyCatcher\BabyPortal.Generated.cs">
+      <DependentUpon>BabyPortal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />
     <Compile Include="Entities\BeefBall\Ball.Generated.cs">
       <DependentUpon>Ball.cs</DependentUpon>
@@ -267,6 +271,19 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\screens\babycatcher\birthday.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>birthday</Name>
+      <Link>content\screens\babycatcher\birthday.xnb</Link>
+    </None>
+    <None Include="content\entities\babycatcher\babyportal\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\babyportal\portal_strip4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>portal_strip4</Name>
+    </None>
     <None Include="content\entities\babycatcher\baby\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>

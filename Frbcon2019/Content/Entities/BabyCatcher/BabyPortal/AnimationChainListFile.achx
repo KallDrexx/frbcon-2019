@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>Default</Name>
+    <Frame>
+      <TextureName>portal_strip4.png</TextureName>
+      <FrameLength>0.125</FrameLength>
+      <LeftCoordinate>0</LeftCoordinate>
+      <RightCoordinate>480</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>312</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>portal_strip4.png</TextureName>
+      <FrameLength>0.125</FrameLength>
+      <LeftCoordinate>480</LeftCoordinate>
+      <RightCoordinate>960</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>312</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>portal_strip4.png</TextureName>
+      <FrameLength>0.125</FrameLength>
+      <LeftCoordinate>960</LeftCoordinate>
+      <RightCoordinate>1440</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>312</BottomCoordinate>
+    </Frame>
+    <Frame>
+      <TextureName>portal_strip4.png</TextureName>
+      <FrameLength>0.125</FrameLength>
+      <LeftCoordinate>1440</LeftCoordinate>
+      <RightCoordinate>1920</RightCoordinate>
+      <TopCoordinate>0</TopCoordinate>
+      <BottomCoordinate>312</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>
