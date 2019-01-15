@@ -51,6 +51,10 @@
     <Compile Include="Entities\BabyCatcher\BabyPortal.Generated.cs">
       <DependentUpon>BabyPortal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\CatcherOfBabies.cs" />
+    <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
+      <DependentUpon>CatcherOfBabies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />
     <Compile Include="Entities\BeefBall\Ball.Generated.cs">
       <DependentUpon>Ball.cs</DependentUpon>
@@ -292,6 +296,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Babies</Name>
     </None>
+    <None Include="content\entities\babycatcher\baby\bodyanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BodyAnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\shoogame\broom\broom2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>broom2</Name>
@@ -315,6 +323,10 @@
     <None Include="content\entities\spaceinvaders\playership\spaceship_tut.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Spaceship_tut</Name>
+    </None>
+    <None Include="content\globalcontent\babycatcher\babe_ease_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>babe_ease_spritesheet</Name>
     </None>
     <None Include="content\globalcontent\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

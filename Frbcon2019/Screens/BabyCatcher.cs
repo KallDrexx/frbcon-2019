@@ -12,6 +12,9 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using FlatRedBall.Localization;
 using Frbcon2019.Factories;
+using Microsoft.Xna.Framework;
+using Frbcon2019.Entities.BabyCatcher;
+using FlatRedBall.Gui;
 
 namespace Frbcon2019.Screens
 {
@@ -32,17 +35,40 @@ namespace Frbcon2019.Screens
                 this.Call(() => { BirthdaySong.Stop(); }).After(5.45);
             }
 
-            if (GameIsActive && BabyList.Count < MaxBabies)
+            if (GameIsActive)
             {
-                var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
-
-                if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
+                if (BabyList.Count < MaxBabies)
                 {
-                    var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
+                    var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
-                    portal.SpawnBaby();
+                    if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
+                    {
+                        var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
 
-                    
+                        portal.SpawnBaby();
+
+
+                    }
+                }
+
+                CatcherOfBabiesInstance.X = GuiManager.Cursor.WorldXAt(0);
+
+                for (int x = BabyList.Count - 1; x >= 0; --x)
+                {
+                    var baby = BabyList[x];
+                    if (baby.CollideAgainstBounce(GroundFloor, 0, 1, .2f))
+                    {
+                        if (++baby.NumBounces > 2)
+                        {
+                            baby.Velocity = Vector3.Zero;
+                            baby.RotationZVelocity = 0;
+                        }
+                    }
+
+                    if (baby.CollideAgainst(CatcherOfBabiesInstance))
+                    {
+                        baby.Destroy();
+                    }
                 }
             }
 

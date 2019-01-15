@@ -11,7 +11,7 @@ using FlatRedBall.Math.Geometry;
 
 namespace Frbcon2019.Entities.BabyCatcher
 {
-	public partial class Baby
+	public partial class CatcherOfBabies
 	{
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
@@ -25,7 +25,9 @@ namespace Frbcon2019.Entities.BabyCatcher
 		}
 
 		private void CustomActivity()
-        {
+		{
+
+
 		}
 
 		private void CustomDestroy()

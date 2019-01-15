@@ -4,58 +4,69 @@
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>Baby1</Name>
+    <Name>SurprisePeanut</Name>
     <Frame>
-      <TextureName>Babies.png</TextureName>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>32</LeftCoordinate>
-      <RightCoordinate>64</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>32</BottomCoordinate>
+      <LeftCoordinate>16</LeftCoordinate>
+      <RightCoordinate>109</RightCoordinate>
+      <TopCoordinate>723</TopCoordinate>
+      <BottomCoordinate>811</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Baby2</Name>
+    <Name>UnsureHazelnut</Name>
     <Frame>
-      <TextureName>Babies.png</TextureName>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>32</LeftCoordinate>
-      <RightCoordinate>64</RightCoordinate>
-      <TopCoordinate>32</TopCoordinate>
-      <BottomCoordinate>64</BottomCoordinate>
+      <LeftCoordinate>165</LeftCoordinate>
+      <RightCoordinate>220</RightCoordinate>
+      <TopCoordinate>738</TopCoordinate>
+      <BottomCoordinate>792</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Baby3</Name>
+    <Name>IrritatedSpeckle</Name>
     <Frame>
-      <TextureName>Babies.png</TextureName>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>32</LeftCoordinate>
-      <RightCoordinate>64</RightCoordinate>
-      <TopCoordinate>64</TopCoordinate>
-      <BottomCoordinate>96</BottomCoordinate>
+      <LeftCoordinate>282</LeftCoordinate>
+      <RightCoordinate>363</RightCoordinate>
+      <TopCoordinate>732</TopCoordinate>
+      <BottomCoordinate>804</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Baby4</Name>
+    <Name>BaldBow</Name>
     <Frame>
-      <TextureName>Babies.png</TextureName>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>32</LeftCoordinate>
-      <RightCoordinate>64</RightCoordinate>
-      <TopCoordinate>96</TopCoordinate>
-      <BottomCoordinate>128</BottomCoordinate>
+      <LeftCoordinate>404</LeftCoordinate>
+      <RightCoordinate>491</RightCoordinate>
+      <TopCoordinate>719</TopCoordinate>
+      <BottomCoordinate>811</BottomCoordinate>
     </Frame>
   </AnimationChain>
   <AnimationChain>
-    <Name>Baby5</Name>
+    <Name>Pacifier</Name>
     <Frame>
-      <TextureName>Babies.png</TextureName>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
       <FrameLength>0.1</FrameLength>
-      <LeftCoordinate>32</LeftCoordinate>
-      <RightCoordinate>64</RightCoordinate>
-      <TopCoordinate>128</TopCoordinate>
-      <BottomCoordinate>160</BottomCoordinate>
+      <LeftCoordinate>538</LeftCoordinate>
+      <RightCoordinate>605</RightCoordinate>
+      <TopCoordinate>726</TopCoordinate>
+      <BottomCoordinate>810</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Jerkface</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>662</LeftCoordinate>
+      <RightCoordinate>747</RightCoordinate>
+      <TopCoordinate>726</TopCoordinate>
+      <BottomCoordinate>803</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objecttypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <objecttype name="Baby" />
+  <objecttype name="Baby">
+    <property name="NumBounces" type="int" default="0" />
+    <property name="SpriteInstanceCurrentChainName" type="string" default="SurprisePeanut" />
+    <property name="BodySpriteInstanceCurrentChainName" type="string" default="Blue" />
+    <property name="CurrentColorStateState" type="ColorState" default="Orange" />
+    <property name="CurrentBabyHeadState" type="BabyHead" default="Jerkface" />
+    <property name="BodySpriteInstanceY" type="float" default="0" />
+  </objecttype>
   <objecttype name="Bullet" />
 </objecttypes>

@@ -20,6 +20,18 @@ namespace Frbcon2019
     {
         
         public static FlatRedBall.Gum.GumIdb CoreUIs { get; set; }
+        static Microsoft.Xna.Framework.Graphics.Texture2D mbabe_ease_spritesheet;
+        public static Microsoft.Xna.Framework.Graphics.Texture2D babe_ease_spritesheet
+        {
+            get
+            {
+                if (mbabe_ease_spritesheet == null)
+                {
+                    mbabe_ease_spritesheet = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Graphics.Texture2D>(@"content/globalcontent/babycatcher/babe_ease_spritesheet.png", ContentManagerName);
+                }
+                return mbabe_ease_spritesheet;
+            }
+        }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -27,6 +39,8 @@ namespace Frbcon2019
             {
                 case  "CoreUIs":
                     return CoreUIs;
+                case  "babe_ease_spritesheet":
+                    return babe_ease_spritesheet;
             }
             return null;
         }
@@ -36,6 +50,8 @@ namespace Frbcon2019
             {
                 case  "CoreUIs":
                     return CoreUIs;
+                case  "babe_ease_spritesheet":
+                    return babe_ease_spritesheet;
             }
             return null;
         }
@@ -81,6 +97,10 @@ namespace Frbcon2019
                 if (relativeFileName == "content/gumproject/coreuis.gumx")
                 {
                     Reload(CoreUIs);
+                }
+                if (relativeFileName == "content/globalcontent/babycatcher/babe_ease_spritesheet.png")
+                {
+                    Reload(babe_ease_spritesheet);
                 }
             }
             catch{}
