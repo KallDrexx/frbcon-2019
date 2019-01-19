@@ -51,7 +51,7 @@ namespace Frbcon2019.Screens
                     }
                 }
 
-                CatcherOfBabiesInstance.X = GuiManager.Cursor.WorldXAt(0);
+                LerpCatcherPosition();
 
                 for (int x = BabyList.Count - 1; x >= 0; --x)
                 {
@@ -76,7 +76,35 @@ namespace Frbcon2019.Screens
 
 		}
 
-		void CustomDestroy()
+        const float maxLerpSeconds = .04f;
+        private void LerpCatcherPosition()
+        {
+            var thisLerp = 1.0f / maxLerpSeconds * TimeManager.SecondDifference;
+            var endPosition = new Vector3(GuiManager.Cursor.WorldXAt(0), GuiManager.Cursor.WorldYAt(0), 0);
+
+
+            var distance = Vector3.Distance(CatcherOfBabiesInstance.Position, endPosition);
+
+
+            if (distance > .0001f)
+            {
+                CatcherOfBabiesInstance.Position = Vector3.Lerp(CatcherOfBabiesInstance.Position, endPosition, thisLerp);
+
+                CatcherOfBabiesInstance.RotationZ = .015f * (CatcherOfBabiesInstance.X - endPosition.X);
+            }
+            else
+            {
+                if (distance > 0.0f)
+                {
+
+                }
+
+                CatcherOfBabiesInstance.RotationZ = 0f;
+                CatcherOfBabiesInstance.Position = endPosition;
+            }
+        }
+
+        void CustomDestroy()
 		{
 
 

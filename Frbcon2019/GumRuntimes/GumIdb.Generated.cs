@@ -16,6 +16,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LifeIcon", typeof(Frbcon2019.GumRuntimes.LifeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("PlayingCard", typeof(Frbcon2019.GumRuntimes.PlayingCardRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BabyCatcherGum", typeof(Frbcon2019.GumRuntimes.BabyCatcherGumRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BabyThrowGum", typeof(Frbcon2019.GumRuntimes.BabyThrowGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BeefBallGameGum", typeof(Frbcon2019.GumRuntimes.BeefBallGameGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("GameOverGum", typeof(Frbcon2019.GumRuntimes.GameOverGumRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("MainMenuGum", typeof(Frbcon2019.GumRuntimes.MainMenuGumRuntime));

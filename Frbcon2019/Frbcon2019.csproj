@@ -102,6 +102,10 @@
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\BabyCatcherGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BabyThrowGumRuntime.cs" />
+    <Compile Include="GumRuntimes\BabyThrowGumRuntime.Generated.cs">
+      <DependentUpon>BabyThrowGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.cs" />
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs">
       <DependentUpon>BeefBallGameGumRuntime.cs</DependentUpon>
@@ -163,6 +167,10 @@
     <Compile Include="Screens\BabyCatcher.Generated.cs">
       <DependentUpon>BabyCatcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\BabyThrow.cs" />
+    <Compile Include="Screens\BabyThrow.Generated.cs">
+      <DependentUpon>BabyThrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\BeefBallGame.cs" />
     <Compile Include="Screens\BeefBallGame.Generated.cs">
       <DependentUpon>BeefBallGame.cs</DependentUpon>
@@ -211,6 +219,7 @@
       <DependentUpon>SpaceInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="ShakeTweener.cs" />
     <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
     <Compile Include="TileCollisions\CollidableVsTileShapeCollectionRelationship.cs" />
     <Compile Include="TileCollisions\CollisionManagerTileShapeCollectionExtensions.cs" />
@@ -300,6 +309,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BodyAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\babycatcher\catcherofbabies\carriagechains.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CarriageChains</Name>
+    </None>
     <None Include="content\entities\shoogame\broom\broom2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>broom2</Name>
@@ -387,6 +400,10 @@
     <None Include="content\gumproject\screens\babycatchergum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BabyCatcherGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\babythrowgum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BabyThrowGum</Name>
     </None>
     <None Include="content\gumproject\screens\beefballgamegum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -494,9 +511,9 @@
     </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />
-    <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />
     <None Include="Libraries\DesktopGl\Release\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Release\GumCoreXnaPc.dll" />
+    <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />
     <None Include="Libraries\DesktopGl\Release\StateInterpolation.dll" />
     <Content Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -10,6 +10,7 @@ using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Frbcon2019.Factories;
 using static Frbcon2019.Entities.BabyCatcher.Baby;
+using Microsoft.Xna.Framework;
 
 namespace Frbcon2019.Entities.BabyCatcher
 {
@@ -29,16 +30,16 @@ namespace Frbcon2019.Entities.BabyCatcher
             // Happy Birthday!
             var baby = BabyFactory.CreateNew();
             baby.Position = this.Position;
-            baby.Y -= 15;
-
-            baby.Z += 1;
+            baby.HeadSpriteInstance.Position = this.Position;
+            baby.HeadSpriteInstance.Z += 1;
+            baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-15, 15));
 
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
             baby.YVelocity = -Gravity * .25f;
             baby.XVelocity = FlatRedBallServices.Random.Between(-MaxBabySpeedX, MaxBabySpeedX);
-            baby.RotationZVelocity = FlatRedBallServices.Random.Between(-MaxBabyRotationZVelocity, MaxBabyRotationZVelocity);
-            baby.RotationZ += baby.RotationZVelocity;
+            //baby.RotationZVelocity = FlatRedBallServices.Random.Between(-MaxBabyRotationZVelocity, MaxBabyRotationZVelocity);
+            //baby.RotationZ += baby.RotationZVelocity;
 
             var colors = new[] { ColorState.Blue, ColorState.Green, ColorState.Lightblue, ColorState.Orange, ColorState.OtherGreen, ColorState.Pink, ColorState.Purple, ColorState.Yellow };
 

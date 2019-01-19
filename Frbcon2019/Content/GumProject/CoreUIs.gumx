@@ -13,6 +13,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ScreenReference>
+    <Name>BabyThrowGum</Name>
+    <ElementType>Screen</ElementType>
+  </ScreenReference>
+  <ScreenReference>
     <Name>BeefBallGameGum</Name>
     <ElementType>Screen</ElementType>
   </ScreenReference>
