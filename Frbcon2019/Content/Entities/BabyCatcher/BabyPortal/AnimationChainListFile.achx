@@ -4,38 +4,25 @@
   <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
   <CoordinateType>Pixel</CoordinateType>
   <AnimationChain>
-    <Name>Default</Name>
+    <Name>ChuteBody</Name>
     <Frame>
-      <TextureName>portal_strip4.png</TextureName>
-      <FrameLength>0.125</FrameLength>
-      <LeftCoordinate>0</LeftCoordinate>
-      <RightCoordinate>480</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>312</BottomCoordinate>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>516</LeftCoordinate>
+      <RightCoordinate>767</RightCoordinate>
+      <TopCoordinate>1091</TopCoordinate>
+      <BottomCoordinate>1278</BottomCoordinate>
     </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>ChuteNozzle</Name>
     <Frame>
-      <TextureName>portal_strip4.png</TextureName>
-      <FrameLength>0.125</FrameLength>
-      <LeftCoordinate>480</LeftCoordinate>
-      <RightCoordinate>960</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>312</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>portal_strip4.png</TextureName>
-      <FrameLength>0.125</FrameLength>
-      <LeftCoordinate>960</LeftCoordinate>
-      <RightCoordinate>1440</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>312</BottomCoordinate>
-    </Frame>
-    <Frame>
-      <TextureName>portal_strip4.png</TextureName>
-      <FrameLength>0.125</FrameLength>
-      <LeftCoordinate>1440</LeftCoordinate>
-      <RightCoordinate>1920</RightCoordinate>
-      <TopCoordinate>0</TopCoordinate>
-      <BottomCoordinate>312</BottomCoordinate>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>517</LeftCoordinate>
+      <RightCoordinate>1021</RightCoordinate>
+      <TopCoordinate>963</TopCoordinate>
+      <BottomCoordinate>1089</BottomCoordinate>
     </Frame>
   </AnimationChain>
 </AnimationChainArraySave>

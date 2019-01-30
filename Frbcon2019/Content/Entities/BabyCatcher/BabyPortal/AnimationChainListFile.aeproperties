@@ -2,6 +2,7 @@
 <AESettingsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OffsetMultiplier>1</OffsetMultiplier>
   <AnimationChainSettings />
-  <ExpandedNode>Default</ExpandedNode>
+  <ExpandedNode>ChuteBody</ExpandedNode>
+  <ExpandedNode>ChuteNozzle</ExpandedNode>
   <UnitType>Pixel</UnitType>
 </AESettingsSave>

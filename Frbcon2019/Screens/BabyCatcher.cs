@@ -37,20 +37,17 @@ namespace Frbcon2019.Screens
 
             if (GameIsActive)
             {
-                if (BabyList.Count < MaxBabies)
+                var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
+
+                if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
                 {
-                    var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
+                    var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
 
-                    if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
-                    {
-                        var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
+                    portal.SpawnBaby();
 
-                        portal.SpawnBaby();
-
-
-                    }
+                    lastBabySpawn = TimeManager.CurrentTime;
                 }
-
+              
                 LerpCatcherPosition();
 
                 for (int x = BabyList.Count - 1; x >= 0; --x)
@@ -103,6 +100,9 @@ namespace Frbcon2019.Screens
                 CatcherOfBabiesInstance.RotationZ = 0f;
                 CatcherOfBabiesInstance.Position = endPosition;
             }
+
+            CatcherOfBabiesInstance.Y = MathHelper.Min(CatcherOfBabiesInstance.Y, MaxCatcherPositionY);
+            CatcherOfBabiesInstance.Y = MathHelper.Max(CatcherOfBabiesInstance.Y, MinCatcherPositionY);
         }
 
         void CustomDestroy()
