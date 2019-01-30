@@ -7,6 +7,9 @@
     <property name="CurrentColorStateState" type="ColorState" default="Orange" />
     <property name="CurrentBabyHeadState" type="BabyHead" default="Jerkface" />
     <property name="BodySpriteInstanceY" type="float" default="0" />
+    <property name="MaxDegreesHeadTilt" type="int" default="10" />
+    <property name="HeadOffsetUp" type="float" default="15" />
+    <property name="MaxHeadLerpSeconds" type="float" default="0.025" />
   </objecttype>
   <objecttype name="Bullet" />
 </objecttypes>

@@ -9,6 +9,7 @@ using FlatRedBall.Graphics.Animation;
 using FlatRedBall.Graphics.Particle;
 using FlatRedBall.Math.Geometry;
 using Microsoft.Xna.Framework;
+using StateInterpolationPlugin;
 
 namespace Frbcon2019.Entities.BabyCatcher
 {
@@ -35,7 +36,8 @@ namespace Frbcon2019.Entities.BabyCatcher
             };
             shaker.PositionChanged += position =>
             {
-                CarriageInstance.RotationZ = MathHelper.ToRadians(position);
+                CarriageInstance.RelativeRotationZ = MathHelper.ToRadians(position);
+                CarriageInstance.RelativeY = Math.Abs(position) * -2;
             };
             TweenerManager.Self.Add(shaker);
             shaker.Start();

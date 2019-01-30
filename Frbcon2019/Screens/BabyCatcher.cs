@@ -68,6 +68,7 @@ namespace Frbcon2019.Screens
                     if (baby.CollideAgainst(CatcherOfBabiesInstance))
                     {
                         baby.Destroy();
+                        CatcherOfBabiesInstance.PlayCatchAnimation();
                     }
                 }
             }

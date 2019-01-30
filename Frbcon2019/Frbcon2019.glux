@@ -49,7 +49,7 @@
           </Properties>
           <Name>Gravity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1321,6 +1321,40 @@
           <SourceObject>BodySpriteInstance</SourceObject>
           <SourceObjectProperty>Y</SourceObjectProperty>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxDegreesHeadTilt</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
+          <IsShared>true</IsShared>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>HeadOffsetUp</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>MaxHeadLerpSeconds</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.025</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\BabyCatcher\Baby</Name>
@@ -1547,7 +1581,7 @@
           </Properties>
           <Name>MaxBabyRotationZVelocity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1569,7 +1603,7 @@
           </Properties>
           <Name>Gravity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1679,7 +1713,7 @@
           </Properties>
           <Name>ShakeAmplitude</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1690,7 +1724,7 @@
           </Properties>
           <Name>ShakeSeconds</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.3</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>

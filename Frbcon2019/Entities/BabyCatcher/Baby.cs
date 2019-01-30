@@ -23,15 +23,15 @@ namespace Frbcon2019.Entities.BabyCatcher
 
         }
 
-        const float maxLerpSeconds = .033f;
+        
         
 		private void CustomActivity()
         {
             
-            var thisLerp = 1 / maxLerpSeconds * TimeManager.SecondDifference;
+            var thisLerp = 1 / MaxHeadLerpSeconds * TimeManager.SecondDifference;
 
             var endPosition = this.Position;
-            endPosition += this.RotationMatrix.Up * 20;
+            endPosition += this.RotationMatrix.Up * HeadOffsetUp;
             var distance = Vector3.Distance(HeadSpriteInstance.Position, endPosition);
 
 
@@ -51,24 +51,6 @@ namespace Frbcon2019.Entities.BabyCatcher
                 HeadSpriteInstance.Position = endPosition;
                 HeadSpriteInstance.Z += 1f;
             }
-            
-
-            //maxDistance = Math.Max(distance, maxDistance);
-            
-           
-            //var headposition = Vector3.Lerp(HeadSpriteInstance.Position, endPosition, ((float)tweenFrame) / ((float)maxTweenFrames));
-            //HeadSpriteInstance.Position = headposition;
-           
-            
-            //if (tweenFrame >= maxTweenFrames)
-            //{
-            //    tweenFrame = maxTweenFrames;
-            //}
-
-
-            //HeadSpriteInstance.Position =  endPosition;
-
-            
         }
 
 		private void CustomDestroy()
