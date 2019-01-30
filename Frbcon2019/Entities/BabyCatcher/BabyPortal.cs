@@ -38,8 +38,8 @@ namespace Frbcon2019.Entities.BabyCatcher
 
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
-            baby.YVelocity = -Gravity * .25f;
-            baby.XVelocity = FlatRedBallServices.Random.Between(-MaxBabySpeedX, MaxBabySpeedX);
+            baby.Velocity = (Gravity * .25f) * this.RotationMatrix.Down;
+            
             baby.RotationZVelocity = FlatRedBallServices.Random.Between(-MaxBabyRotationZVelocity, MaxBabyRotationZVelocity);
             baby.RotationZ += baby.RotationZVelocity;
 

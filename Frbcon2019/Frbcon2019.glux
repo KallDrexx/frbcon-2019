@@ -83,6 +83,17 @@
           <Name>WinBabiesCaught</Name>
           <Type>int</Type>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteSpeed</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
       <ReferencedFiles>

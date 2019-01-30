@@ -39,51 +39,118 @@ namespace Frbcon2019.Screens
 
             if (GameIsActive)
             {
-                var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
-
-                if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
-                {
-                    var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
-
-                    portal.SpawnBaby();
-
-                    lastBabySpawn = TimeManager.CurrentTime;
-                }
-              
+                HandleBabySpawns();
                 LerpCatcherPosition();
+                HandleBabyActivity();
 
-                for (int x = BabyList.Count - 1; x >= 0; --x)
-                {
-                    var baby = BabyList[x];
-                    if (baby.CollideAgainstBounce(GroundFloor, 0, 1, .2f))
-                    {
-                        if (++baby.NumBounces > 2)
-                        {
-                            baby.Velocity = Vector3.Zero;
-                            baby.RotationZVelocity = 0;
-
-                            baby.FadeAway();
-                            
-                        }
-
-                        if (baby.HeadSpriteInstance.Alpha <= 0.0)
-                        {
-                            baby.Destroy();
-                        }
-                    }
-
-                    
-                    if (baby.CollideAgainst(CatcherOfBabiesInstance))
-                    {
-                        baby.Destroy();
-                        CatcherOfBabiesInstance.PlayCatchAnimation();
-                    }
-                }
+                ChuteMovement();
+                LerpChutePosition();
             }
 
-            
 
-		}
+
+        }
+
+        PositionedObject chuteMover = null;
+
+        private void ChuteMovement()
+        {
+            if (chuteMover == null)
+            {
+                chuteMover = new PositionedObject()
+                {
+                    Position = Portal1.Position
+                };
+
+                SpriteManager.AddPositionedObject(chuteMover);
+            }
+
+
+            if (Math.Abs(chuteMover.XVelocity) < 30f)
+            {
+                var randomXDirection = FlatRedBallServices.Random.Between(-1f, 1f);
+
+                chuteMover.XVelocity += randomXDirection * ChuteSpeed;
+                chuteMover.Drag = 1.0f;
+            }
+
+            if (chuteMover.X < -400)
+            {
+                chuteMover.X = -400;
+            }
+            else if (chuteMover.X > 400)
+            {
+                chuteMover.X = 400;
+            }
+        }
+
+        const float maxChuteLerpSeconds = .04f;
+        private void LerpChutePosition()
+        {
+            var thisLerp = 1.0f / maxChuteLerpSeconds * TimeManager.SecondDifference;
+            var endPosition = chuteMover.Position;
+
+
+            var distance = Vector3.Distance(Portal1.Position, endPosition);
+
+
+            if (distance > .001f)
+            {
+                Portal1.Position = Vector3.Lerp(Portal1.Position, endPosition, thisLerp);
+
+                Portal1.RotationZ = .015f * (Portal1.X - endPosition.X);
+            }
+            else
+            {
+                Portal1.RotationZ = 0f;
+                Portal1.Position = endPosition;
+            }
+        }
+
+        private void HandleBabyActivity()
+        {
+            for (int x = BabyList.Count - 1; x >= 0; --x)
+            {
+                var baby = BabyList[x];
+                if (baby.CollideAgainstBounce(GroundFloor, 0, 1, .2f))
+                {
+                    if (++baby.NumBounces > 2)
+                    {
+                        baby.Velocity = Vector3.Zero;
+                        baby.RotationZVelocity = 0;
+
+                        baby.FadeAway();
+
+                    }
+
+                    if (baby.HeadSpriteInstance.Alpha <= 0.0)
+                    {
+                        baby.Destroy();
+                    }
+                }
+
+
+                if (baby.CollideAgainst(CatcherOfBabiesInstance))
+                {
+                    baby.Destroy();
+                    CatcherOfBabiesInstance.PlayCatchAnimation();
+                }
+            }
+        }
+
+        private void HandleBabySpawns()
+        {
+            var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
+
+            if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
+            {
+                var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
+
+                portal.SpawnBaby();
+
+                lastBabySpawn = TimeManager.CurrentTime;
+            }
+        }
 
         const float maxLerpSeconds = .04f;
         private void LerpCatcherPosition()
