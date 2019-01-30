@@ -1,4 +1,5 @@
 
+using System;
 using FlatRedBall;
 using Microsoft.Xna.Framework;
 
@@ -64,5 +65,13 @@ namespace Frbcon2019.Entities.BabyCatcher
 
 
         }
-	}
+
+        public void FadeAway()
+        {
+
+            HeadSpriteInstance.AlphaRate = -1.0f;
+            BodySpriteInstance.AlphaRate = -1.0f;
+            
+        }
+    }
 }

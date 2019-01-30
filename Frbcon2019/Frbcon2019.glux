@@ -37,19 +37,8 @@
           </Properties>
           <Name>GameTimeDurationInSeconds</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>float</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>Gravity</Name>
-          <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -60,18 +49,7 @@
           </Properties>
           <Name>BabySpawnTimerSeconds</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">1</DefaultValue>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>MaxBabies</Name>
-          <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">6</DefaultValue>
+          <DefaultValue xsi:type="xsd:double">0.1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -94,6 +72,16 @@
           <Name>MinCatcherPositionY</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">-160</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>WinBabiesCaught</Name>
+          <Type>int</Type>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
@@ -138,45 +126,16 @@
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Y</Member>
-                <ValueAsFloat>250</ValueAsFloat>
+                <ValueAsFloat>350</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>10</ValueAsFloat>
               </CustomProperty>
               <SourceType>Entity</SourceType>
               <SourceClassType>Entities\BabyCatcher\BabyPortal</SourceClassType>
               <InstanceName>Portal1</InstanceName>
-              <AttachToContainer>true</AttachToContainer>
-              <GenerateTimedEmit>true</GenerateTimedEmit>
-              <IndependentOfCamera>true</IndependentOfCamera>
-            </NamedObjectSave>
-            <NamedObjectSave>
-              <CustomProperty>
-                <Member>X</Member>
-                <ValueAsFloat>-100</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>Y</Member>
-                <ValueAsFloat>250</ValueAsFloat>
-              </CustomProperty>
-              <SourceType>Entity</SourceType>
-              <SourceClassType>Entities\BabyCatcher\BabyPortal</SourceClassType>
-              <InstanceName>Portal2</InstanceName>
-              <AttachToContainer>true</AttachToContainer>
-              <GenerateTimedEmit>true</GenerateTimedEmit>
-              <IndependentOfCamera>true</IndependentOfCamera>
-            </NamedObjectSave>
-            <NamedObjectSave>
-              <CustomProperty>
-                <Member>X</Member>
-                <ValueAsFloat>100</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>Y</Member>
-                <ValueAsFloat>250</ValueAsFloat>
-              </CustomProperty>
-              <SourceType>Entity</SourceType>
-              <SourceClassType>Entities\BabyCatcher\BabyPortal</SourceClassType>
-              <InstanceName>Portal3</InstanceName>
               <AttachToContainer>true</AttachToContainer>
               <GenerateTimedEmit>true</GenerateTimedEmit>
               <IndependentOfCamera>true</IndependentOfCamera>
@@ -189,11 +148,16 @@
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Y</Member>
-                <ValueAsFloat>250</ValueAsFloat>
+                <ValueAsFloat>350</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>10</ValueAsFloat>
               </CustomProperty>
               <SourceType>Entity</SourceType>
               <SourceClassType>Entities\BabyCatcher\BabyPortal</SourceClassType>
-              <InstanceName>Portal4</InstanceName>
+              <InstanceName>Portal2</InstanceName>
               <AttachToContainer>true</AttachToContainer>
               <GenerateTimedEmit>true</GenerateTimedEmit>
               <IndependentOfCamera>true</IndependentOfCamera>
@@ -1625,7 +1589,7 @@
           </Properties>
           <Name>Gravity</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">800</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1637,13 +1601,48 @@
             <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
+            <Type>float</Type>
             <Member>Y</Member>
-            <ValueAsFloat>0</ValueAsFloat>
+            <ValueAsFloat>29</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>UseAnimationRelativePosition</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>ChuteBody</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>TopBodySpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>-62</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1676,17 +1675,12 @@
           </CustomProperty>
           <CustomProperty>
             <Member>Y</Member>
-            <ValueAsFloat>-37</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Z</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>-139</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>TextureScale</Member>
-            <ValueAsFloat>0.25</ValueAsFloat>
+            <ValueAsFloat>0.5</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1811,7 +1805,7 @@
         <NamedObjectSave>
           <CustomProperty>
             <Member>X</Member>
-            <ValueAsFloat>1</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Member>Y</Member>
@@ -1847,7 +1841,7 @@
         <NamedObjectSave>
           <CustomProperty>
             <Member>X</Member>
-            <ValueAsFloat>5</ValueAsFloat>
+            <ValueAsFloat>0</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Member>Y</Member>

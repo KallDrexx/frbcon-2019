@@ -44,7 +44,13 @@
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
     <Compile Include="Entities\BabyCatcher\Baby.cs" />
+    <Compile Include="Entities\BabyCatcher\Baby.Event.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BabyCatcher\Baby.Generated.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\Baby.Generated.Event.cs">
       <DependentUpon>Baby.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BabyCatcher\BabyPortal.cs" />

@@ -25,6 +25,8 @@ namespace Frbcon2019.Screens
 		{
             // Immediately trigger the spawn to spawn.
             lastBabySpawn = TimeManager.CurrentTime - BabySpawnTimerSeconds;
+
+            FlatRedBallServices.GraphicsOptions.BackgroundColor = Color.FromNonPremultiplied(58, 47, 77, 255);
 		}
 
 		void CustomActivity(bool firstTimeCalled)
@@ -59,9 +61,18 @@ namespace Frbcon2019.Screens
                         {
                             baby.Velocity = Vector3.Zero;
                             baby.RotationZVelocity = 0;
+
+                            baby.FadeAway();
+                            
+                        }
+
+                        if (baby.HeadSpriteInstance.Alpha <= 0.0)
+                        {
+                            baby.Destroy();
                         }
                     }
 
+                    
                     if (baby.CollideAgainst(CatcherOfBabiesInstance))
                     {
                         baby.Destroy();
