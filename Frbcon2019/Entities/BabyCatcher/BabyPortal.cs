@@ -29,9 +29,10 @@ namespace Frbcon2019.Entities.BabyCatcher
         {
             // Happy Birthday!
             var baby = BabyFactory.CreateNew();
-            baby.Position = this.Position;
-            baby.Position.Z = 0;
-            baby.HeadSpriteInstance.Position = this.Position;
+            baby.Position = this.SpawnRectangle.Position;
+            baby.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
+            baby.Position.Z = -3f;
+            baby.HeadSpriteInstance.Position = baby.Position;
             baby.HeadSpriteInstance.Z += 1;
             baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-MaxDegreesHeadTilt, MaxDegreesHeadTilt));
 
