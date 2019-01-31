@@ -103,7 +103,7 @@
           </Properties>
           <Name>ChuteDirectionChangeFrequencyMinSeconds</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.25</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -114,7 +114,29 @@
           </Properties>
           <Name>ChuteDirectionChangeFrequencyMaxSeconds</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteMinY</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">350</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteMaxY</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">450</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
@@ -129,6 +151,12 @@
           <Name>Screens/BabyCatcher/birthday.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>GlobalContent/BabyCatcher/prologue.mp3</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Media.Song</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -177,15 +205,6 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
-          <SourceType>File</SourceType>
-          <SourceFile>Screens/BabyCatcher/birthday.wav</SourceFile>
-          <SourceName>Entire File (SoundEffectInstance)</SourceName>
-          <InstanceName>BirthdaySong</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
             <Member>X</Member>
@@ -225,6 +244,15 @@
           <SourceType>Entity</SourceType>
           <SourceClassType>Entities\BabyCatcher\CatcherOfBabies</SourceClassType>
           <InstanceName>CatcherOfBabiesInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>GlobalContent/BabyCatcher/prologue.mp3</SourceFile>
+          <SourceName>Entire File (Song)</SourceName>
+          <InstanceName>LullabySong</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -3206,6 +3234,12 @@
       <LoadedOnlyWhenReferenced>true</LoadedOnlyWhenReferenced>
       <HasPublicProperty>true</HasPublicProperty>
       <RuntimeType>Microsoft.Xna.Framework.Graphics.Texture2D</RuntimeType>
+      <ProjectsToExcludeFrom />
+    </ReferencedFileSave>
+    <ReferencedFileSave>
+      <Name>GlobalContent/BabyCatcher/prologue.mp3</Name>
+      <IsSharedStatic>true</IsSharedStatic>
+      <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
   </GlobalFiles>

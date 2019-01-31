@@ -15,6 +15,7 @@ using Frbcon2019.Factories;
 using Microsoft.Xna.Framework;
 using Frbcon2019.Entities.BabyCatcher;
 using FlatRedBall.Gui;
+using FlatRedBall.Audio;
 
 namespace Frbcon2019.Screens
 {
@@ -36,8 +37,12 @@ namespace Frbcon2019.Screens
 		{
             if (firstTimeCalled)
             {
-                BirthdaySong.Play();
-                this.Call(() => { BirthdaySong.Stop(); }).After(5.45);
+                
+                
+            }
+            if (AudioManager.CurrentlyPlayingSong != LullabySong)
+            {
+                AudioManager.PlaySong(LullabySong, true, true);
             }
 
             if (GameIsActive)
@@ -73,25 +78,33 @@ namespace Frbcon2019.Screens
 
             if (chuteMover.X < -400 || chuteMover.X > 400)
             {
-                if (chuteMover.X < -400)
-                {
-                    chuteMover.X = -400;
-                }
-                else if (chuteMover.X > 400)
-                {
-                    chuteMover.X = 400;
-                }
                 chuteMover.XAcceleration = 0;
                 chuteMover.XVelocity = 0;
                 lastChuteChange = 0;
             }
 
+            chuteMover.X = MathHelper.Clamp(chuteMover.X, -400, 400);
+
+            
+
+            if (chuteMover.Y < ChuteMinY || chuteMover.Y > ChuteMaxY) 
+            {
+                chuteMover.YAcceleration = 0;
+                chuteMover.YVelocity = 0;
+                lastChuteChange = 0;
+            }
+
+            chuteMover.Y = MathHelper.Clamp(chuteMover.Y, ChuteMinY, ChuteMaxY);
+
             var secondsSinceLastChuteChange = TimeManager.SecondsSince(lastChuteChange);
 
             if (secondsSinceLastChuteChange >= thisChuteMoveTimer)
             {
-                var randomXDirection = FlatRedBallServices.Random.In(new[] { -1, 1 });
-                chuteMover.XAcceleration = randomXDirection * ChuteSpeed;
+                var n = new[] { -1, 1, .5f, -.5f, .75f, -.75f };
+
+
+                chuteMover.XAcceleration = FlatRedBallServices.Random.In(n) * ChuteSpeed;
+                chuteMover.YAcceleration = FlatRedBallServices.Random.In(n) * ChuteSpeed;
 
                 thisChuteMoveTimer = FlatRedBallServices.Random.Between(ChuteDirectionChangeFrequencyMinSeconds, ChuteDirectionChangeFrequencyMaxSeconds);
 
@@ -102,7 +115,7 @@ namespace Frbcon2019.Screens
 
         }
 
-        const float maxChuteLerpSeconds = .04f;
+        const float maxChuteLerpSeconds = .08f;
         private void LerpChutePosition()
         {
             var thisLerp = 1.0f / maxChuteLerpSeconds * TimeManager.SecondDifference;

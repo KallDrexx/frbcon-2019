@@ -32,6 +32,7 @@ namespace Frbcon2019
                 return mbabe_ease_spritesheet;
             }
         }
+        public static Microsoft.Xna.Framework.Media.Song prologue { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -41,6 +42,8 @@ namespace Frbcon2019
                     return CoreUIs;
                 case  "babe_ease_spritesheet":
                     return babe_ease_spritesheet;
+                case  "prologue":
+                    return prologue;
             }
             return null;
         }
@@ -52,6 +55,8 @@ namespace Frbcon2019
                     return CoreUIs;
                 case  "babe_ease_spritesheet":
                     return babe_ease_spritesheet;
+                case  "prologue":
+                    return prologue;
             }
             return null;
         }
@@ -62,6 +67,7 @@ namespace Frbcon2019
         {
             
             FlatRedBall.Gum.GumIdb.StaticInitialize("content/gumproject/coreuis.gumx"); FlatRedBall.Gum.GumIdbExtensions.RegisterTypes();  FlatRedBall.Gui.GuiManager.BringsClickedWindowsToFront = false;FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += (not, used) => { FlatRedBall.Gum.GumIdb.UpdateDisplayToMainFrbCamera(); };Gum.Wireframe.GraphicalUiElement.ShowLineRectangles = false;
+            prologue = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/babycatcher/prologue", ContentManagerName);
             			IsInitialized = true;
             // Added by GumPlugin becasue of the Show Mouse checkbox on the .gumx:
             FlatRedBall.FlatRedBallServices.Game.IsMouseVisible = true;
@@ -101,6 +107,10 @@ namespace Frbcon2019
                 if (relativeFileName == "content/globalcontent/babycatcher/babe_ease_spritesheet.png")
                 {
                     Reload(babe_ease_spritesheet);
+                }
+                if (relativeFileName == "content/globalcontent/babycatcher/prologue.mp3")
+                {
+                    Reload(prologue);
                 }
             }
             catch{}
