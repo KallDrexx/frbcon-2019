@@ -15,7 +15,7 @@ namespace Frbcon2019.Entities.BabyCatcher
 		private void CustomInitialize()
         {
             var endPosition = this.BodySpriteInstance.Position;
-            endPosition += this.BodySpriteInstance.RotationMatrix.Up * 20;
+            endPosition += this.BodySpriteInstance.RotationMatrix.Up * 3;
             endPosition.Z = BodySpriteInstance.Z + 1;
 
             HeadSpriteInstance.Position = endPosition;

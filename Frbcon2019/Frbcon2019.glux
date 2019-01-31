@@ -92,7 +92,29 @@
           </Properties>
           <Name>ChuteSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteDirectionChangeFrequencyMinSeconds</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">0.5</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteDirectionChangeFrequencyMaxSeconds</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
@@ -1725,13 +1747,13 @@
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>20</ValueAsFloat>
+            <Member>Width</Member>
+            <ValueAsFloat>200</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>200</ValueAsFloat>
+            <Member>Height</Member>
+            <ValueAsFloat>20</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1827,7 +1849,7 @@
           </Properties>
           <Name>ShakeAmplitude</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">15</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">7.5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -1838,7 +1860,7 @@
           </Properties>
           <Name>ShakeSeconds</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.15</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -2109,6 +2131,94 @@
           <InstanceName>HandleInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>ShapeCollection</SourceClassType>
+          <InstanceName>Bumpers</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <ContainedObjects>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-61</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>22</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Points</Member>
+                <ValueAsListOfVector2>
+                  <Vector2>
+                    <X>-10</X>
+                    <Y>25</Y>
+                  </Vector2>
+                  <Vector2>
+                    <X>5</X>
+                    <Y>-16</Y>
+                  </Vector2>
+                  <Vector2>
+                    <X>-10</X>
+                    <Y>-16</Y>
+                  </Vector2>
+                  <Vector2>
+                    <X>-10</X>
+                    <Y>25</Y>
+                  </Vector2>
+                </ValueAsListOfVector2>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>false</ValueAsBool>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>Polygon</SourceClassType>
+              <InstanceName>Cover</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>99</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>27</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Width</Member>
+                <ValueAsFloat>32</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Height</Member>
+                <ValueAsFloat>16</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>false</ValueAsBool>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>AxisAlignedRectangle</SourceClassType>
+              <InstanceName>Handle</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+          </ContainedObjects>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -3104,7 +3214,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\BabyCatcher</StartUpScreen>
+  <StartUpScreen>Screens\MainMenu</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

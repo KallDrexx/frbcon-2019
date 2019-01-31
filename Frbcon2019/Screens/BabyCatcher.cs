@@ -21,13 +21,16 @@ namespace Frbcon2019.Screens
 	public partial class BabyCatcher
 	{
         double lastBabySpawn = 0.0f;
+        
 		void CustomInitialize()
 		{
             // Immediately trigger the spawn to spawn.
             lastBabySpawn = TimeManager.CurrentTime - BabySpawnTimerSeconds;
+            lastChuteChange = TimeManager.CurrentTime - ChuteDirectionChangeFrequencyMaxSeconds;
 
             FlatRedBallServices.GraphicsOptions.BackgroundColor = Color.FromNonPremultiplied(58, 47, 77, 255);
-		}
+            FlatRedBallServices.Game.IsMouseVisible = false;
+        }
 
 		void CustomActivity(bool firstTimeCalled)
 		{
@@ -52,9 +55,12 @@ namespace Frbcon2019.Screens
         }
 
         PositionedObject chuteMover = null;
-
+        double lastChuteChange = 0.0f;
+        double thisChuteMoveTimer = 0.0f;
+        
         private void ChuteMovement()
         {
+           
             if (chuteMover == null)
             {
                 chuteMover = new PositionedObject()
@@ -65,23 +71,35 @@ namespace Frbcon2019.Screens
                 SpriteManager.AddPositionedObject(chuteMover);
             }
 
-
-            if (Math.Abs(chuteMover.XVelocity) < 30f)
+            if (chuteMover.X < -400 || chuteMover.X > 400)
             {
-                var randomXDirection = FlatRedBallServices.Random.Between(-1f, 1f);
-
-                chuteMover.XVelocity += randomXDirection * ChuteSpeed;
-                chuteMover.Drag = 1.0f;
+                if (chuteMover.X < -400)
+                {
+                    chuteMover.X = -400;
+                }
+                else if (chuteMover.X > 400)
+                {
+                    chuteMover.X = 400;
+                }
+                chuteMover.XAcceleration = 0;
+                chuteMover.XVelocity = 0;
+                lastChuteChange = 0;
             }
 
-            if (chuteMover.X < -400)
+            var secondsSinceLastChuteChange = TimeManager.SecondsSince(lastChuteChange);
+
+            if (secondsSinceLastChuteChange >= thisChuteMoveTimer)
             {
-                chuteMover.X = -400;
+                var randomXDirection = FlatRedBallServices.Random.In(new[] { -1, 1 });
+                chuteMover.XAcceleration = randomXDirection * ChuteSpeed;
+
+                thisChuteMoveTimer = FlatRedBallServices.Random.Between(ChuteDirectionChangeFrequencyMinSeconds, ChuteDirectionChangeFrequencyMaxSeconds);
+
+                lastChuteChange = TimeManager.CurrentTime;
             }
-            else if (chuteMover.X > 400)
-            {
-                chuteMover.X = 400;
-            }
+
+            chuteMover.XVelocity = MathHelper.Clamp(chuteMover.XVelocity, -ChuteSpeed, ChuteSpeed);
+
         }
 
         const float maxChuteLerpSeconds = .04f;
@@ -135,6 +153,8 @@ namespace Frbcon2019.Screens
                     baby.Destroy();
                     CatcherOfBabiesInstance.PlayCatchAnimation();
                 }
+
+                baby.CollideAgainstBounce(CatcherOfBabiesInstance.Bumpers, 0, 1.0f, .5f);
             }
         }
 
@@ -185,9 +205,9 @@ namespace Frbcon2019.Screens
 
         void CustomDestroy()
 		{
+            FlatRedBallServices.Game.IsMouseVisible = true;
 
-
-		}
+        }
 
         static void CustomLoadStaticContent(string contentManagerName)
         {
