@@ -33,6 +33,8 @@ namespace Frbcon2019
             }
         }
         public static Microsoft.Xna.Framework.Media.Song prologue { get; set; }
+        public static Microsoft.Xna.Framework.Audio.SoundEffect catchmeplease { get; set; }
+        public static Microsoft.Xna.Framework.Audio.SoundEffect pow { get; set; }
         [System.Obsolete("Use GetFile instead")]
         public static object GetStaticMember (string memberName) 
         {
@@ -44,6 +46,10 @@ namespace Frbcon2019
                     return babe_ease_spritesheet;
                 case  "prologue":
                     return prologue;
+                case  "catchmeplease":
+                    return catchmeplease;
+                case  "pow":
+                    return pow;
             }
             return null;
         }
@@ -57,6 +63,10 @@ namespace Frbcon2019
                     return babe_ease_spritesheet;
                 case  "prologue":
                     return prologue;
+                case  "catchmeplease":
+                    return catchmeplease;
+                case  "pow":
+                    return pow;
             }
             return null;
         }
@@ -68,6 +78,8 @@ namespace Frbcon2019
             
             FlatRedBall.Gum.GumIdb.StaticInitialize("content/gumproject/coreuis.gumx"); FlatRedBall.Gum.GumIdbExtensions.RegisterTypes();  FlatRedBall.Gui.GuiManager.BringsClickedWindowsToFront = false;FlatRedBall.FlatRedBallServices.GraphicsOptions.SizeOrOrientationChanged += (not, used) => { FlatRedBall.Gum.GumIdb.UpdateDisplayToMainFrbCamera(); };Gum.Wireframe.GraphicalUiElement.ShowLineRectangles = false;
             prologue = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Media.Song>(@"content/globalcontent/babycatcher/prologue", ContentManagerName);
+            catchmeplease = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/globalcontent/babycatcher/catchmeplease", ContentManagerName);
+            pow = FlatRedBall.FlatRedBallServices.Load<Microsoft.Xna.Framework.Audio.SoundEffect>(@"content/globalcontent/babycatcher/pow", ContentManagerName);
             			IsInitialized = true;
             // Added by GumPlugin becasue of the Show Mouse checkbox on the .gumx:
             FlatRedBall.FlatRedBallServices.Game.IsMouseVisible = true;
@@ -111,6 +123,14 @@ namespace Frbcon2019
                 if (relativeFileName == "content/globalcontent/babycatcher/prologue.mp3")
                 {
                     Reload(prologue);
+                }
+                if (relativeFileName == "content/globalcontent/babycatcher/catchmeplease.wav")
+                {
+                    Reload(catchmeplease);
+                }
+                if (relativeFileName == "content/globalcontent/babycatcher/pow.wav")
+                {
+                    Reload(pow);
                 }
             }
             catch{}

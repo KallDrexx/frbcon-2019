@@ -290,6 +290,16 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\babycatcher\catchmeplease.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>catchmeplease</Name>
+      <Link>content\globalcontent\babycatcher\catchmeplease.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\globalcontent\babycatcher\pow.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>pow</Name>
+      <Link>content\globalcontent\babycatcher\pow.xnb</Link>
+    </None>
     <None Include="..\builtxnbs\desktopgl\globalcontent\babycatcher\prologue.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>prologue</Name>

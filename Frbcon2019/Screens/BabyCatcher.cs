@@ -37,9 +37,9 @@ namespace Frbcon2019.Screens
 		{
             if (firstTimeCalled)
             {
-                
-                
+                CatchMePleaseInstance.Play();                
             }
+
             if (AudioManager.CurrentlyPlayingSong != LullabySong)
             {
                 AudioManager.PlaySong(LullabySong, true, true);
@@ -138,6 +138,9 @@ namespace Frbcon2019.Screens
             }
         }
 
+        double lastPowPlayed = 0.0;
+
+
         private void HandleBabyActivity()
         {
             for (int x = BabyList.Count - 1; x >= 0; --x)
@@ -145,6 +148,13 @@ namespace Frbcon2019.Screens
                 var baby = BabyList[x];
                 if (baby.CollideAgainstBounce(GroundFloor, 0, 1, .2f))
                 {
+                    var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                    if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
+                    {
+                        pow.Play();
+                        lastPowPlayed = TimeManager.CurrentTime;
+                    }
+
                     if (++baby.NumBounces > 2)
                     {
                         baby.Velocity = Vector3.Zero;
@@ -167,7 +177,10 @@ namespace Frbcon2019.Screens
                     CatcherOfBabiesInstance.PlayCatchAnimation();
                 }
 
-                baby.CollideAgainstBounce(CatcherOfBabiesInstance.Bumpers, 0, 1.0f, .5f);
+                if (baby.CollideAgainstBounce(CatcherOfBabiesInstance.Bumpers, 0, 1.0f, .5f))
+                {
+                    
+                }
             }
         }
 
