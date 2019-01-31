@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>ChuteBody</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>516</LeftCoordinate>
+      <RightCoordinate>767</RightCoordinate>
+      <TopCoordinate>1091</TopCoordinate>
+      <BottomCoordinate>1278</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>ChuteNozzle</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>517</LeftCoordinate>
+      <RightCoordinate>1021</RightCoordinate>
+      <TopCoordinate>963</TopCoordinate>
+      <BottomCoordinate>1089</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>

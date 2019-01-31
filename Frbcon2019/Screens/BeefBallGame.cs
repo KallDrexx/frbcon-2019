@@ -19,25 +19,25 @@ namespace Frbcon2019.Screens
 {
 	public partial class BeefBallGame
 	{
-
+        float maxAISpeed = 10f;
 		void CustomInitialize()
 		{
             // TODO: I need to figure out the ai paddle movement. I want it to be tighter as the difficulty increases, and drag isn't the right way.
-            AIPaddle.Drag = GetDrag();
+            maxAISpeed = GetMaxAISpeed();
 
 		}
 
-        private float GetDrag()
+        private float GetMaxAISpeed()
         {
             switch (CurrentDifficultyFactor)
             {
-                case DifficultyFactor.Easy: return 10f;
-                case DifficultyFactor.Medium: return 5f;
-                case DifficultyFactor.Hard: return 2f;
+                case DifficultyFactor.Easy: return 175f;
+                case DifficultyFactor.Medium: return 225f;
+                case DifficultyFactor.Hard: return 275f;
 
                 case DifficultyFactor.ExtraHard:
                 default:
-                    return 0f;
+                    return 350f;
             }
         }
 
@@ -54,9 +54,26 @@ namespace Frbcon2019.Screens
             var cursorPosition = new Vector3(cursorX, cursorY, 0);
             var difference = cursorPosition - PaddleInstance.Position;
 
-            PaddleInstance.Acceleration = difference * PaddleMovementSpeed;
+            if (Math.Abs(difference.Length()) > .00001f)
+            {
+                PaddleInstance.Velocity = difference * PaddleSpeedMultiplier;
+            }
 
-            AIPaddle.YAcceleration = (BallInstance.Y - AIPaddle.Y) * PaddleMovementSpeed;
+
+            var direction = (BallInstance.Y - AIPaddle.Y);
+
+            if (direction > 0.00001f)
+            {
+                AIPaddle.YVelocity = maxAISpeed;
+            }
+            else if (direction < -0.00001f)
+            {
+                AIPaddle.YVelocity = -maxAISpeed;
+            }
+            else
+            {
+                AIPaddle.YVelocity = 0;
+            }
 
             BallInstance.CollideAgainstBounce(PaddleInstance, 0, 1, 1);
             BallInstance.CollideAgainstBounce(AIPaddle, 0, 1, 1);

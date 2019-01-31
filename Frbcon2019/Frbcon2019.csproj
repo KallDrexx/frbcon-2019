@@ -43,6 +43,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTypes\TileMapInfo.Generated.cs" />
+    <Compile Include="Entities\BabyCatcher\Baby.cs" />
+    <Compile Include="Entities\BabyCatcher\Baby.Event.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\Baby.Generated.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\Baby.Generated.Event.cs">
+      <DependentUpon>Baby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\BabyPortal.cs" />
+    <Compile Include="Entities\BabyCatcher\BabyPortal.Generated.cs">
+      <DependentUpon>BabyPortal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\CatcherOfBabies.cs" />
+    <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
+      <DependentUpon>CatcherOfBabies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />
     <Compile Include="Entities\BeefBall\Ball.Generated.cs">
       <DependentUpon>Ball.cs</DependentUpon>
@@ -79,6 +97,7 @@
     <Compile Include="Entities\SpaceInvaders\PlayerShip.Generated.cs">
       <DependentUpon>PlayerShip.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\BabyFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -88,8 +107,15 @@
     <Compile Include="Gameplay\LastMinigameResult.cs" />
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
+    <Compile Include="GumRuntimes\BabyCatcherGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BabyThrowGumRuntime.cs" />
+    <Compile Include="GumRuntimes\BabyThrowGumRuntime.Generated.cs">
+      <DependentUpon>BabyThrowGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\BeefBallGameGumRuntime.cs" />
-    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BeefBallGameGumRuntime.Generated.cs">
+      <DependentUpon>BeefBallGameGumRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\ButtonRuntime.cs" />
     <Compile Include="GumRuntimes\ButtonRuntime.Generated.cs">
       <DependentUpon>ButtonRuntime.cs</DependentUpon>
@@ -143,6 +169,14 @@
     <Compile Include="Performance\PoolList.Generated.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\BabyCatcher.cs" />
+    <Compile Include="Screens\BabyCatcher.Generated.cs">
+      <DependentUpon>BabyCatcher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BabyThrow.cs" />
+    <Compile Include="Screens\BabyThrow.Generated.cs">
+      <DependentUpon>BabyThrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\BeefBallGame.cs" />
     <Compile Include="Screens\BeefBallGame.Generated.cs">
       <DependentUpon>BeefBallGame.cs</DependentUpon>
@@ -191,6 +225,7 @@
       <DependentUpon>SpaceInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Setup\CameraSetup.cs" />
+    <Compile Include="ShakeTweener.cs" />
     <Compile Include="TileCollisions\CollidableListVsTileShapeCollectionRelationship.cs" />
     <Compile Include="TileCollisions\CollidableVsTileShapeCollectionRelationship.cs" />
     <Compile Include="TileCollisions\CollisionManagerTileShapeCollectionExtensions.cs" />
@@ -207,7 +242,9 @@
     <Compile Include="TileGraphics\MapTilesetTile.cs" />
     <Compile Include="TileGraphics\NamedValue.cs" />
     <Compile Include="TileGraphics\ReducedTileMapInfo.cs" />
-    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs" />
+    <Compile Include="TileGraphics\ReducedTileMapInfo.TiledMapSave.cs">
+      <DependentUpon>ReducedTileMapInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="TileGraphics\TileAnimation.cs" />
     <Compile Include="TileGraphics\TileAnimationFrame.cs" />
     <Compile Include="TileGraphics\TiledMapSave.Conversion.cs" />
@@ -253,6 +290,35 @@
     <Content Include="Content\shader.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="..\builtxnbs\desktopgl\screens\babycatcher\birthday.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>birthday</Name>
+      <Link>content\screens\babycatcher\birthday.xnb</Link>
+    </None>
+    <None Include="content\entities\babycatcher\babyportal\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\babyportal\portal_strip4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>portal_strip4</Name>
+    </None>
+    <None Include="content\entities\babycatcher\baby\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\baby\babies.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>Babies</Name>
+    </None>
+    <None Include="content\entities\babycatcher\baby\bodyanimationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BodyAnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\catcherofbabies\carriagechains.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>CarriageChains</Name>
+    </None>
     <None Include="content\entities\shoogame\broom\broom2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>broom2</Name>
@@ -276,6 +342,10 @@
     <None Include="content\entities\spaceinvaders\playership\spaceship_tut.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Spaceship_tut</Name>
+    </None>
+    <None Include="content\globalcontent\babycatcher\babe_ease_spritesheet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>babe_ease_spritesheet</Name>
     </None>
     <None Include="content\globalcontent\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -332,6 +402,14 @@
     <None Include="content\gumproject\modern_13x4x560x780.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>modern_13x4x560x780</Name>
+    </None>
+    <None Include="content\gumproject\screens\babycatchergum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BabyCatcherGum</Name>
+    </None>
+    <None Include="content\gumproject\screens\babythrowgum.gusx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>BabyThrowGum</Name>
     </None>
     <None Include="content\gumproject\screens\beefballgamegum.gusx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -439,9 +517,9 @@
     </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />
-    <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />
     <None Include="Libraries\DesktopGl\Release\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Release\GumCoreXnaPc.dll" />
+    <None Include="Libraries\DesktopGl\Debug\StateInterpolation.dll" />
     <None Include="Libraries\DesktopGl\Release\StateInterpolation.dll" />
     <Content Include="MonoGame.Framework.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
