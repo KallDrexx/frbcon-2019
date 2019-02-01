@@ -164,7 +164,7 @@ namespace Frbcon2019.Screens
 
                     }
 
-                    if (baby.HeadSpriteInstance.Alpha <= 0.0)
+                    if (baby.HeadSpriteInstance.Alpha <= 0f)
                     {
                         baby.Destroy();
                     }
@@ -175,6 +175,7 @@ namespace Frbcon2019.Screens
                 {
                     baby.Destroy();
                     CatcherOfBabiesInstance.PlayCatchAnimation();
+                    ScoreTextInstanceText++;
                 }
 
                 if (baby.CollideAgainstBounce(CatcherOfBabiesInstance.Bumpers, 0, 1.0f, .5f))
@@ -232,7 +233,7 @@ namespace Frbcon2019.Screens
         void CustomDestroy()
 		{
             FlatRedBallServices.Game.IsMouseVisible = true;
-
+            SpriteManager.RemovePositionedObject(chuteMover);
         }
 
         static void CustomLoadStaticContent(string contentManagerName)

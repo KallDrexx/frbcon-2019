@@ -846,6 +846,17 @@
                     ContainedNineSlice.SetSingleTexture(value);
                 }
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedNineSlice.Color;
+                }
+                set
+                {
+                    ContainedNineSlice.Color = value;
+                }
+            }
             public override void SetInitialState () 
             {
                 this.CurrentVariableState = VariableState.Default;

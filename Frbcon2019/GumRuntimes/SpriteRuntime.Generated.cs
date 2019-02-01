@@ -1041,6 +1041,17 @@
                     ContainedSprite.Texture = value;
                 }
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedSprite.Color;
+                }
+                set
+                {
+                    ContainedSprite.Color = value;
+                }
+            }
             public Microsoft.Xna.Framework.Graphics.Texture2D Texture
             {
                 get

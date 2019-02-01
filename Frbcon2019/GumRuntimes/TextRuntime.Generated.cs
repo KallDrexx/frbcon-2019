@@ -954,6 +954,11 @@
                 }
                 set
                 {
+                    if (this.WidthUnits == Gum.DataTypes.DimensionUnitType.RelativeToChildren)
+                    {
+                        // make it have no line wrap width before assignign the text:
+                        ContainedText.Width = 0;
+                    }
                     ContainedText.RawText = value;
                     UpdateLayout();
                 }
@@ -967,6 +972,17 @@
                 set
                 {
                     ContainedText.VerticalAlignment = value;
+                }
+            }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedText.Color;
+                }
+                set
+                {
+                    ContainedText.Color = value;
                 }
             }
             public RenderingLibrary.Graphics.BitmapFont BitmapFont

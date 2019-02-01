@@ -548,6 +548,17 @@
                 }
                 base.ApplyState(state);
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedContainer.Color;
+                }
+                set
+                {
+                    ContainedContainer.Color = value;
+                }
+            }
             public override void SetInitialState () 
             {
                 this.CurrentVariableState = VariableState.Default;

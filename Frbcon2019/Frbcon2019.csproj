@@ -367,6 +367,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>babe_ease_spritesheet</Name>
     </None>
+    <None Include="content\globalcontent\babycatcher\baby_doll_64.fnt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>baby_doll_64</Name>
+    </None>
     <None Include="content\globalcontent\cancel.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>cancel</Name>

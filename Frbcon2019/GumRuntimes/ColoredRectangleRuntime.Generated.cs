@@ -698,6 +698,17 @@
                     ContainedColoredRectangle.Red = value;
                 }
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedColoredRectangle.Color;
+                }
+                set
+                {
+                    ContainedColoredRectangle.Color = value;
+                }
+            }
             public override void SetInitialState () 
             {
                 this.CurrentVariableState = VariableState.Default;

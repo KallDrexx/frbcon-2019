@@ -633,6 +633,17 @@
                     ContainedCircle.Color = color;
                 }
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedCircle.Color;
+                }
+                set
+                {
+                    ContainedCircle.Color = value;
+                }
+            }
             public override void SetInitialState () 
             {
                 this.CurrentVariableState = VariableState.Default;

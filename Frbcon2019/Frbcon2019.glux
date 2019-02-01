@@ -25,7 +25,7 @@
           </Properties>
           <Name>InstructionsText</Name>
           <Type>string</Type>
-          <DefaultValue xsi:type="xsd:string">CATCH THE BABIES!!</DefaultValue>
+          <DefaultValue xsi:type="xsd:string">CATCH ME!! PLEASE!!!</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -37,7 +37,7 @@
           </Properties>
           <Name>GameTimeDurationInSeconds</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -149,6 +149,27 @@
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>OverridingPropertyType</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+            <PropertySave>
+              <Name>TypeConverter</Name>
+              <ValueAsString>&lt;default&gt;</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ScoreTextInstanceText</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+          <SourceObject>ScoreTextInstance</SourceObject>
+          <SourceObjectProperty>Text</SourceObjectProperty>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
       <ReferencedFiles>
@@ -165,21 +186,45 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>GlobalContent/BabyCatcher/prologue.mp3</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Media.Song</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>GlobalContent/BabyCatcher/catchmeplease.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>GlobalContent/BabyCatcher/pow.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>gumproject/Screens/BabyCatcherGum.gusx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -285,6 +330,15 @@
           <SourceFile>GlobalContent/BabyCatcher/catchmeplease.wav</SourceFile>
           <SourceName>Entire File (SoundEffectInstance)</SourceName>
           <InstanceName>CatchMePleaseInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>gumproject/Screens/BabyCatcherGum.gusx</SourceFile>
+          <SourceName>ScoreTextInstance (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
+          <InstanceName>ScoreTextInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -2213,6 +2267,11 @@
                 <ValueAsFloat>22</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>false</ValueAsBool>
+              </CustomProperty>
+              <CustomProperty>
                 <Member>Points</Member>
                 <ValueAsListOfVector2>
                   <Vector2>
@@ -2232,11 +2291,6 @@
                     <Y>25</Y>
                   </Vector2>
                 </ValueAsListOfVector2>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>bool</Type>
-                <Member>Visible</Member>
-                <ValueAsBool>false</ValueAsBool>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>Polygon</SourceClassType>
@@ -3269,18 +3323,36 @@
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
     <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Name>GlobalContent/BabyCatcher/prologue.mp3</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
     <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Name>GlobalContent/BabyCatcher/catchmeplease.wav</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>
       <ProjectsToExcludeFrom />
     </ReferencedFileSave>
     <ReferencedFileSave>
+      <Properties>
+        <PropertySave>
+          <Name>UseContentPipeline</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
       <Name>GlobalContent/BabyCatcher/pow.wav</Name>
       <IsSharedStatic>true</IsSharedStatic>
       <HasPublicProperty>true</HasPublicProperty>

@@ -481,6 +481,17 @@
                     ContainedPolygon.Color = color;
                 }
             }
+            public Microsoft.Xna.Framework.Color Color
+            {
+                get
+                {
+                    return ContainedPolygon.Color;
+                }
+                set
+                {
+                    ContainedPolygon.Color = value;
+                }
+            }
             public override void SetInitialState () 
             {
                 this.CurrentVariableState = VariableState.Default;
