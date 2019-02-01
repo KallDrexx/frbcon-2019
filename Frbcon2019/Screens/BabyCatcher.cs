@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework;
 using Frbcon2019.Entities.BabyCatcher;
 using FlatRedBall.Gui;
 using FlatRedBall.Audio;
+using FlatRedBall.Math.Collision;
 
 namespace Frbcon2019.Screens
 {
@@ -33,12 +34,66 @@ namespace Frbcon2019.Screens
             FlatRedBallServices.Game.IsMouseVisible = false;
         }
 
+        
 		void CustomActivity(bool firstTimeCalled)
 		{
             if (firstTimeCalled)
             {
-                CatchMePleaseInstance.Play();                
+                CatchMePleaseInstance.Play();
+
+                var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
+
+                babyListToSelf.SetBounceCollision(1, 1, .2f);
+
+                babyListToSelf.CollisionOccurred = (baby1, baby2) =>
+                {
+                    baby1.RotationZVelocity = 0;
+                    baby2.RotationZVelocity = 0;
+                };
+
+                CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance).CollisionOccurred = (baby, catcher) =>
+                {
+
+                    baby.Destroy();
+                    CatcherOfBabiesInstance.PlayCatchAnimation();
+                    ScoreTextInstanceText++;
+                };
+
+                var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance);
+                rel.SetSecondSubCollision(item => item.Bumpers);
+
+                rel.SetBounceCollision(0, 1f, .5f);
+
+
+                var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
+
+                babyFloorRel.SetBounceCollision(0, 1f, .2f);
+
+                babyFloorRel.CollisionOccurred = (baby, floor) =>
+                {
+                    var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                    if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
+                    {
+                        pow.Play();
+                        lastPowPlayed = TimeManager.CurrentTime;
+                    }
+
+                    if (++baby.NumBounces > 2)
+                    {
+                        baby.Velocity = Vector3.Zero;
+                        baby.RotationZVelocity = 0;
+
+                        baby.FadeAway();
+
+                    }
+
+                    if (baby.HeadSpriteInstance.Alpha <= 0f)
+                    {
+                        baby.Destroy();
+                    }
+                };
             }
+
 
             if (AudioManager.CurrentlyPlayingSong != LullabySong)
             {
@@ -49,14 +104,10 @@ namespace Frbcon2019.Screens
             {
                 HandleBabySpawns();
                 LerpCatcherPosition();
-                HandleBabyActivity();
 
                 ChuteMovement();
                 LerpChutePosition();
             }
-
-
-
         }
 
         PositionedObject chuteMover = null;
@@ -139,51 +190,6 @@ namespace Frbcon2019.Screens
         }
 
         double lastPowPlayed = 0.0;
-
-
-        private void HandleBabyActivity()
-        {
-            for (int x = BabyList.Count - 1; x >= 0; --x)
-            {
-                var baby = BabyList[x];
-                if (baby.CollideAgainstBounce(GroundFloor, 0, 1, .2f))
-                {
-                    var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
-                    if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
-                    {
-                        pow.Play();
-                        lastPowPlayed = TimeManager.CurrentTime;
-                    }
-
-                    if (++baby.NumBounces > 2)
-                    {
-                        baby.Velocity = Vector3.Zero;
-                        baby.RotationZVelocity = 0;
-
-                        baby.FadeAway();
-
-                    }
-
-                    if (baby.HeadSpriteInstance.Alpha <= 0f)
-                    {
-                        baby.Destroy();
-                    }
-                }
-
-
-                if (baby.CollideAgainst(CatcherOfBabiesInstance))
-                {
-                    baby.Destroy();
-                    CatcherOfBabiesInstance.PlayCatchAnimation();
-                    ScoreTextInstanceText++;
-                }
-
-                if (baby.CollideAgainstBounce(CatcherOfBabiesInstance.Bumpers, 0, 1.0f, .5f))
-                {
-                    
-                }
-            }
-        }
 
         private void HandleBabySpawns()
         {

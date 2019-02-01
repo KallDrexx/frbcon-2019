@@ -259,7 +259,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="FlatRedBallDesktopGL, Version=2016.3.17.461, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FlatRedBallDesktopGL, Version=2019.1.13.461, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libraries\DesktopGl\Debug\FlatRedBallDesktopGL.dll</HintPath>
     </Reference>
@@ -568,7 +568,6 @@
     </None>
     <EmbeddedResource Include="Icon.ico" />
     <None Include="Libraries\DesktopGl\Debug\FlatRedBallDesktopGL.dll" />
-    <None Include="Libraries\DesktopGl\Debug\FlatRedBallDesktopGL.pdb" />
     <None Include="Libraries\DesktopGl\Debug\Lidgren.Network.dll" />
     <None Include="Libraries\DesktopGl\Debug\MonoGame.Framework.dll" />
     <None Include="Libraries\DesktopGl\Debug\MonoGame.Framework.Net.dll" />

@@ -22,8 +22,6 @@ namespace Frbcon2019.Entities.BabyCatcher
         /// </summary>
 		private void CustomInitialize()
 		{
-
-
 		}
 
         public void PlayCatchAnimation()
@@ -69,21 +67,17 @@ namespace Frbcon2019.Entities.BabyCatcher
 
             var distance = Vector3.Distance(RightWheelInstance.Position, endPosition);
 
-
             if (distance > .0001f)
             {
                 RightWheelInstance.Position = Vector3.Lerp(RightWheelInstance.Position, endPosition, thisLerp);
             }
             else
             {
-                if (distance > 0.0f)
-                {
-
-                }
-
                 RightWheelInstance.Position = endPosition;
                 RightWheelInstance.Z -= 2f;
             }
+
+            RightWheelCircle.Position = RightWheelInstance.Position;
         }
 
         private void LerpLeftWheel()
@@ -94,21 +88,17 @@ namespace Frbcon2019.Entities.BabyCatcher
 
             var distance = Vector3.Distance(LeftWheelInstance.Position, endPosition);
 
-
             if (distance > .0001f)
             {
                 LeftWheelInstance.Position = Vector3.Lerp(LeftWheelInstance.Position, endPosition, thisLerp);
             }
             else
             {
-                if (distance > 0.0f)
-                {
-
-                }
-
                 LeftWheelInstance.Position = endPosition;
                 LeftWheelInstance.Z -= 2f;
             }
+
+            LeftWheelCircle.Position = LeftWheelInstance.Position;
         }
 
         private void LerpHandle()

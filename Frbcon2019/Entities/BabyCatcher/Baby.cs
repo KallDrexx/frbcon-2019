@@ -69,8 +69,8 @@ namespace Frbcon2019.Entities.BabyCatcher
         public void FadeAway()
         {
 
-            HeadSpriteInstance.AlphaRate = -1.0f;
-            BodySpriteInstance.AlphaRate = -1.0f;
+            HeadSpriteInstance.AlphaRate = -.5f;
+            BodySpriteInstance.AlphaRate = -.5f;
             
         }
     }

@@ -275,37 +275,6 @@
         <NamedObjectSave>
           <CustomProperty>
             <Type>float</Type>
-            <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Y</Member>
-            <ValueAsFloat>-350</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>800</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>100</ValueAsFloat>
-          </CustomProperty>
-          <SourceType>FlatRedBallType</SourceType>
-          <SourceFile />
-          <SourceName />
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>GroundFloor</InstanceName>
-          <HasPublicProperty>true</HasPublicProperty>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <CustomProperty>
-            <Type>float</Type>
             <Member>Y</Member>
             <ValueAsFloat>-150</ValueAsFloat>
           </CustomProperty>
@@ -341,6 +310,49 @@
           <InstanceName>ScoreTextInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>ShapeCollection</SourceClassType>
+          <InstanceName>FloorShapes</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <ContainedObjects>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>0</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Y</Member>
+                <ValueAsFloat>-350</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Width</Member>
+                <ValueAsFloat>800</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Height</Member>
+                <ValueAsFloat>100</ValueAsFloat>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceFile />
+              <SourceName />
+              <SourceClassType>AxisAlignedRectangle</SourceClassType>
+              <InstanceName>GroundFloor</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+          </ContainedObjects>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2256,6 +2268,7 @@
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IncludeInICollidable>false</IncludeInICollidable>
           <ContainedObjects>
             <NamedObjectSave>
               <CustomProperty>
@@ -2298,6 +2311,7 @@
               <HasPublicProperty>true</HasPublicProperty>
               <AttachToContainer>true</AttachToContainer>
               <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IncludeInICollidable>false</IncludeInICollidable>
               <IndependentOfCamera>true</IndependentOfCamera>
             </NamedObjectSave>
             <NamedObjectSave>
@@ -2330,6 +2344,88 @@
               <HasPublicProperty>true</HasPublicProperty>
               <AttachToContainer>true</AttachToContainer>
               <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IncludeInICollidable>false</IncludeInICollidable>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>62</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>-99</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Radius</Member>
+                <ValueAsFloat>20</ValueAsFloat>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceFile />
+              <SourceName />
+              <SourceClassType>Circle</SourceClassType>
+              <InstanceName>RightWheelCircle</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IncludeInICollidable>false</IncludeInICollidable>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-61</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>-98</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Radius</Member>
+                <ValueAsFloat>20</ValueAsFloat>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>Circle</SourceClassType>
+              <InstanceName>LeftWheelCircle</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IncludeInICollidable>false</IncludeInICollidable>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>0</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>-69</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Width</Member>
+                <ValueAsFloat>120</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Height</Member>
+                <ValueAsFloat>32</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>true</ValueAsBool>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>AxisAlignedRectangle</SourceClassType>
+              <InstanceName>Axle</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IncludeInICollidable>false</IncludeInICollidable>
               <IndependentOfCamera>true</IndependentOfCamera>
             </NamedObjectSave>
           </ContainedObjects>
