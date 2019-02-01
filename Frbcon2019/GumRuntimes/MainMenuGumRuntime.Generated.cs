@@ -28,12 +28,18 @@
                             ButtonInstance.LabelText = "Start";
                             ButtonInstance.X = 259f;
                             ButtonInstance.Y = 380f;
+                            SetProperty("TextInstance.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                            TextInstance.Height = 68f;
+                            TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             TextInstance.Text = "FRB-Con 2019\n";
-                            TextInstance.Width = 130f;
+                            TextInstance.UseCustomFont = true;
+                            TextInstance.Width = 376f;
+                            TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
                             TextInstance.X = 0f;
                             TextInstance.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
-                            TextInstance.Y = 50f;
+                            TextInstance.Y = 100f;
+                            TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
                             TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             break;
                     }
@@ -57,6 +63,10 @@
                 bool setButtonInstanceYSecondValue = false;
                 float ButtonInstanceYFirstValue= 0;
                 float ButtonInstanceYSecondValue= 0;
+                bool setTextInstanceHeightFirstValue = false;
+                bool setTextInstanceHeightSecondValue = false;
+                float TextInstanceHeightFirstValue= 0;
+                float TextInstanceHeightSecondValue= 0;
                 bool setTextInstanceWidthFirstValue = false;
                 bool setTextInstanceWidthSecondValue = false;
                 float TextInstanceWidthFirstValue= 0;
@@ -82,10 +92,28 @@
                         ButtonInstanceYFirstValue = 380f;
                         if (interpolationValue < 1)
                         {
+                            SetProperty("TextInstance.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setTextInstanceHeightFirstValue = true;
+                        TextInstanceHeightFirstValue = 68f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.TextInstance.Text = "FRB-Con 2019\n";
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.UseCustomFont = true;
+                        }
                         setTextInstanceWidthFirstValue = true;
-                        TextInstanceWidthFirstValue = 130f;
+                        TextInstanceWidthFirstValue = 376f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
                         setTextInstanceXFirstValue = true;
                         TextInstanceXFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -97,7 +125,11 @@
                             this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setTextInstanceYFirstValue = true;
-                        TextInstanceYFirstValue = 50f;
+                        TextInstanceYFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
@@ -117,10 +149,28 @@
                         ButtonInstanceYSecondValue = 380f;
                         if (interpolationValue >= 1)
                         {
+                            SetProperty("TextInstance.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setTextInstanceHeightSecondValue = true;
+                        TextInstanceHeightSecondValue = 68f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.HeightUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.TextInstance.Text = "FRB-Con 2019\n";
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.UseCustomFont = true;
+                        }
                         setTextInstanceWidthSecondValue = true;
-                        TextInstanceWidthSecondValue = 130f;
+                        TextInstanceWidthSecondValue = 376f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.WidthUnits = Gum.DataTypes.DimensionUnitType.Absolute;
+                        }
                         setTextInstanceXSecondValue = true;
                         TextInstanceXSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -132,7 +182,11 @@
                             this.TextInstance.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
                         setTextInstanceYSecondValue = true;
-                        TextInstanceYSecondValue = 50f;
+                        TextInstanceYSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Top;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.TextInstance.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
@@ -146,6 +200,10 @@
                 if (setButtonInstanceYFirstValue && setButtonInstanceYSecondValue)
                 {
                     ButtonInstance.Y = ButtonInstanceYFirstValue * (1 - interpolationValue) + ButtonInstanceYSecondValue * interpolationValue;
+                }
+                if (setTextInstanceHeightFirstValue && setTextInstanceHeightSecondValue)
+                {
+                    TextInstance.Height = TextInstanceHeightFirstValue * (1 - interpolationValue) + TextInstanceHeightSecondValue * interpolationValue;
                 }
                 if (setTextInstanceWidthFirstValue && setTextInstanceWidthSecondValue)
                 {
@@ -266,6 +324,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Height",
+                            Type = "float",
+                            Value = TextInstance.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Text",
                             Type = "string",
                             Value = TextInstance.Text
@@ -274,9 +356,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Width",
                             Type = "float",
                             Value = TextInstance.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = TextInstance.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -309,6 +407,14 @@
                             Name = "TextInstance.Y",
                             Type = "float",
                             Value = TextInstance.Y
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TextInstance.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -356,6 +462,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Height",
+                            Type = "float",
+                            Value = TextInstance.Height + 68f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = TextInstance.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Text",
                             Type = "string",
                             Value = TextInstance.Text
@@ -364,9 +494,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance.Width",
                             Type = "float",
-                            Value = TextInstance.Width + 130f
+                            Value = TextInstance.Width + 376f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = TextInstance.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -398,7 +544,15 @@
                             SetsValue = true,
                             Name = "TextInstance.Y",
                             Type = "float",
-                            Value = TextInstance.Y + 50f
+                            Value = TextInstance.Y + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TextInstance.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

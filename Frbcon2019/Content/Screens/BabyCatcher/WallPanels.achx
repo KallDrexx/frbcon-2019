@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>Horizontal</Name>
+    <Frame>
+      <TextureName>../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>80</LeftCoordinate>
+      <RightCoordinate>112</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>576</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>NoStretch</Name>
+    <Frame>
+      <TextureName>../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>2048</RightCoordinate>
+      <TopCoordinate>512</TopCoordinate>
+      <BottomCoordinate>576</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Vertical</Name>
+    <Frame>
+      <TextureName>../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>128</LeftCoordinate>
+      <RightCoordinate>2048</RightCoordinate>
+      <TopCoordinate>532</TopCoordinate>
+      <BottomCoordinate>564</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>

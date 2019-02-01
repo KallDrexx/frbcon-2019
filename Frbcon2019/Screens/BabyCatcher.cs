@@ -40,58 +40,7 @@ namespace Frbcon2019.Screens
             if (firstTimeCalled)
             {
                 CatchMePleaseInstance.Play();
-
-                var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
-
-                babyListToSelf.SetBounceCollision(1, 1, .2f);
-
-                babyListToSelf.CollisionOccurred = (baby1, baby2) =>
-                {
-                    baby1.RotationZVelocity = 0;
-                    baby2.RotationZVelocity = 0;
-                };
-
-                CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance).CollisionOccurred = (baby, catcher) =>
-                {
-
-                    baby.Destroy();
-                    CatcherOfBabiesInstance.PlayCatchAnimation();
-                    ScoreTextInstanceText++;
-                };
-
-                var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance);
-                rel.SetSecondSubCollision(item => item.Bumpers);
-
-                rel.SetBounceCollision(0, 1f, .5f);
-
-
-                var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
-
-                babyFloorRel.SetBounceCollision(0, 1f, .2f);
-
-                babyFloorRel.CollisionOccurred = (baby, floor) =>
-                {
-                    var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
-                    if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
-                    {
-                        pow.Play();
-                        lastPowPlayed = TimeManager.CurrentTime;
-                    }
-
-                    if (++baby.NumBounces > 2)
-                    {
-                        baby.Velocity = Vector3.Zero;
-                        baby.RotationZVelocity = 0;
-
-                        baby.FadeAway();
-
-                    }
-
-                    if (baby.HeadSpriteInstance.Alpha <= 0f)
-                    {
-                        baby.Destroy();
-                    }
-                };
+                CreateCollisions();
             }
 
 
@@ -108,6 +57,110 @@ namespace Frbcon2019.Screens
                 ChuteMovement();
                 LerpChutePosition();
             }
+        }
+
+        private void CreateCollisions()
+        {
+            CreateBabyCollisions();
+            CreateTrashCollisions();
+            
+        }
+
+        private void CreateTrashCollisions()
+        {
+            var trashlisttoSelf = CollisionManager.Self.CreateRelationship(TrashList, TrashList);
+            trashlisttoSelf.SetBounceCollision(1, 1, .2f);
+
+            CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance).CollisionOccurred = (trash, catcher) => {
+                trash.Destroy();
+                CatcherOfBabiesInstance.PlayCatchAnimation();
+                // TODO: Do Powerup
+            };
+
+            var rel = CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance);
+            rel.SetSecondSubCollision(item => item.Bumpers);
+            rel.SetBounceCollision(0, 1f, .5f);
+
+            var trashFloorRel = CollisionManager.Self.CreateRelationship(TrashList, FloorShapes);
+            trashFloorRel.SetBounceCollision(0, 1f, .2f);
+            trashFloorRel.CollisionOccurred = (trash, floor) => {
+                var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                if (trash.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
+                {
+                    pow.Play();
+                    lastPowPlayed = TimeManager.CurrentTime;
+                }
+
+                if (++trash.NumBounces > 2)
+                {
+                    trash.Velocity = Vector3.Zero;
+                    trash.RotationZVelocity = 0;
+
+                    trash.FadeAway();
+
+                }
+
+                if (trash.SpriteInstance.Alpha <= 0f)
+                {
+                    trash.Destroy();
+                }
+            };
+
+        }
+
+        private void CreateBabyCollisions()
+        {
+            var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
+
+            babyListToSelf.SetBounceCollision(1, 1, .2f);
+
+            babyListToSelf.CollisionOccurred = (baby1, baby2) =>
+            {
+                baby1.RotationZVelocity = 0;
+                baby2.RotationZVelocity = 0;
+            };
+
+            CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance).CollisionOccurred = (baby, catcher) =>
+            {
+
+                baby.Destroy();
+                CatcherOfBabiesInstance.PlayCatchAnimation();
+                ScoreTextInstanceText++;
+            };
+
+            var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance);
+            rel.SetSecondSubCollision(item => item.Bumpers);
+
+            rel.SetBounceCollision(0, 1f, .5f);
+
+
+            var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
+
+            babyFloorRel.SetBounceCollision(0, 1f, .2f);
+
+            babyFloorRel.CollisionOccurred = (baby, floor) =>
+            {
+                var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
+                {
+                    pow.Play();
+                    lastPowPlayed = TimeManager.CurrentTime;
+                }
+
+                if (++baby.NumBounces > 2)
+                {
+                    baby.Velocity = Vector3.Zero;
+                    baby.RotationZVelocity = 0;
+
+                    baby.FadeAway();
+
+                }
+
+                if (baby.HeadSpriteInstance.Alpha <= 0f)
+                {
+                    baby.Destroy();
+                }
+            };
         }
 
         PositionedObject chuteMover = null;
@@ -197,11 +250,18 @@ namespace Frbcon2019.Screens
 
             if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
             {
-                var portal = BabyPortalList[FlatRedBallServices.Random.Next(BabyPortalList.Count)];
+                var roll = FlatRedBallServices.Random.Between(0f, 100f);
 
-                portal.SpawnBaby();
+                if (roll <= TrashFrequencyPercent)
+                {
+                    Portal1.SpawnTrash();
+                }
+                else
+                {
+                    Portal1.SpawnBaby();
+                    lastBabySpawn = TimeManager.CurrentTime;
+                }
 
-                lastBabySpawn = TimeManager.CurrentTime;
             }
         }
 

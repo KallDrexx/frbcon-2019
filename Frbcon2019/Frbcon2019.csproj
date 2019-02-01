@@ -61,6 +61,10 @@
     <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
       <DependentUpon>CatcherOfBabies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\Trash.cs" />
+    <Compile Include="Entities\BabyCatcher\Trash.Generated.cs">
+      <DependentUpon>Trash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />
     <Compile Include="Entities\BeefBall\Ball.Generated.cs">
       <DependentUpon>Ball.cs</DependentUpon>
@@ -99,6 +103,7 @@
     </Compile>
     <Compile Include="Factories\BabyFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
+    <Compile Include="Factories\TrashFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay\DifficultyFactor.cs" />
@@ -339,6 +344,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CarriageChains</Name>
     </None>
+    <None Include="content\entities\babycatcher\trash\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\shoogame\broom\broom2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>broom2</Name>
@@ -538,6 +547,10 @@
     <None Include="content\gumproject\standards\text.gutx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>text</Name>
+    </None>
+    <None Include="content\screens\babycatcher\wallpanels.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>WallPanels</Name>
     </None>
     <None Include="Libraries\DesktopGl\Debug\FlatRedBall.Forms.dll" />
     <None Include="Libraries\DesktopGl\Debug\GumCoreXnaPc.dll" />

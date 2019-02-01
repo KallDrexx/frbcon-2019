@@ -170,6 +170,17 @@
           <SourceObject>ScoreTextInstance</SourceObject>
           <SourceObjectProperty>Text</SourceObjectProperty>
         </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>TrashFrequencyPercent</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">2</DefaultValue>
+        </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
       <ReferencedFiles>
@@ -225,6 +236,12 @@
           <Name>gumproject/Screens/BabyCatcherGum.gusx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Gum.GumIdb</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/BabyCatcher/WallPanels.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -353,6 +370,136 @@
               <IndependentOfCamera>true</IndependentOfCamera>
             </NamedObjectSave>
           </ContainedObjects>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-100</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>800</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>WallPanels</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Horizontal</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>TopWall</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>-63</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>800</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>64</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>WallPanels</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>NoStretch</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-99</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>MiddleWall</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>-196</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Width</Member>
+            <ValueAsFloat>800</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Height</Member>
+            <ValueAsFloat>210</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>WallPanels</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Vertical</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Z</Member>
+            <ValueAsFloat>-98</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>BottomWall</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\BabyCatcher\Trash</SourceClassGenericType>
+          <InstanceName>TrashList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -1476,7 +1623,7 @@
           </Properties>
           <Name>MaxHeadLerpSeconds</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.025</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">0.05</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -1596,22 +1743,9 @@
         </NamedObjectSave>
         <NamedObjectSave>
           <CustomProperty>
-            <Member>X</Member>
-            <ValueAsFloat>0</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Member>Y</Member>
-            <ValueAsFloat>15</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
             <Type>float</Type>
-            <Member>Width</Member>
-            <ValueAsFloat>40</ValueAsFloat>
-          </CustomProperty>
-          <CustomProperty>
-            <Type>float</Type>
-            <Member>Height</Member>
-            <ValueAsFloat>70</ValueAsFloat>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
           </CustomProperty>
           <CustomProperty>
             <Type>bool</Type>
@@ -1619,8 +1753,10 @@
             <ValueAsBool>false</ValueAsBool>
           </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
-          <SourceClassType>AxisAlignedRectangle</SourceClassType>
-          <InstanceName>AxisAlignedRectangleInstance</InstanceName>
+          <SourceFile />
+          <SourceName />
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
           <HasPublicProperty>true</HasPublicProperty>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -2361,6 +2497,11 @@
                 <Member>Radius</Member>
                 <ValueAsFloat>20</ValueAsFloat>
               </CustomProperty>
+              <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>false</ValueAsBool>
+              </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceFile />
               <SourceName />
@@ -2385,6 +2526,11 @@
                 <Type>float</Type>
                 <Member>Radius</Member>
                 <ValueAsFloat>20</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>bool</Type>
+                <Member>Visible</Member>
+                <ValueAsBool>false</ValueAsBool>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>Circle</SourceClassType>
@@ -2417,7 +2563,7 @@
               <CustomProperty>
                 <Type>bool</Type>
                 <Member>Visible</Member>
-                <ValueAsBool>true</ValueAsBool>
+                <ValueAsBool>false</ValueAsBool>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -2440,6 +2586,240 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
+          <Name>ImplementsICollidable</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Sneaker</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Sneaker</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>BowlingBall</ValueAsString>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>CircleInstanceRadius</Member>
+                  <ValueAsFloat>24</ValueAsFloat>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>BowlingBall</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Iron</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Iron</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Horn</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Horn</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>TrashType</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <DefaultValue xsi:type="xsd:string">Sneaker</DefaultValue>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>TrashType</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentTrashTypeState</Name>
+          <Type>TrashType</Type>
+          <DefaultValue xsi:type="xsd:string">BowlingBall</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CircleInstanceRadius</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">16</DefaultValue>
+          <SourceObject>CircleInstance</SourceObject>
+          <SourceObjectProperty>Radius</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>NumBounces</Name>
+          <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BabyCatcher\Trash</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Sneaker</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+            <string>Alpha</string>
+            <string>AlphaRate</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>Radius</Member>
+            <ValueAsFloat>16</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Circle</SourceClassType>
+          <InstanceName>CircleInstance</InstanceName>
+          <HasPublicProperty>true</HasPublicProperty>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <VariablesToReset>
+            <string>X</string>
+            <string>Y</string>
+            <string>Z</string>
+            <string>XVelocity</string>
+            <string>YVelocity</string>
+            <string>ZVelocity</string>
+            <string>RotationX</string>
+            <string>RotationY</string>
+            <string>RotationZ</string>
+            <string>RotationXVelocity</string>
+            <string>RotationYVelocity</string>
+            <string>RotationZVelocity</string>
+          </VariablesToReset>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/BabyCatcher/Trash/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <CreatedByOtherEntities>true</CreatedByOtherEntities>
+      <PooledByFactory>true</PooledByFactory>
       <Is2D>true</Is2D>
     </EntitySave>
     <EntitySave>

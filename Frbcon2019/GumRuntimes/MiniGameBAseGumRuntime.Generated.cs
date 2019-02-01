@@ -66,10 +66,14 @@
                             MinigameUI.Visible = false;
                             MinigameUI.Width = 100f;
                             MinigameUI.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            SetProperty("TextInstance1.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                            TextInstance1.FontScale = 0.5f;
                             TextInstance1.Height = 0f;
                             TextInstance1.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Left;
                             TextInstance1.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
-                            TextInstance1.Text = "Time Remaining:\n";
+                            TextInstance1.Text = "Time Remaining:";
+                            TextInstance1.UseCustomFont = true;
+                            TextInstance1.Visible = true;
                             TextInstance1.Width = 0f;
                             TimerDisplay.ChildrenLayout = Gum.Managers.ChildrenLayout.LeftToRightStack;
                             TimerDisplay.Height = 0f;
@@ -78,10 +82,14 @@
                             TimerDisplay.Width = 0f;
                             TimerDisplay.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             TimerDisplay.X = 50f;
-                            TimerDisplay.Y = -25f;
+                            TimerDisplay.Y = 0f;
+                            TimerDisplay.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
                             TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
+                            SetProperty("GameTimeLeft.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                            GameTimeLeft.FontScale = 0.5f;
                             GameTimeLeft.Height = 0f;
                             GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
+                            GameTimeLeft.UseCustomFont = true;
                             GameTimeLeft.Width = 0f;
                             break;
                     }
@@ -150,6 +158,10 @@
                 bool setContentBlockerYSecondValue = false;
                 float ContentBlockerYFirstValue= 0;
                 float ContentBlockerYSecondValue= 0;
+                bool setGameTimeLeftFontScaleFirstValue = false;
+                bool setGameTimeLeftFontScaleSecondValue = false;
+                float GameTimeLeftFontScaleFirstValue= 0;
+                float GameTimeLeftFontScaleSecondValue= 0;
                 bool setGameTimeLeftHeightFirstValue = false;
                 bool setGameTimeLeftHeightSecondValue = false;
                 float GameTimeLeftHeightFirstValue= 0;
@@ -198,6 +210,10 @@
                 bool setSplashContainerWidthSecondValue = false;
                 float SplashContainerWidthFirstValue= 0;
                 float SplashContainerWidthSecondValue= 0;
+                bool setTextInstance1FontScaleFirstValue = false;
+                bool setTextInstance1FontScaleSecondValue = false;
+                float TextInstance1FontScaleFirstValue= 0;
+                float TextInstance1FontScaleSecondValue= 0;
                 bool setTextInstance1HeightFirstValue = false;
                 bool setTextInstance1HeightSecondValue = false;
                 float TextInstance1HeightFirstValue= 0;
@@ -251,11 +267,21 @@
                         ContentBlockerXFirstValue = 0f;
                         setContentBlockerYFirstValue = true;
                         ContentBlockerYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("GameTimeLeft.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setGameTimeLeftFontScaleFirstValue = true;
+                        GameTimeLeftFontScaleFirstValue = 0.5f;
                         setGameTimeLeftHeightFirstValue = true;
                         GameTimeLeftHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.GameTimeLeft.UseCustomFont = true;
                         }
                         setGameTimeLeftWidthFirstValue = true;
                         GameTimeLeftWidthFirstValue = 0f;
@@ -339,6 +365,12 @@
                         {
                             this.SplashContainer.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("TextInstance1.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setTextInstance1FontScaleFirstValue = true;
+                        TextInstance1FontScaleFirstValue = 0.5f;
                         setTextInstance1HeightFirstValue = true;
                         TextInstance1HeightFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -351,7 +383,15 @@
                         }
                         if (interpolationValue < 1)
                         {
-                            this.TextInstance1.Text = "Time Remaining:\n";
+                            this.TextInstance1.Text = "Time Remaining:";
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance1.UseCustomFont = true;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.TextInstance1.Visible = true;
                         }
                         setTextInstance1WidthFirstValue = true;
                         TextInstance1WidthFirstValue = 0f;
@@ -378,7 +418,11 @@
                         setTimerDisplayXFirstValue = true;
                         TimerDisplayXFirstValue = 50f;
                         setTimerDisplayYFirstValue = true;
-                        TimerDisplayYFirstValue = -25f;
+                        TimerDisplayYFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            this.TimerDisplay.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
                         if (interpolationValue < 1)
                         {
                             this.TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
@@ -414,11 +458,21 @@
                         ContentBlockerXSecondValue = 0f;
                         setContentBlockerYSecondValue = true;
                         ContentBlockerYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("GameTimeLeft.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setGameTimeLeftFontScaleSecondValue = true;
+                        GameTimeLeftFontScaleSecondValue = 0.5f;
                         setGameTimeLeftHeightSecondValue = true;
                         GameTimeLeftHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.GameTimeLeft.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "TimerDisplay");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.GameTimeLeft.UseCustomFont = true;
                         }
                         setGameTimeLeftWidthSecondValue = true;
                         GameTimeLeftWidthSecondValue = 0f;
@@ -502,6 +556,12 @@
                         {
                             this.SplashContainer.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("TextInstance1.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setTextInstance1FontScaleSecondValue = true;
+                        TextInstance1FontScaleSecondValue = 0.5f;
                         setTextInstance1HeightSecondValue = true;
                         TextInstance1HeightSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -514,7 +574,15 @@
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.TextInstance1.Text = "Time Remaining:\n";
+                            this.TextInstance1.Text = "Time Remaining:";
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance1.UseCustomFont = true;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.TextInstance1.Visible = true;
                         }
                         setTextInstance1WidthSecondValue = true;
                         TextInstance1WidthSecondValue = 0f;
@@ -541,7 +609,11 @@
                         setTimerDisplayXSecondValue = true;
                         TimerDisplayXSecondValue = 50f;
                         setTimerDisplayYSecondValue = true;
-                        TimerDisplayYSecondValue = -25f;
+                        TimerDisplayYSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.TimerDisplay.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Bottom;
+                        }
                         if (interpolationValue >= 1)
                         {
                             this.TimerDisplay.YUnits = Gum.Converters.GeneralUnitType.PixelsFromLarge;
@@ -575,6 +647,10 @@
                 if (setContentBlockerYFirstValue && setContentBlockerYSecondValue)
                 {
                     ContentBlocker.Y = ContentBlockerYFirstValue * (1 - interpolationValue) + ContentBlockerYSecondValue * interpolationValue;
+                }
+                if (setGameTimeLeftFontScaleFirstValue && setGameTimeLeftFontScaleSecondValue)
+                {
+                    GameTimeLeft.FontScale = GameTimeLeftFontScaleFirstValue * (1 - interpolationValue) + GameTimeLeftFontScaleSecondValue * interpolationValue;
                 }
                 if (setGameTimeLeftHeightFirstValue && setGameTimeLeftHeightSecondValue)
                 {
@@ -623,6 +699,10 @@
                 if (setSplashContainerWidthFirstValue && setSplashContainerWidthSecondValue)
                 {
                     SplashContainer.Width = SplashContainerWidthFirstValue * (1 - interpolationValue) + SplashContainerWidthSecondValue * interpolationValue;
+                }
+                if (setTextInstance1FontScaleFirstValue && setTextInstance1FontScaleSecondValue)
+                {
+                    TextInstance1.FontScale = TextInstance1FontScaleFirstValue * (1 - interpolationValue) + TextInstance1FontScaleSecondValue * interpolationValue;
                 }
                 if (setTextInstance1HeightFirstValue && setTextInstance1HeightSecondValue)
                 {
@@ -1127,6 +1207,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance1.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance1.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Font Scale",
+                            Type = "float",
+                            Value = TextInstance1.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance1.Height",
                             Type = "float",
                             Value = TextInstance1.Height
@@ -1154,6 +1250,22 @@
                             Name = "TextInstance1.Text",
                             Type = "string",
                             Value = TextInstance1.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance1.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Visible",
+                            Type = "bool",
+                            Value = TextInstance1.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1231,9 +1343,33 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TimerDisplay.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimerDisplay.YOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TimerDisplay.Y Units",
                             Type = "PositionUnitType",
                             Value = TimerDisplay.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.CustomFontFile",
+                            Type = "string",
+                            Value = GameTimeLeft.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.Font Scale",
+                            Type = "float",
+                            Value = GameTimeLeft.FontScale
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1250,6 +1386,14 @@
                             Name = "GameTimeLeft.Parent",
                             Type = "string",
                             Value = GameTimeLeft.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.UseCustomFont",
+                            Type = "bool",
+                            Value = GameTimeLeft.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1553,6 +1697,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "TextInstance1.CustomFontFile",
+                            Type = "string",
+                            Value = TextInstance1.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Font Scale",
+                            Type = "float",
+                            Value = TextInstance1.FontScale + 0.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "TextInstance1.Height",
                             Type = "float",
                             Value = TextInstance1.Height + 0f
@@ -1580,6 +1740,22 @@
                             Name = "TextInstance1.Text",
                             Type = "string",
                             Value = TextInstance1.Text
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.UseCustomFont",
+                            Type = "bool",
+                            Value = TextInstance1.UseCustomFont
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TextInstance1.Visible",
+                            Type = "bool",
+                            Value = TextInstance1.Visible
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1651,7 +1827,15 @@
                             SetsValue = true,
                             Name = "TimerDisplay.Y",
                             Type = "float",
-                            Value = TimerDisplay.Y + -25f
+                            Value = TimerDisplay.Y + 0f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "TimerDisplay.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = TimerDisplay.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1660,6 +1844,22 @@
                             Name = "TimerDisplay.Y Units",
                             Type = "PositionUnitType",
                             Value = TimerDisplay.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.CustomFontFile",
+                            Type = "string",
+                            Value = GameTimeLeft.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.Font Scale",
+                            Type = "float",
+                            Value = GameTimeLeft.FontScale + 0.5f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1676,6 +1876,14 @@
                             Name = "GameTimeLeft.Parent",
                             Type = "string",
                             Value = GameTimeLeft.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "GameTimeLeft.UseCustomFont",
+                            Type = "bool",
+                            Value = GameTimeLeft.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()

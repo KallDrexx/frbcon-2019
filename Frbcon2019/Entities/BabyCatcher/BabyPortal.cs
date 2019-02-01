@@ -11,6 +11,7 @@ using FlatRedBall.Math.Geometry;
 using Frbcon2019.Factories;
 using Microsoft.Xna.Framework;
 using static Frbcon2019.Entities.BabyCatcher.Baby;
+using static Frbcon2019.Entities.BabyCatcher.Trash;
 
 namespace Frbcon2019.Entities.BabyCatcher
 {
@@ -23,6 +24,21 @@ namespace Frbcon2019.Entities.BabyCatcher
         /// </summary>
         void CustomInitialize()
         {
+        }
+
+        public void SpawnTrash()
+        {
+            var trash = TrashFactory.CreateNew();
+            trash.Position = this.SpawnRectangle.Position;
+            trash.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
+            trash.Z = -3f;
+
+            trash.YAcceleration = -Gravity;
+            trash.Velocity = (Gravity * .25f) * this.RotationMatrix.Down;
+
+            var trashTypes = new[] { TrashType.BowlingBall, TrashType.Horn, TrashType.Iron, TrashType.Sneaker };
+
+            trash.CurrentTrashTypeState = (TrashType)trashTypes.GetValue(FlatRedBallServices.Random.Next(trashTypes.Length));
         }
 
         public void SpawnBaby()

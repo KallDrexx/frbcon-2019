@@ -69,6 +69,19 @@
       <SetsValue>false</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>GameTimeLeft.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../GlobalContent/BabyCatcher/baby_doll_64.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>GameTimeLeft.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>GameTimeLeft.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -85,6 +98,12 @@
       <Name>GameTimeLeft.Text</Name>
       <ExposedAsName>GameTimeLeftText</ExposedAsName>
       <SetsValue>false</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>GameTimeLeft.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
       <Type>float</Type>
@@ -255,6 +274,19 @@
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
+      <IsFile>true</IsFile>
+      <Type>string</Type>
+      <Name>TextInstance1.CustomFontFile</Name>
+      <Value xsi:type="xsd:string">../GlobalContent/BabyCatcher/baby_doll_64.fnt</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>float</Type>
+      <Name>TextInstance1.Font Scale</Name>
+      <Value xsi:type="xsd:float">0.5</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
       <Type>float</Type>
       <Name>TextInstance1.Height</Name>
       <Value xsi:type="xsd:float">0</Value>
@@ -275,8 +307,19 @@
     <Variable>
       <Type>string</Type>
       <Name>TextInstance1.Text</Name>
-      <Value xsi:type="xsd:string">Time Remaining:
-</Value>
+      <Value xsi:type="xsd:string">Time Remaining:</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TextInstance1.UseCustomFont</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>bool</Type>
+      <Name>TextInstance1.Visible</Name>
+      <Value xsi:type="xsd:boolean">true</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
@@ -330,7 +373,13 @@
     <Variable>
       <Type>float</Type>
       <Name>TimerDisplay.Y</Name>
-      <Value xsi:type="xsd:float">-25</Value>
+      <Value xsi:type="xsd:float">0</Value>
+      <SetsValue>true</SetsValue>
+    </Variable>
+    <Variable>
+      <Type>VerticalAlignment</Type>
+      <Name>TimerDisplay.Y Origin</Name>
+      <Value xsi:type="xsd:int">2</Value>
       <SetsValue>true</SetsValue>
     </Variable>
     <Variable>
