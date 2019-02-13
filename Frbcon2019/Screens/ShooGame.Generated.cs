@@ -124,7 +124,14 @@ namespace Frbcon2019.Screens
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
-            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  ShooGameGum = new FlatRedBall.Gum.GumIdb();  ShooGameGum.LoadFromFile("content/gumproject/screens/shoogamegum.gusx");  ShooGameGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; ShooGameGum.Element.UpdateLayout(); ShooGameGum.Element.UpdateLayout();
+            if(ShooGameGum == null)
+{
+Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;
+ShooGameGum = new FlatRedBall.Gum.GumIdb(); 
+ShooGameGum.LoadFromFile("content/gumproject/screens/shoogamegum.gusx");  ShooGameGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false;
+ShooGameGum.Element.UpdateLayout();
+ShooGameGum.Element.UpdateLayout();
+};
             Frbcon2019.Entities.ShooGame.Broom.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);
         }

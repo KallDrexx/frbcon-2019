@@ -206,7 +206,14 @@ namespace Frbcon2019.Screens
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
-            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MiniGameBaseGum = new FlatRedBall.Gum.GumIdb();  MiniGameBaseGum.LoadFromFile("content/gumproject/screens/minigamebasegum.gusx");  MiniGameBaseGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MiniGameBaseGum.Element.UpdateLayout(); MiniGameBaseGum.Element.UpdateLayout();
+            if(MiniGameBaseGum == null)
+{
+Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;
+MiniGameBaseGum = new FlatRedBall.Gum.GumIdb(); 
+MiniGameBaseGum.LoadFromFile("content/gumproject/screens/minigamebasegum.gusx");  MiniGameBaseGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false;
+MiniGameBaseGum.Element.UpdateLayout();
+MiniGameBaseGum.Element.UpdateLayout();
+};
             CustomLoadStaticContent(contentManagerName);
         }
         public override void PauseThisScreen () 

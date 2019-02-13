@@ -121,7 +121,14 @@ namespace Frbcon2019.Screens
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
-            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  MainMenuGum = new FlatRedBall.Gum.GumIdb();  MainMenuGum.LoadFromFile("content/gumproject/screens/mainmenugum.gusx");  MainMenuGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; MainMenuGum.Element.UpdateLayout(); MainMenuGum.Element.UpdateLayout();
+            if(MainMenuGum == null)
+{
+Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;
+MainMenuGum = new FlatRedBall.Gum.GumIdb(); 
+MainMenuGum.LoadFromFile("content/gumproject/screens/mainmenugum.gusx");  MainMenuGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false;
+MainMenuGum.Element.UpdateLayout();
+MainMenuGum.Element.UpdateLayout();
+};
             CustomLoadStaticContent(contentManagerName);
         }
         public override void PauseThisScreen () 

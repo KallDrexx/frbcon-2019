@@ -62,7 +62,13 @@
       <DependentUpon>CatcherOfBabies.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BabyCatcher\Trash.cs" />
+    <Compile Include="Entities\BabyCatcher\Trash.Event.cs">
+      <DependentUpon>Trash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BabyCatcher\Trash.Generated.cs">
+      <DependentUpon>Trash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\Trash.Generated.Event.cs">
       <DependentUpon>Trash.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BeefBall\Ball.cs" />

@@ -210,7 +210,14 @@ namespace Frbcon2019.Screens
                 throw new System.Exception("This type has been loaded with a Global content manager, then loaded with a non-global.  This can lead to a lot of bugs");
             }
             #endif
-            Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;  SpaceInvadersGum = new FlatRedBall.Gum.GumIdb();  SpaceInvadersGum.LoadFromFile("content/gumproject/screens/spaceinvadersgum.gusx");  SpaceInvadersGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false; SpaceInvadersGum.Element.UpdateLayout(); SpaceInvadersGum.Element.UpdateLayout();
+            if(SpaceInvadersGum == null)
+{
+Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = true;
+SpaceInvadersGum = new FlatRedBall.Gum.GumIdb(); 
+SpaceInvadersGum.LoadFromFile("content/gumproject/screens/spaceinvadersgum.gusx");  SpaceInvadersGum.AssignReferences();Gum.Wireframe.GraphicalUiElement.IsAllLayoutSuspended = false;
+SpaceInvadersGum.Element.UpdateLayout();
+SpaceInvadersGum.Element.UpdateLayout();
+};
             Frbcon2019.Entities.SpaceInvaders.PlayerShip.LoadStaticContent(contentManagerName);
             Frbcon2019.Entities.SpaceInvaders.GuardRail.LoadStaticContent(contentManagerName);
             CustomLoadStaticContent(contentManagerName);

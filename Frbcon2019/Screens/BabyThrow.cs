@@ -16,15 +16,19 @@ using Frbcon2019.Factories;
 using Frbcon2019.Entities.BabyCatcher;
 using static Frbcon2019.Entities.BabyCatcher.Baby;
 using Microsoft.Xna.Framework;
+using static Frbcon2019.Entities.BabyCatcher.Trash;
 
 namespace Frbcon2019.Screens
 {
 	public partial class BabyThrow
 	{
         Baby CursorBaby;
+        Trash CursorTrash;
 		void CustomInitialize()
 		{
-            CursorBaby = Spawn();
+            //CursorBaby = Spawn();
+
+            CursorTrash = TrashFactory.CreateNew(GuiManager.Cursor.WorldXAt(0), GuiManager.Cursor.WorldYAt(0));
 		}
 
         private Baby Spawn()
@@ -47,25 +51,38 @@ namespace Frbcon2019.Screens
 
         void CustomActivity(bool firstTimeCalled)
 		{
-            CursorBaby.XVelocity = GuiManager.Cursor.ActualXVelocityAt(0);
-            CursorBaby.YVelocity = GuiManager.Cursor.ActualYVelocityAt(0);
+            CursorTrash.XVelocity = GuiManager.Cursor.ActualXVelocityAt(0);
+            CursorTrash.YVelocity = GuiManager.Cursor.ActualYVelocityAt(0);
 
             if (GuiManager.Cursor.PrimaryButton.IsDown)
             {
-                CursorBaby.RotationZ += .01f;
+                CursorTrash.RotationZ += .01f;
             }
 
             if (GuiManager.Cursor.SecondaryButton.IsDown)
             {
-                CursorBaby.RotationZ -= .01f;
+                CursorTrash.RotationZ -= .01f;
             }
+
+            if (GuiManager.Cursor.PrimaryClick)
+            {
+                if (CursorTrash.Blinking)
+                {
+                    CursorTrash.StopBlinking();
+                }
+                else
+                {
+                    CursorTrash.StartBlinking();
+                }
+            }
+            
 
             if (GuiManager.Cursor.MiddleClick)
             {
-                CursorBaby.YAcceleration = -5000.0f;
-                CursorBaby.Velocity = Vector3.Up * 1000f;
-            
-                CursorBaby = Spawn();
+                CursorTrash.YAcceleration = -5000.0f;
+                CursorTrash.Velocity = Vector3.Up * 1000f;
+
+                CursorTrash = TrashFactory.CreateNew(GuiManager.Cursor.WorldXAt(0), GuiManager.Cursor.WorldYAt(0));
             }
 
             FlatRedBallServices.Game.IsMouseVisible = false;

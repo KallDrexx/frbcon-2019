@@ -1550,7 +1550,7 @@
         </member>
         <member name="P:FlatRedBall.Graphics.Animation.AnimationChain.FrameTime">
             <summary>
-            Sets the frameTime of each AnimationFrame in the AnimationChain to the passed value.
+            Sets the frame time to every frame in the animation to the value. For example, assigning a FrameTime of .2 will make every frame in the animation last .2 seconds.
             </summary>
         </member>
         <member name="P:FlatRedBall.Graphics.Animation.AnimationChain.LastFrame">
@@ -1566,7 +1566,7 @@
         </member>
         <member name="P:FlatRedBall.Graphics.Animation.AnimationChain.TotalLength">
             <summary>
-            Returns the sum of the FrameLengths of all contained AnimationFrames.
+            The total duration of the animation in seconds. This is obtained by adding the FrameTime of all contained frames.
             </summary>
         </member>
         <member name="M:FlatRedBall.Graphics.Animation.AnimationChain.#ctor">
@@ -3772,6 +3772,16 @@
             <summary>
             Returns the right trigger's current value.  When not pressed this property returns
             0.0f.  When fully pressed this property returns 1.0f;
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.Xbox360GamePad.WasConnectedThisFrame">
+            <summary>
+            Returns whether this game pad was disconnected last frame but is connected this frame.
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Input.Xbox360GamePad.WasDisconnectedThisFrame">
+            <summary>
+            Returns whether this game pad was connected last frame but is disconnected this frame.
             </summary>
         </member>
         <member name="M:FlatRedBall.Input.Xbox360GamePad.AnyButtonPushed">
@@ -6374,7 +6384,8 @@
         <member name="P:FlatRedBall.Math.Collision.CollisionRelationship.IsActive">
             <summary>
             Whether the CollisionManager autoamtically calls DoCollisions on this relationship every frame.
-            If set to false, the CollisionManager will not call DoCollision, but DoCollision can be called automatically
+            If set to false, the CollisionManager will not call DoCollision, but DoCollision can be called manually
+            to perform collision.
             </summary>
         </member>
         <member name="P:FlatRedBall.Math.Collision.CollisionRelationship.FrameSkip">
@@ -8788,6 +8799,13 @@
         <member name="P:FlatRedBall.Sprite.CurrentChain">
             <summary>
             Gets the current animationChain - retrieved through the CurrentChainIndex property.
+            </summary>
+        </member>
+        <member name="P:FlatRedBall.Sprite.CurrentChainName">
+            <summary>
+            Gets or sets the name of the current animation chain on the sprite. Setting this value is the recommended way to switch between animations.
+            Setting this value will search the Sprite's AnimationChains for an animation with a matching name. If the argument differs from the current
+            animation, the animation is set and played from the beginning. If the current animation matches the assigned value, no logic is performed.
             </summary>
         </member>
         <member name="P:FlatRedBall.Sprite.ScaleX">

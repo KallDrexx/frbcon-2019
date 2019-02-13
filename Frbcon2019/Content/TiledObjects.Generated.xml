@@ -13,9 +13,15 @@
   </objecttype>
   <objecttype name="Trash">
     <property name="SpriteInstanceCurrentChainName" type="string" default="Sneaker" />
-    <property name="CurrentTrashTypeState" type="TrashType" default="BowlingBall" />
+    <property name="CurrentTrashTypeState" type="TrashType" default="Sneaker" />
     <property name="CircleInstanceRadius" type="float" default="16" />
-    <property name="NumBounces" type="int" />
+    <property name="NumBounces" type="int" default="0" />
+    <property name="SecondsPerBlink" type="float" />
+    <property name="SpriteInstanceColorOperation" type="ColorOperation" default="Texture" />
+    <property name="CurrentFlashState" type="Flash" default="Off" />
+    <property name="SpriteInstanceBlue" type="float" default="0" />
+    <property name="SpriteInstanceGreen" type="float" default="0" />
+    <property name="SpriteInstanceRed" type="float" default="0" />
   </objecttype>
   <objecttype name="Bullet" />
 </objecttypes>
