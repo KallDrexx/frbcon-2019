@@ -33,10 +33,10 @@ namespace Frbcon2019.Entities.BabyCatcher
             trash.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
             trash.Z = -3f;
 
-            trash.YAcceleration = -Gravity * .5f;
-            trash.Velocity = (trash.YAcceleration * .25f) * this.RotationMatrix.Down;
+            trash.YAcceleration = -Gravity;
+            trash.Velocity = ChuteFireForce * this.RotationMatrix.Down;
 
-            trash.StartBlinking();
+            //trash.StartBlinking();
 
             var trashTypes = new[] { TrashType.BowlingBall, TrashType.Horn, TrashType.Iron, TrashType.Sneaker };
 
@@ -56,7 +56,7 @@ namespace Frbcon2019.Entities.BabyCatcher
 
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
-            baby.Velocity = (Gravity * .25f) * this.RotationMatrix.Down;
+            baby.Velocity = ChuteFireForce * this.RotationMatrix.Down;
             
             baby.RotationZVelocity = FlatRedBallServices.Random.Between(-MaxBabyRotationZVelocity, MaxBabyRotationZVelocity);
             baby.RotationZ += baby.RotationZVelocity;

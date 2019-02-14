@@ -14,6 +14,95 @@
         <string>GLUE</string>
       </Tags>
       <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Double</Type>
+                  <Member>BabySpawnTimerSeconds</Member>
+                  <ValueAsDouble>0.1</ValueAsDouble>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteSpeed</Member>
+                  <ValueAsFloat>750</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteMinY</Member>
+                  <ValueAsFloat>350</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteMaxY</Member>
+                  <ValueAsFloat>450</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SecondsPerPow</Member>
+                  <ValueAsFloat>0.1</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteFireForce</Member>
+                  <ValueAsFloat>750</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>BabiesPerSpawn</Member>
+                  <ValueAsInt>1</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Normal</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Double</Type>
+                  <Member>BabySpawnTimerSeconds</Member>
+                  <ValueAsDouble>0.01</ValueAsDouble>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteSpeed</Member>
+                  <ValueAsFloat>1200</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteMinY</Member>
+                  <ValueAsFloat>490</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteMaxY</Member>
+                  <ValueAsFloat>500</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>SecondsPerPow</Member>
+                  <ValueAsFloat>0.08</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Single</Type>
+                  <Member>ChuteFireForce</Member>
+                  <ValueAsFloat>2000</ValueAsFloat>
+                </InstructionSave>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>BabiesPerSpawn</Member>
+                  <ValueAsInt>2</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>FullThrottle</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>ChuteBehavior</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
       <BaseScreen>Screens\MiniGameBase</BaseScreen>
       <CustomVariables>
         <CustomVariable>
@@ -37,7 +126,7 @@
           </Properties>
           <Name>GameTimeDurationInSeconds</Name>
           <Type>int</Type>
-          <DefaultValue xsi:type="xsd:int">10</DefaultValue>
+          <DefaultValue xsi:type="xsd:int">100</DefaultValue>
           <DefinedByBase>true</DefinedByBase>
         </CustomVariable>
         <CustomVariable>
@@ -49,7 +138,6 @@
           </Properties>
           <Name>BabySpawnTimerSeconds</Name>
           <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">0.1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -60,7 +148,7 @@
           </Properties>
           <Name>MaxCatcherPositionY</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">-80</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-185</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -71,7 +159,7 @@
           </Properties>
           <Name>MinCatcherPositionY</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">-160</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">-185</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -82,6 +170,7 @@
           </Properties>
           <Name>WinBabiesCaught</Name>
           <Type>int</Type>
+          <DefaultValue xsi:type="xsd:int">30</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -92,7 +181,6 @@
           </Properties>
           <Name>ChuteSpeed</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -125,7 +213,6 @@
           </Properties>
           <Name>ChuteMinY</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">350</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -136,7 +223,6 @@
           </Properties>
           <Name>ChuteMaxY</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">450</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -147,7 +233,6 @@
           </Properties>
           <Name>SecondsPerPow</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">0.1</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -180,6 +265,39 @@
           <Name>TrashFrequencyPercent</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteFireForce</Name>
+          <Type>float</Type>
+          <SourceObject>Portal1</SourceObject>
+          <SourceObjectProperty>ChuteFireForce</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>ChuteBehavior</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentChuteBehaviorState</Name>
+          <Type>ChuteBehavior</Type>
+          <DefaultValue xsi:type="xsd:string">Normal</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BabiesPerSpawn</Name>
+          <Type>int</Type>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
@@ -364,6 +482,58 @@
               <SourceName />
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
               <InstanceName>GroundFloor</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>-1900</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>6</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Width</Member>
+                <ValueAsFloat>3000</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Height</Member>
+                <ValueAsFloat>600</ValueAsFloat>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>AxisAlignedRectangle</SourceClassType>
+              <InstanceName>LeftWall</InstanceName>
+              <HasPublicProperty>true</HasPublicProperty>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Width</Member>
+                <ValueAsFloat>3000</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Height</Member>
+                <ValueAsFloat>600</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1900</ValueAsFloat>
+              </CustomProperty>
+              <SourceType>FlatRedBallType</SourceType>
+              <SourceClassType>AxisAlignedRectangle</SourceClassType>
+              <InstanceName>RightWall</InstanceName>
               <HasPublicProperty>true</HasPublicProperty>
               <AttachToContainer>true</AttachToContainer>
               <GenerateTimedEmit>true</GenerateTimedEmit>
@@ -1635,10 +1805,17 @@
           <DefaultValue xsi:type="xsd:float">0.05</DefaultValue>
         </CustomVariable>
       </CustomVariables>
+      <BaseEntity>FlatRedBall.Sprite</BaseEntity>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
       <Name>Entities\BabyCatcher\Baby</Name>
       <NamedObjects>
         <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>IsContainer</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <CustomProperty>
             <Member>X</Member>
             <ValueAsFloat>0</ValueAsFloat>
@@ -1872,6 +2049,17 @@
           <Name>Gravity</Name>
           <Type>float</Type>
           <DefaultValue xsi:type="xsd:float">1000</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>ChuteFireForce</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">500</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
@@ -2405,6 +2593,11 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Type>bool</Type>
+            <Member>Visible</Member>
+            <ValueAsBool>false</ValueAsBool>
+          </CustomProperty>
           <SourceType>FlatRedBallType</SourceType>
           <SourceFile />
           <SourceName />

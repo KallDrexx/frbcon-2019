@@ -51,11 +51,29 @@ namespace Frbcon2019.Screens
 
             if (GameIsActive)
             {
+                if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
+                {
+                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
+                }
                 HandleBabySpawns();
+                HandleBabyBoundaries();
                 LerpCatcherPosition();
 
                 ChuteMovement();
                 LerpChutePosition();
+            }
+        }
+
+        private void HandleBabyBoundaries()
+        {
+            for (int i = BabyList.Count - 1; i >= 0; --i)
+            {
+                var baby = BabyList[i];
+
+                if (baby.Left > 400 || baby.Right < -400 || baby.Top < -300 || baby.Bottom > 300)
+                {
+                    baby.Destroy();
+                } 
             }
         }
 
@@ -107,18 +125,21 @@ namespace Frbcon2019.Screens
             };
 
         }
-
+        ListVsListRelationship<Baby, Baby> babyListToSelf;
         private void CreateBabyCollisions()
         {
-            var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
+            babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
 
             babyListToSelf.SetBounceCollision(1, 1, .2f);
+            
 
             babyListToSelf.CollisionOccurred = (baby1, baby2) =>
             {
                 baby1.RotationZVelocity = 0;
                 baby2.RotationZVelocity = 0;
             };
+
+            CollisionManager.Self.Partition(BabyList, FlatRedBall.Math.Axis.X, 16f, true);
 
             CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance).CollisionOccurred = (baby, catcher) =>
             {
@@ -128,10 +149,16 @@ namespace Frbcon2019.Screens
                 ScoreTextInstanceText++;
             };
 
-            var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance);
-            rel.SetSecondSubCollision(item => item.Bumpers);
-
-            rel.SetBounceCollision(0, 1f, .5f);
+            var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
+            rel.SetBounceCollision(0, 1f, .6f);
+            rel.CollisionOccurred = (baby, bumper) => {
+                var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                if (baby.NumBounces == 0 && baby.Velocity.Length() > (ChuteSpeed * .75f) && secondsSinceLastPow >= SecondsPerPow)
+                {
+                    pow.Play();
+                    lastPowPlayed = TimeManager.CurrentTime;
+                }
+            };
 
 
             var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
@@ -140,14 +167,9 @@ namespace Frbcon2019.Screens
 
             babyFloorRel.CollisionOccurred = (baby, floor) =>
             {
-                var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
-                if (baby.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
-                {
-                    pow.Play();
-                    lastPowPlayed = TimeManager.CurrentTime;
-                }
+                
 
-                if (++baby.NumBounces > 2)
+                if (++baby.NumBounces > 6)
                 {
                     baby.Velocity = Vector3.Zero;
                     baby.RotationZVelocity = 0;
@@ -246,6 +268,7 @@ namespace Frbcon2019.Screens
 
         private void HandleBabySpawns()
         {
+            FlatRedBall.Debugging.Debugger.Write(BabyList.Count);
             var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
             if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
@@ -254,14 +277,14 @@ namespace Frbcon2019.Screens
 
                 if (roll <= TrashFrequencyPercent)
                 {
-                    Portal1.SpawnTrash();
-                }
-                else
-                {
-                    Portal1.SpawnBaby();
-                    lastBabySpawn = TimeManager.CurrentTime;
+                     Portal1.SpawnTrash();
                 }
 
+                for (int x = 0; x < BabiesPerSpawn; ++x)
+                {
+                    Portal1.SpawnBaby();
+                }
+                lastBabySpawn = TimeManager.CurrentTime;
             }
         }
 
