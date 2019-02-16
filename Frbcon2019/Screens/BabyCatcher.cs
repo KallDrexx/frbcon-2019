@@ -41,6 +41,7 @@ namespace Frbcon2019.Screens
             {
                 CatchMePleaseInstance.Play();
                 CreateCollisions();
+                
             }
 
 
@@ -57,10 +58,19 @@ namespace Frbcon2019.Screens
                 }
                 HandleBabySpawns();
                 HandleBabyBoundaries();
+                RotateBabies();
                 LerpCatcherPosition();
 
                 ChuteMovement();
                 LerpChutePosition();
+            }
+        }
+
+        private void RotateBabies()
+        {
+            foreach (var baby in BabyList)
+            {
+                baby.RotationZVelocity = -baby.Velocity.X / baby.CircleInstance.Radius;
             }
         }
 

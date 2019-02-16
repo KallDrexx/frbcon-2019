@@ -42,7 +42,7 @@ namespace Frbcon2019.Entities.BabyCatcher
         }
 
 
-        const float maxLerpSeconds = .02f;
+        const float maxLerpSeconds = .05f;
         float thisLerp;
         private void CustomActivity()
 		{
@@ -61,9 +61,9 @@ namespace Frbcon2019.Entities.BabyCatcher
 
         private void LerpRightWheel()
         {
-            var endPosition = this.Position;
-            endPosition += this.RotationMatrix.Down * 97;
-            endPosition += this.RotationMatrix.Right * 62;
+            var endPosition = this.AxleInstance.Position;
+            endPosition += this.AxleInstance.RotationMatrix.Down * 25;
+            endPosition += this.AxleInstance.RotationMatrix.Right * 62;
 
             var distance = Vector3.Distance(RightWheelInstance.Position, endPosition);
 
@@ -74,7 +74,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             else
             {
                 RightWheelInstance.Position = endPosition;
-                RightWheelInstance.Z -= 2f;
+                RightWheelInstance.Z -= 1f;
             }
 
             RightWheelCircle.Position = RightWheelInstance.Position;
@@ -82,9 +82,9 @@ namespace Frbcon2019.Entities.BabyCatcher
 
         private void LerpLeftWheel()
         {
-            var endPosition = this.Position;
-            endPosition += this.RotationMatrix.Down * 97;
-            endPosition += this.RotationMatrix.Left * 62;
+            var endPosition = this.AxleInstance.Position;
+            endPosition += this.AxleInstance.RotationMatrix.Down * 25;
+            endPosition += this.AxleInstance.RotationMatrix.Left * 62;
 
             var distance = Vector3.Distance(LeftWheelInstance.Position, endPosition);
 
@@ -95,7 +95,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             else
             {
                 LeftWheelInstance.Position = endPosition;
-                LeftWheelInstance.Z -= 2f;
+                LeftWheelInstance.Z -= 1f;
             }
 
             LeftWheelCircle.Position = LeftWheelInstance.Position;

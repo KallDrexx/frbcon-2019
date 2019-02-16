@@ -181,7 +181,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\BabyCatcher.cs" />
+    <Compile Include="Screens\BabyCatcher.Event.cs">
+      <DependentUpon>BabyCatcher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\BabyCatcher.Generated.cs">
+      <DependentUpon>BabyCatcher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BabyCatcher.Generated.Event.cs">
       <DependentUpon>BabyCatcher.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\BabyThrow.cs" />
@@ -325,6 +331,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>birthday</Name>
       <Link>content\screens\babycatcher\birthday.xnb</Link>
+    </None>
+    <None Include="..\builtxnbs\desktopgl\screens\babycatcher\chutejet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>chutejet</Name>
+      <Link>content\screens\babycatcher\chutejet.xnb</Link>
     </None>
     <None Include="content\entities\babycatcher\babyportal\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

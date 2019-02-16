@@ -36,7 +36,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             trash.YAcceleration = -Gravity;
             trash.Velocity = ChuteFireForce * this.RotationMatrix.Down;
 
-            //trash.StartBlinking();
+            trash.StartBlinking();
 
             var trashTypes = new[] { TrashType.BowlingBall, TrashType.Horn, TrashType.Iron, TrashType.Sneaker };
 
@@ -57,9 +57,6 @@ namespace Frbcon2019.Entities.BabyCatcher
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
             baby.Velocity = ChuteFireForce * this.RotationMatrix.Down;
-            
-            baby.RotationZVelocity = FlatRedBallServices.Random.Between(-MaxBabyRotationZVelocity, MaxBabyRotationZVelocity);
-            baby.RotationZ += baby.RotationZVelocity;
 
             var colors = new[] { ColorState.Blue, ColorState.Green, ColorState.Lightblue, ColorState.Orange, ColorState.OtherGreen, ColorState.Pink, ColorState.Purple, ColorState.Yellow };
 

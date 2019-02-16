@@ -103,6 +103,14 @@
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
       </StateCategoryList>
+      <Events>
+        <EventResponseSave>
+          <EventName>AfterCurrentChuteBehaviorStateSet</EventName>
+          <SourceVariable>CurrentChuteBehaviorState</SourceVariable>
+          <BeforeOrAfter>After</BeforeOrAfter>
+          <DelegateType />
+        </EventResponseSave>
+      </Events>
       <BaseScreen>Screens\MiniGameBase</BaseScreen>
       <CustomVariables>
         <CustomVariable>
@@ -288,6 +296,7 @@
           <Name>CurrentChuteBehaviorState</Name>
           <Type>ChuteBehavior</Type>
           <DefaultValue xsi:type="xsd:string">Normal</DefaultValue>
+          <CreatesEvent>true</CreatesEvent>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -360,6 +369,12 @@
           <Name>Screens/BabyCatcher/WallPanels.achx</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+        <ReferencedFileSave>
+          <Name>Screens/BabyCatcher/chutejet.wav</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
       </ReferencedFiles>
@@ -465,7 +480,7 @@
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Y</Member>
-                <ValueAsFloat>-350</ValueAsFloat>
+                <ValueAsFloat>-351</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>float</Type>
@@ -529,7 +544,7 @@
               <CustomProperty>
                 <Type>float</Type>
                 <Member>X</Member>
-                <ValueAsFloat>1900</ValueAsFloat>
+                <ValueAsFloat>1901</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -668,6 +683,15 @@
           <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
           <SourceClassGenericType>Entities\BabyCatcher\Trash</SourceClassGenericType>
           <InstanceName>TrashList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>File</SourceType>
+          <SourceFile>Screens/BabyCatcher/chutejet.wav</SourceFile>
+          <SourceName>Entire File (SoundEffectInstance)</SourceName>
+          <InstanceName>JetSound</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -4186,7 +4210,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\BabyCatcher</StartUpScreen>
+  <StartUpScreen>Screens\MainMenu</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>
