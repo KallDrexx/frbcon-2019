@@ -102,6 +102,43 @@
           <Name>ChuteBehavior</Name>
           <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
         </StateSaveCategory>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>CatchGoal</Member>
+                  <ValueAsInt>100</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Easy</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>CatchGoal</Member>
+                  <ValueAsInt>200</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Medium</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>Int32</Type>
+                  <Member>CatchGoal</Member>
+                  <ValueAsInt>300</ValueAsInt>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Hard</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>DifficultyLevel</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
       </StateCategoryList>
       <Events>
         <EventResponseSave>
@@ -246,27 +283,6 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>string</ValueAsString>
-            </PropertySave>
-            <PropertySave>
-              <Name>OverridingPropertyType</Name>
-              <ValueAsString>int</ValueAsString>
-            </PropertySave>
-            <PropertySave>
-              <Name>TypeConverter</Name>
-              <ValueAsString>&lt;default&gt;</ValueAsString>
-            </PropertySave>
-          </Properties>
-          <Name>ScoreTextInstanceText</Name>
-          <Type>string</Type>
-          <DefaultValue xsi:type="xsd:int">0</DefaultValue>
-          <SourceObject>ScoreTextInstance</SourceObject>
-          <SourceObjectProperty>Text</SourceObjectProperty>
-        </CustomVariable>
-        <CustomVariable>
-          <Properties>
-            <PropertySave>
-              <Name>Type</Name>
               <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
@@ -307,6 +323,27 @@
           </Properties>
           <Name>BabiesPerSpawn</Name>
           <Type>int</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>int</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CatchGoal</Name>
+          <Type>int</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>DifficultyLevel</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentDifficultyLevelState</Name>
+          <Type>DifficultyLevel</Type>
+          <DefaultValue xsi:type="xsd:string">Easy</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>
@@ -372,6 +409,12 @@
           <ProjectsToExcludeFrom />
         </ReferencedFileSave>
         <ReferencedFileSave>
+          <Properties>
+            <PropertySave>
+              <Name>UseContentPipeline</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
           <Name>Screens/BabyCatcher/chutejet.wav</Name>
           <IsSharedStatic>true</IsSharedStatic>
           <RuntimeType>Microsoft.Xna.Framework.Audio.SoundEffect</RuntimeType>
@@ -400,12 +443,12 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Member>X</Member>
-                <ValueAsFloat>-200</ValueAsFloat>
+                <ValueAsFloat>213.78157</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Y</Member>
-                <ValueAsFloat>350</ValueAsFloat>
+                <ValueAsFloat>-89.82565</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>float</Type>
@@ -449,15 +492,6 @@
           <SourceFile>GlobalContent/BabyCatcher/catchmeplease.wav</SourceFile>
           <SourceName>Entire File (SoundEffectInstance)</SourceName>
           <InstanceName>CatchMePleaseInstance</InstanceName>
-          <AttachToContainer>true</AttachToContainer>
-          <GenerateTimedEmit>true</GenerateTimedEmit>
-          <IndependentOfCamera>true</IndependentOfCamera>
-        </NamedObjectSave>
-        <NamedObjectSave>
-          <SourceType>File</SourceType>
-          <SourceFile>gumproject/Screens/BabyCatcherGum.gusx</SourceFile>
-          <SourceName>ScoreTextInstance (Frbcon2019.GumRuntimes.TextRuntime)</SourceName>
-          <InstanceName>ScoreTextInstance</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
           <IndependentOfCamera>true</IndependentOfCamera>
@@ -533,6 +567,11 @@
             <NamedObjectSave>
               <CustomProperty>
                 <Type>float</Type>
+                <Member>X</Member>
+                <ValueAsFloat>1901</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
                 <Member>Width</Member>
                 <ValueAsFloat>3000</ValueAsFloat>
               </CustomProperty>
@@ -540,11 +579,6 @@
                 <Type>float</Type>
                 <Member>Height</Member>
                 <ValueAsFloat>600</ValueAsFloat>
-              </CustomProperty>
-              <CustomProperty>
-                <Type>float</Type>
-                <Member>X</Member>
-                <ValueAsFloat>1901</ValueAsFloat>
               </CustomProperty>
               <SourceType>FlatRedBallType</SourceType>
               <SourceClassType>AxisAlignedRectangle</SourceClassType>
@@ -558,6 +592,14 @@
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
         <NamedObjectSave>
+          <CustomProperty>
+            <Member>X</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Member>Y</Member>
+            <ValueAsFloat>0</ValueAsFloat>
+          </CustomProperty>
           <CustomProperty>
             <Type>float</Type>
             <Member>Z</Member>
@@ -694,6 +736,599 @@
           <InstanceName>JetSound</InstanceName>
           <AttachToContainer>true</AttachToContainer>
           <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+        <NamedObjectSave>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>PositionedObjectList&lt;T&gt;</SourceClassType>
+          <SourceClassGenericType>Entities\BabyCatcher\BackgroundDot</SourceClassGenericType>
+          <InstanceName>BackgroundDotList</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <ContainedObjects>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-268.216064</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>237.157089</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>string</Type>
+                <Member>SpriteInstanceCurrentChainName</Member>
+                <ValueAsString />
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot1</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-411.583038</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>259.612152</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>string</Type>
+                <Member>SpriteInstanceCurrentChainName</Member>
+                <ValueAsString />
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot7</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-65.89016</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>260.0502</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot2</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>41.7099</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>72.5495</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot3</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>173.8152</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>251.595551</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot4</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-194.80394</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>106.948654</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot5</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>264</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>96</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Big</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>BigDot6</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>385.452881</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>75.91317</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot1</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>334.7561</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>219.1604</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot2</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>37.36381</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>206.182037</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot3</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-78.51033</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>89.71892</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot5</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>160</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>128</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot4</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-372.2914</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>153.029892</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Medium</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>MediumDot6</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-291</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>81.51877</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small1</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot1</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>374.54538</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>295.727325</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small1</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot2</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-171.155426</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>268.4003</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small2</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot3</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-115.460022</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>175.820755</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small3</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot4</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-380</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>49</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small4</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot5</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>-226.454224</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>158.361176</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small4</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot6</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>224</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>178</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small4</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot7</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>2.274931</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>134.7264</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small4</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot8</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+            <NamedObjectSave>
+              <CustomProperty>
+                <Member>X</Member>
+                <ValueAsFloat>337.177582</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Member>Y</Member>
+                <ValueAsFloat>150.629227</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>float</Type>
+                <Member>Z</Member>
+                <ValueAsFloat>-100</ValueAsFloat>
+              </CustomProperty>
+              <CustomProperty>
+                <Type>System.Object</Type>
+                <Member>CurrentDotTypeState</Member>
+                <ValueAsString>Small2</ValueAsString>
+              </CustomProperty>
+              <SourceType>Entity</SourceType>
+              <SourceClassType>Entities\BabyCatcher\BackgroundDot</SourceClassType>
+              <InstanceName>SmallDot9</InstanceName>
+              <AttachToContainer>true</AttachToContainer>
+              <GenerateTimedEmit>true</GenerateTimedEmit>
+              <IndependentOfCamera>true</IndependentOfCamera>
+            </NamedObjectSave>
+          </ContainedObjects>
           <IndependentOfCamera>true</IndependentOfCamera>
         </NamedObjectSave>
       </NamedObjects>
@@ -2267,6 +2902,185 @@
     <EntitySave>
       <Properties>
         <PropertySave>
+          <Name>IsManuallyUpdated</Name>
+          <ValueAsBool>true</ValueAsBool>
+        </PropertySave>
+      </Properties>
+      <Tags>
+        <string>GLUE</string>
+      </Tags>
+      <Source>GLUE</Source>
+      <StateCategoryList>
+        <StateSaveCategory>
+          <States>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Big</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Big</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Medium</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Medium</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Small1</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Small1</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Small2</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Small2</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Small3</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Small3</Name>
+            </StateSave>
+            <StateSave>
+              <InstructionSaves>
+                <InstructionSave>
+                  <Type>String</Type>
+                  <Member>SpriteInstanceCurrentChainName</Member>
+                  <ValueAsString>Small4</ValueAsString>
+                </InstructionSave>
+              </InstructionSaves>
+              <Name>Small4</Name>
+            </StateSave>
+          </States>
+          <ExcludedVariables />
+          <Name>DotType</Name>
+          <SharesVariablesWithOtherCategories>false</SharesVariablesWithOtherCategories>
+        </StateSaveCategory>
+      </StateCategoryList>
+      <CustomVariables>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>X</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Y</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>Z</Name>
+          <Type>float</Type>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>string</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>SpriteInstanceCurrentChainName</Name>
+          <Type>string</Type>
+          <SourceObject>SpriteInstance</SourceObject>
+          <SourceObjectProperty>CurrentChainName</SourceObjectProperty>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>DotType</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>CurrentDotTypeState</Name>
+          <Type>DotType</Type>
+          <DefaultValue xsi:type="xsd:string">Big</DefaultValue>
+        </CustomVariable>
+      </CustomVariables>
+      <BaseEntity>FlatRedBall.Sprite</BaseEntity>
+      <ImplementsIDrawableBatch>false</ImplementsIDrawableBatch>
+      <Name>Entities\BabyCatcher\BackgroundDot</Name>
+      <NamedObjects>
+        <NamedObjectSave>
+          <Properties>
+            <PropertySave>
+              <Name>IsContainer</Name>
+              <ValueAsBool>true</ValueAsBool>
+            </PropertySave>
+          </Properties>
+          <CustomProperty>
+            <Type>float</Type>
+            <Member>TextureScale</Member>
+            <ValueAsFloat>0.5</ValueAsFloat>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>FlatRedBall.Graphics.Animation.AnimationChainList</Type>
+            <Member>AnimationChains</Member>
+            <ValueAsString>AnimationChainListFile</ValueAsString>
+          </CustomProperty>
+          <CustomProperty>
+            <Type>string</Type>
+            <Member>CurrentChainName</Member>
+            <ValueAsString>Big</ValueAsString>
+          </CustomProperty>
+          <SourceType>FlatRedBallType</SourceType>
+          <SourceClassType>Sprite</SourceClassType>
+          <InstanceName>SpriteInstance</InstanceName>
+          <AttachToContainer>true</AttachToContainer>
+          <GenerateTimedEmit>true</GenerateTimedEmit>
+          <IndependentOfCamera>true</IndependentOfCamera>
+        </NamedObjectSave>
+      </NamedObjects>
+      <ReferencedFiles>
+        <ReferencedFileSave>
+          <Name>Entities/BabyCatcher/BackgroundDot/AnimationChainListFile.achx</Name>
+          <IsSharedStatic>true</IsSharedStatic>
+          <RuntimeType>FlatRedBall.Graphics.Animation.AnimationChainList</RuntimeType>
+          <ProjectsToExcludeFrom />
+        </ReferencedFileSave>
+      </ReferencedFiles>
+      <Is2D>true</Is2D>
+    </EntitySave>
+    <EntitySave>
+      <Properties>
+        <PropertySave>
           <Name>ImplementsICollidable</Name>
           <ValueAsBool>true</ValueAsBool>
         </PropertySave>
@@ -2774,7 +3588,7 @@
               </CustomProperty>
               <CustomProperty>
                 <Member>Y</Member>
-                <ValueAsFloat>-69</ValueAsFloat>
+                <ValueAsFloat>-85</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>float</Type>
@@ -2784,7 +3598,7 @@
               <CustomProperty>
                 <Type>float</Type>
                 <Member>Height</Member>
-                <ValueAsFloat>32</ValueAsFloat>
+                <ValueAsFloat>64</ValueAsFloat>
               </CustomProperty>
               <CustomProperty>
                 <Type>bool</Type>
@@ -4210,7 +5024,7 @@
     <RecordLockContention>false</RecordLockContention>
   </GlobalContentSettingsSave>
   <SyncedProjects />
-  <StartUpScreen>Screens\MainMenu</StartUpScreen>
+  <StartUpScreen>Screens\BabyCatcher</StartUpScreen>
   <ResolutionPresets />
   <PerformanceSettingsSave>
     <ThrowExceptionOnPostInitializeContentLoad>false</ThrowExceptionOnPostInitializeContentLoad>

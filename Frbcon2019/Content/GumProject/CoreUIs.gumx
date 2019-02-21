@@ -49,6 +49,10 @@
     <ElementType>Screen</ElementType>
   </ScreenReference>
   <ComponentReference>
+    <Name>BabyMeter</Name>
+    <ElementType>Component</ElementType>
+  </ComponentReference>
+  <ComponentReference>
     <Name>Button</Name>
     <ElementType>Component</ElementType>
   </ComponentReference>

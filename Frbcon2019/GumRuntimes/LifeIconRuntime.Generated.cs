@@ -26,25 +26,36 @@
                     switch(mCurrentVariableState)
                     {
                         case  VariableState.Default:
-                            Height = 0f;
+                            Height = 100f;
                             HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
-                            Width = 0f;
+                            Width = 100f;
                             WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                             Heart.Animate = false;
                             Heart.Blue = 0;
                             Heart.Green = 255;
-                            Heart.Height = 80f;
+                            Heart.Height = 100f;
+                            Heart.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             Heart.Red = 0;
-                            SetProperty("Heart.SourceFile", "hearts.png");
-                            Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
-                            Heart.Width = 80f;
-                            Heart.X = 10f;
+                            SetProperty("Heart.SourceFile", "../GlobalContent/BabyCatcher/babe_ease_spritesheet.png");
+                            Heart.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                            Heart.TextureHeight = 115;
+                            Heart.TextureLeft = 521;
+                            Heart.TextureTop = 586;
+                            Heart.TextureWidth = 115;
+                            Heart.Visible = true;
+                            Heart.Width = 100f;
+                            Heart.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                            Heart.X = 0f;
                             Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
-                            Heart.Y = 10f;
+                            Heart.Y = 0f;
                             Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
+                            LostIndicator.Height = 100f;
+                            LostIndicator.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             SetProperty("LostIndicator.SourceFile", "../GlobalContent/cancel.png");
                             LostIndicator.Visible = false;
+                            LostIndicator.Width = 100f;
+                            LostIndicator.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                             break;
                         case  VariableState.Lost:
                             Heart.Blue = 0;
@@ -85,6 +96,22 @@
                 bool setHeartRedSecondValue = false;
                 int HeartRedFirstValue= 0;
                 int HeartRedSecondValue= 0;
+                bool setHeartTextureHeightFirstValue = false;
+                bool setHeartTextureHeightSecondValue = false;
+                int HeartTextureHeightFirstValue= 0;
+                int HeartTextureHeightSecondValue= 0;
+                bool setHeartTextureLeftFirstValue = false;
+                bool setHeartTextureLeftSecondValue = false;
+                int HeartTextureLeftFirstValue= 0;
+                int HeartTextureLeftSecondValue= 0;
+                bool setHeartTextureTopFirstValue = false;
+                bool setHeartTextureTopSecondValue = false;
+                int HeartTextureTopFirstValue= 0;
+                int HeartTextureTopSecondValue= 0;
+                bool setHeartTextureWidthFirstValue = false;
+                bool setHeartTextureWidthSecondValue = false;
+                int HeartTextureWidthFirstValue= 0;
+                int HeartTextureWidthSecondValue= 0;
                 bool setHeartWidthFirstValue = false;
                 bool setHeartWidthSecondValue = false;
                 float HeartWidthFirstValue= 0;
@@ -101,6 +128,14 @@
                 bool setHeightSecondValue = false;
                 float HeightFirstValue= 0;
                 float HeightSecondValue= 0;
+                bool setLostIndicatorHeightFirstValue = false;
+                bool setLostIndicatorHeightSecondValue = false;
+                float LostIndicatorHeightFirstValue= 0;
+                float LostIndicatorHeightSecondValue= 0;
+                bool setLostIndicatorWidthFirstValue = false;
+                bool setLostIndicatorWidthSecondValue = false;
+                float LostIndicatorWidthFirstValue= 0;
+                float LostIndicatorWidthSecondValue= 0;
                 bool setWidthFirstValue = false;
                 bool setWidthSecondValue = false;
                 float WidthFirstValue= 0;
@@ -129,36 +164,62 @@
                         setHeartGreenFirstValue = true;
                         HeartGreenFirstValue = 255;
                         setHeartHeightFirstValue = true;
-                        HeartHeightFirstValue = 80f;
+                        HeartHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.Heart.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setHeartRedFirstValue = true;
                         HeartRedFirstValue = 0;
                         if (interpolationValue < 1)
                         {
-                            SetProperty("Heart.SourceFile", "hearts.png");
+                            SetProperty("Heart.SourceFile", "../GlobalContent/BabyCatcher/babe_ease_spritesheet.png");
                         }
                         if (interpolationValue < 1)
                         {
-                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
+                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setHeartTextureHeightFirstValue = true;
+                        HeartTextureHeightFirstValue = 115;
+                        setHeartTextureLeftFirstValue = true;
+                        HeartTextureLeftFirstValue = 521;
+                        setHeartTextureTopFirstValue = true;
+                        HeartTextureTopFirstValue = 586;
+                        setHeartTextureWidthFirstValue = true;
+                        HeartTextureWidthFirstValue = 115;
+                        if (interpolationValue < 1)
+                        {
+                            this.Heart.Visible = true;
                         }
                         setHeartWidthFirstValue = true;
-                        HeartWidthFirstValue = 80f;
+                        HeartWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.Heart.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setHeartXFirstValue = true;
-                        HeartXFirstValue = 10f;
+                        HeartXFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setHeartYFirstValue = true;
-                        HeartYFirstValue = 10f;
+                        HeartYFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setHeightFirstValue = true;
-                        HeightFirstValue = 0f;
+                        HeightFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setLostIndicatorHeightFirstValue = true;
+                        LostIndicatorHeightFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LostIndicator.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue < 1)
                         {
@@ -168,8 +229,14 @@
                         {
                             this.LostIndicator.Visible = false;
                         }
+                        setLostIndicatorWidthFirstValue = true;
+                        LostIndicatorWidthFirstValue = 100f;
+                        if (interpolationValue < 1)
+                        {
+                            this.LostIndicator.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setWidthFirstValue = true;
-                        WidthFirstValue = 0f;
+                        WidthFirstValue = 100f;
                         if (interpolationValue < 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
@@ -214,36 +281,62 @@
                         setHeartGreenSecondValue = true;
                         HeartGreenSecondValue = 255;
                         setHeartHeightSecondValue = true;
-                        HeartHeightSecondValue = 80f;
+                        HeartHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Heart.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setHeartRedSecondValue = true;
                         HeartRedSecondValue = 0;
                         if (interpolationValue >= 1)
                         {
-                            SetProperty("Heart.SourceFile", "hearts.png");
+                            SetProperty("Heart.SourceFile", "../GlobalContent/BabyCatcher/babe_ease_spritesheet.png");
                         }
                         if (interpolationValue >= 1)
                         {
-                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.EntireTexture;
+                            this.Heart.TextureAddress = Gum.Managers.TextureAddress.Custom;
+                        }
+                        setHeartTextureHeightSecondValue = true;
+                        HeartTextureHeightSecondValue = 115;
+                        setHeartTextureLeftSecondValue = true;
+                        HeartTextureLeftSecondValue = 521;
+                        setHeartTextureTopSecondValue = true;
+                        HeartTextureTopSecondValue = 586;
+                        setHeartTextureWidthSecondValue = true;
+                        HeartTextureWidthSecondValue = 115;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Heart.Visible = true;
                         }
                         setHeartWidthSecondValue = true;
-                        HeartWidthSecondValue = 80f;
+                        HeartWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.Heart.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setHeartXSecondValue = true;
-                        HeartXSecondValue = 10f;
+                        HeartXSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.Heart.XUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setHeartYSecondValue = true;
-                        HeartYSecondValue = 10f;
+                        HeartYSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.Heart.YUnits = Gum.Converters.GeneralUnitType.PixelsFromSmall;
                         }
                         setHeightSecondValue = true;
-                        HeightSecondValue = 0f;
+                        HeightSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                        }
+                        setLostIndicatorHeightSecondValue = true;
+                        LostIndicatorHeightSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LostIndicator.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -253,8 +346,14 @@
                         {
                             this.LostIndicator.Visible = false;
                         }
+                        setLostIndicatorWidthSecondValue = true;
+                        LostIndicatorWidthSecondValue = 100f;
+                        if (interpolationValue >= 1)
+                        {
+                            this.LostIndicator.WidthUnits = Gum.DataTypes.DimensionUnitType.Percentage;
+                        }
                         setWidthSecondValue = true;
-                        WidthSecondValue = 0f;
+                        WidthSecondValue = 100f;
                         if (interpolationValue >= 1)
                         {
                             this.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
@@ -303,6 +402,22 @@
                 {
                     Heart.Red = FlatRedBall.Math.MathFunctions.RoundToInt(HeartRedFirstValue* (1 - interpolationValue) + HeartRedSecondValue * interpolationValue);
                 }
+                if (setHeartTextureHeightFirstValue && setHeartTextureHeightSecondValue)
+                {
+                    Heart.TextureHeight = FlatRedBall.Math.MathFunctions.RoundToInt(HeartTextureHeightFirstValue* (1 - interpolationValue) + HeartTextureHeightSecondValue * interpolationValue);
+                }
+                if (setHeartTextureLeftFirstValue && setHeartTextureLeftSecondValue)
+                {
+                    Heart.TextureLeft = FlatRedBall.Math.MathFunctions.RoundToInt(HeartTextureLeftFirstValue* (1 - interpolationValue) + HeartTextureLeftSecondValue * interpolationValue);
+                }
+                if (setHeartTextureTopFirstValue && setHeartTextureTopSecondValue)
+                {
+                    Heart.TextureTop = FlatRedBall.Math.MathFunctions.RoundToInt(HeartTextureTopFirstValue* (1 - interpolationValue) + HeartTextureTopSecondValue * interpolationValue);
+                }
+                if (setHeartTextureWidthFirstValue && setHeartTextureWidthSecondValue)
+                {
+                    Heart.TextureWidth = FlatRedBall.Math.MathFunctions.RoundToInt(HeartTextureWidthFirstValue* (1 - interpolationValue) + HeartTextureWidthSecondValue * interpolationValue);
+                }
                 if (setHeartWidthFirstValue && setHeartWidthSecondValue)
                 {
                     Heart.Width = HeartWidthFirstValue * (1 - interpolationValue) + HeartWidthSecondValue * interpolationValue;
@@ -318,6 +433,14 @@
                 if (setHeightFirstValue && setHeightSecondValue)
                 {
                     Height = HeightFirstValue * (1 - interpolationValue) + HeightSecondValue * interpolationValue;
+                }
+                if (setLostIndicatorHeightFirstValue && setLostIndicatorHeightSecondValue)
+                {
+                    LostIndicator.Height = LostIndicatorHeightFirstValue * (1 - interpolationValue) + LostIndicatorHeightSecondValue * interpolationValue;
+                }
+                if (setLostIndicatorWidthFirstValue && setLostIndicatorWidthSecondValue)
+                {
+                    LostIndicator.Width = LostIndicatorWidthFirstValue * (1 - interpolationValue) + LostIndicatorWidthSecondValue * interpolationValue;
                 }
                 if (setWidthFirstValue && setWidthSecondValue)
                 {
@@ -489,6 +612,14 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Heart.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Heart.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Heart.Red",
                             Type = "int",
                             Value = Heart.Red
@@ -513,9 +644,57 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Heart.Texture Height",
+                            Type = "int",
+                            Value = Heart.TextureHeight
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Left",
+                            Type = "int",
+                            Value = Heart.TextureLeft
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Top",
+                            Type = "int",
+                            Value = Heart.TextureTop
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Width",
+                            Type = "int",
+                            Value = Heart.TextureWidth
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Visible",
+                            Type = "bool",
+                            Value = Heart.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Heart.Width",
                             Type = "float",
                             Value = Heart.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Heart.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -553,6 +732,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "LostIndicator.Height",
+                            Type = "float",
+                            Value = LostIndicator.Height
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = LostIndicator.HeightUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "LostIndicator.SourceFile",
                             Type = "string",
                             Value = LostIndicator.SourceFile
@@ -564,6 +759,22 @@
                             Name = "LostIndicator.Visible",
                             Type = "bool",
                             Value = LostIndicator.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Width",
+                            Type = "float",
+                            Value = LostIndicator.Width
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LostIndicator.WidthUnits
                         }
                         );
                         break;
@@ -647,7 +858,7 @@
                             SetsValue = true,
                             Name = "Height",
                             Type = "float",
-                            Value = Height + 0f
+                            Value = Height + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -663,7 +874,7 @@
                             SetsValue = true,
                             Name = "Width",
                             Type = "float",
-                            Value = Width + 0f
+                            Value = Width + 100f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -711,7 +922,15 @@
                             SetsValue = true,
                             Name = "Heart.Height",
                             Type = "float",
-                            Value = Heart.Height + 80f
+                            Value = Heart.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = Heart.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -741,9 +960,57 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Heart.Texture Height",
+                            Type = "int",
+                            Value = Heart.TextureHeight + 115
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Left",
+                            Type = "int",
+                            Value = Heart.TextureLeft + 521
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Top",
+                            Type = "int",
+                            Value = Heart.TextureTop + 586
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Texture Width",
+                            Type = "int",
+                            Value = Heart.TextureWidth + 115
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Visible",
+                            Type = "bool",
+                            Value = Heart.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Heart.Width",
                             Type = "float",
-                            Value = Heart.Width + 80f
+                            Value = Heart.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Heart.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Heart.WidthUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -751,7 +1018,7 @@
                             SetsValue = true,
                             Name = "Heart.X",
                             Type = "float",
-                            Value = Heart.X + 10f
+                            Value = Heart.X + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -767,7 +1034,7 @@
                             SetsValue = true,
                             Name = "Heart.Y",
                             Type = "float",
-                            Value = Heart.Y + 10f
+                            Value = Heart.Y + 0f
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -776,6 +1043,22 @@
                             Name = "Heart.Y Units",
                             Type = "PositionUnitType",
                             Value = Heart.YUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Height",
+                            Type = "float",
+                            Value = LostIndicator.Height + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Height Units",
+                            Type = "DimensionUnitType",
+                            Value = LostIndicator.HeightUnits
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -792,6 +1075,22 @@
                             Name = "LostIndicator.Visible",
                             Type = "bool",
                             Value = LostIndicator.Visible
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Width",
+                            Type = "float",
+                            Value = LostIndicator.Width + 100f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "LostIndicator.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = LostIndicator.WidthUnits
                         }
                         );
                         break;

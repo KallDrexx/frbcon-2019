@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AESettingsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OffsetMultiplier>1</OffsetMultiplier>
+  <AnimationChainSettings />
+  <ExpandedNode>Big</ExpandedNode>
+  <ExpandedNode>Medium</ExpandedNode>
+  <ExpandedNode>Small1</ExpandedNode>
+  <ExpandedNode>Small2</ExpandedNode>
+  <ExpandedNode>Small3</ExpandedNode>
+  <ExpandedNode>Small4</ExpandedNode>
+  <UnitType>Pixel</UnitType>
+</AESettingsSave>

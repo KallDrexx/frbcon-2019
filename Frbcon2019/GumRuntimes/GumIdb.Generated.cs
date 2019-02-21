@@ -12,6 +12,7 @@
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Rectangle", typeof(Frbcon2019.GumRuntimes.RectangleRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Sprite", typeof(Frbcon2019.GumRuntimes.SpriteRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Text", typeof(Frbcon2019.GumRuntimes.TextRuntime));
+                GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("BabyMeter", typeof(Frbcon2019.GumRuntimes.BabyMeterRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("Button", typeof(Frbcon2019.GumRuntimes.ButtonRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("LifeIcon", typeof(Frbcon2019.GumRuntimes.LifeIconRuntime));
                 GumRuntime.ElementSaveExtensions.RegisterGueInstantiationType("PlayingCard", typeof(Frbcon2019.GumRuntimes.PlayingCardRuntime));

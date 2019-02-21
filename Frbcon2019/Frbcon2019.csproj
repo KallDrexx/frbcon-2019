@@ -57,6 +57,10 @@
     <Compile Include="Entities\BabyCatcher\BabyPortal.Generated.cs">
       <DependentUpon>BabyPortal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\BackgroundDot.cs" />
+    <Compile Include="Entities\BabyCatcher\BackgroundDot.Generated.cs">
+      <DependentUpon>BackgroundDot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BabyCatcher\CatcherOfBabies.cs" />
     <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
       <DependentUpon>CatcherOfBabies.cs</DependentUpon>
@@ -119,6 +123,10 @@
     <Compile Include="Gameplay\Suit.cs" />
     <Compile Include="GlobalContent.Generated.cs" />
     <Compile Include="GumRuntimes\BabyCatcherGumRuntime.Generated.cs" />
+    <Compile Include="GumRuntimes\BabyMeterRuntime.cs" />
+    <Compile Include="GumRuntimes\BabyMeterRuntime.Generated.cs">
+      <DependentUpon>BabyMeterRuntime.cs</DependentUpon>
+    </Compile>
     <Compile Include="GumRuntimes\BabyThrowGumRuntime.cs" />
     <Compile Include="GumRuntimes\BabyThrowGumRuntime.Generated.cs">
       <DependentUpon>BabyThrowGumRuntime.cs</DependentUpon>
@@ -357,6 +365,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BodyAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\babycatcher\backgrounddot\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\babycatcher\catcherofbabies\carriagechains.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CarriageChains</Name>
@@ -413,6 +425,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>cardback</Name>
     </None>
+    <None Include="content\gumproject\components\babymeter.gucx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>babymeter</Name>
+    </None>
     <None Include="content\gumproject\components\button.gucx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>button</Name>
@@ -440,10 +456,6 @@
     <None Include="content\gumproject\fontcache\font18arial_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>Font18Arial_0</Name>
-    </None>
-    <None Include="content\gumproject\hearts.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>hearts</Name>
     </None>
     <None Include="content\gumproject\medallist.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

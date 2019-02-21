@@ -17,12 +17,14 @@ using Frbcon2019.Entities.BabyCatcher;
 using FlatRedBall.Gui;
 using FlatRedBall.Audio;
 using FlatRedBall.Math.Collision;
+using Frbcon2019.GumRuntimes;
 
 namespace Frbcon2019.Screens
 {
 	public partial class BabyCatcher
 	{
         double lastBabySpawn = 0.0f;
+        int babiesCaught = 0;
         
 		void CustomInitialize()
 		{
@@ -32,6 +34,8 @@ namespace Frbcon2019.Screens
 
             FlatRedBallServices.GraphicsOptions.BackgroundColor = Color.FromNonPremultiplied(58, 47, 77, 255);
             FlatRedBallServices.Game.IsMouseVisible = false;
+
+            babiesCaught = 0;
         }
 
         
@@ -41,7 +45,6 @@ namespace Frbcon2019.Screens
             {
                 CatchMePleaseInstance.Play();
                 CreateCollisions();
-                
             }
 
 
@@ -63,7 +66,16 @@ namespace Frbcon2019.Screens
 
                 ChuteMovement();
                 LerpChutePosition();
+                UpdateBabyMeter();
             }
+        }
+
+        private void UpdateBabyMeter()
+        {
+            var meter = ((BabyCatcherGumRuntime)BabyCatcherGum.Element).BabyMeterInstance;
+
+            meter.Percentage = (int)
+                ((babiesCaught / (float)CatchGoal) * 100);
         }
 
         private void RotateBabies()
@@ -102,7 +114,7 @@ namespace Frbcon2019.Screens
             CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance).CollisionOccurred = (trash, catcher) => {
                 trash.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
-                // TODO: Do Powerup
+                --babiesCaught;
             };
 
             var rel = CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance);
@@ -153,10 +165,9 @@ namespace Frbcon2019.Screens
 
             CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance).CollisionOccurred = (baby, catcher) =>
             {
-
                 baby.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
-                ScoreTextInstanceText++;
+                ++babiesCaught;
             };
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
@@ -278,7 +289,6 @@ namespace Frbcon2019.Screens
 
         private void HandleBabySpawns()
         {
-            FlatRedBall.Debugging.Debugger.Write(BabyList.Count);
             var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
             if (secondsSinceLastBaby >= BabySpawnTimerSeconds)

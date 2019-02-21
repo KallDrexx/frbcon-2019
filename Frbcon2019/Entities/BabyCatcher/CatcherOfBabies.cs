@@ -64,6 +64,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             var endPosition = this.AxleInstance.Position;
             endPosition += this.AxleInstance.RotationMatrix.Down * 25;
             endPosition += this.AxleInstance.RotationMatrix.Right * 62;
+            endPosition.Z -= 5f;
 
             var distance = Vector3.Distance(RightWheelInstance.Position, endPosition);
 
@@ -74,7 +75,6 @@ namespace Frbcon2019.Entities.BabyCatcher
             else
             {
                 RightWheelInstance.Position = endPosition;
-                RightWheelInstance.Z -= 1f;
             }
 
             RightWheelCircle.Position = RightWheelInstance.Position;
@@ -85,6 +85,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             var endPosition = this.AxleInstance.Position;
             endPosition += this.AxleInstance.RotationMatrix.Down * 25;
             endPosition += this.AxleInstance.RotationMatrix.Left * 62;
+            endPosition.Z -= 5f;
 
             var distance = Vector3.Distance(LeftWheelInstance.Position, endPosition);
 
@@ -95,7 +96,6 @@ namespace Frbcon2019.Entities.BabyCatcher
             else
             {
                 LeftWheelInstance.Position = endPosition;
-                LeftWheelInstance.Z -= 1f;
             }
 
             LeftWheelCircle.Position = LeftWheelInstance.Position;
