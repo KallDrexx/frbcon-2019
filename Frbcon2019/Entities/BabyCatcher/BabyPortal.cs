@@ -29,14 +29,13 @@ namespace Frbcon2019.Entities.BabyCatcher
         public void SpawnTrash()
         {
             var trash = TrashFactory.CreateNew();
+            trash.Drag = 0;
             trash.Position = this.SpawnRectangle.Position;
             trash.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
             trash.Z = -3f;
 
             trash.YAcceleration = -Gravity;
             trash.Velocity = ChuteFireForce * this.RotationMatrix.Down;
-
-            trash.StartBlinking();
 
             var trashTypes = new[] { TrashType.BowlingBall, TrashType.Horn, TrashType.Iron, TrashType.Sneaker };
 
@@ -47,9 +46,10 @@ namespace Frbcon2019.Entities.BabyCatcher
         {
             // Happy Birthday!
             var baby = BabyFactory.CreateNew();
+            baby.Drag = 0;
             baby.Position = this.SpawnRectangle.Position;
             baby.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
-            baby.Position.Z = -3f;
+            baby.Z = -3f;
             baby.HeadSpriteInstance.Position = baby.Position;
             baby.HeadSpriteInstance.Z += 1;
             baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-MaxDegreesHeadTilt, MaxDegreesHeadTilt));

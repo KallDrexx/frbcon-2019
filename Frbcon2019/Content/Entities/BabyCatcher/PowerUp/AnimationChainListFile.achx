@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnimationChainArraySave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileRelativeTextures>true</FileRelativeTextures>
+  <TimeMeasurementUnit>Undefined</TimeMeasurementUnit>
+  <CoordinateType>Pixel</CoordinateType>
+  <AnimationChain>
+    <Name>FullThrottle</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>52</LeftCoordinate>
+      <RightCoordinate>145</RightCoordinate>
+      <TopCoordinate>1100</TopCoordinate>
+      <BottomCoordinate>1270</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>BigHeads</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>177</LeftCoordinate>
+      <RightCoordinate>270</RightCoordinate>
+      <TopCoordinate>1100</TopCoordinate>
+      <BottomCoordinate>1270</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+  <AnimationChain>
+    <Name>Bouncy</Name>
+    <Frame>
+      <TextureName>../../../GlobalContent/BabyCatcher/babe_ease_spritesheet.png</TextureName>
+      <FrameLength>0.1</FrameLength>
+      <LeftCoordinate>307</LeftCoordinate>
+      <RightCoordinate>400</RightCoordinate>
+      <TopCoordinate>1100</TopCoordinate>
+      <BottomCoordinate>1270</BottomCoordinate>
+    </Frame>
+  </AnimationChain>
+</AnimationChainArraySave>

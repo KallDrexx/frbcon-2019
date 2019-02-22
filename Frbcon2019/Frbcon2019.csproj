@@ -65,6 +65,10 @@
     <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
       <DependentUpon>CatcherOfBabies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\PowerUp.cs" />
+    <Compile Include="Entities\BabyCatcher\PowerUp.Generated.cs">
+      <DependentUpon>PowerUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BabyCatcher\Trash.cs" />
     <Compile Include="Entities\BabyCatcher\Trash.Event.cs">
       <DependentUpon>Trash.cs</DependentUpon>
@@ -113,6 +117,7 @@
     </Compile>
     <Compile Include="Factories\BabyFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
+    <Compile Include="Factories\PowerUpFactory.Generated.cs" />
     <Compile Include="Factories\TrashFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -372,6 +377,10 @@
     <None Include="content\entities\babycatcher\catcherofbabies\carriagechains.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CarriageChains</Name>
+    </None>
+    <None Include="content\entities\babycatcher\powerup\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
     </None>
     <None Include="content\entities\babycatcher\trash\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

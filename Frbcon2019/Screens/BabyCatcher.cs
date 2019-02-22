@@ -18,16 +18,17 @@ using FlatRedBall.Gui;
 using FlatRedBall.Audio;
 using FlatRedBall.Math.Collision;
 using Frbcon2019.GumRuntimes;
+using static Frbcon2019.Entities.BabyCatcher.PowerUp;
 
 namespace Frbcon2019.Screens
 {
-	public partial class BabyCatcher
-	{
+    public partial class BabyCatcher
+    {
         double lastBabySpawn = 0.0f;
         int babiesCaught = 0;
-        
-		void CustomInitialize()
-		{
+
+        void CustomInitialize()
+        {
             // Immediately trigger the spawn to spawn.
             lastBabySpawn = TimeManager.CurrentTime - BabySpawnTimerSeconds;
             lastChuteChange = TimeManager.CurrentTime - ChuteDirectionChangeFrequencyMaxSeconds;
@@ -38,9 +39,9 @@ namespace Frbcon2019.Screens
             babiesCaught = 0;
         }
 
-        
-		void CustomActivity(bool firstTimeCalled)
-		{
+
+        void CustomActivity(bool firstTimeCalled)
+        {
             if (firstTimeCalled)
             {
                 CatchMePleaseInstance.Play();
@@ -57,11 +58,13 @@ namespace Frbcon2019.Screens
             {
                 if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
                 {
-                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
+                    //                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
+
+                    SpawnRandomPowerup();
                 }
-                HandleBabySpawns();
+                HandleChuteSpawning();
                 HandleBabyBoundaries();
-                RotateBabies();
+                RotateItems();
                 LerpCatcherPosition();
 
                 ChuteMovement();
@@ -70,19 +73,52 @@ namespace Frbcon2019.Screens
             }
         }
 
+        private void SpawnRandomPowerup()
+        {
+            int rand = FlatRedBallServices.Random.Next(1, 3);
+
+
+            var x = FlatRedBallServices.Random.Between(-350f, 350f);
+
+            var powerup = PowerUpFactory.CreateNew(x, 300);
+
+            switch (rand)
+            {
+                case 1:
+                    powerup.CurrentBottleTypeState = BottleType.BigHead;
+                    break;
+                case 2:
+                    powerup.CurrentBottleTypeState = BottleType.Bouncy;
+                    break;
+                case 3:
+                    powerup.CurrentBottleTypeState = BottleType.FullThrottle;
+                    break;
+            }
+
+            powerup.Z = -2;
+            powerup.YVelocity = -PowerupFallSpeed;
+        }
+
         private void UpdateBabyMeter()
         {
             var meter = ((BabyCatcherGumRuntime)BabyCatcherGum.Element).BabyMeterInstance;
-
-            meter.Percentage = (int)
+            var percentage = (int)
                 ((babiesCaught / (float)CatchGoal) * 100);
+
+            meter.Percentage = MathHelper.Clamp(percentage, 0, 100);
+
         }
 
-        private void RotateBabies()
+        private void RotateItems()
         {
             foreach (var baby in BabyList)
             {
-                baby.RotationZVelocity = -baby.Velocity.X / baby.CircleInstance.Radius;
+                baby.RotationZVelocity = -baby.Velocity.X / (2.0f * baby.CircleInstance.Radius);
+            }
+
+            foreach (var trash in TrashList)
+            {
+                trash.RotationZVelocity = -trash.Velocity.X / (2.0f * trash.CircleInstance.Radius);
             }
         }
 
@@ -95,15 +131,16 @@ namespace Frbcon2019.Screens
                 if (baby.Left > 400 || baby.Right < -400 || baby.Top < -300 || baby.Bottom > 300)
                 {
                     baby.Destroy();
-                } 
+                }
             }
         }
 
+        #region Collisions
         private void CreateCollisions()
         {
             CreateBabyCollisions();
             CreateTrashCollisions();
-            
+
         }
 
         private void CreateTrashCollisions()
@@ -111,7 +148,8 @@ namespace Frbcon2019.Screens
             var trashlisttoSelf = CollisionManager.Self.CreateRelationship(TrashList, TrashList);
             trashlisttoSelf.SetBounceCollision(1, 1, .2f);
 
-            CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance).CollisionOccurred = (trash, catcher) => {
+            CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance).CollisionOccurred = (trash, catcher) =>
+            {
                 trash.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
                 --babiesCaught;
@@ -123,18 +161,13 @@ namespace Frbcon2019.Screens
 
             var trashFloorRel = CollisionManager.Self.CreateRelationship(TrashList, FloorShapes);
             trashFloorRel.SetBounceCollision(0, 1f, .2f);
-            trashFloorRel.CollisionOccurred = (trash, floor) => {
+            trashFloorRel.CollisionOccurred = (trash, floor) =>
+            {
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
-                if (trash.NumBounces == 0 && secondsSinceLastPow >= SecondsPerPow)
-                {
-                    pow.Play();
-                    lastPowPlayed = TimeManager.CurrentTime;
-                }
 
                 if (++trash.NumBounces > 2)
                 {
-                    trash.Velocity = Vector3.Zero;
-                    trash.RotationZVelocity = 0;
+                    trash.Drag = .5f;
 
                     trash.FadeAway();
 
@@ -147,13 +180,13 @@ namespace Frbcon2019.Screens
             };
 
         }
-        ListVsListRelationship<Baby, Baby> babyListToSelf;
+
         private void CreateBabyCollisions()
         {
-            babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
+            var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
 
             babyListToSelf.SetBounceCollision(1, 1, .2f);
-            
+
 
             babyListToSelf.CollisionOccurred = (baby1, baby2) =>
             {
@@ -172,9 +205,10 @@ namespace Frbcon2019.Screens
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
             rel.SetBounceCollision(0, 1f, .6f);
-            rel.CollisionOccurred = (baby, bumper) => {
+            rel.CollisionOccurred = (baby, bumper) =>
+            {
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
-                if (baby.NumBounces == 0 && baby.Velocity.Length() > (ChuteSpeed * .75f) && secondsSinceLastPow >= SecondsPerPow)
+                if (baby.NumBounces == 0 && baby.Velocity.Length() > (ChuteSpeed * .85f) && secondsSinceLastPow >= SecondsPerPow)
                 {
                     pow.Play();
                     lastPowPlayed = TimeManager.CurrentTime;
@@ -188,15 +222,13 @@ namespace Frbcon2019.Screens
 
             babyFloorRel.CollisionOccurred = (baby, floor) =>
             {
-                
+
 
                 if (++baby.NumBounces > 6)
                 {
-                    baby.Velocity = Vector3.Zero;
-                    baby.RotationZVelocity = 0;
+                    baby.Drag = 10f;
 
                     baby.FadeAway();
-
                 }
 
                 if (baby.HeadSpriteInstance.Alpha <= 0f)
@@ -205,14 +237,17 @@ namespace Frbcon2019.Screens
                 }
             };
         }
+        #endregion
 
+
+        #region Chute Movement
         PositionedObject chuteMover = null;
         double lastChuteChange = 0.0f;
         double thisChuteMoveTimer = 0.0f;
-        
+
         private void ChuteMovement()
         {
-           
+
             if (chuteMover == null)
             {
                 chuteMover = new PositionedObject()
@@ -232,9 +267,9 @@ namespace Frbcon2019.Screens
 
             chuteMover.X = MathHelper.Clamp(chuteMover.X, -400, 400);
 
-            
 
-            if (chuteMover.Y < ChuteMinY || chuteMover.Y > ChuteMaxY) 
+
+            if (chuteMover.Y < ChuteMinY || chuteMover.Y > ChuteMaxY)
             {
                 chuteMover.YAcceleration = 0;
                 chuteMover.YVelocity = 0;
@@ -287,24 +322,28 @@ namespace Frbcon2019.Screens
 
         double lastPowPlayed = 0.0;
 
-        private void HandleBabySpawns()
+        #endregion
+
+
+        private void HandleChuteSpawning()
         {
             var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
             if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
             {
-                var roll = FlatRedBallServices.Random.Between(0f, 100f);
-
-                if (roll <= TrashFrequencyPercent)
-                {
-                     Portal1.SpawnTrash();
-                }
+                lastBabySpawn = TimeManager.CurrentTime;
 
                 for (int x = 0; x < BabiesPerSpawn; ++x)
                 {
-                    Portal1.SpawnBaby();
+                    if (CurrentChuteItemTypeState == ChuteItemType.Trash)
+                    {
+                        Portal1.SpawnTrash();
+                    }
+                    else
+                    {
+                        Portal1.SpawnBaby();
+                    }
                 }
-                lastBabySpawn = TimeManager.CurrentTime;
             }
         }
 
@@ -326,11 +365,6 @@ namespace Frbcon2019.Screens
             }
             else
             {
-                if (distance > 0.0f)
-                {
-
-                }
-
                 CatcherOfBabiesInstance.RotationZ = 0f;
                 CatcherOfBabiesInstance.Position = endPosition;
             }
@@ -340,7 +374,7 @@ namespace Frbcon2019.Screens
         }
 
         void CustomDestroy()
-		{
+        {
             FlatRedBallServices.Game.IsMouseVisible = true;
             SpriteManager.RemovePositionedObject(chuteMover);
         }
@@ -351,5 +385,5 @@ namespace Frbcon2019.Screens
 
         }
 
-	}
+    }
 }
