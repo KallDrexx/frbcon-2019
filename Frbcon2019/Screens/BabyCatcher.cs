@@ -71,18 +71,18 @@ namespace Frbcon2019.Screens
             }
         }
 
-        double lastPowerup = double.MinValue;
+        double nextPowerup = double.MinValue;
 
         private void PowerupActivity()
         {
-            if (this.PauseAdjustedCurrentTime - lastPowerup > PowerupFrequencySeconds)
+            if (this.PauseAdjustedCurrentTime >= nextPowerup)
             {
                 //                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
 
                 //CurrentChuteItemTypeState = CurrentChuteItemTypeState == ChuteItemType.Babies ? ChuteItemType.Trash : ChuteItemType.Babies;
 
                 SpawnRandomPowerup();
-                lastPowerup = PauseAdjustedCurrentTime;
+                nextPowerup = PauseAdjustedCurrentTime + FlatRedBallServices.Random.Between(PowerupFrequencySecondsMin, PowerupFrequencySecondsMax);
             }
 
 
@@ -97,7 +97,7 @@ namespace Frbcon2019.Screens
 
             var tick = (float)TimeManager.SecondsSince(TimeManager.LastCurrentTime);
 
-            fullThrottleTimeLeft -= tick;
+            fullThrottleTimeLeft = Math.Max(fullThrottleTimeLeft - tick, 0f);
 
 
             if (bouncyTimeLeft > 0f)
@@ -109,8 +109,19 @@ namespace Frbcon2019.Screens
                 babyBounceFactor = 1f;
             }
 
-            bouncyTimeLeft -= tick;
+            bouncyTimeLeft = Math.Max(bouncyTimeLeft - tick, 0f);
 
+
+            if (bigHeadTimeLeft > 0f)
+            {
+                headScale = BigHeadPowerupScale;
+            }
+            else
+            {
+                headScale = .5f;
+            }
+
+            bigHeadTimeLeft = Math.Max(bigHeadTimeLeft - tick, 0f);
         }
 
         private void SpawnRandomPowerup()
@@ -257,11 +268,9 @@ namespace Frbcon2019.Screens
         {
             var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
 
-            babyListToSelf.SetBounceCollision(1, 1, .2f * babyBounceFactor);
-
-
             babyListToSelf.CollisionOccurred = (baby1, baby2) =>
             {
+                baby1.CollideAgainstBounce(baby2, 1.0f, 1.0f, .2f * babyBounceFactor);
                 baby1.RotationZVelocity = 0;
                 baby2.RotationZVelocity = 0;
             };
@@ -276,9 +285,10 @@ namespace Frbcon2019.Screens
             };
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
-            rel.SetBounceCollision(0, 1f, .3f * babyBounceFactor);
+
             rel.CollisionOccurred = (baby, bumper) =>
             {
+                baby.CollideAgainstBounce(bumper, 0f, 1.0f, .3f * babyBounceFactor);
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
                 if (baby.NumBounces == 0 && baby.Velocity.Length() > (ChuteSpeed * .85f) && secondsSinceLastPow >= SecondsPerPow)
                 {
@@ -290,12 +300,10 @@ namespace Frbcon2019.Screens
 
             var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
 
-            babyFloorRel.SetBounceCollision(0, 1f, .2f * babyBounceFactor);
-
             babyFloorRel.CollisionOccurred = (baby, floor) =>
             {
 
-
+                baby.CollideAgainstBounce(floor, 0f, 1.0f, .2f * babyBounceFactor);
                 if (++baby.NumBounces > 6)
                 {
                     baby.Drag = 10f;
@@ -413,7 +421,12 @@ namespace Frbcon2019.Screens
                     }
                     else
                     {
-                        Portal1.SpawnBaby();
+                        var baby = Portal1.SpawnBaby();
+
+                        if (bigHeadTimeLeft > 0f)
+                        {
+                            baby.HeadSpriteInstance.TextureScale = BigHeadPowerupScale;
+                        }
                     }
                 }
             }
@@ -421,6 +434,7 @@ namespace Frbcon2019.Screens
 
         const float maxLerpSeconds = .04f;
         private float babyBounceFactor;
+        private float headScale;
 
         private void LerpCatcherPosition()
         {

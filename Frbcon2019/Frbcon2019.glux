@@ -385,12 +385,23 @@
           <Properties>
             <PropertySave>
               <Name>Type</Name>
-              <ValueAsString>double</ValueAsString>
+              <ValueAsString>float</ValueAsString>
             </PropertySave>
           </Properties>
-          <Name>PowerupFrequencySeconds</Name>
-          <Type>double</Type>
-          <DefaultValue xsi:type="xsd:double">5</DefaultValue>
+          <Name>PowerupFrequencySecondsMin</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>PowerupFrequencySecondsMax</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
         </CustomVariable>
         <CustomVariable>
           <Properties>
@@ -434,7 +445,18 @@
           </Properties>
           <Name>BouncePowerupElasticityMultiplier</Name>
           <Type>float</Type>
-          <DefaultValue xsi:type="xsd:float">1.5</DefaultValue>
+          <DefaultValue xsi:type="xsd:float">5</DefaultValue>
+        </CustomVariable>
+        <CustomVariable>
+          <Properties>
+            <PropertySave>
+              <Name>Type</Name>
+              <ValueAsString>float</ValueAsString>
+            </PropertySave>
+          </Properties>
+          <Name>BigHeadPowerupScale</Name>
+          <Type>float</Type>
+          <DefaultValue xsi:type="xsd:float">1</DefaultValue>
         </CustomVariable>
       </CustomVariables>
       <Name>Screens\BabyCatcher</Name>

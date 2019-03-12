@@ -42,7 +42,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             trash.CurrentTrashTypeState = (TrashType)trashTypes.GetValue(FlatRedBallServices.Random.Next(trashTypes.Length));
         }
 
-        public void SpawnBaby()
+        public Baby SpawnBaby()
         {
             // Happy Birthday!
             var baby = BabyFactory.CreateNew();
@@ -53,6 +53,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             baby.HeadSpriteInstance.Position = baby.Position;
             baby.HeadSpriteInstance.Z += 1;
             baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-MaxDegreesHeadTilt, MaxDegreesHeadTilt + 1));
+
 
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
@@ -65,6 +66,8 @@ namespace Frbcon2019.Entities.BabyCatcher
 
             baby.CurrentColorStateState = (ColorState)colors.GetValue(FlatRedBallServices.Random.Next(colors.Length));
             baby.CurrentBabyHeadState = (BabyHead)heads.GetValue(FlatRedBallServices.Random.Next(heads.Length));
+
+            return baby;
         }
 
         private void CustomActivity()
