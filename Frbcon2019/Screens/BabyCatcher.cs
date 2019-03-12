@@ -56,16 +56,14 @@ namespace Frbcon2019.Screens
 
             if (GameIsActive)
             {
-                if (InputManager.Keyboard.KeyPushed(Microsoft.Xna.Framework.Input.Keys.Space))
-                {
-                    //                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
+                
 
-                    SpawnRandomPowerup();
-                }
+                PowerupActivity();
                 HandleChuteSpawning();
                 HandleBabyBoundaries();
                 RotateItems();
                 LerpCatcherPosition();
+                
 
                 ChuteMovement();
                 LerpChutePosition();
@@ -73,9 +71,51 @@ namespace Frbcon2019.Screens
             }
         }
 
+        double lastPowerup = double.MinValue;
+
+        private void PowerupActivity()
+        {
+            if (this.PauseAdjustedCurrentTime - lastPowerup > PowerupFrequencySeconds)
+            {
+                //                    CurrentChuteBehaviorState = CurrentChuteBehaviorState == ChuteBehavior.FullThrottle ? ChuteBehavior.Normal : ChuteBehavior.FullThrottle;
+
+                //CurrentChuteItemTypeState = CurrentChuteItemTypeState == ChuteItemType.Babies ? ChuteItemType.Trash : ChuteItemType.Babies;
+
+                SpawnRandomPowerup();
+                lastPowerup = PauseAdjustedCurrentTime;
+            }
+
+
+            if (fullThrottleTimeLeft > 0f)
+            {
+                CurrentChuteBehaviorState = ChuteBehavior.FullThrottle;
+            }
+            else
+            {
+                CurrentChuteBehaviorState = ChuteBehavior.Normal;
+            }
+
+            var tick = (float)TimeManager.SecondsSince(TimeManager.LastCurrentTime);
+
+            fullThrottleTimeLeft -= tick;
+
+
+            if (bouncyTimeLeft > 0f)
+            {
+                babyBounceFactor = BouncePowerupElasticityMultiplier;
+            }
+            else
+            {
+                babyBounceFactor = 1f;
+            }
+
+            bouncyTimeLeft -= tick;
+
+        }
+
         private void SpawnRandomPowerup()
         {
-            int rand = FlatRedBallServices.Random.Next(1, 3);
+            int rand = FlatRedBallServices.Random.Next(1, 4);
 
 
             var x = FlatRedBallServices.Random.Between(-350f, 350f);
@@ -140,7 +180,39 @@ namespace Frbcon2019.Screens
         {
             CreateBabyCollisions();
             CreateTrashCollisions();
+            CreatePowerupCollisions();
+        }
 
+        private void CreatePowerupCollisions()
+        {
+            var powerupsToCarriage = CollisionManager.Self.CreateRelationship(PowerUpList, CatcherOfBabiesInstance);
+            powerupsToCarriage.SetEventOnlyCollision();
+            powerupsToCarriage.CollisionOccurred = (powerup, catcher) => 
+            {
+                ApplyPowerup(powerup.CurrentBottleTypeState);
+                powerup.Destroy();
+                CatcherOfBabiesInstance.PlayCatchAnimation();
+            };
+        }
+
+        float fullThrottleTimeLeft = 0f;
+        float bouncyTimeLeft = 0f;
+        float bigHeadTimeLeft = 0f;
+
+        private void ApplyPowerup(BottleType state)
+        {
+            if (state == BottleType.BigHead)
+            {
+                bigHeadTimeLeft = BigHeadTime;
+            }
+            else if (state == BottleType.Bouncy)
+            {
+                bouncyTimeLeft = BouncyTime;
+            }
+            else if (state == BottleType.FullThrottle)
+            {
+                fullThrottleTimeLeft = FullThrottleTime;
+            }
         }
 
         private void CreateTrashCollisions()
@@ -185,7 +257,7 @@ namespace Frbcon2019.Screens
         {
             var babyListToSelf = CollisionManager.Self.CreateRelationship(BabyList, BabyList);
 
-            babyListToSelf.SetBounceCollision(1, 1, .2f);
+            babyListToSelf.SetBounceCollision(1, 1, .2f * babyBounceFactor);
 
 
             babyListToSelf.CollisionOccurred = (baby1, baby2) =>
@@ -204,7 +276,7 @@ namespace Frbcon2019.Screens
             };
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
-            rel.SetBounceCollision(0, 1f, .6f);
+            rel.SetBounceCollision(0, 1f, .3f * babyBounceFactor);
             rel.CollisionOccurred = (baby, bumper) =>
             {
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
@@ -218,7 +290,7 @@ namespace Frbcon2019.Screens
 
             var babyFloorRel = CollisionManager.Self.CreateRelationship(BabyList, FloorShapes);
 
-            babyFloorRel.SetBounceCollision(0, 1f, .2f);
+            babyFloorRel.SetBounceCollision(0, 1f, .2f * babyBounceFactor);
 
             babyFloorRel.CollisionOccurred = (baby, floor) =>
             {
@@ -348,6 +420,8 @@ namespace Frbcon2019.Screens
         }
 
         const float maxLerpSeconds = .04f;
+        private float babyBounceFactor;
+
         private void LerpCatcherPosition()
         {
             var thisLerp = 1.0f / maxLerpSeconds * TimeManager.SecondDifference;

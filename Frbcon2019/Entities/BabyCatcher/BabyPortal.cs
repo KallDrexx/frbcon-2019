@@ -52,7 +52,7 @@ namespace Frbcon2019.Entities.BabyCatcher
             baby.Z = -3f;
             baby.HeadSpriteInstance.Position = baby.Position;
             baby.HeadSpriteInstance.Z += 1;
-            baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-MaxDegreesHeadTilt, MaxDegreesHeadTilt));
+            baby.HeadSpriteInstance.RelativeRotationZ = MathHelper.ToRadians(FlatRedBallServices.Random.Next(-MaxDegreesHeadTilt, MaxDegreesHeadTilt + 1));
 
             // Baby: WEEEEEE!!!!
             baby.YAcceleration = -Gravity;
