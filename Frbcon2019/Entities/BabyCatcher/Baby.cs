@@ -21,20 +21,17 @@ namespace Frbcon2019.Entities.BabyCatcher
             HeadSpriteInstance.Position = endPosition;
 
             HeadSpriteInstance.ForceUpdateDependencies();
-
         }
 
         
         
 		private void CustomActivity()
         {
-            
             var thisLerp = 1 / MaxHeadLerpSeconds * TimeManager.SecondDifference;
 
             var endPosition = this.Position;
             endPosition += this.RotationMatrix.Up * HeadOffsetUp;
             var distance = Vector3.Distance(HeadSpriteInstance.Position, endPosition);
-
 
             if (distance > .0001f)
             {
@@ -44,11 +41,6 @@ namespace Frbcon2019.Entities.BabyCatcher
             }
             else
             {
-                if (distance > 0.0f)
-                {
-
-                }
-
                 HeadSpriteInstance.Position = endPosition;
                 HeadSpriteInstance.Z += 1f;
             }
@@ -68,10 +60,10 @@ namespace Frbcon2019.Entities.BabyCatcher
 
         public void FadeAway()
         {
-
+            ExclamationSpriteInstance.Visible = true;
             HeadSpriteInstance.AlphaRate = -.5f;
             BodySpriteInstance.AlphaRate = -.5f;
-            
+            ExclamationSpriteInstance.AlphaRate = -.5f;            
         }
     }
 }

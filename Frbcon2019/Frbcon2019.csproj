@@ -370,6 +370,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BodyAnimationChainListFile</Name>
     </None>
+    <None Include="content\entities\babycatcher\baby\generalanimationchains.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>GeneralAnimationChains</Name>
+    </None>
     <None Include="content\entities\babycatcher\backgrounddot\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
