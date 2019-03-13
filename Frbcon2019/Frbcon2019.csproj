@@ -67,7 +67,7 @@
     </Compile>
     <Compile Include="Entities\BabyCatcher\ExclamationPoint.cs" />
     <Compile Include="Entities\BabyCatcher\ExclamationPoint.Generated.cs">
-      <DependentUpon>exclamationpoint.cs</DependentUpon>
+      <DependentUpon>ExclamationPoint.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BabyCatcher\PowerUp.cs" />
     <Compile Include="Entities\BabyCatcher\PowerUp.Generated.cs">

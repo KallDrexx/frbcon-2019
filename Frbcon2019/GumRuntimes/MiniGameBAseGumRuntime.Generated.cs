@@ -41,10 +41,13 @@
                             ContentBlocker.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
                             ContentBlocker.X = 0f;
                             ContentBlocker.Y = 0f;
+                            SetProperty("Instructions.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                            Instructions.FontScale = 0.5f;
                             Instructions.Height = 0f;
                             Instructions.HeightUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             Instructions.HorizontalAlignment = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             Instructions.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
+                            Instructions.UseCustomFont = true;
                             Instructions.Width = 0f;
                             Instructions.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                             SplashContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
@@ -53,13 +56,19 @@
                             SplashContainer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "ContentBlocker");
                             SplashContainer.Width = 0f;
                             SplashContainer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
+                            SplashContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
                             SplashContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                            SplashContainer.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                             SplashContainer.YUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
                             Spacer.Height = 50f;
                             Spacer.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
                             Spacer.Width = 0f;
+                            Spacer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                            SetProperty("InstructionsTimeLeftText.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                            InstructionsTimeLeftText.FontScale = 0.5f;
                             InstructionsTimeLeftText.Height = 0f;
                             InstructionsTimeLeftText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
+                            InstructionsTimeLeftText.UseCustomFont = true;
                             InstructionsTimeLeftText.Width = 0f;
                             MinigameUI.Height = 100f;
                             MinigameUI.HeightUnits = Gum.DataTypes.DimensionUnitType.Percentage;
@@ -170,6 +179,10 @@
                 bool setGameTimeLeftWidthSecondValue = false;
                 float GameTimeLeftWidthFirstValue= 0;
                 float GameTimeLeftWidthSecondValue= 0;
+                bool setInstructionsFontScaleFirstValue = false;
+                bool setInstructionsFontScaleSecondValue = false;
+                float InstructionsFontScaleFirstValue= 0;
+                float InstructionsFontScaleSecondValue= 0;
                 bool setInstructionsHeightFirstValue = false;
                 bool setInstructionsHeightSecondValue = false;
                 float InstructionsHeightFirstValue= 0;
@@ -178,6 +191,10 @@
                 bool setInstructionsWidthSecondValue = false;
                 float InstructionsWidthFirstValue= 0;
                 float InstructionsWidthSecondValue= 0;
+                bool setInstructionsTimeLeftTextFontScaleFirstValue = false;
+                bool setInstructionsTimeLeftTextFontScaleSecondValue = false;
+                float InstructionsTimeLeftTextFontScaleFirstValue= 0;
+                float InstructionsTimeLeftTextFontScaleSecondValue= 0;
                 bool setInstructionsTimeLeftTextHeightFirstValue = false;
                 bool setInstructionsTimeLeftTextHeightSecondValue = false;
                 float InstructionsTimeLeftTextHeightFirstValue= 0;
@@ -285,6 +302,12 @@
                         }
                         setGameTimeLeftWidthFirstValue = true;
                         GameTimeLeftWidthFirstValue = 0f;
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("Instructions.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setInstructionsFontScaleFirstValue = true;
+                        InstructionsFontScaleFirstValue = 0.5f;
                         setInstructionsHeightFirstValue = true;
                         InstructionsHeightFirstValue = 0f;
                         if (interpolationValue < 1)
@@ -299,17 +322,31 @@
                         {
                             this.Instructions.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
                         }
+                        if (interpolationValue < 1)
+                        {
+                            this.Instructions.UseCustomFont = true;
+                        }
                         setInstructionsWidthFirstValue = true;
                         InstructionsWidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.Instructions.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
+                        if (interpolationValue < 1)
+                        {
+                            SetProperty("InstructionsTimeLeftText.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setInstructionsTimeLeftTextFontScaleFirstValue = true;
+                        InstructionsTimeLeftTextFontScaleFirstValue = 0.5f;
                         setInstructionsTimeLeftTextHeightFirstValue = true;
                         InstructionsTimeLeftTextHeightFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
                             this.InstructionsTimeLeftText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.InstructionsTimeLeftText.UseCustomFont = true;
                         }
                         setInstructionsTimeLeftTextWidthFirstValue = true;
                         InstructionsTimeLeftTextWidthFirstValue = 0f;
@@ -339,6 +376,10 @@
                         SpacerWidthFirstValue = 0f;
                         if (interpolationValue < 1)
                         {
+                            this.Spacer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.SplashContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
                         setSplashContainerHeightFirstValue = true;
@@ -359,7 +400,15 @@
                         }
                         if (interpolationValue < 1)
                         {
+                            this.SplashContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue < 1)
+                        {
                             this.SplashContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue < 1)
+                        {
+                            this.SplashContainer.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         if (interpolationValue < 1)
                         {
@@ -476,6 +525,12 @@
                         }
                         setGameTimeLeftWidthSecondValue = true;
                         GameTimeLeftWidthSecondValue = 0f;
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("Instructions.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setInstructionsFontScaleSecondValue = true;
+                        InstructionsFontScaleSecondValue = 0.5f;
                         setInstructionsHeightSecondValue = true;
                         InstructionsHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
@@ -490,17 +545,31 @@
                         {
                             this.Instructions.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            this.Instructions.UseCustomFont = true;
+                        }
                         setInstructionsWidthSecondValue = true;
                         InstructionsWidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.Instructions.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
                         }
+                        if (interpolationValue >= 1)
+                        {
+                            SetProperty("InstructionsTimeLeftText.CustomFontFile", "../GlobalContent/BabyCatcher/baby_doll_64.fnt");
+                        }
+                        setInstructionsTimeLeftTextFontScaleSecondValue = true;
+                        InstructionsTimeLeftTextFontScaleSecondValue = 0.5f;
                         setInstructionsTimeLeftTextHeightSecondValue = true;
                         InstructionsTimeLeftTextHeightSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
                             this.InstructionsTimeLeftText.Parent = this.ContainedElements.FirstOrDefault(item =>item.Name == "SplashContainer");
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.InstructionsTimeLeftText.UseCustomFont = true;
                         }
                         setInstructionsTimeLeftTextWidthSecondValue = true;
                         InstructionsTimeLeftTextWidthSecondValue = 0f;
@@ -530,6 +599,10 @@
                         SpacerWidthSecondValue = 0f;
                         if (interpolationValue >= 1)
                         {
+                            this.Spacer.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToContainer;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.SplashContainer.ChildrenLayout = Gum.Managers.ChildrenLayout.TopToBottomStack;
                         }
                         setSplashContainerHeightSecondValue = true;
@@ -550,7 +623,15 @@
                         }
                         if (interpolationValue >= 1)
                         {
+                            this.SplashContainer.XOrigin = RenderingLibrary.Graphics.HorizontalAlignment.Center;
+                        }
+                        if (interpolationValue >= 1)
+                        {
                             this.SplashContainer.XUnits = Gum.Converters.GeneralUnitType.PixelsFromMiddle;
+                        }
+                        if (interpolationValue >= 1)
+                        {
+                            this.SplashContainer.YOrigin = RenderingLibrary.Graphics.VerticalAlignment.Center;
                         }
                         if (interpolationValue >= 1)
                         {
@@ -660,6 +741,10 @@
                 {
                     GameTimeLeft.Width = GameTimeLeftWidthFirstValue * (1 - interpolationValue) + GameTimeLeftWidthSecondValue * interpolationValue;
                 }
+                if (setInstructionsFontScaleFirstValue && setInstructionsFontScaleSecondValue)
+                {
+                    Instructions.FontScale = InstructionsFontScaleFirstValue * (1 - interpolationValue) + InstructionsFontScaleSecondValue * interpolationValue;
+                }
                 if (setInstructionsHeightFirstValue && setInstructionsHeightSecondValue)
                 {
                     Instructions.Height = InstructionsHeightFirstValue * (1 - interpolationValue) + InstructionsHeightSecondValue * interpolationValue;
@@ -667,6 +752,10 @@
                 if (setInstructionsWidthFirstValue && setInstructionsWidthSecondValue)
                 {
                     Instructions.Width = InstructionsWidthFirstValue * (1 - interpolationValue) + InstructionsWidthSecondValue * interpolationValue;
+                }
+                if (setInstructionsTimeLeftTextFontScaleFirstValue && setInstructionsTimeLeftTextFontScaleSecondValue)
+                {
+                    InstructionsTimeLeftText.FontScale = InstructionsTimeLeftTextFontScaleFirstValue * (1 - interpolationValue) + InstructionsTimeLeftTextFontScaleSecondValue * interpolationValue;
                 }
                 if (setInstructionsTimeLeftTextHeightFirstValue && setInstructionsTimeLeftTextHeightSecondValue)
                 {
@@ -1007,6 +1096,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Instructions.CustomFontFile",
+                            Type = "string",
+                            Value = Instructions.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Instructions.Font Scale",
+                            Type = "float",
+                            Value = Instructions.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Instructions.Height",
                             Type = "float",
                             Value = Instructions.Height
@@ -1034,6 +1139,14 @@
                             Name = "Instructions.Parent",
                             Type = "string",
                             Value = Instructions.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Instructions.UseCustomFont",
+                            Type = "bool",
+                            Value = Instructions.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1103,9 +1216,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "SplashContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = SplashContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "SplashContainer.X Units",
                             Type = "PositionUnitType",
                             Value = SplashContainer.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SplashContainer.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = SplashContainer.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1143,6 +1272,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Spacer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Spacer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.CustomFontFile",
+                            Type = "string",
+                            Value = InstructionsTimeLeftText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.Font Scale",
+                            Type = "float",
+                            Value = InstructionsTimeLeftText.FontScale
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "InstructionsTimeLeftText.Height",
                             Type = "float",
                             Value = InstructionsTimeLeftText.Height
@@ -1154,6 +1307,14 @@
                             Name = "InstructionsTimeLeftText.Parent",
                             Type = "string",
                             Value = InstructionsTimeLeftText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.UseCustomFont",
+                            Type = "bool",
+                            Value = InstructionsTimeLeftText.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1497,6 +1658,22 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Instructions.CustomFontFile",
+                            Type = "string",
+                            Value = Instructions.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Instructions.Font Scale",
+                            Type = "float",
+                            Value = Instructions.FontScale + 0.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "Instructions.Height",
                             Type = "float",
                             Value = Instructions.Height + 0f
@@ -1524,6 +1701,14 @@
                             Name = "Instructions.Parent",
                             Type = "string",
                             Value = Instructions.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "Instructions.UseCustomFont",
+                            Type = "bool",
+                            Value = Instructions.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1593,9 +1778,25 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "SplashContainer.X Origin",
+                            Type = "HorizontalAlignment",
+                            Value = SplashContainer.XOrigin
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "SplashContainer.X Units",
                             Type = "PositionUnitType",
                             Value = SplashContainer.XUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "SplashContainer.Y Origin",
+                            Type = "VerticalAlignment",
+                            Value = SplashContainer.YOrigin
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
@@ -1633,6 +1834,30 @@
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
                         {
                             SetsValue = true,
+                            Name = "Spacer.Width Units",
+                            Type = "DimensionUnitType",
+                            Value = Spacer.WidthUnits
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.CustomFontFile",
+                            Type = "string",
+                            Value = InstructionsTimeLeftText.CustomFontFile
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.Font Scale",
+                            Type = "float",
+                            Value = InstructionsTimeLeftText.FontScale + 0.5f
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
                             Name = "InstructionsTimeLeftText.Height",
                             Type = "float",
                             Value = InstructionsTimeLeftText.Height + 0f
@@ -1644,6 +1869,14 @@
                             Name = "InstructionsTimeLeftText.Parent",
                             Type = "string",
                             Value = InstructionsTimeLeftText.Parent
+                        }
+                        );
+                        newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
+                        {
+                            SetsValue = true,
+                            Name = "InstructionsTimeLeftText.UseCustomFont",
+                            Type = "bool",
+                            Value = InstructionsTimeLeftText.UseCustomFont
                         }
                         );
                         newState.Variables.Add(new Gum.DataTypes.Variables.VariableSave()
