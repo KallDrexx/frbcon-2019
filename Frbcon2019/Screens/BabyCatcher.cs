@@ -334,15 +334,21 @@ namespace Frbcon2019.Screens
                 baby.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
 
-                // Babies with big heads are worth 2
+                // Babies with big heads are worth an extra point
                 if (Math.Abs(baby.HeadSpriteInstance.TextureScale - BigHeadPowerupScale) <= 0.001f)
-                {
-                    babiesCaught += 2;
-                }
-                else
                 {
                     ++babiesCaught;
                 }
+
+                // Another extra point if bouncy mode is enabled
+                if (bouncyTimeLeft > 0f)
+                {
+                    ++babiesCaught;
+                }
+
+                // One standard point                
+                ++babiesCaught;
+                
             };
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
