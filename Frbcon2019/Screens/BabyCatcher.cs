@@ -26,6 +26,7 @@ namespace Frbcon2019.Screens
     {
         double lastBabySpawn = 0.0f;
         int babiesCaught = 0;
+        float trashTimeLeft = 0f;
 
         void CustomInitialize()
         {
@@ -37,6 +38,9 @@ namespace Frbcon2019.Screens
             FlatRedBallServices.Game.IsMouseVisible = false;
 
             babiesCaught = 0;
+            trashTimeLeft = 0f;
+            CurrentChuteItemTypeState = ChuteItemType.Babies;
+            nextTrash = PauseAdjustedCurrentTime + FlatRedBallServices.Random.Between(TrashFrequencyMinSeconds, TrashFrequencyMaxSeconds);
         }
 
 
@@ -60,7 +64,7 @@ namespace Frbcon2019.Screens
                 SmokeActivity();
                 PowerupActivity();
                 HandleChuteSpawning();
-                HandleBabyBoundaries();
+                HandleBoundaries();
                 SpawnExclamationPoints();
                 RotateItems();
                 LerpCatcherPosition();
@@ -202,7 +206,7 @@ namespace Frbcon2019.Screens
             }
         }
 
-        private void HandleBabyBoundaries()
+        private void HandleBoundaries()
         {
             for (int i = BabyList.Count - 1; i >= 0; --i)
             {
@@ -211,6 +215,16 @@ namespace Frbcon2019.Screens
                 if (baby.Left > 400 || baby.Right < -400 || baby.Top < -300 || baby.Bottom > 300)
                 {
                     baby.Destroy();
+                }
+            }
+
+            for (int i = TrashList.Count - 1; i >= 0; --i)
+            {
+                var trash = TrashList[i];
+
+                if (trash.Left > 400 || trash.Right < -400 || trash.Top < -300 || trash.Bottom > 300)
+                {
+                    trash.Destroy();
                 }
             }
         }
@@ -265,6 +279,7 @@ namespace Frbcon2019.Screens
                 trash.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
                 --babiesCaught;
+                babiesCaught = Math.Max(0, babiesCaught);
             };
 
             var rel = CollisionManager.Self.CreateRelationship(TrashList, CatcherOfBabiesInstance);
@@ -318,7 +333,16 @@ namespace Frbcon2019.Screens
             {
                 baby.Destroy();
                 CatcherOfBabiesInstance.PlayCatchAnimation();
-                ++babiesCaught;
+
+                // Babies with big heads are worth 2
+                if (Math.Abs(baby.HeadSpriteInstance.TextureScale - BigHeadPowerupScale) <= 0.001f)
+                {
+                    babiesCaught += 2;
+                }
+                else
+                {
+                    ++babiesCaught;
+                }
             };
 
             var rel = CollisionManager.Self.CreateRelationship(BabyList, CatcherOfBabiesInstance.Bumpers);
@@ -468,6 +492,25 @@ namespace Frbcon2019.Screens
 
         private void HandleChuteSpawning()
         {
+            if (trashTimeLeft > 0f)
+            {
+                var tick = (float)TimeManager.SecondsSince(TimeManager.LastCurrentTime);
+                trashTimeLeft = Math.Max(0f, trashTimeLeft - tick);
+
+                CurrentChuteItemTypeState = ChuteItemType.Trash;
+            }
+            else if (CurrentChuteItemTypeState == ChuteItemType.Trash)
+            {
+                CurrentChuteItemTypeState = ChuteItemType.Babies;
+                nextTrash = PauseAdjustedCurrentTime + FlatRedBallServices.Random.Between(TrashFrequencyMinSeconds, TrashFrequencyMaxSeconds);
+            }
+
+            // If trash is supposed to fire
+            if (CurrentChuteItemTypeState == ChuteItemType.Babies && PauseAdjustedCurrentTime >= nextTrash)
+            {
+                trashTimeLeft = FlatRedBallServices.Random.Between(TrashOnMinSeconds, TrashOnMaxSeconds);
+            }
+
             var secondsSinceLastBaby = TimeManager.SecondsSince(lastBabySpawn);
 
             if (secondsSinceLastBaby >= BabySpawnTimerSeconds)
@@ -496,6 +539,7 @@ namespace Frbcon2019.Screens
         const float maxLerpSeconds = .04f;
         private float babyBounceFactor;
         private float headScale;
+        private double nextTrash;
 
         private void LerpCatcherPosition()
         {
