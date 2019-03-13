@@ -56,7 +56,7 @@ namespace Frbcon2019
 
 			CameraSetup.SetupCamera(SpriteManager.Camera, graphics);
 			GlobalContent.Initialize();
-			FlatRedBall.Screens.ScreenManager.Start(typeof(Frbcon2019.Screens.MainMenu));
+			FlatRedBall.Screens.ScreenManager.Start(typeof(Frbcon2019.Screens.BabyCatcher));
 
             base.Initialize();
         }

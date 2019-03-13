@@ -182,6 +182,11 @@ namespace Frbcon2019.Screens
 
             meter.Percentage = MathHelper.Clamp(percentage, 0, 100);
 
+
+            if (meter.Percentage == 100)
+            {
+                TriggerWinCondition();
+            }
         }
 
         private void RotateItems()
@@ -267,10 +272,18 @@ namespace Frbcon2019.Screens
             rel.SetBounceCollision(0, 1f, .5f);
 
             var trashFloorRel = CollisionManager.Self.CreateRelationship(TrashList, FloorShapes);
-            trashFloorRel.SetBounceCollision(0, 1f, .2f);
             trashFloorRel.CollisionOccurred = (trash, floor) =>
             {
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
+                trash.CollideAgainstBounce(floor, 0f, 1.0f, .2f);
+                if (trash.NumBounces == 0)
+                {
+                    SpawnSmokePop(trash);
+                }
+
+                
+
+                
 
                 if (++trash.NumBounces > 2)
                 {
@@ -316,9 +329,12 @@ namespace Frbcon2019.Screens
                 var secondsSinceLastPow = TimeManager.SecondsSince(lastPowPlayed);
                 if (baby.NumBounces == 0 && baby.Velocity.Length() > (ChuteSpeed * .85f) && secondsSinceLastPow >= SecondsPerPow)
                 {
+                    SpawnSmokePop(baby);
                     pow.Play();
                     lastPowPlayed = TimeManager.CurrentTime;
                 }
+
+                
             };
 
 
@@ -328,6 +344,14 @@ namespace Frbcon2019.Screens
             {
 
                 baby.CollideAgainstBounce(floor, 0f, 1.0f, .2f * babyBounceFactor);
+
+
+                if (baby.NumBounces == 0)
+                {
+                    SpawnSmokePop(baby);
+
+                }
+                
                 if (++baby.NumBounces > 6)
                 {
                     baby.Drag = 10f;
@@ -340,6 +364,19 @@ namespace Frbcon2019.Screens
                     baby.Destroy();
                 }
             };
+        }
+
+        private void SpawnSmokePop(PositionedObject spawner)
+        {
+            int numPops = FlatRedBallServices.Random.Next(4) + 1;
+
+            for (int i = 0; i < numPops; i++)
+            {
+                var smoke = SmokeParticle.CreateRandomSmokeParticle(spawner.X, spawner.Y);
+                smoke.Velocity = new Vector3(FlatRedBallServices.Random.RadialVector2(400, 500), 0f);
+                smoke.Drag = 10f;
+                smoke.Z = 10f;
+            }
         }
         #endregion
 
