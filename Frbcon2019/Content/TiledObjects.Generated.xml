@@ -11,8 +11,12 @@
     <property name="HeadOffsetUp" type="float" default="15" />
     <property name="MaxHeadLerpSeconds" type="float" default="0.05" />
   </objecttype>
+  <objecttype name="ExclamationPoint" />
   <objecttype name="PowerUp">
     <property name="SpriteInstanceCurrentChainName" type="string" default="FullThrottle" />
+  </objecttype>
+  <objecttype name="SmokeParticle">
+    <property name="SpriteInstanceCurrentChainName" type="string" default="Smoke1" />
   </objecttype>
   <objecttype name="Trash">
     <property name="SpriteInstanceCurrentChainName" type="string" default="Sneaker" />

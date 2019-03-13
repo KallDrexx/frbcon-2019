@@ -56,11 +56,12 @@ namespace Frbcon2019.Screens
 
             if (GameIsActive)
             {
-                
 
+                SmokeActivity();
                 PowerupActivity();
                 HandleChuteSpawning();
                 HandleBabyBoundaries();
+                SpawnExclamationPoints();
                 RotateItems();
                 LerpCatcherPosition();
                 
@@ -69,6 +70,29 @@ namespace Frbcon2019.Screens
                 LerpChutePosition();
                 UpdateBabyMeter();
             }
+        }
+
+        private void SpawnExclamationPoints()
+        {
+            foreach(var baby in BabyList)
+            {
+                if (baby.HeadSpriteInstance.Alpha <= .5f && !baby.ShowedExclamation)
+                {
+                    baby.ShowedExclamation = true;
+                    var exclamation = ExclamationPointFactory.CreateNew(baby.X, baby.Y + 50f);
+                    exclamation.Z = 10f;
+
+                    exclamation.YVelocity = 100f;
+                    exclamation.FadeAway();
+                }
+            }
+        }
+
+        private void SmokeActivity()
+        {
+            var smoke = Portal1.ThrowSmoke();
+
+            smoke.FadeAway();
         }
 
         double nextPowerup = double.MinValue;

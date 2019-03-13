@@ -65,9 +65,17 @@
     <Compile Include="Entities\BabyCatcher\CatcherOfBabies.Generated.cs">
       <DependentUpon>CatcherOfBabies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BabyCatcher\ExclamationPoint.cs" />
+    <Compile Include="Entities\BabyCatcher\ExclamationPoint.Generated.cs">
+      <DependentUpon>exclamationpoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BabyCatcher\PowerUp.cs" />
     <Compile Include="Entities\BabyCatcher\PowerUp.Generated.cs">
       <DependentUpon>PowerUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BabyCatcher\SmokeParticle.cs" />
+    <Compile Include="Entities\BabyCatcher\SmokeParticle.Generated.cs">
+      <DependentUpon>SmokeParticle.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\BabyCatcher\Trash.cs" />
     <Compile Include="Entities\BabyCatcher\Trash.Event.cs">
@@ -117,7 +125,9 @@
     </Compile>
     <Compile Include="Factories\BabyFactory.Generated.cs" />
     <Compile Include="Factories\BulletFactory.Generated.cs" />
+    <Compile Include="Factories\ExclamationPointFactory.Generated.cs" />
     <Compile Include="Factories\PowerUpFactory.Generated.cs" />
+    <Compile Include="Factories\SmokeParticleFactory.Generated.cs" />
     <Compile Include="Factories\TrashFactory.Generated.cs" />
     <Compile Include="FileAliases.Generated.cs" />
     <Compile Include="Game1.cs" />
@@ -370,10 +380,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>BodyAnimationChainListFile</Name>
     </None>
-    <None Include="content\entities\babycatcher\baby\generalanimationchains.achx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>GeneralAnimationChains</Name>
-    </None>
     <None Include="content\entities\babycatcher\backgrounddot\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
@@ -382,7 +388,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>CarriageChains</Name>
     </None>
+    <None Include="content\entities\babycatcher\exclamation\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
     <None Include="content\entities\babycatcher\powerup\animationchainlistfile.achx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>AnimationChainListFile</Name>
+    </None>
+    <None Include="content\entities\babycatcher\smokeparticle\animationchainlistfile.achx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>AnimationChainListFile</Name>
     </None>

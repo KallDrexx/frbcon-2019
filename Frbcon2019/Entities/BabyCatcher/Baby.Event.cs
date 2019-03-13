@@ -15,7 +15,9 @@ namespace Frbcon2019.Entities.BabyCatcher
 {
     public partial class Baby
     {
-                void OnAfterAlphaSet (object sender, EventArgs e) 
+        
+
+        void OnAfterAlphaSet (object sender, EventArgs e) 
         {
 
         }

@@ -7,6 +7,8 @@ namespace Frbcon2019.Entities.BabyCatcher
 {
 	public partial class Baby
 	{
+        public bool ShowedExclamation { get; set; }
+
         /// <summary>
         /// Initialization logic which is execute only one time for this Entity (unless the Entity is pooled).
         /// This method is called when the Entity is added to managers. Entities which are instantiated but not
@@ -14,6 +16,8 @@ namespace Frbcon2019.Entities.BabyCatcher
         /// </summary>
 		private void CustomInitialize()
         {
+            ShowedExclamation = false;
+
             var endPosition = this.BodySpriteInstance.Position;
             endPosition += this.BodySpriteInstance.RotationMatrix.Up * 3;
             endPosition.Z = BodySpriteInstance.Z + 1;
@@ -60,10 +64,8 @@ namespace Frbcon2019.Entities.BabyCatcher
 
         public void FadeAway()
         {
-            ExclamationSpriteInstance.Visible = true;
             HeadSpriteInstance.AlphaRate = -.5f;
-            BodySpriteInstance.AlphaRate = -.5f;
-            ExclamationSpriteInstance.AlphaRate = -.5f;            
+            BodySpriteInstance.AlphaRate = -.5f;         
         }
     }
 }

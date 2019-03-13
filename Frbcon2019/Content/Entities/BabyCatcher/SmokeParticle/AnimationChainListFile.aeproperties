@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AESettingsSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OffsetMultiplier>1</OffsetMultiplier>
+  <AnimationChainSettings />
+  <ExpandedNode>Smoke1</ExpandedNode>
+  <ExpandedNode>Smoke2</ExpandedNode>
+  <ExpandedNode>Smoke3</ExpandedNode>
+  <ExpandedNode>Smoke4</ExpandedNode>
+  <ExpandedNode>Smoke5</ExpandedNode>
+  <UnitType>Pixel</UnitType>
+</AESettingsSave>

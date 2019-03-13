@@ -12,6 +12,7 @@ using Frbcon2019.Factories;
 using Microsoft.Xna.Framework;
 using static Frbcon2019.Entities.BabyCatcher.Baby;
 using static Frbcon2019.Entities.BabyCatcher.Trash;
+using static Frbcon2019.Entities.BabyCatcher.SmokeParticle;
 
 namespace Frbcon2019.Entities.BabyCatcher
 {
@@ -24,6 +25,21 @@ namespace Frbcon2019.Entities.BabyCatcher
         /// </summary>
         void CustomInitialize()
         {
+        }
+
+        public SmokeParticle ThrowSmoke()
+        {
+            var smoke = SmokeParticleFactory.CreateNew();
+            smoke.Position = this.SpawnRectangle.Position;
+            smoke.X = FlatRedBallServices.Random.Between(SpawnRectangle.Left, SpawnRectangle.Right);
+            smoke.Z = 6f;
+            smoke.Velocity = ChuteFireForce * this.RotationMatrix.Down;
+
+            var smokeTypes = new[] { SmokeType.Smoke1, SmokeType.Smoke2, SmokeType.Smoke3, SmokeType.Smoke4, SmokeType.Smoke5 };
+
+            smoke.CurrentSmokeTypeState = (SmokeType)smokeTypes.GetValue(FlatRedBallServices.Random.Next(smokeTypes.Length));
+
+            return smoke;
         }
 
         public void SpawnTrash()
